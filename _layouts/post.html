@@ -14,8 +14,6 @@ layout: default
     <!-- titles -->
     <h1 class="post-title" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0">{{ page.title }}</h1>
     <div class="post-date" data-aos="fade-left" data-aos-delay="300" data-aos-offset="0">
-      <time>{{ page.date | date_to_string }}</time>
-      <span class="reading-time" title="Estimated read time"> - {{ minutesText }}</span>
     </div>
     <!-- titles -->
 
@@ -29,9 +27,9 @@ layout: default
           <span class="list-post-description">
             {{x.modalidad}}
           </span>
-          <span>
-            {{x.otros}}
-          </span>
+          <div>
+            OTRO DATO: {{x.otros}}
+          </div>
         </div>
         {% endif %}
         <div class="flex-basis-400 flex-grow-5">
@@ -46,7 +44,7 @@ layout: default
             </span>
           </div>
           <div>
-            <a href="{{ site.baseurl }}/assets/pdf/{{ x.programa }}" target="_blank">Programa de la materia</a>
+            <a href="{{ site.baseurl }}/assets/pdf/{{ x.programa }}" target="_blank"><button>Programa de la materia</button></a>
           </div>
         </div>
       </div>
