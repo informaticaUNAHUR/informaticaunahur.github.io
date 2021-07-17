@@ -24,12 +24,16 @@ layout: default
         {% if x.image %}
         <div class="list-item-2-img flex-basis-300 flex-grow-1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
           <img src="{{ site.baseurl }}/assets/img/{{ x.image }}" width="100%" alt="">
+          {% if x.modalidad %}
           <span class="list-post-description">
             {{x.modalidad}}
           </span>
+          {% endif %}
+          {% if x.otros %}
           <div>
             OTRO DATO: {{x.otros}}
           </div>
+          {% endif %}
         </div>
         {% endif %}
         <div class="flex-basis-400 flex-grow-5">
@@ -43,9 +47,11 @@ layout: default
               {{x.answer}}
             </span>
           </div>
+          {% if x.programa %}
           <div>
             <a href="{{ site.baseurl }}/assets/pdf/{{ x.programa }}" target="_blank"><button>Programa de la materia</button></a>
           </div>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
