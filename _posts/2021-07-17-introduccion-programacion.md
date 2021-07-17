@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "(767) - Introducción a la programación"
+title: "(767) - Introducción a la Programación"
 description: 'Materia del primer cuatrimestre del primer año'
 date:   2021-07-17 17:46:41 -0300
 categories: Materias

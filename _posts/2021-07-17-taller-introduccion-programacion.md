@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "T_PROG01 - Taller de Introducción a la programación"
+title: "T_PROG01 - Taller de Introducción a la Programación"
 description: 'Taller EXTRACURRICULAR'
 date:   2021-07-17 17:46:41 -0300
 categories: Materias
