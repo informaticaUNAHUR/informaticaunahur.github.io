@@ -2,7 +2,7 @@
 layout: post
 title: "(761) - Programación Funcional"
 description: 'Materia del primer cuatrimestre del tercer año'
-date:   2021-07-14 17:46:41 -0300
+date:   2021-07-13 17:46:41 -0300
 categories: Materias
 by: 'Informatica UNAHUR'
 icon: 'cpu'
