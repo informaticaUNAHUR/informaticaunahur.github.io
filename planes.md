@@ -1,6 +1,6 @@
 ---
 layout: presentation
-title: Default Presentation
+title: Planes
 permalink: /planes/
 ---
 
