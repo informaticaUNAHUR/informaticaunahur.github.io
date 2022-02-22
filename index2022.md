@@ -35,7 +35,6 @@ permalink: /2022.html
             <li class="scroll-to-section"><a href="/materias/">Materias</a></li>
             <li class="scroll-to-section"><a href="#contactos">Contactos</a></li>
             <li class="scroll-to-section"><div class="border-first-button"><a href="#services">Nuevas TECNICATURAS</a></div></li>
-           
           </ul>        
           <a class='menu-trigger'>
               <span>Menu</span>
@@ -65,6 +64,11 @@ permalink: /2022.html
                 <div class="col-lg-12">
                   <div class="border-first-button scroll-to-section">
                     <a href="#about">¿por qué nuevas Tecnicaturas?</a>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="border-first-button scroll-to-section">
+                    <a href="#free-quote">Cambiar de Tecnicatura</a>
                   </div>
                 </div>
               </div>
@@ -488,7 +492,7 @@ permalink: /2022.html
       <div class="col-lg-4 offset-lg-4">
         <div class="section-heading  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
           <h6>Elegí tu plan</h6>
-          <h4>Quiero Cambiarme de Tecnicatura</h4>
+          <h4>¿Cómo solicitar un cambio de Tecnicatura?</h4>
           <div class="line-dec"></div>
         </div>
       </div>
@@ -496,19 +500,21 @@ permalink: /2022.html
         <form id="search" action="/cambio-plan/" method="GET">
           <div class="row">
             <div class="col-lg-4 col-sm-4">
-              <p>Es un proceso simple.</p>
+              <p style="color: red">Podés solicitar el cambio ahora mismo</p>
             </div>
             <div class="col-lg-4 col-sm-4">
-              <p>Completás un formulario y listo.</p>
+              <p>O podés informarte y luego pedir el cambio</p>
             </div>
             <div class="col-lg-4 col-sm-4">
               <fieldset>
-                <button class="main-button">Solicitar cambio</button>
+                <button class="main-button">SOLICITAR CAMBIO AHORA</button>
               </fieldset>
             </div>
           </div>
         </form>
       </div>
+      <p style="margin-top: 10px"></p>
+      <div><h6> CHARLAS INFORMATIVAS: </h6></div>
     </div>
   </div>
 </div>
@@ -538,7 +544,7 @@ permalink: /2022.html
                     <div class="info-post">
                       <div class="icon">
                         <img src="assets/images/discord-icon.png" alt="">
-                        <a href="https://discord.gg/tqyHtPt" target="_blank">Canal Telegram</a>
+                        <a href="https://discord.gg/tqyHtPt" target="_blank">Canal Discord</a>
                       </div>
                     </div>
                   </div>
@@ -554,7 +560,7 @@ permalink: /2022.html
                     <div class="info-post">
                       <div class="icon">
                         <img src="assets/images/email-icon.png" alt="">
-                        <a href="#">informatica@unahur.edu.ar</a>
+                        <a href="#">informatica-ayuda@unahur.edu.ar</a>
                       </div>
                     </div>
                   </div>
@@ -566,7 +572,6 @@ permalink: /2022.html
                       </div>
                     </div>
                   </div>
-                 
                 </div>
               </div>
             </div>
