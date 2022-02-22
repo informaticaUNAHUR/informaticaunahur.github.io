@@ -245,7 +245,7 @@ permalink: /2022.html
                               <h4><span style="color: red">NUEVA:</span> Tecnicatura Universitaria en Redes y Operaciones Informáticas</h4>
                               <p>La carrera tiene por objetivo formar técnicos/as capaces de elucidar e implementar soluciones en un amplio espectro de problemas asociados a la conectividad, servicios de apoyo al desarrollo y despliegue de aplicaciones, y configuración de arquitecturas para la integración continua de sistemas informáticos.</p>
                               <div class="ticks-list"><span><i class="fa fa-check"></i> DevOps</span> <span><i class="fa fa-check"></i> Redes Avanzadas</span> <span><i class="fa fa-check"></i> Servicios en la nube</span>
-                                <span><i class="fa fa-check"></i> Contenedores/span> <span><i class="fa fa-check"></i> Conectividad</span> <span><i class="fa fa-check"></i> Integración continua</span></div>
+                                <span><i class="fa fa-check"></i> Contenedores</span> <span><i class="fa fa-check"></i> Conectividad</span> <span><i class="fa fa-check"></i> Integración continua</span></div>
                               <p>Las/los profesionales tendrán sólidas bases para formar parte de equipos de Gestión Informática. Serán capaces de comprender adecuadamente la pertinencia de realizar las tareas bajo diferentes parámetros de calidad, entre los que destacamos: claridad, mantenimiento, robustez frente a fallos, uso eficiente de recursos y de la energía. Dispondrán de parámetros para valorar y tener en cuenta los conceptos de estándares abiertos y software libre en los entornos operativos.</p>
                             </div>
                           </div>
