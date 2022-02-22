@@ -211,7 +211,6 @@ permalink: /2022.html
                     </div>
                   </div>
                 </div>
-                
               </div> 
               <div class="col-lg-12">
                 <ul class="nacc">
