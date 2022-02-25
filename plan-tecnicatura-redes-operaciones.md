@@ -7,7 +7,7 @@ permalink: /tecnicatura-redes-operaciones/
 
 #### Datos importantes
 
-[![Tecnicatura universitaria en redes y operaciones](/assets/images/pdf.jpg) Plan de estudios Tecnicatura universitaria en redes y operaciones](/assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Redes-y-Operaciones-Informáticas-unahur.pdf)
+[![Tecnicatura universitaria en redes y operaciones](/assets/images/pdf.jpg) Plan de estudios Tecnicatura universitaria en redes y operaciones](/assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Redes-y-Operaciones-Informaticas-unahur.pdf)
 
 **Horas totales:** 1408
 **Créditos:** 35
