@@ -1,7 +1,9 @@
 ---
 layout: page
 title: "Horarios"
-menu: no
+menu: si
+permalink: /horarios-materias/
+
 ---
 
 <div>

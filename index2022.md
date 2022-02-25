@@ -31,8 +31,10 @@ permalink: /2022.html
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
             <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
+            <li class="scroll-to-section"><a href="/preguntas-frecuentes/">¿Preguntas?</a></li>
             <li class="scroll-to-section"><a href="#portfolio">Recursos</a></li> 
             <li class="scroll-to-section"><a href="/materias/">Materias</a></li>
+            <li class="scroll-to-section"><a href="/horarios-materias/">Horarios</a></li>
             <li class="scroll-to-section"><a href="#contactos">Contactos</a></li>
             <li class="scroll-to-section"><div class="border-first-button"><a href="#services">Nuevas TECNICATURAS</a></div></li>
           </ul>        
@@ -489,32 +491,27 @@ permalink: /2022.html
 <div id="free-quote" class="free-quote">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 offset-lg-4">
+      <div class="col-lg-8 offset-lg-2">
         <div class="section-heading  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
           <h6>Elegí tu plan</h6>
-          <h4>¿Cómo solicitar un cambio de Tecnicatura?</h4>
+          <h4>Si te informaste y decidiste el cambio, simplemente tendrás que completar un formulario:</h4>
           <div class="line-dec"></div>
         </div>
       </div>
       <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-        <form id="search" action="/cambio-plan/" method="GET">
-          <div class="row">
-            <div class="col-lg-4 col-sm-4">
-              <p style="color: red">Podés solicitar el cambio ahora mismo</p>
+            <div class="border-first-button-c">
+              <a href="/cambio-plan/">SOLICITAR CAMBIO DE TECNICATURA</a>
             </div>
-            <div class="col-lg-4 col-sm-4">
-              <p>O podés informarte y luego pedir el cambio</p>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-              <fieldset>
-                <button class="main-button">SOLICITAR CAMBIO AHORA</button>
-              </fieldset>
-            </div>
-          </div>
-        </form>
       </div>
-      <p style="margin-top: 10px"></p>
+      <p style="margin-top: 20px"></p>
       <div><h6> CHARLAS INFORMATIVAS: </h6></div>
+      <div style="background-color: #ffffff">
+        <p>Miércoles 2/3 a las 16hs en forma Presencial / Virtual</p>
+        <p>Jueves 3/3 a las 16hs en forma Presencial / Virtual</p>
+        <p>Jueves 3/3 a las 18hs en forma Presencial / Virtual</p>
+        <p style="margin-top: 20px"></p>
+        <p>Para asistir presencialmente, por un tema de capacidad, tenés que sacar turno en <a href="https://turnos.unahur.edu.ar" target="_blank">https://turnos.unahur.edu.ar</a>. Buscá la actividad como NUEVAS Tecnicaturas Informática</p>
+      </div>
     </div>
   </div>
 </div>
@@ -525,7 +522,7 @@ permalink: /2022.html
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
           <h6>CONTACTOS</h6>
-          <h4>La comunidad de informática tiene estas <em>Redes</em></h4>
+          <h4>La comunidad de informática se <em>Comunica</em> por</h4>
           <div class="line-dec"></div>
         </div>
       </div>

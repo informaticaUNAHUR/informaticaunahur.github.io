@@ -224,6 +224,23 @@ body {
   color: #fff !important;
 }
 
+.border-first-button-c a {
+  display: inline-block !important;
+  padding: 10px 20px !important;
+  color: #4da6e7 !important;
+  border: 1px solid #4da6e7 !important;
+  border-radius: 23px;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px !important;
+  transition: all .5s;
+  background-color: #ffffff;
+}
+
+.border-first-button-c a:hover {
+  background-color: #4da6e7;
+  color: #fff !important;
+}
+
 
 
 /* 
