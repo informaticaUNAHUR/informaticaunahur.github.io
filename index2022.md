@@ -34,7 +34,6 @@ permalink: /2022.html
             <li class="scroll-to-section"><a href="/preguntas-frecuentes/">¿Preguntas?</a></li>
             <li class="scroll-to-section"><a href="#portfolio">Recursos</a></li> 
             <li class="scroll-to-section"><a href="/materias/">Materias</a></li>
-            <li class="scroll-to-section"><a href="/horarios-materias/">Horarios</a></li>
             <li class="scroll-to-section"><a href="#contactos">Contactos</a></li>
             <li class="scroll-to-section"><div class="border-first-button"><a href="#services">Nuevas TECNICATURAS</a></div></li>
           </ul>        
@@ -427,15 +426,15 @@ permalink: /2022.html
       <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
         <div class="blog-post">
           <div class="thumb">
-            <a href="#"><img src="assets/images/blog-post-01.jpg" alt=""></a>
+            <a href="#"><img src="assets/images/como-son-tecnicaturas.jpg" alt=""></a>
           </div>
           <div class="down-content">
-            <span class="category">Video</span>
+            <span class="category"></span>
             <span class="date">Febrero 2022</span>
-            <a href="#"><h4>¿Cómo son y cómo podés sumarte a las nuevas Tecnicaturas?</h4></a>
+            <a href="/planilla-comparativa/"><h4>¿Cómo son y cómo podés sumarte a las nuevas Tecnicaturas?</h4></a>
             <p>En este corto video te resumimos los alcances de los títulos y cómo podés hacer para inscribirte en alguno de ellos.</p>
             <span class="author"><img src="assets/img/logo-informatica.png" alt="">Informática UNAHUR</span>
-            <div class="border-first-button"><a href="/video/">Ver el video</a></div>
+            <div class="border-first-button"><a href="/planilla-comparativa/"></a></div>
           </div>
         </div>
       </div>
@@ -456,28 +455,15 @@ permalink: /2022.html
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="post-item">
+              <div class="post-item last-post-item">
                 <div class="thumb">
-                  <a href="#"><img src="assets/images/blog-post-03.jpg" alt=""></a>
+                  <a href="/materias-primer-cuatrimestre/"><img src="assets/images/materias-primer-cuatrimestre.jpg" alt=""></a>
                 </div>
                 <div class="right-content">
                   <span class="category">Materias</span>
                   <span class="date">Febrero 2022</span>
-                  <a href="#"><h4>Materias del primer cuatrimestre</h4></a>
+                  <a href="/materias-primer-cuatrimestre/"><h4>Materias del primer cuatrimestre</h4></a>
                   <p>Te contamos en este apartado cómo se organizan ahora las materias del primer cuatrimestre. Y si ya las cursaste y aprobaste, cómo impactan en los nuevos planes.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="post-item last-post-item">
-                <div class="thumb">
-                  <a href="#"><img src="assets/images/blog-post-04.jpg" alt=""></a>
-                </div>
-                <div class="right-content">
-                  <span class="category">Ingresantes 2022</span>
-                  <span class="date">Febrero</span>
-                  <a href="#"><h4>Cómo aplican las nuevas Tecnicaturas en los ingresantes</h4></a>
-                  <p>Como ingresantes 2022 tendrás la posibilidad de optar por una de las dos tecnicturas en el momento de inscripción durante el CPU. Te contamos más detalles acá.</p>
                 </div>
               </div>
             </div>

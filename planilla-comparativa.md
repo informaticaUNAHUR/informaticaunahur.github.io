@@ -24,6 +24,14 @@ Para permitir organizarse mejor en el 1er cuatrimestre....
 Claro que sí, y si son materias que ahora están divididas, por equivalencia directa tenés las dos que corresponden.
 Fijate con una planilla que te acercamos como herramienta, cómo impactan las materias que tenés aprobadas.
 
+
+#### Si me interesa cambiarme de plan ¿cómo lo hago?
+
+Hay un formulario para hacer la solicitud. Una vez que se procese el cambio te llegará un aviso y podrás inscribirte a las materias respectivas.
+
+[! Solicitar cambio](/#free-quote)
+
+***
 ***
 
 #### Compará los planes
