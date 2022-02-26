@@ -36,6 +36,21 @@ layout: default
           {% endif %}
         </div>
         {% endif %}
+        <div class="list-item-2-img flex-basis-300 flex-grow-1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
+        <a href="/horarios/" style="color: blue; text-decoration: underline;">HORARIOS</a>
+          {% if x.modalidad %}
+          <p></p>
+          <span class="list-post-description" style="color: brown;">
+            {{x.modalidad}}
+          </span>
+          {% endif %}
+          {% if x.otros %}
+          <p></p>
+          <div>
+            OTRO DATO: {{x.otros}}
+          </div>
+          {% endif %}
+        </div>
         <div class="flex-basis-400 flex-grow-5">
           <div class="" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
             <h2 class="list-post-title">
