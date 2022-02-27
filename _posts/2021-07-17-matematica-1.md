@@ -11,9 +11,7 @@ questions:
     answer: 'Adquirir la habilidad para interpretar y resolver problemas, aplicando los contenidos expuestos. Es matemática DISCRETA, y los principales temas son: Elementos de lógica proposicional y de primer orden. Teoría de la Estructuras Discretas. Teoría básica de conjuntos. Inducción matemática sobre números naturales. Relaciones binarias: relaciones de orden, relaciones de equivalencia, relaciones funcionales. Elementos básicos de análisis combinatorio 
     '
     programa: "750-Matematica-I.pdf"
-    image: "750-Mate-1-horario.png"
     modalidad: "MODALIDAD VIRTUAL"
-    otros: "AL INSCRIBIRSE A LAS MATERIAS SE OPTA POR UNA FRANJA HORARIA"
   - question: '¿Cómo se cursa virtualmente?'
     answer: 'Se utiliza el Campus Virtual como espacio donde se informan novedades y se van habilitando contenidos.
     Se dictan clases sincrónicas semanales obligatorias para el desarrollo teórico con ejercicios de aplicación y participación de los alumnos los días miércoles(quedarán grabadas y subidas al Campus en la solapa de la semana correspondiente).
