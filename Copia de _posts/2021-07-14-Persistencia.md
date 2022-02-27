@@ -10,6 +10,7 @@ questions:
   - question: 'OBJETIVOS'
     answer: 'En esta materia se abordan contenidos relacionados con la interacción entre datos y código. Se hace un repaso de bases de datos relacionales, se introducen otros tipos de BD como por ejemplo las documentales y luego se analiza cómo acceder a esos datos para la construcción de APIs. Se utiliza NodeJS como lenguaje.'
     programa: "759-Persistencia.pdf"
+    image: "759-Persistencia.png"
     modalidad: "MODALIDAD VIRTUAL"
   - question: '¿Cómo se cursa virtualmente?'
     answer: 'Las clases son sincronicas todas las semanas en el horario de la asignatura. El material principal se trabaja en el Campus Virtual con contenidos y actividades para desarrollar. Cada tema implica realizar alguna actividad práctica.'
