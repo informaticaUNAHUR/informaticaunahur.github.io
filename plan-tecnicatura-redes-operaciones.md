@@ -49,7 +49,7 @@ Plan de estudios
  <tr><td>Gral.</td><td>8. Inglés I</td><td>2</td><td>32</td><td>-</td></tr>
  <tr><td>                                                Tercer Cuatrimestre      384 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>ISBDySI</td><td>9. Bases de Datos</td><td>6</td><td>96</td><td>Matemática para informática I</td></tr>
- <tr><td>ASOyR</td><td>10. Redes de Computadoras</td><td>6</td><td>96</td><td>Organización de computadoras II</td></tr>
+ <tr><td>ASOyR</td><td>10. Redes de Computadoras</td><td>6</td><td>96</td><td>Organización de computadoras II<br/>Sistemas de comunicación</td></tr>
  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Sistemas de comunicación</td></tr>
  <tr><td>ASOyR</td><td>11. Sistemas Operativos</td><td>6</td><td>96</td><td>Taller de intérpretes de comandos</td></tr>
  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Organización de computadoras II</td></tr>
