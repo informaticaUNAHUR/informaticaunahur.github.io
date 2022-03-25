@@ -13,7 +13,9 @@ questions:
     modalidad: "MODALIDAD COMBINADA"
   - question: '¿Cómo se cursa?'
     answer: 'Cada semana de cursada alternadamente o en forma presencial o virtual. Se aborda un contenido diferente y se realizan encuentros con explicaciones teóricas y resoluciones prácticas. Se trabaja además con mucho material en el campus.'
-    image: "reloj.png"
+    comisiones: '<b>COMISIÓN 1:</b> Miércoles de 18 a 22hs</br>
+    <b> Primera clase: PRESENCIAL el 30/3</b><br/>'
+    aulas: '<b>COMISIÓN 1:</b> Laboratorio 2 - Edificio Malvinas Argentinas</br>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria real de 4hs semanales. Es ideal dedicarle unas 8hs semanales en total para poder estudiar, practicar y consultar.'
     image: "otros.jpg"

@@ -14,7 +14,8 @@ questions:
     otros: "La materia tiene un servidor de Discord"
   - question: '¿Cómo se cursa?'
     answer: 'El material principal se trabaja en el Campus Virtual con contenidos y actividades para desarrollar. Cada tema implica realizar alguna actividad práctica y hay consultas y clases sincrónicas o presenciales. Las clases virtuales quedan grabadas y se suben al campus.'
-    image: "reloj.png"
+    comisiones: '<b>COMISIÓN 1:</b> Jueves de 18 a 22hs</br>
+    <b> Primera clase: Jueves 31/3 - ver link en Campus</b><br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria real de 6hs semanales. Requiere mucha dedicación práctica, instalar recursos, explorar diferentes opciones y no dejar pasar el tiempo porque las actividades son de conocimiento acumulativo.'
     image: "otros.jpg"

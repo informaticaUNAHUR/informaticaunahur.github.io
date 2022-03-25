@@ -36,8 +36,7 @@ layout: default
           {% endif %}
         </div>
         {% endif %}
-        <div class="list-item-2-img flex-basis-300 flex-grow-1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
-        <a href="/horarios/" style="color: blue; text-decoration: underline;">HORARIOS</a>
+        <div class="list-item-2-img flex-basis-360 flex-grow-1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
           {% if x.modalidad %}
           <p></p>
           <span class="list-post-description" style="color: brown;">
@@ -48,6 +47,20 @@ layout: default
           <p></p>
           <div>
             OTRO DATO: {{x.otros}}
+          </div>
+          {% endif %}
+          {% if x.comisiones %}
+        </br>
+          <div>
+            <span class="list-post-description" style="color: brown;">HORARIOS:</span>
+            <br/>{{x.comisiones}}
+          </div>
+          {% endif %}
+          {% if x.aulas %}
+          <br/>
+          <div>
+            <span class="list-post-description" style="color: brown;">AULAS:</span>
+            <br/>{{x.aulas}}
           </div>
           {% endif %}
         </div>

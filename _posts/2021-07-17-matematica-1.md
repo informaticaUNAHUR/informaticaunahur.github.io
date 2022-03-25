@@ -16,7 +16,8 @@ questions:
     answer: 'Se utiliza el Campus Virtual como espacio donde se informan novedades y se van habilitando contenidos.
     Se dictan clases sincrónicas semanales obligatorias para el desarrollo teórico con ejercicios de aplicación y participación de los alumnos los días miércoles(quedarán grabadas y subidas al Campus en la solapa de la semana correspondiente).
     Se dictan clases de prácticas de resolución de ejercicios sincrónicas obligatorias los días lunes'
-    image: "reloj.png"
+    comisiones: '<b>COMISIÓN 1:</b> Miércoles de 18 a 22hs (Asincrónico) y Jueves de 18 a 2Ohs (sincrónico)</br>
+    <b> Primera clase:  Revisar Campus</b><br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia requiere disponer de 4hs semanales de atención a las actividades sincrónicas que proponen los profesores y siendo que la carga horaria establecida es de 8hs, se recomienda organizarse para disponer de otro tanto para realizar prácticas y estudiar. Es decir, unas 16hs semanales en total.
     Se organizan espacios de consulta semanal con la estudiante asistente'
