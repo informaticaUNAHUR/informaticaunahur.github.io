@@ -35,7 +35,7 @@ questions:
     <b>COMISIÓN 5-C:</b> Laboratorio 4 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 6-A:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 6-B:</b> Laboratorio 2 - edificio Malvinas Argentinas<br/>
-    <b>COMISIÓN 1:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>'
+    <b>COMISIÓN 7:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia requiere disponer de 4hs semanales de atención a las actividades que proponen los profesores . Se recomienda organizarse para disponer de otro tanto para realizar prácticas y estudiar. Es decir, unas 8hs semanales en total.'
     image: "otros.jpg"
