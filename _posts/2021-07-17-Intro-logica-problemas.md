@@ -27,7 +27,7 @@ questions:
     <b>COMISIÓN 1-C:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 2-A:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 2-B:</b> Laboratorio 2 - edificio Malvinas Argentinas</br>
-    <b>COMISIÓN 2-C:</b> Laboratorio 3 - edificio Malvinas Argentinas<br/>
+    <b>COMISIÓN 2-C:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 3:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 4:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 5-A:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
