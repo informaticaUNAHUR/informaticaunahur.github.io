@@ -16,7 +16,7 @@ questions:
     comisiones: '<b>COMISIÓN 1 (A,B,C):</b>Mar y Vie de 8 a 10hs PRESENCIAL</br>
     <b>COMISIÓN 2 (A, B, C):</b>Mar y Vie de 10 a 12hs PRESENCIAL</br>
     <b>COMISIÓN 3:</b>Mar y Vie de 14 a 16hs PRESENCIAL</br>
-    <b>COMISIÓN 4:</b>Mar y Vie de 14 a 16hs PRESENCIAL</br>
+    <b>COMISIÓN 4:</b>Mar y Vie de 16 a 18hs PRESENCIAL</br>
     <b>COMISIÓN 5 (A, B, C):</b>Mar y Vie de 18 a 20hs PRESENCIAL</br>
     <b>COMISIÓN 6 (A, B):</b>Mar y Vie de 20 a 22hs PRESENCIAL</br>
     <b>COMISIÓN 7:</b>Sábado de 8 a 12hs PRESENCIAL</br>
