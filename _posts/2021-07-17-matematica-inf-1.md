@@ -27,8 +27,8 @@ questions:
     <b>COMISIÓN 2-B:</b> Laboratorio 5 - edificio Malvinas Argentinas</br>
     <b>COMISIÓN 3:</b> Aula 2 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 4-A:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
-    <b>COMISIÓN 4-B:</b> Aula 2 - edificio Malvinas Argentinas<br/>
-    <b>COMISIÓN 4-C:</b> Aula 2- edificio Malvinas Argentinas<br/>
+    <b>COMISIÓN 4-B:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>
+    <b>COMISIÓN 4-C:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 5-A:</b> Aula 2 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 5-B:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>'
   - question: 'Otras consideraciones'
