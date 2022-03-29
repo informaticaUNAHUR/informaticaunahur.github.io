@@ -12,7 +12,7 @@ questions:
     modalidad: "MODALIDAD PRESENCIAL"
   - question: '¿Cómo se cursa?'
     answer: 'Se dictan clases presenciales semanales obligatorias para el desarrollo teórico con ejercicios de aplicación.
-    Se dictan clases de prácticas presenciales de resolución de ejercicios'
+    Se dictan clases de prácticas presenciales de resolución de ejercicios.'
     comisiones: '<b>COMISIÓN 1 (A,B,C):</b>Mar y Vie de 8 a 10hs PRESENCIAL</br>
     <b>COMISIÓN 2 (A, B, C):</b>Mar y Vie de 10 a 12hs PRESENCIAL</br>
     <b>COMISIÓN 3:</b>Mar y Vie de 14 a 16hs PRESENCIAL</br>
