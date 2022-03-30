@@ -25,7 +25,7 @@ questions:
     aulas: '<b>COMISIÓN 1:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 2-A:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 2-B:</b> Laboratorio 5 - edificio Malvinas Argentinas</br>
-    <b>COMISIÓN 3:</b> Aula 2 - edificio Malvinas Argentinas<br/>
+    <b>COMISIÓN 3:</b> Taller de Diseño PB - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 4-A:</b> Laboratorio 1 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 4-B:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>
     <b>COMISIÓN 4-C:</b> Laboratorio 5 - edificio Malvinas Argentinas<br/>
