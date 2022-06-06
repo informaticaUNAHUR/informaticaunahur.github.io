@@ -27,9 +27,7 @@ Fijate con una planilla que te acercamos como herramienta, cómo impactan las ma
 
 #### Si me interesa cambiarme de plan ¿cómo lo hago?
 
-Hay un formulario para hacer la solicitud. Una vez que se procese el cambio te llegará un aviso y podrás inscribirte a las materias respectivas.
-
-[! Solicitar cambio](/#free-quote)
+Si estás em el Plan de la Tecnicatura Universitaria en Informática y querés cambiarte a una de las Tecnicaturas nuevas, enviá un mail con tus datos y la Tecnicatura elegida al mail de ayuda de la carrera.
 
 ***
 ***
