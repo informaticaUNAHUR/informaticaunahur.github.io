@@ -34,35 +34,33 @@ Plan de estudios
 	}
 </style>
 <table class="tableizer-table">
-<thead><tr class="tableizer-firstrow"><th>Área</th><th>Asignatura</th><th>Hs</th><th>Carga</th><th>Correlatividades</th><th>&nbsp;</th></tr></thead><tbody>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>por</td><td>horaria total</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>Sem</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>                                            Primer Cuatrimestre      224 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>CB</td><td>1. Matemática para informática I</td><td>4</td><td>64</td><td>-</td><td>&nbsp;</td></tr>
- <tr><td>AyL</td><td>2. Introducción a lógica y problemas computacionales</td><td>4</td><td>64</td><td>-</td><td>&nbsp;</td></tr>
- <tr><td>ASOyR</td><td>3. Organización de computadoras I </td><td>4</td><td>64</td><td>-</td><td>&nbsp;</td></tr>
- <tr><td>Gral.</td><td>4. Nuevos entornos y lenguajes</td><td>2</td><td>32</td><td>-</td><td>&nbsp;</td></tr>
- <tr><td>                                            Segundo Cuatrimestre  256 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>TC</td><td>  5. Taller de lenguajes de marcado y tecnologías web</td><td>4</td><td>64</td><td>Introducción a lógica y problemas computacionales</td><td>&nbsp;</td></tr>
- <tr><td>AyL</td><td>6. Programación estructurada</td><td>6</td><td>96</td><td>Introducción a lógica y problemas computacionales</td><td>&nbsp;</td></tr>
- <tr><td>CB</td><td>7. Matemática para Informática II</td><td>4</td><td>64</td><td>Matemática para informática I</td><td>&nbsp;</td></tr>
- <tr><td>Gral.</td><td>8. Inglés I</td><td>2</td><td>32</td><td>-</td><td>&nbsp;</td></tr>
- <tr><td>                                            Tercer Cuatrimestre      352 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>ISBDySI</td><td>9. Bases de Datos</td><td>6</td><td>96</td><td>Matemática para informática II</td><td>&nbsp;</td></tr>
- <tr><td>AyL</td><td>10. Programación de objetos I</td><td>8</td><td>128</td><td>Programación estructurada</td><td>&nbsp;</td></tr>
- <tr><td>TC</td><td>11. Estructuras de datos</td><td>8</td><td>128</td><td>Programación estructurada</td><td>&nbsp;</td></tr>
- <tr><td>                                            Cuarto Cuatrimestre      288 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>Gral.</td><td>12. Materia UNAHUR</td><td>2</td><td>32</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>AyL</td><td>13. Programación de objetos II</td><td>6</td><td>96</td><td>Programación de objetos I</td><td>&nbsp;</td></tr>
- <tr><td>Elec.</td><td>14. Electiva I</td><td>4</td><td>64</td><td>Programación estructurada</td><td>&nbsp;</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Estructuras de datos</td><td>&nbsp;</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>Elec.</td><td>15. Electiva II</td><td>4</td><td>64</td><td>Organización de computadoras I</td><td>&nbsp;</td></tr>
- <tr><td>Gral.</td><td>16. Inglés II</td><td>2</td><td>32</td><td>Inglés I</td><td>&nbsp;</td></tr>
- <tr><td>                                            Quinto Cuatrimestre      288 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>ISBDySI</td><td>17. Construcción de interfaces de usuario</td><td>6</td><td>96</td><td>Programación de objetos II</td><td>&nbsp;</td></tr>
- <tr><td>ISBDySI</td><td>18. Estrategias de persistencia</td><td>6</td><td>96</td><td>Programación de objetos II</td><td>&nbsp;</td></tr>
- <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Bases de datos</td><td>&nbsp;</td></tr>
- <tr><td>ISBDySI</td><td>19. Elementos de ingeniería de software</td><td>6</td><td>96</td><td>Programación de objetos II</td><td>&nbsp;</td></tr>
- <tr><td>Carga horaria total</td><td>1408 hs</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+<thead><tr class="tableizer-firstrow"><th>Área</th><th>Asignatura</th><th>Hs por Sem</th><th>Carga horaria total</th><th>Correlatividades</th></tr></thead><tbody>
+ <tr ><td colspan="5">                                            Primer Cuatrimestre      224 hs</td></tr>
+ <tr><td>CB</td><td>1. Matemática para informática I</td><td>4</td><td>64</td><td>-</td></tr>
+ <tr><td>AyL</td><td>2. Introducción a lógica y problemas computacionales</td><td>4</td><td>64</td><td>-</td></tr>
+ <tr><td>ASOyR</td><td>3. Organización de computadoras I </td><td>4</td><td>64</td><td>-</td></tr>
+ <tr><td>Gral.</td><td>4. Nuevos entornos y lenguajes</td><td>2</td><td>32</td><td>-</td></tr>
+ <tr><td colspan="5">                                            Segundo Cuatrimestre  256 hs</td></tr>
+ <tr><td>TC</td><td>  5. Taller de lenguajes de marcado y tecnologías web</td><td>4</td><td>64</td><td>Introducción a lógica y problemas computacionales</td></tr>
+ <tr><td>AyL</td><td>6. Programación estructurada</td><td>6</td><td>96</td><td>Introducción a lógica y problemas computacionales</td></tr>
+ <tr><td>CB</td><td>7. Matemática para Informática II</td><td>4</td><td>64</td><td>Matemática para informática I</td></tr>
+ <tr><td>Gral.</td><td>8. Inglés I</td><td>2</td><td>32</td><td>-</td></tr>
+ <tr><td colspan="5">                                            Tercer Cuatrimestre      352 hs</td></tr>
+ <tr><td>ISBDySI</td><td>9. Bases de Datos</td><td>6</td><td>96</td><td>Matemática para informática II</td></tr>
+ <tr><td>AyL</td><td>10. Programación de objetos I</td><td>8</td><td>128</td><td>Programación estructurada</td></tr>
+ <tr><td>TC</td><td>11. Estructuras de datos</td><td>8</td><td>128</td><td>Programación estructurada</td></tr>
+ <tr><td colspan="5">                                            Cuarto Cuatrimestre      288 hs</td></tr>
+ <tr><td>Gral.</td><td>12. Materia UNAHUR</td><td>2</td><td>32</td><td>&nbsp;</td></tr>
+ <tr><td>AyL</td><td>13. Programación de objetos II</td><td>6</td><td>96</td><td>Programación de objetos I</td></tr>
+ <tr><td>Elec.</td><td>14. Electiva I</td><td>4</td><td>64</td><td>Programación estructurada</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Estructuras de datos</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>Elec.</td><td>15. Electiva II</td><td>4</td><td>64</td><td>Organización de computadoras I</td></tr>
+ <tr><td>Gral.</td><td>16. Inglés II</td><td>2</td><td>32</td><td>Inglés I</td></tr>
+ <tr><td colspan="5">                                            Quinto Cuatrimestre      288 hs</td></tr>
+ <tr><td>ISBDySI</td><td>17. Construcción de interfaces de usuario</td><td>6</td><td>96</td><td>Programación de objetos II</td></tr>
+ <tr><td>ISBDySI</td><td>18. Estrategias de persistencia</td><td>6</td><td>96</td><td>Programación de objetos II</td></tr>
+ <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Bases de datos</td></tr>
+ <tr><td>ISBDySI</td><td>19. Elementos de ingeniería de software</td><td>6</td><td>96</td><td>Programación de objetos II</td></tr>
+ <tr><td colspan="3">Carga horaria total</td><td>1408 hs</td><td>&nbsp;</td></tr>
 </tbody></table>
