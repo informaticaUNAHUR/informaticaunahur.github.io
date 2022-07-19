@@ -13,7 +13,7 @@ permalink: /horarios-materias/
 <div>
 <span>
     <strong>
-    IMPORTANTE: Los horarios son franjas horarias. Vean las referencias de las indicaciones. Son "casi" definitivos. 
+    IMPORTANTE: ---
     </strong>
     <br/><br/>
     Si bien hay referencias sobre si la modalidad es (P) Presencial (C) Combinada o (V) Virtual, los detalles y especifiaciones se darán durante la primera clase al inicio de cuatrimestre en cada una de las materias.
