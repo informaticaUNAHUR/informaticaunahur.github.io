@@ -8,7 +8,7 @@ permalink: /horarios-materias/
 
 IMPORTANTE: Se indica fecha de actualización por si surgen cambios o errores a corregir. Revisen cada tanto por las dudas. 
 
-ÚLTIMA ACTUALIZACIÓN: <strong>martes 19/7/22 13:00hs</strong>
+ÚLTIMA ACTUALIZACIÓN: <strong>sábado 23/7/22 19:00hs</strong>
 
 [![HORARIOS Tec. Univ. en Programación](/assets/images/pdf.jpg) OFERTA DE MATERIAS y HORARIOS de la Tecniatura Universitaria en Programación](/assets/pdf/horarios/2022-2c-Materias-Grilla-Horarios-Tec-Programacion.pdf)
 
