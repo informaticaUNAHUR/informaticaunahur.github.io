@@ -15,8 +15,7 @@ questions:
     modalidad: "MODALIDAD VIRTUAL"
   - question: '¿Cómo se cursa?'
     answer: 'Las clases teóricas son con encuentros sincrónicos en el horario de la asignatura. Los alumnos requieren tiempo adicional para el desarrollo de las actividades prácticas.'
-    comisiones: '<b>COMISIÓN 1:</b> Viernes de 18 a 22hs</br>
-    <b> Primera clase: viernes 1/4 - ver link en Campus</b><br/>'
+    comisiones: '<b>COMISIÓN 1:</b> Viernes de 18 a 22hs</br>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria real de 4hs semanales. La recomendación es estar presente en todas las clases, repasar los contenidos y tiempo extra de estudio.'
     image: "otros.jpg"

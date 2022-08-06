@@ -14,7 +14,7 @@ questions:
   - question: '¿Cómo se cursa?'
     answer: 'Las clases son sincronicas en su mayoría, con algunos encuentros presenciales a definir en el horario de la asignatura. El material principal se trabaja en el Campus Virtual con contenidos y actividades para desarrollar. Cada tema implica realizar alguna actividad práctica.'
     comisiones: '<b>COMISIÓN 1:</b> Miércoles de 18 a 22hs</br>
-    <b> Primera clase: miércoles 30/3 - ver link en Campus</b><br/>'
+    <b> Primera clase: miércoles 10/8 - ver link en Campus</b><br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria real de 6hs semanales. Requiere mucha dedicación práctica, instalar recursos, explorar diferentes opciones y no dejar pasar el tiempo porque las actividades son de conocimiento acumulativo.'
     image: "otros.jpg"
