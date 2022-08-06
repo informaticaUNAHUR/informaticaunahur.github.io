@@ -15,10 +15,7 @@ questions:
     otros: "La materia tiene su propio Servidor Discord"
   - question: '¿Cómo se cursa?'
     answer: 'Se utiliza el Campus Virtual y semanalmente se suben los contenidos para hacer actividades de indagación, ver videos de teoría y realizar actividades prácticas. Es importante este paso para ir a los encuentros sincrónicos los días de la comisión ya que allí se repasa, se realiza ejercitación y se responden dudas. Se realizan actvidades grupales y el Discord es el puntos de encuentro para intercambiar dudas, consultas e ingresar a las actividades grupales.'
-    comisiones: '<b>COMISIÓN 1:</b> Martes y Viernes de 18 a 21hs - Los días PRESENCIALES pueden alternarse. Se estima un día presencial y otro virtual en cada semana.</br>
-    <b> Primera clase: PRESENCIAL el 29/3</b><br/>
-     <b>IMPORTANTE:<b/> La primera clase será en AUDITORIO PB Origone A porque será única e informativa y luego se organizarán los días de cursada presencial.'
-    aulas: '<b>COMISIÓN 1:</b> Laboratorio 5 - Edificio Malvinas Argentinas</br>'
+    comisiones: '<b>NO SE DICTA 2do CUATRIMESTRE 2022</b></br>'
   - question: 'Otras consideraciones'
     answer: 'Es importante: reservarse al menos el tiempo para los dos días de cursada (eventos sincrónicos y/o presenciales que se propongan). La materia requiere muchas horas de práctica, reuniones grupales, asistencia a las instancias que los docentes propongan. Es importante dedicarle entre 16hs y 20hs semanales.'
     image: "otros.jpg"
