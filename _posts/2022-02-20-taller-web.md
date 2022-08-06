@@ -14,8 +14,8 @@ questions:
     answer: 'Se utiliza el Campus Virtual para ir subiendo nuevos contenidos cada lunes junto con las actividades que permitirán afianzar y profundizar los contenidos vistos. Tendrán tiempo de resolver las actividades durante el mismo día lunes y el día martes.
     Recuerden reservarse las 4hs de la materia para justamente hacer las actividades propuestas.
     Los días miércoles y jueves se responden consultas y revisan las actividades propuestas.'
-    comisiones: '<b>COMISIÓN 1:</b> Lunes de 18 a 22hs</br>
-    <b> Primera clase: en modalidad VIRTUAL el 28/3 - Revisar Campus</b><br/>'
+    comisiones: '<b>COMISIÓN 1, 2, 3 y 4:</b> Lunes de 18 a 22hs</br>
+    <b> Primera clase: en modalidad VIRTUAL el 8/8 - Revisar Campus</b><br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria semanal asignada de 4hs aunque puede requerir mayor tiempo en ciertos momentos dada la complejidad de ciertas actividades que se propongan.'
     image: "otros.jpg"

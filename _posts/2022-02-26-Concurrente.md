@@ -13,7 +13,7 @@ questions:
     modalidad: "MODALIDAD VIRTUAL"
   - question: '¿Cómo se cursa?'
     answer: 'Las clases teóricas / prácticas se realizan con conexiones sincrónicas en el horario asignado. '
-    comisiones: '<b>COMISIÓN 1:</b> Viernes de 18 a 22hs</br>'
+    comisiones: '<bNO SE DICTA 2do CUATRIMESTRE 2022</b></br>'
   - question: 'Otras consideraciones'
     answer: 'Se recomienda haber cursado (si bien no son correlativas) otras materias de programación como Objetos 1 y 2.'
     image: "otros.jpg"
