@@ -13,7 +13,7 @@ questions:
   - question: '¿Cómo se cursa?'
     answer: 'Se dictan clases virtuales/presenciales semanales obligatorias para el desarrollo teórico con ejercicios de aplicación.
     Se dictan clases de prácticas presenciales de resolución de ejercicios.'
-    comisiones y aulas: 'IMPORTANTE: <b> la Primera clase MARTES 9/8 es PRESENCIAL en el horario de la comisión en el AUDITORIO</b>
+    aulas: 'IMPORTANTE: <b> la Primera clase MARTES 9/8 es PRESENCIAL en el horario de la comisión en el AUDITORIO</b>
     <br/>
     <br/>
     El resto de días se cursa presencial los viernes en estas aulas:

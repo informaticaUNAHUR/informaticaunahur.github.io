@@ -14,7 +14,7 @@ questions:
     answer: 'Se utiliza el Campus Virtual como espacio donde se informan novedades y se van habilitando contenidos.
     Se dictan clases presenciales semanales obligatorias para el desarrollo teórico con ejercicios de aplicación.
     Se dictan clases de prácticas virtuales de resolución de ejercicios que pueden ser sincrónicas o asincrónicas'
-    comisiones y aulas: 'IMPORTANTE: <b> la Primera clase que se dictará será en forma PRESENCIAL el día que corresponde la presencialidad en las aulas corresponidentes</b>
+    aulas: 'IMPORTANTE: <b> la Primera clase que se dictará será en forma PRESENCIAL el día que corresponde la presencialidad en las aulas corresponidentes</b>
     <br/>
     <br/>
     
