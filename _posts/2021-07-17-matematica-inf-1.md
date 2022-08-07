@@ -17,7 +17,6 @@ questions:
     aulas: 'IMPORTANTE: <b> la Primera clase que se dictará será en forma PRESENCIAL el día que corresponde la presencialidad en las aulas corresponidentes</b>
     <br/>
     <br/>
-    
     * Comisión 1( Miércoles 8 a 10 presencial - Lunes 12 a 14hs virtual) --> Laboratorio 1</br>
 * Comisión 2 (Miércoles 10 a 12 presencial - Lunes 12 a 14 virtual) --> Laboratorio 1</br>
 * Comisión 3 (Miércoles 10 a 12 presencial - Lunes 12 a 14 virtual) --> Laboratorio 5 (Aula Híbrida)</br>
