@@ -33,7 +33,6 @@ questions:
 * Comisión 13 (Jueves 10 a 12 presencial - Lunes 14 a 16 virtual) --> Aula 10 Malvinas Argentinas </br>
 * Comisión 14 (Jueves 12 a 14 presencial - Lunes 14 a 16 virtual) --> Laboratorio 1 </br>
 <br>'
-    aulas: '<br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia requiere disponer de 4hs semanales de atención a las actividades que proponen los profesores . Se recomienda organizarse para disponer de otro tanto para realizar prácticas y estudiar. Es decir, unas 8hs semanales en total.
     Se organizan espacios de consulta semanal con la estudiante asistente'
