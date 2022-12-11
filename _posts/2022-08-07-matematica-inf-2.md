@@ -9,7 +9,7 @@ icon: 'list'
 questions:
   - question: 'OBJETIVOS'
     answer: ''
-    programa: "793-202206-Matematica-para-Informática-2.pdf"
+    programa: "793-202206-Matematica-para-Informatica-2.pdf"
     modalidad: "MODALIDAD COMBINADA"
   - question: '¿Cómo se cursa?'
     answer: 'Cada semana de cursada alternadamente o en forma presencial o virtual. Se aborda un contenido diferente y se realizan encuentros con explicaciones teóricas y resoluciones prácticas. Se trabaja además con mucho material en el campus.<br/>
