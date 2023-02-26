@@ -12,7 +12,6 @@ questions:
     modalidad: "MODALIDAD COMBINADA"
   - question: '¿Cómo se cursa?'
     answer: 'Se realizan clases semanales con encuentros presenciales o sincrónicos y prácticas para resolver. En el Campus Virtual se van abriendo contenidos semanalmente.'
-    comisiones: '<b>NO SE DICTA 2do CUATRIMESTRE 2022</b></br>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria semanal asignada de 4hs aunque requiere dedicarle mayor tiempo en ciertos momentos dada la complejidad de ciertos ejercicios de algoritmia.'
     image: "otros.jpg"

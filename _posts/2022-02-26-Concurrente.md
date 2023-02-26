@@ -10,10 +10,7 @@ questions:
   - question: 'OBJETIVOS'
     answer: 'Tener conocimientos de los modelos más utilizados, las técnicas y conceptos básicos asociados a la programación concurrente. Comprender las dificultades asociadas a la interacción de componentes en un sistema concurrente y conocer los recursos del que dispone el programador para mitigarlos. Se aplican los conceptos en lnguajes de programación como Java, Javascript y Python.'
     programa: "766-Concurrente.pdf"
-    modalidad: "MODALIDAD VIRTUAL"
-  - question: '¿Cómo se cursa?'
-    answer: 'Las clases teóricas / prácticas se realizan con conexiones sincrónicas en el horario asignado. '
-    comisiones: '<bNO SE DICTA 2do CUATRIMESTRE 2022</b></br>'
+    modalidad: "MODALIDAD PRESENCIAL"
   - question: 'Otras consideraciones'
     answer: 'Se recomienda haber cursado (si bien no son correlativas) otras materias de programación como Objetos 1 y 2.'
     image: "otros.jpg"

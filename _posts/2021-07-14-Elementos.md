@@ -13,8 +13,6 @@ questions:
     modalidad: "MODALIDAD COMBINADA"
   - question: '¿Cómo se cursa?'
     answer: 'Las clases teóricas son con encuentros sincrónicos o presenciales en el horario de la asignatura. Los alumnos requieren tiempo adicional en grupos para el desarrollo de las actividades prácticas.'
-    comisiones: '<b>COMISIÓN 1:</b> Martes de 18 a 20hs y sábados de 12hs a 14hs</br>
-    <b> Primera clase: Martes 9/8 - ver link en Campus</b><br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria real de 6hs semanales. La recomendación es estar presente en todas las clases, repasar los contenidos y trabajar con grupos de estudios ya que se realizan actividades con esa modalidad.'
     image: "otros.jpg"

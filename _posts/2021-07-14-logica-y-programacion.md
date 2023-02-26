@@ -14,7 +14,6 @@ questions:
     modalidad: "MODALIDAD VIRTUAL"
   - question: '¿Cómo se cursa?'
     answer: 'Las clases teóricas son con encuentros sincrónicos en el horario de la asignatura. Los alumnos requieren tiempo adicional  para el desarrollo de las actividades prácticas.'
-    comisiones: '<b>NO SE DICTA 2do CUATRIMESTRE 2022</b><br/>'
   - question: 'Otras consideraciones'
     answer: 'La materia tiene una carga horaria real de 4hs semanales. La recomendación es estar presente en todas las clases, repasar los contenidos y contemplar tiempo extra de estudio.'
     image: "otros.jpg"

@@ -14,9 +14,6 @@ questions:
     otros: "Hay un canal Discord para la materia"
   - question: '¿Cómo se cursa?'
     answer: 'Las clases teóricas / prácticas se realizan con conexiones sincrónicas o presenciales en el horario asignado. Se requiere además realizar mucha práctica y revisar los contenidos, videos explicativos y ejercicios que se proponen en el campus.'
-    comisiones: '<b>COMISIÓN 1:</b> Sábados de 9 a 12hs</br>
-    <b> Primera clase PRESENCIAL: sábado 20/8</b><br/>'
-    aulas: '<b>COMISIÓN 1:</b> Laboratorio 4 - Edificio Malvinas Argentinas</br>'
   - question: 'Otras consideraciones'
     answer: 'IMPORTANTE: Esta materia requiere tener bien frescos los contenidos de Matemática 1 (es importante ir repasando) y se RECOMIENDA haber cursado Matemática 2 (no es correlativa pero permite entender mejor algunos temas).'
     image: "otros.jpg"
