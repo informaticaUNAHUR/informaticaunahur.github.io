@@ -76,6 +76,16 @@ layout: default
               {{x.answer}}
             </span>
           </div>
+          {% if x.contenido %}
+          <div>
+            <h3 class="list-post-title">
+            Contenidos Mínimos
+            </h3>
+            <span class="list-post-description">
+              {{x.contenido}}
+            </span>
+          </div>
+          {% endif %}
           {% if x.programa %}
           <div>
             <a href="{{ site.baseurl }}/assets/pdf/programas/{{ x.programa }}" target="_blank"><button>Programa de la materia</button></a>
