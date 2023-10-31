@@ -40,6 +40,6 @@ Si estás em el Plan de la Tecnicatura Universitaria en Informática y querés c
 >Solamente cambiá en la COLUMNA A , en cada materia, por SI o por NO según tengas la materia aprobada.
 
 
-[![Planilla](/assets/images/gsps.png) Planilla comparativa de planes](https://docs.google.com/spreadsheets/d/1zLVUHHcOjmh-rZThs7LgHbbeJeSnI-pwXyxIuOXyRFc/copy){:target="_blank"}
+[![Planilla](/assets/images/gsps.png) Planilla comparativa de planes](https://docs.google.com/spreadsheets/d/16tph2RkNO_DqJxjJCxGYNibGpx-nu11lvAT6qntFRwg/copy){:target="_blank"}
 
 ***
