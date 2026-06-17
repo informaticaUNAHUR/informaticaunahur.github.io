@@ -5,8 +5,8 @@ title: "Informática UNAHUR"
 email: informatica@unahur.edu.ar
 description: "Carreras, materias, horarios y novedades del Instituto de Tecnología e Ingeniería - UNAHUR"
 
-url: "https://pfahlerfranco.github.io"
-baseurl: "/UnahurInformatica"
+url: "https://informaticaunahur.github.io"
+baseurl: ""
 
 language: "es"
 lang: "es"
@@ -59,7 +59,6 @@ collections:
 # Excluir sitio viejo del build principal
 # ==========================
 exclude:
-  - informaticaunahur.github.io/
   - vendor/bundle/
 
 # ==========================

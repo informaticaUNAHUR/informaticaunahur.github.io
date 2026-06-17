@@ -1,14 +1,14 @@
 backend:
   name: github
-  repo: Pfahlerfranco/UnahurInformatica
-  branch: main
-  base_url: https://decap-cms-oauth-zeta.vercel.app
+  repo: informaticaUNAHUR/informaticaunahur.github.io
+  branch: master
+  base_url: https://decap-cms-oauth-zeta.vercel.app # TODO: reemplazar con proxy propio
 
 # Opcional: permite editar en local sin publicar
 # local_backend: true
 
-site_url: https://pfahlerfranco.github.io/UnahurInformatica
-display_url: https://pfahlerfranco.github.io/UnahurInformatica
+site_url: https://informaticaunahur.github.io
+display_url: https://informaticaunahur.github.io
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
