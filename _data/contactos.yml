@@ -1,0 +1,106 @@
+subtitulo: Contacto
+titulo: Comunicate con nosotros
+imagen_decorativa: /assets/images/contact-dec.png
+
+como_comunicarse:
+  titulo: "¿Cómo comunicarse?"
+  items:
+    - nombre: "Email Informática"
+      valor: "informatica@unahur.edu.ar"
+      url: "mailto:informatica@unahur.edu.ar"
+      icono: /assets/images/email-icon.png
+      externo: false
+    - nombre: "Email Créditos"
+      valor: "creditos.iti@unahur.edu.ar"
+      url: "mailto:creditos.iti@unahur.edu.ar"
+      icono: /assets/images/email-icon.png
+      externo: false
+    - nombre: "Instagram UNAHUR"
+      valor: "@unahurlingham"
+      url: "https://www.instagram.com/unahurlingham/"
+      icono: /assets/images/phone-icon.png
+      externo: true
+    - nombre: "Instagram ITI"
+      valor: "@iti.unahur"
+      url: "https://www.instagram.com/tecnologia.ingenieria.unahur/"
+      icono: /assets/images/phone-icon.png
+      externo: true
+    - nombre: "Sitio Web UNAHUR"
+      valor: "unahur.edu.ar"
+      url: "https://unahur.edu.ar"
+      icono: /assets/images/location-icon.png
+      externo: true
+    - nombre: "Personalmente"
+      valor: "Oficina ITI - TA213"
+      url: "https://maps.app.goo.gl/21wTgUf5kLp2UVMy7"
+      icono: /assets/images/location-icon.png
+      externo: true
+
+discord:
+  titulo: "Discord"
+  subtitulo: "Medio de comunicación oficial de las carreras de informática"
+  url: "https://discord.com/invite/tqyHtPt"
+  icono: /assets/uploads/discord-icon.png
+
+autoridades:
+  titulo: "Autoridades"
+  items:
+    - cargo: "Director del Instituto"
+      nombre: "Fernando Puricelli"
+    - cargo: "Director de carreras de informática"
+      nombre: "Lucas Spigariol"
+    - cargo: "Coordinador Tec. Videojuegos"
+      nombre: "José Guerra Prado"
+    - cargo: "Coordinadora Tec. Inteligencia Artificial"
+      nombre: "Juliana Gambini"
+
+tramites:
+  titulo: "Trámites y consultas frecuentes"
+  items:
+    - nombre: "Inscripción a materias"
+      descripcion: "Realizá tu inscripción a materias a través del SIU Guaraní en los períodos habilitados."
+      url: "#"
+    - nombre: "Cambios de comisión"
+      descripcion: "Solicitá cambio de comisión a través del sistema o directamente en la secretaría."
+      url: "#"
+    - nombre: "Excepción de correlatividades"
+      descripcion: "En casos especiales podés solicitar una excepción para cursar materias con correlativas pendientes."
+      url: "#"
+    - nombre: "Cambio / Simultaneidad de carrera"
+      descripcion: "Gestioná el cambio de carrera o la cursada simultánea de dos carreras."
+      url: "#"
+    - nombre: "Certificado alumno regular"
+      descripcion: "Solicitá tu certificado de alumno regular para trámites externos."
+      url: "#"
+    - nombre: "Pedido de equivalencias"
+      descripcion: "Si cursaste materias en otra institución, podés solicitar el reconocimiento de equivalencias."
+      url: "#"
+    - nombre: "Créditos"
+      descripcion: "Consultá cómo acreditar actividades extracurriculares como créditos académicos."
+      url: "#free-quote"
+    - nombre: "Consultas de aulas"
+      descripcion: "Verificá en qué aula se dicta cada materia o consultá cambios de aula."
+      url: "#"
+
+# Items legacy (para compatibilidad con template anterior)
+items:
+  - nombre: Sitio UNAHUR
+    url: https://unahur.edu.ar
+    icono: /assets/images/location-icon.png
+    externo: true
+  - nombre: Instagram
+    url: https://www.instagram.com/unahurlingham/
+    icono: /assets/images/phone-icon.png
+    externo: true
+  - externo: true
+    nombre: Discord (medio oficial)
+    url: https://discord.com/invite/tqyHtPt
+    icono: /assets/uploads/discord-icon.png
+  - nombre: Email Informática
+    url: mailto:informatica@unahur.edu.ar
+    icono: /assets/images/email-icon.png
+    externo: false
+  - nombre: Email Créditos
+    url: mailto:creditos.iti@unahur.edu.ar
+    icono: /assets/images/email-icon.png
+    externo: false

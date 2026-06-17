@@ -1,0 +1,14 @@
+items:
+  - label: Inicio
+    url: "/#top"
+    active: true
+  - label: Carreras
+    url: /carreras/
+  - label: Materias
+    url: /materias/
+  - label: Créditos
+    url: /creditos/
+  - label: Novedades
+    url: /novedades/
+  - label: Horarios
+    url: /horarios/

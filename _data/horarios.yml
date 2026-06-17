@@ -1,0 +1,18 @@
+titulo: "Horarios de cursada"
+
+cuatrimestre_1:
+  nombre: "1° Cuatrimestre"
+  inicio_clases: "30 de marzo de 2026"
+  inscripcion: 3 al 6 de marzo de 2026"
+  finales: "18 al 23 de mayo de 2026"
+  fin_clases: " 18 de julio de 2026"
+
+cuatrimestre_2:
+  nombre: "2° Cuatrimestre"
+  inicio_clases: "10 de agosto de 2026"
+  inscripcion: "21 al 23 de julio de 2026"
+  finales: "14 al 19 de diciembre de 2026"
+  fin_clases: "28 de noviembre de 2026"
+
+sheets_embed_url: "https://docs.google.com/spreadsheets/d/1knr6Gx00H7LqMnuGcafXhlpzOPJ_0fkBfSjcHwQyaoU/preview"
+sheets_direct_url: "https://docs.google.com/spreadsheets/d/1knr6Gx00H7LqMnuGcafXhlpzOPJ_0fkBfSjcHwQyaoU/view"

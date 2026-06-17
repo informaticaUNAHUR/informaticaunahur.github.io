@@ -7,7 +7,7 @@ permalink: /tecnicatura-programacion/
 
 #### Datos importantes
 
-[![Tecnicatura universitaria en programación](/assets/images/pdf.jpg) Plan de estudios Tecnicatura universitaria en programación](/assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Programacion-unahur.pdf)
+[![Tecnicatura universitaria en programación]({{ '/assets/images/pdf.jpg' | relative_url }}) Plan de estudios Tecnicatura universitaria en programación]({{ '/assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Programacion-unahur.pdf' | relative_url }})
 
 **Horas totales:** 1408
 **Créditos:** 35

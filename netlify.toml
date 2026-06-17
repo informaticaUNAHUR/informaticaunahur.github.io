@@ -1,0 +1,18 @@
+[build]
+  command = "jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  RUBY_VERSION = "3.1.4"
+
+[context.production]
+  command = "jekyll build"
+
+[context.deploy-preview]
+  command = "jekyll build --drafts"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200

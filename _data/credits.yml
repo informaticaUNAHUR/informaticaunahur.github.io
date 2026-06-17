@@ -1,0 +1,17 @@
+subtitulo: "CRÉDITOS"
+titulo: "Nuevo sistema de créditos SACAU"
+parrafo: "Se implementa en las carreras de informática desde el segundo cuatrimestre 2026.Es un nuevo sistema común a toda la universidad, que al igual que el anterior incluye actividades deportivas, culturales, de extensión, investigación y docencia, cursos y talleres formativos, salidas educativos y eventos científicos, pero con escalas nuevas de créditos acordes a las actualizaciones de los planes de estudio."
+botones:
+  - texto: "Sistema de créditos (hasta julio 2026)"
+    url: /catalogo-creditos/
+    externo: false
+
+texto_previo_planilla: "Catálogo de Actividades de créditos “ACA”"
+
+planilla:
+  texto: "Abrir planilla"
+  url: "https://docs.google.com/spreadsheets/d/1EuVPNeD5CH0N80FV6vxBXAWtLXp-Ku1lM69dEdYT2D8/edit?gid=0#gid=0"
+  externo: true
+
+explicacion_titulo: "Transición"
+descripcion: "Todas los créditos acumulados se transforman a los nuevos créditos, de acuerdo al plan de transición de cada carrera."

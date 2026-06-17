@@ -1,13 +1,12 @@
 @font-face {
-  font-family: 'featherIcons';
-  src: url('../assets/fonts/feather.eot?xsegw2');
-  src: url('../assets/fonts/feather.eot?xsegw2#iefix') format('embedded-opentype'), url('../assets/fonts/feather.ttf?xsegw2') format('truetype'), url('../assets/fonts/feather.woff?xsegw2') format('woff'), url('../assets/fonts/feather.svg?xsegw2#icomoon') format('svg');
+  font-family: 'feather';
+  src: url('../assets/fonts/feather.woff?xsegw2') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'featherIcons' !important;
+  font-family: 'feather' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;

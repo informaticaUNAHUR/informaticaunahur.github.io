@@ -1,0 +1,782 @@
+backend:
+  name: github
+  repo: informaticaUNAHUR/informaticaunahur.github.io
+  branch: master
+  base_url: https://decap-cms-oauth-zeta.vercel.app # TODO: reemplazar con proxy propio
+
+# Opcional: permite editar en local sin publicar
+# local_backend: true
+
+site_url: https://informaticaunahur.github.io
+display_url: https://informaticaunahur.github.io
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "es"
+
+editor:
+  preview: false
+
+collections:
+  - name: "navegacion"
+    label: "Navegación"
+    files:
+      - name: "nav"
+        label: "Links del menú"
+        file: "_data/nav.yml"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Texto"
+                name: "label"
+                widget: "string"
+
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+              - label: "Abrir en nueva pestaña"
+                name: "external"
+                widget: "boolean"
+                default: false
+                required: false
+
+              - label: "Botón destacado"
+                name: "highlight"
+                widget: "boolean"
+                default: false
+                required: false
+
+              - label: "Activo"
+                name: "active"
+                widget: "boolean"
+                default: false
+                required: false
+
+  - name: "banners"
+    label: "Banners"
+    label_singular: "Banner"
+    folder: "_banners"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "titulo"
+    fields:
+      - label: "Subtítulo"
+        name: "subtitulo"
+        widget: "string"
+        required: false
+        default: "UNAHUR Informática"
+
+      - label: "Título"
+        name: "titulo"
+        widget: "string"
+
+      - label: "Descripción"
+        name: "descripcion"
+        widget: "text"
+
+      - label: "Texto del botón"
+        name: "boton_texto"
+        widget: "string"
+        required: false
+
+      - label: "Novedad relacionada (opcional)"
+        name: "novedad_relacionada"
+        widget: "relation"
+        collection: "novedades"
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        required: false
+        hint: "Si seleccionás una novedad, el botón llevará a esa página. Dejalo vacío para usar la URL del botón."
+
+      - label: "URL del botón"
+        name: "boton_url"
+        widget: "string"
+        required: false
+
+      - label: "Botón externo"
+        name: "boton_externo"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "Imagen"
+        name: "imagen"
+        widget: "image"
+
+      - label: "Orden"
+        name: "orden"
+        widget: "number"
+        default: 1
+        value_type: "int"
+
+      - label: "Activo"
+        name: "activo"
+        widget: "boolean"
+        default: true
+
+  - name: "about"
+    label: "Sección Transición"
+    files:
+      - name: "about"
+        label: "Nuevos planes de estudio"
+        file: "_data/about.yml"
+        fields:
+          - label: "Subtítulo"
+            name: "subtitulo"
+            widget: "string"
+
+          - label: "Título"
+            name: "titulo"
+            widget: "string"
+
+          - label: "Descripción"
+            name: "descripcion"
+            widget: "text"
+
+          - label: "Imagen"
+            name: "imagen"
+            widget: "image"
+
+          - label: "Estadísticas"
+            name: "estadisticas"
+            widget: "list"
+            fields:
+              - label: "Valor"
+                name: "valor"
+                widget: "string"
+
+              - label: "Detalle"
+                name: "detalle"
+                widget: "string"
+
+              - label: "Porcentaje (0-100)"
+                name: "porcentaje"
+                widget: "number"
+                min: 0
+                max: 100
+                value_type: "int"
+
+          - label: "Texto del botón"
+            name: "boton_texto"
+            widget: "string"
+            required: false
+
+          - label: "URL del botón"
+            name: "boton_url"
+            widget: "string"
+            required: false
+
+          - label: "Botón externo"
+            name: "boton_externo"
+            widget: "boolean"
+            default: false
+            required: false
+
+  - name: "services"
+    label: "Sección Propuestas Formativas"
+    files:
+      - name: "services"
+        label: "Propuestas formativas"
+        file: "_data/services.yml"
+        fields:
+          - label: "Subtítulo"
+            name: "subtitulo"
+            widget: "string"
+
+          - label: "Título"
+            name: "titulo"
+            widget: "string"
+
+          - label: "Carreras"
+            name: "carreras"
+            widget: "list"
+            fields:
+              - label: "Nombre"
+                name: "nombre"
+                widget: "string"
+
+              - label: "¿Es nueva?"
+                name: "nueva"
+                widget: "boolean"
+                default: false
+                required: false
+
+              - label: "Ícono"
+                name: "icono"
+                widget: "image"
+
+              - label: "Descripción corta"
+                name: "descripcion_corta"
+                widget: "text"
+
+              - label: "Habilidades"
+                name: "habilidades"
+                widget: "list"
+                field:
+                  label: "Habilidad"
+                  name: "habilidad"
+                  widget: "string"
+
+              - label: "Descripción larga"
+                name: "descripcion_larga"
+                widget: "text"
+
+              - label: "Imagen"
+                name: "imagen"
+                widget: "image"
+
+  - name: "carreras"
+    label: "Página Carreras"
+    folder: "_carreras"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    output: true
+    identifier_field: "title"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "carrera"
+
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+      - { label: "Ícono", name: "icono", widget: "image", required: false }
+      - {
+          label: "Descripción corta",
+          name: "descripcion_corta",
+          widget: "text",
+          required: false,
+        }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
+
+      - label: "Estado de la carrera"
+        name: "estado"
+        widget: "select"
+        options:
+          - { label: "Vigente desde 2026 2° Cuatrimestre", value: "vigente" }
+          - { label: "Plan anterior", value: "anterior" }
+          - { label: "Próximamente", value: "proxima" }
+        required: false
+
+      - {
+          label: "Vigente (legacy)",
+          name: "vigente",
+          widget: "boolean",
+          required: false,
+        }
+      - {
+          label: "Anterior (legacy)",
+          name: "anterior",
+          widget: "boolean",
+          required: false,
+        }
+      - {
+          label: "Próxima (legacy)",
+          name: "proxima",
+          widget: "boolean",
+          required: false,
+        }
+      - {
+          label: "Orden",
+          name: "orden",
+          widget: "number",
+          value_type: "int",
+          required: false,
+        }
+
+      - {
+          label: "Título intermedio",
+          name: "titulo_intermedio",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Horas Totales",
+          name: "total_horas",
+          widget: "number",
+          required: false,
+        }
+      - {
+          label: "Créditos",
+          name: "creditos",
+          widget: "number",
+          required: false,
+        }
+      - { label: "PDF del plan", name: "pdf", widget: "file", required: false }
+      - {
+          label: "Imagen de correlatividades (PNG)",
+          name: "correlatividades_imagen",
+          widget: "image",
+          required: false,
+        }
+
+      - label: "Tabla de datos generales (para carreras vigentes con títulos dual)"
+        name: "tabla_datos"
+        widget: "object"
+        required: false
+        fields:
+          - {
+              label: "Columna 1 (Grado/Licenciatura)",
+              name: "col_grado",
+              widget: "string",
+            }
+          - {
+              label: "Columna 2 (Intermedio/Técnico)",
+              name: "col_intermedio",
+              widget: "string",
+              required: false,
+            }
+          - label: "Filas de datos"
+            name: "filas"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Datos grado", name: "grado", widget: "string" }
+              - {
+                  label: "Datos intermedio",
+                  name: "intermedio",
+                  widget: "string",
+                  required: false,
+                }
+
+      - label: "Cuatrimestres / Años"
+        name: "cuatrimestres"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Nombre", name: "nombre", widget: "string" }
+          - { label: "Horas", name: "horas", widget: "string", required: false }
+          - label: "Materias"
+            name: "materias"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Área", name: "area", widget: "string" }
+              - { label: "Hs Semanales", name: "hs_sem", widget: "number" }
+              - { label: "Hs Totales", name: "hs_total", widget: "number" }
+              - {
+                  label: "Correlativas",
+                  name: "correlativas",
+                  widget: "string",
+                }
+
+  - name: "blog_section"
+    label: "Sección Documentación y Recursos"
+    files:
+      - name: "blog"
+        label: "Sección Blog"
+        file: "_data/blog.yml"
+        fields:
+          - label: "Subtítulo"
+            name: "subtitulo"
+            widget: "string"
+
+          - label: "Título"
+            name: "titulo"
+            widget: "string"
+
+          - label: "Post destacado"
+            name: "destacado"
+            widget: "object"
+            fields:
+              - label: "Categoría"
+                name: "categoria"
+                widget: "string"
+                required: false
+
+              - label: "Fecha"
+                name: "fecha"
+                widget: "string"
+                required: false
+
+              - label: "Título"
+                name: "titulo"
+                widget: "string"
+
+              - label: "Descripción"
+                name: "descripcion"
+                widget: "text"
+
+              - label: "Imagen"
+                name: "imagen"
+                widget: "image"
+
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+              - label: "Autor texto"
+                name: "autor_texto"
+                widget: "string"
+                required: false
+
+              - label: "Autor imagen"
+                name: "autor_imagen"
+                widget: "image"
+                required: false
+
+          - label: "Items laterales"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Categoría"
+                name: "categoria"
+                widget: "string"
+                required: false
+
+              - label: "Fecha"
+                name: "fecha"
+                widget: "string"
+                required: false
+
+              - label: "Título"
+                name: "titulo"
+                widget: "string"
+
+              - label: "Descripción"
+                name: "descripcion"
+                widget: "text"
+
+              - label: "Imagen"
+                name: "imagen"
+                widget: "image"
+
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+  - name: "credits_section"
+    label: "Página Créditos"
+    files:
+      - name: "credits"
+        label: "Créditos"
+        file: "_data/credits.yml"
+        fields:
+          - label: "Subtítulo"
+            name: "subtitulo"
+            widget: "string"
+
+          - label: "Título"
+            name: "titulo"
+            widget: "string"
+
+          - label: "Botones"
+            name: "botones"
+            widget: "list"
+            required: false
+            fields:
+              - label: "Texto"
+                name: "texto"
+                widget: "string"
+
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+              - label: "Externo"
+                name: "externo"
+                widget: "boolean"
+                default: false
+                required: false
+
+          - label: "Texto previo a planilla"
+            name: "texto_previo_planilla"
+            widget: "text"
+            required: false
+
+          - label: "Planilla"
+            name: "planilla"
+            widget: "object"
+            required: false
+            fields:
+              - label: "Texto"
+                name: "texto"
+                widget: "string"
+
+              - label: "URL"
+                name: "url"
+                widget: "string"
+
+              - label: "Externo"
+                name: "externo"
+                widget: "boolean"
+                default: true
+                required: false
+
+          - label: "Título explicación"
+            name: "explicacion_titulo"
+            widget: "string"
+            required: false
+
+          - label: "Descripción"
+            name: "descripcion"
+            widget: "text"
+            required: false
+
+          - label: "Párrafos explicación"
+            name: "explicacion_parrafos"
+            widget: "list"
+            required: false
+            field:
+              label: "Párrafo"
+              name: "parrafo"
+              widget: "text"
+
+  - name: "contactos_section"
+    label: "Sección Contactos"
+    files:
+      - name: "contactos"
+        label: "Contactos"
+        file: "_data/contactos.yml"
+        fields:
+          - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+          - { label: "Título", name: "titulo", widget: "string" }
+          - { label: "Imagen decorativa", name: "imagen_decorativa", widget: "image", required: false }
+
+          - label: "¿Cómo comunicarse?"
+            name: "como_comunicarse"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nombre", name: "nombre", widget: "string" }
+                  - { label: "Valor visible", name: "valor", widget: "string", required: false }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Ícono", name: "icono", widget: "image", required: false }
+                  - { label: "Externo", name: "externo", widget: "boolean", default: false, required: false }
+
+          - label: "Discord"
+            name: "discord"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Ícono", name: "icono", widget: "image", required: false }
+
+          - label: "Autoridades"
+            name: "autoridades"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Cargo", name: "cargo", widget: "string" }
+                  - { label: "Nombre", name: "nombre", widget: "string" }
+
+          - label: "Trámites y consultas frecuentes"
+            name: "tramites"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nombre", name: "nombre", widget: "string" }
+                  - { label: "Descripción", name: "descripcion", widget: "text", required: false }
+                  - { label: "URL", name: "url", widget: "string", required: false }
+
+          - label: "Items (legacy)"
+            name: "items"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Ícono", name: "icono", widget: "image", required: false }
+              - { label: "Externo", name: "externo", widget: "boolean", default: false, required: false }
+  - name: "posts"
+    label: "Página Materias"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "post"
+
+      - label: "Título"
+        name: "title"
+        widget: "string"
+
+      - label: "Fecha"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD HH:mm:ss"
+
+      - label: "Categorías"
+        name: "categories"
+        widget: "string"
+        default: "Materias"
+
+      - label: "Carrera/s"
+        name: "carrera"
+        widget: "list"
+        required: false
+        field:
+          label: "Carrera"
+          name: "carrera"
+          widget: "string"
+
+      - label: "Plan"
+        name: "plan"
+        widget: "select"
+        options:
+          - { label: "Vigente 2026", value: "vigente" }
+          - { label: "Plan anterior", value: "anterior" }
+        required: false
+
+      - label: "Carga horaria"
+        name: "carga_horaria"
+        widget: "string"
+        required: false
+
+      - label: "Créditos"
+        name: "creditos"
+        widget: "string"
+        required: false
+
+      - label: "Correlativas"
+        name: "correlativas"
+        widget: "string"
+        required: false
+
+      - label: "PDF Programa completo"
+        name: "pdf_programa"
+        widget: "file"
+        required: false
+
+      - label: "Autor"
+        name: "by"
+        widget: "string"
+        default: "Informatica UNAHUR"
+
+      - label: "Ícono"
+        name: "icon"
+        widget: "string"
+        default: "cpu"
+
+      - label: "Programa (archivo PDF, campo legacy)"
+        name: "programa"
+        widget: "file"
+        required: false
+
+      - label: "Preguntas"
+        name: "questions"
+        widget: "list"
+        fields:
+          - label: "Pregunta"
+            name: "question"
+            widget: "string"
+
+          - label: "Respuesta"
+            name: "answer"
+            widget: "string"
+
+          - label: "Contenido"
+            name: "contenido"
+            widget: "text"
+
+  - name: "novedades"
+    label: "Página Novedades"
+    label_singular: "Novedad"
+    folder: "_novedades"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: "title"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "novedad"
+
+      - label: "Título"
+        name: "title"
+        widget: "string"
+
+      - label: "Fecha"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+
+      - label: "Categoría"
+        name: "categoria"
+        widget: "select"
+        options:
+          [
+            "Planes de estudio",
+            "Inscripciones",
+            "Eventos",
+            "Calendario",
+            "General",
+          ]
+        required: false
+
+      - label: "Imagen"
+        name: "imagen"
+        widget: "image"
+        required: false
+
+      - label: "Descripción breve"
+        name: "descripcion"
+        widget: "text"
+        required: false
+
+      - label: "Contenido"
+        name: "body"
+        widget: "markdown"
+
+  - name: "horarios_page"
+    label: "Página Horarios"
+    files:
+      - name: "horarios"
+        label: "Horarios de cursada"
+        file: "_data/horarios.yml"
+        fields:
+          - { label: "Título de la página", name: "titulo", widget: "string" }
+
+          - label: "1° Cuatrimestre"
+            name: "cuatrimestre_1"
+            widget: "object"
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Inicio de clases", name: "inicio_clases", widget: "string" }
+              - { label: "Inscripción a materias", name: "inscripcion", widget: "string" }
+              - { label: "Exámenes parciales", name: "parciales", widget: "string" }
+              - { label: "Exámenes finales", name: "finales", widget: "string" }
+              - { label: "Fin de clases", name: "fin_clases", widget: "string" }
+
+          - label: "2° Cuatrimestre"
+            name: "cuatrimestre_2"
+            widget: "object"
+            fields:
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Inicio de clases", name: "inicio_clases", widget: "string" }
+              - { label: "Inscripción a materias", name: "inscripcion", widget: "string" }
+              - { label: "Exámenes parciales", name: "parciales", widget: "string" }
+              - { label: "Exámenes finales", name: "finales", widget: "string" }
+              - { label: "Fin de clases", name: "fin_clases", widget: "string" }
+
+          - { label: "Link embed Google Sheets (iframe)", name: "sheets_embed_url", widget: "string", required: false }
+          - { label: "Link directo Google Sheets", name: "sheets_direct_url", widget: "string", required: false }

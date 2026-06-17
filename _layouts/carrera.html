@@ -1,0 +1,164 @@
+---
+layout: default
+---
+
+<div style="padding-top: 120px; padding-bottom: 60px;">
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 20px;">
+
+      <!-- Botón volver -->
+      <div style="margin-bottom: 24px;">
+        <a href="{{ '/carreras/' | relative_url }}"
+           style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; color:#4db6ad; border:1.5px solid #4db6ad; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem;">
+          ← Volver a Carreras
+        </a>
+      </div>
+
+      <!-- Encabezado -->
+      <div class="section-heading" style="margin-bottom: 40px; text-align: center;">
+        <h6 style="text-transform: uppercase; letter-spacing: 2px; color: #4db6ad; font-weight: 600; margin-bottom: 12px;">
+          {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre
+          {% elsif page.anterior %}Plan anterior
+          {% elsif page.proxima %}Próximamente
+          {% endif %}
+        </h6>
+        <h2 style="font-size: 2.4rem; font-weight: 800; color: #1a1a2e; line-height: 1.2; margin-bottom: 16px;">{{ page.title }}</h2>
+        {% if page.titulo_intermedio %}
+        <p style="font-size:1.05rem; color:#666; margin-bottom: 0;">Título intermedio: <strong style="color: #4db6ad;">{{ page.titulo_intermedio }}</strong></p>
+        {% endif %}
+        <div class="line-dec" style="margin: 20px auto 0;"></div>
+      </div>
+
+      <!-- Tabla de datos generales (solo para carreras vigentes con datos) -->
+      {% if page.tabla_datos %}
+      <div style="margin-bottom: 40px; overflow-x: auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
+          <thead>
+            <tr style="background-color:#4db6ad; color:#fff;">
+              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">Título</th>
+              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">{{ page.tabla_datos.col_grado }}</th>
+              {% if page.tabla_datos.col_intermedio %}
+              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">{{ page.tabla_datos.col_intermedio }}</th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for fila in page.tabla_datos.filas %}
+            <tr style="background-color:{% cycle '#ffffff', '#f8f9fa' %};">
+              <td style="padding:10px 16px; border:1px solid #dee2e6; font-weight:600; color:#555;">{{ fila.label }}</td>
+              <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.grado }}</td>
+              {% if fila.intermedio %}
+              <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.intermedio }}</td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+
+      <!-- Botón descargar PDF -->
+      {% if page.pdf %}
+      <div style="margin-bottom: 40px; text-align: center;">
+        <a href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block; padding:12px 28px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:1rem;">
+          📄 Descargar plan de estudios en PDF
+        </a>
+      </div>
+      {% endif %}
+
+      <!-- Plan de estudios (tabla de materias) -->
+      {% if page.cuatrimestres %}
+      <div style="margin-bottom: 40px;">
+        <h4 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:20px;">Plan de estudios</h4>
+
+        <style>
+          .tableizer-table { font-size: 12px; border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width:100%; }
+          .tableizer-table td, .tableizer-table th { padding: 6px 10px; border: 1px solid #CCC; }
+          .tableizer-table th { background-color: #4db6ad; color: #FFF; font-weight: bold; }
+          .tableizer-cuatrimestre { font-weight: bold; text-align: center; background-color: #e8f5f4 !important; color: #2a7a74; }
+          .tableizer-table a { color: #1A6B66; text-decoration: underline; }
+          .tableizer-table a:hover { color: #4db6ad; }
+        </style>
+
+        <div style="overflow-x:auto;">
+          <table class="tableizer-table">
+            <thead>
+              <tr>
+                <th>Área</th>
+                <th>Materia</th>
+                <th>Hs/Sem</th>
+                <th>Carga horaria total</th>
+                <th>Correlativas</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for cuatri in page.cuatrimestres %}
+              <tr>
+                <td colspan="5" class="tableizer-cuatrimestre">
+                  {{ cuatri.nombre }}{% if cuatri.horas and cuatri.horas != "" %} — {{ cuatri.horas }} hs{% endif %}
+                </td>
+              </tr>
+              {% for materia in cuatri.materias %}
+              <tr>
+                <td>{{ materia.area }}</td>
+                <td>
+                  <a href="{{ '/materias/' | append: materia.slug | append: '/' | relative_url }}">
+                    {{ materia.nombre }}
+                  </a>
+                </td>
+                <td>{{ materia.hs_sem }}</td>
+                <td>{{ materia.hs_total }}</td>
+                <td>
+                  {% if materia.correlativas and materia.correlativas != "-" %}
+                    {% assign correlativas = materia.correlativas | split: "," %}
+                    {% for c in correlativas %}
+                      {% assign c_name = c | strip %}
+                      {% assign found = false %}
+                      {% for cu in page.cuatrimestres %}
+                        {% for m in cu.materias %}
+                          {% if m.nombre == c_name %}
+                            <a href="{{ '/materias/' | append: m.slug | append: '/' | relative_url }}">{{ c_name }}</a>{% unless forloop.last %}, {% endunless %}
+                            {% assign found = true %}
+                          {% endif %}
+                        {% endfor %}
+                      {% endfor %}
+                      {% unless found %}{{ c_name }}{% unless forloop.last %}, {% endunless %}{% endunless %}
+                    {% endfor %}
+                  {% else %}
+                    —
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Contenido adicional del markdown -->
+      {% if content and content != "" %}
+      <div style="margin-bottom: 40px;">
+        {{ content }}
+      </div>
+      {% endif %}
+
+      <!-- Gráfico de correlatividades -->
+      {% if page.correlatividades_imagen %}
+      <div style="margin-top: 40px;">
+        <h4 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:20px;">Gráfico de correlatividades</h4>
+        <div style="text-align:center;">
+          <img src="{{ page.correlatividades_imagen | relative_url }}"
+               alt="Gráfico de correlatividades - {{ page.title }}"
+               style="max-width:100%; height:auto; border-radius:8px; border:1px solid #e0e0e0;">
+        </div>
+        <p style="font-size:0.8rem; color:#999; text-align:center; margin-top:8px;">
+          Gráfico de correlatividades para {{ page.title }}
+        </p>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

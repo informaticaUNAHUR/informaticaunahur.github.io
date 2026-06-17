@@ -1,0 +1,102 @@
+subtitulo: Documentación
+titulo: Documentación y recursos
+destacado:
+  categoria: Guía
+  fecha: "2026"
+  titulo: ¿Cómo inscribirse a materias?
+  descripcion: Guía paso a paso para realizar la inscripción correctamente desde el SIU Guaraní.
+  imagen: /assets/images/blog-post-01.jpg
+  url: "#"
+  autor_texto: UNAHUR Informática
+  autor_imagen: /assets/images/author-post.jpg
+  contenido: |
+    <h5>Pasos para inscribirse</h5>
+    <ol>
+      <li>Ingresá al <strong>SIU Guaraní</strong> con tu usuario y contraseña de UNAHUR.</li>
+      <li>Ir a <em>Alumnos → Inscripción a cursadas</em>.</li>
+      <li>Seleccioná el período de inscripción vigente.</li>
+      <li>Elegí las materias que querés cursar y verificá que cumplís las correlativas.</li>
+      <li>Confirmá la inscripción y guardá el comprobante.</li>
+    </ol>
+    <p><strong>Importante:</strong> la inscripción solo está disponible en los períodos habilitados. Consultá las fechas en el calendario académico.</p>
+
+items:
+  - categoria: Calendario
+    fecha: "2026"
+    titulo: Calendario académico
+    descripcion: Fechas importantes de cursada, exámenes y recesos.
+    imagen: /assets/uploads/desarrolladores.jpg
+    url: https://unahur.edu.ar/calendario-academico/
+    contenido: |
+      <p>El calendario académico contiene todas las fechas importantes del año:</p>
+      <ul>
+        <li>Inicio y fin de cuatrimestres</li>
+        <li>Períodos de inscripción a materias</li>
+        <li>Fechas de exámenes finales</li>
+        <li>Recesos y feriados universitarios</li>
+      </ul>
+      <p>El calendario oficial está publicado en el sitio de UNAHUR.</p>
+
+  - categoria: Consejos
+    fecha: "2026"
+    titulo: Cómo organizar tu cursada
+    descripcion: Tips para planificar mejor tu año académico.
+    imagen: /assets/images/blog-post-04.jpg
+    url: "#"
+    contenido: |
+      <h5>Tips para organizar tu cursada</h5>
+      <ul>
+        <li>Revisá el <strong>plan de estudios</strong> de tu carrera y trazá un mapa de correlativas.</li>
+        <li>No sobrecargues el cuatrimestre: 3 o 4 materias es un ritmo sostenible para la mayoría.</li>
+        <li>Priorizá materias que desbloquean correlativas importantes.</li>
+        <li>Usá el <strong>campus virtual</strong> para revisar materiales antes de que empiece el cuatrimestre.</li>
+        <li>Sumáte al <strong>Discord</strong> de informática para conectar con compañeros de las mismas materias.</li>
+      </ul>
+
+  - categoria: Comunicación
+    fecha: "2026"
+    titulo: Cómo usar Discord
+    descripcion: Discord es el medio de comunicación oficial de las carreras de informática. Aprendé a sacarle el máximo provecho.
+    imagen: /assets/uploads/discord-icon.png
+    url: "#"
+    contenido: |
+      <p><strong>Discord</strong> es el medio de comunicación oficial de las carreras de informática de UNAHUR.</p>
+      <h5>¿Para qué sirve?</h5>
+      <ul>
+        <li>Canales por materia para consultas y materiales.</li>
+        <li>Anuncios importantes del ITI.</li>
+        <li>Canales de cada carrera para noticias específicas.</li>
+        <li>Espacios de consulta con docentes y coordinadores.</li>
+      </ul>
+      <p>Ingresá con tu cuenta de Discord y usá el enlace de invitación oficial para unirte al servidor.</p>
+
+  - categoria: Recursos
+    fecha: "2026"
+    titulo: Campus virtual y otros recursos
+    descripcion: Accedé al campus virtual, tutoriales y materiales de apoyo para tus materias.
+    imagen: /assets/images/blog-post-03.jpg
+    url: "#"
+    contenido: |
+      <h5>Usuario SIU</h5>
+      <p>Para acceder a los sistemas de UNAHUR necesitás solicitar tu usuario SIU.</p>
+      <a href="https://servicios.unahur.edu.ar/unahur3w/acceso" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-bottom:18px; padding:10px 22px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem;">🔑 Solicitar usuario SIU</a>
+      <h5>Campus Virtual</h5>
+      <p>Accedé al campus virtual con tu usuario SIU para ver materiales, foros y entregas de cada materia.</p>
+      <a href="https://campus.unahur.edu.ar/" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-bottom:18px; padding:10px 22px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem;">🎓 Ir al Campus Virtual</a>
+      <h5>Email estudiantil</h5>
+      <p>Para solicitar tu email estudiantil escribí a <strong>informatica@unahur.edu.ar</strong>.</p>
+      <a href="mailto:informatica@unahur.edu.ar" style="display:inline-block; padding:10px 22px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem;">✉️ Solicitar email estudiantil</a>
+
+  - categoria: Cursada
+    fecha: "2026"
+    titulo: ¿Dónde curso?
+    descripcion: Conocé las sedes y aulas donde se dictan las materias de las carreras de informática.
+    imagen: /assets/images/blog-post-01.jpg
+    url: "#"
+    contenido: |
+      <p>Las carreras de informática del ITI se dictan en el <strong>Campus de UNAHUR</strong>, ubicado en:</p>
+      <p><strong>Av. de los Trabajadores 1174, William Morris, Hurlingham.</strong></p>
+      <h5>Edificio TA</h5>
+      <p>La mayoría de las materias de informática se dictan en el edificio TA. La secretaría del ITI se encuentra en la <strong>oficina TA213</strong>.</p>
+      <p>Los horarios y aulas de cada materia se publican al inicio de cada cuatrimestre en el sistema y en el Discord oficial.</p>
+      <a href="https://cpudondecurso.unahur.edu.ar/" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:12px; padding:10px 22px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem;">🏫 Buscar mi aula</a>

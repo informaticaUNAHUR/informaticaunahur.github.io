@@ -1,12 +1,118 @@
-<footer>
-  <div class="footer container column align-items-center justify-content-center">
-    <div class="footer--block text-align-center">
-      <div class="" data-aos="fade-up" data-aos-delay="" data-aos-offset="0">
-        <a href="{{ site.baseurl }}/"><span>INFORMATICA UNAHUR |</span> {{ site.title }}</a>
+{% if site.data.contactos %}
+<footer style="background:#fff; border-top:1px solid #eee; padding:60px 0 0;">
+  <div class="container">
+    <div class="row">
+
+      <!-- Encabezado -->
+      <div class="col-lg-8 offset-lg-2" style="text-align:center; margin-bottom:40px;">
+        <h6 style="font-size:0.85rem; font-weight:600; color:#4db6ad; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">{{ site.data.contactos.subtitulo }}</h6>
+        <h4 style="font-size:2rem; color:#2a2a2a; font-weight:700; margin:0 0 12px;">{{ site.data.contactos.titulo | replace: "Comunica", "<em style='color:#4db6ad; font-style:normal;'>Comunica</em>" }}</h4>
+        <div style="width:60px; height:3px; background:#4db6ad; margin:0 auto 16px;"></div>
+        {% if site.data.contactos.imagen_decorativa %}
+        <img src="{{ site.data.contactos.imagen_decorativa | relative_url }}" alt="{{ site.data.contactos.titulo }}" style="max-height:160px; width:auto; margin:0 auto; display:block;">
+        {% endif %}
       </div>
-      <div class="by" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0">
-        <a href="https://github.com/gustavoquinalha/jekyll-help-center-theme" target="_blank">Created with jekyll</a>
+
+      <!-- Cómo comunicarse -->
+      {% if site.data.contactos.como_comunicarse %}
+      <div class="col-lg-6 mb-4">
+        <h5 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:16px;">
+          {{ site.data.contactos.como_comunicarse.titulo }}
+        </h5>
+        {% for item in site.data.contactos.como_comunicarse.items %}
+        {% assign item_externo = item.externo | default: false %}
+        {% assign contacto_url = item.url %}
+        {% if contacto_url and contacto_url != "#" %}
+          {% unless contacto_url contains '://' or contacto_url contains '#' or contacto_url contains 'mailto:' or contacto_url contains 'tel:' %}
+            {% assign contacto_url = contacto_url | relative_url %}
+          {% endunless %}
+        {% endif %}
+        <div style="display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #f0f0f0;">
+          <img src="{{ item.icono | relative_url }}" alt="{{ item.nombre }}" style="height:24px; width:24px; object-fit:contain;">
+          <div>
+            <span style="font-size:0.8rem; color:#888; display:block;">{{ item.nombre }}</span>
+            {% if contacto_url and contacto_url != "#" %}
+            <a href="{{ contacto_url }}"{% if item_externo %} target="_blank" rel="noopener noreferrer"{% endif %} style="font-weight:600; font-size:0.9rem; color:#333; text-decoration:none;">
+              {{ item.valor | default: item.nombre }}
+            </a>
+            {% else %}
+            <span style="font-weight:600; font-size:0.9rem; color:#333;">{{ item.valor | default: item.nombre }}</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
       </div>
+      {% endif %}
+
+      <!-- Autoridades -->
+      {% if site.data.contactos.autoridades %}
+      <div class="col-lg-6 mb-4">
+        <h5 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:16px;">
+          {{ site.data.contactos.autoridades.titulo }}
+        </h5>
+        {% for persona in site.data.contactos.autoridades.items %}
+        <div style="padding:8px 0; border-bottom:1px solid #f0f0f0;">
+          <span style="font-size:0.8rem; color:#888; display:block;">{{ persona.cargo }}</span>
+          <strong style="font-size:0.9rem; color:#333;">{{ persona.nombre }}</strong>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Discord -->
+      {% if site.data.contactos.discord %}
+      <div class="col-12 mt-2 mb-4" style="display:flex; justify-content:center;">
+        <div style="background:linear-gradient(135deg, #5865F2 0%, #4752C4 100%); border-radius:14px; padding:28px 40px; color:#fff; text-align:center; position:relative; overflow:hidden; max-width:520px; width:100%;">
+          <div style="position:absolute; top:-30px; left:-30px; width:120px; height:120px; background:rgba(255,255,255,0.07); border-radius:50%;"></div>
+          <div style="position:absolute; bottom:-40px; right:-20px; width:150px; height:150px; background:rgba(255,255,255,0.05); border-radius:50%;"></div>
+          <div style="position:relative; z-index:1;">
+            <img src="{{ site.data.contactos.discord.icono | relative_url }}" alt="Discord" style="height:56px; width:56px; object-fit:contain; margin-bottom:12px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.3));">
+            <h4 style="margin:0 0 6px; font-size:1.25rem; font-weight:800; color:#fff;">{{ site.data.contactos.discord.titulo }}</h4>
+            <p style="margin:0 auto 20px; font-size:0.88rem; color:rgba(255,255,255,0.9); max-width:340px; line-height:1.5;">{{ site.data.contactos.discord.subtitulo }}</p>
+            <a href="{{ site.data.contactos.discord.url }}" target="_blank" rel="noopener noreferrer"
+               style="display:inline-block; padding:11px 32px; background:#fff; color:#5865F2; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.9rem; box-shadow:0 4px 16px rgba(0,0,0,0.2); transition:transform 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              Unirse al Discord →
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Trámites frecuentes: solo en home -->
+      {% if site.data.contactos.tramites and page.url == '/' %}
+      <div class="col-12 mt-2 mb-4">
+        <h5 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:16px;">
+          {{ site.data.contactos.tramites.titulo }}
+        </h5>
+        <div class="row">
+          {% for tramite in site.data.contactos.tramites.items %}
+          {% assign tramite_url = tramite.url | default: "#" %}
+          {% unless tramite_url contains '://' or tramite_url contains '#' or tramite_url contains 'mailto:' %}
+            {% assign tramite_url = tramite_url | relative_url %}
+          {% endunless %}
+          <div class="col-lg-4 col-md-6 mb-3">
+            <div style="background:#f8f9fa; border-radius:8px; padding:16px; height:100%; border-left:3px solid #4db6ad;">
+              <strong style="font-size:0.9rem; color:#333; display:block; margin-bottom:6px;">{{ tramite.nombre }}</strong>
+              <p style="font-size:0.8rem; color:#666; margin:0 0 10px;">{{ tramite.descripcion }}</p>
+              {% if tramite.url and tramite.url != "#" %}
+              <a href="{{ tramite_url }}" style="font-size:0.8rem; color:#4db6ad; font-weight:600; text-decoration:none;">Ver más →</a>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
     </div>
   </div>
+
+  <!-- Barra copyright -->
+  <div style="background:#2a2a2a; padding:16px 0; margin-top:20px; text-align:center;">
+    <span style="color:#aaa; font-size:0.82rem; font-family:'Poppins',sans-serif;">
+      © {{ 'now' | date: "%Y" }} <strong style="color:#fff;">Informática UNAHUR</strong>
+    </span>
+  </div>
 </footer>
+{% endif %}
