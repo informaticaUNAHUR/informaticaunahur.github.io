@@ -5,7 +5,7 @@ descripcion: Conocé la propuesta académica, compará planes y encontrá toda l
 boton_texto: Ver más
 boton_url: "#portfolio"
 boton_externo: false
-imagen: /assets/images/services-image.jpg
+imagen: /assets/uploads/logo.jpg
 orden: 3
 activo: true
 ---
