@@ -1,12 +1,19 @@
-subtitulo: "Vigentes desde 2026 2° Cuatrimestre"
-titulo: "Propuestas Formativas"
+subtitulo: Vigentes desde 2026 2° Cuatrimestre
+titulo: Propuestas Formativas
 carreras:
-  - nombre: Licenciatura en Informática
-    titulo_intermedio: "Técnico/a Universitario en Programación"
+  - descripcion_corta: "La Licenciada o Licenciado en Informática cuenta con una
+      base conceptual sólida que le permite resolver problemas y liderar
+      proyectos de desarrollo de software y aplicaciones de distinta índole y
+      magnitud. Título intermedio: Técnico/a Universitario en Programación."
+    descripcion_larga: Esta carrera de grado tiene entre sus actividades reservadas
+      la de especificar, proyectar y desarrollar sistemas de información,
+      sistemas de comunicación de datos y software cuya utilización pueda
+      afectar la seguridad, salud, bienes o derechos.
     nueva: true
-    etiqueta: "Nuevo Plan"
+    nombre: Licenciatura en Informática
+    imagen: /assets/images/services-image.jpg
+    etiqueta: Nuevo Plan
     icono: /assets/img/Informatica-licenciatura-icono.png
-    descripcion_corta: "La Licenciada o Licenciado en Informática cuenta con una base conceptual sólida que le permite resolver problemas y liderar proyectos de desarrollo de software y aplicaciones de distinta índole y magnitud. Título intermedio: Técnico/a Universitario en Programación."
     habilidades:
       - Arquitectura de Software
       - Computación de alto desempeño
@@ -14,14 +21,14 @@ carreras:
       - Ingeniería de Software
       - Sistemas en tiempo real - IoT
       - Liderazgo de proyectos
-    descripcion_larga: Esta carrera de grado tiene entre sus actividades reservadas la de especificar, proyectar y desarrollar sistemas de información, sistemas de comunicación de datos y software cuya utilización pueda afectar la seguridad, salud, bienes o derechos.
-    imagen: /assets/images/services-image.jpg
-
+    titulo_intermedio: Técnico/a Universitario en Programación
   - nombre: Licenciatura en Ciberseguridad
-    titulo_intermedio: "Técnico/a Universitario en Redes y Operaciones Informáticas"
+    titulo_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
     nueva: true
     icono: /assets/img/redes-icono.png
-    descripcion_corta: "Formación orientada a la protección de sistemas, redes y datos frente a ataques y vulnerabilidades. Título intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas."
+    descripcion_corta: "Formación orientada a la protección de sistemas, redes y
+      datos frente a ataques y vulnerabilidades. Título intermedio: Técnico/a
+      Universitario en Redes y Operaciones Informáticas."
     habilidades:
       - Seguridad ofensiva y defensiva
       - Redes Avanzadas
@@ -29,14 +36,18 @@ carreras:
       - Servicios en la nube
       - Contenedores
       - Criptografía
-    descripcion_larga: La/el Licenciada/o en Ciberseguridad será capaz de diseñar, implementar y gestionar estrategias de seguridad informática en organizaciones de diversa índole, analizando vulnerabilidades y desarrollando respuestas ante incidentes.
+    descripcion_larga: La/el Licenciada/o en Ciberseguridad será capaz de diseñar,
+      implementar y gestionar estrategias de seguridad informática en
+      organizaciones de diversa índole, analizando vulnerabilidades y
+      desarrollando respuestas ante incidentes.
     imagen: /assets/images/services-image-03.jpg
-
   - nombre: Licenciatura en Desarrollo de Videojuegos y Simulaciones
-    titulo_intermedio: "Técnico/a Universitario en Programación de Videojuegos"
+    titulo_intermedio: Técnico/a Universitario en Programación de Videojuegos
     nueva: true
     icono: /assets/img/videojuegos-icono.png
-    descripcion_corta: "Formación avanzada en desarrollo de videojuegos y simulaciones interactivas. Título intermedio: Técnico/a Universitario en Programación de Videojuegos."
+    descripcion_corta: "Formación avanzada en desarrollo de videojuegos y
+      simulaciones interactivas. Título intermedio: Técnico/a Universitario en
+      Programación de Videojuegos."
     habilidades:
       - Motores de videojuegos
       - Diseño lúdico
@@ -44,13 +55,19 @@ carreras:
       - Simulaciones
       - Programación gráfica
       - Trabajo en equipo
-    descripcion_larga: Los/las profesionales podrán participar activamente en la industria de los videojuegos y simulaciones, identificando diferentes modalidades y propuestas mediante la selección de herramientas de software y hardware, atendiendo cuestiones de calidad y usabilidad.
+    descripcion_larga: Los/las profesionales podrán participar activamente en la
+      industria de los videojuegos y simulaciones, identificando diferentes
+      modalidades y propuestas mediante la selección de herramientas de software
+      y hardware, atendiendo cuestiones de calidad y usabilidad.
     imagen: /assets/images/services-image-02.jpg
-
   - nombre: Tecnicatura Universitaria en Inteligencia Artificial
-    nueva: false
+    nueva: true
     icono: /assets/img/Inteligencia-artificial-icono.png
-    descripcion_corta: La carrera tiene por objetivo formar técnicas/os universitarias/os para la resolución de problemas computacionales utilizando conocimientos y conceptos de inteligencia artificial, mediante la aplicación de herramientas y uso de diferentes lenguajes de programación.
+    descripcion_corta: La carrera tiene por objetivo formar técnicas/os
+      universitarias/os para la resolución de problemas computacionales
+      utilizando conocimientos y conceptos de inteligencia artificial, mediante
+      la aplicación de herramientas y uso de diferentes lenguajes de
+      programación.
     habilidades:
       - Aprendizaje automático
       - Redes Neuronales
@@ -58,5 +75,8 @@ carreras:
       - Recomendadores
       - Clasificadores
       - Visión artificial
-    descripcion_larga: Las/os técnicas/os podrán predecir y/o detectar patrones agregando valor en áreas como visión artificial, procesamiento del lenguaje natural y aprendizaje automático, a través del análisis y procesamiento de datos de diferentes fuentes.
+    descripcion_larga: Las/os técnicas/os podrán predecir y/o detectar patrones
+      agregando valor en áreas como visión artificial, procesamiento del
+      lenguaje natural y aprendizaje automático, a través del análisis y
+      procesamiento de datos de diferentes fuentes.
     imagen: /assets/images/services-image-03.jpg
