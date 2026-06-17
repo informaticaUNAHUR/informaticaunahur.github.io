@@ -1,0 +1,94 @@
+---
+layout: default
+title: Créditos
+permalink: /creditos/
+---
+
+{% if site.data.credits %}
+<div style="width:100%; max-width:1140px; margin:0 auto; padding:60px 20px; box-sizing:border-box; background:#fff;">
+
+  <!-- Encabezado -->
+  <div style="margin-bottom:40px;">
+    <h6 style="font-size:0.85rem; font-weight:600; color:#4db6ad; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">{{ site.data.credits.subtitulo }}</h6>
+    <h4 style="font-size:2rem; color:#2a2a2a; font-weight:700; margin:0 0 12px;">{{ site.data.credits.titulo }}</h4>
+    <div style="width:60px; height:3px; background:#4db6ad; margin-bottom:24px;"></div>
+    <p style="font-size:1rem; color:#555; line-height:1.8; max-width:780px;">{{ site.data.credits.parrafo }}</p>
+  </div>
+
+  <!-- Botones -->
+  {% if site.data.credits.botones %}
+  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:32px;">
+    {% for boton in site.data.credits.botones %}
+      {% assign credito_url = boton.url %}
+      {% unless boton.externo %}
+        {% if credito_url contains '://' or credito_url contains '#' or credito_url contains 'mailto:' or credito_url contains 'tel:' %}
+        {% else %}
+          {% assign credito_url = credito_url | relative_url %}
+        {% endif %}
+      {% endunless %}
+      <a href="{{ credito_url }}"{% if boton.externo %} target="_blank" rel="noopener noreferrer"{% endif %}
+         style="display:inline-block; padding:12px 28px; border:2px solid #4db6ad; border-radius:30px; color:#4db6ad; font-family:'Poppins',sans-serif; font-weight:600; font-size:0.95rem; text-decoration:none; transition:background 0.2s, color 0.2s;"
+         onmouseover="this.style.background='#4db6ad';this.style.color='#fff';"
+         onmouseout="this.style.background='transparent';this.style.color='#4db6ad';">
+        {{ boton.texto }}
+      </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Planilla -->
+  {% if site.data.credits.texto_previo_planilla or site.data.credits.planilla %}
+  <div style="background:#f8fdfc; border:1px solid #d0eeec; border-radius:12px; padding:24px 28px; margin-bottom:32px; max-width:560px;">
+    {% if site.data.credits.texto_previo_planilla %}
+    <p style="font-size:0.9rem; color:#555; margin:0 0 14px; font-weight:500;">{{ site.data.credits.texto_previo_planilla }}</p>
+    {% endif %}
+
+    {% if site.data.credits.planilla and site.data.credits.planilla.url and site.data.credits.planilla.texto %}
+      {% assign planilla_url = site.data.credits.planilla.url %}
+      {% unless site.data.credits.planilla.externo %}
+        {% if planilla_url contains '://' or planilla_url contains '#' or planilla_url contains 'mailto:' or planilla_url contains 'tel:' %}
+        {% else %}
+          {% assign planilla_url = planilla_url | relative_url %}
+        {% endif %}
+      {% endunless %}
+      <a href="{{ planilla_url }}"{% if site.data.credits.planilla.externo %} target="_blank" rel="noopener noreferrer"{% endif %}
+         style="display:inline-block; padding:10px 24px; background:#4db6ad; border-radius:30px; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:0.9rem; text-decoration:none; transition:background 0.2s;"
+         onmouseover="this.style.background='#3a9e96';"
+         onmouseout="this.style.background='#4db6ad';">
+        {{ site.data.credits.planilla.texto }}
+      </a>
+    {% elsif site.data.credits.boton_texto and site.data.credits.boton_url %}
+      {% assign credit_boton_url = site.data.credits.boton_url %}
+      {% unless site.data.credits.boton_externo %}
+        {% if credit_boton_url contains '://' or credit_boton_url contains '#' or credit_boton_url contains 'mailto:' or credit_boton_url contains 'tel:' %}
+        {% else %}
+          {% assign credit_boton_url = credit_boton_url | relative_url %}
+        {% endif %}
+      {% endunless %}
+      <a href="{{ credit_boton_url }}"{% if site.data.credits.boton_externo %} target="_blank" rel="noopener noreferrer"{% endif %}
+         style="display:inline-block; padding:10px 24px; background:#4db6ad; border-radius:30px; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:0.9rem; text-decoration:none;">
+        {{ site.data.credits.boton_texto }}
+      </a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- Sección Transición / Explicación -->
+  {% if site.data.credits.explicacion_titulo or site.data.credits.descripcion or site.data.credits.explicacion_parrafos %}
+  <div style="border-left:4px solid #4db6ad; padding:16px 20px; background:#f8fdfc; border-radius:0 10px 10px 0; max-width:780px;">
+    {% if site.data.credits.explicacion_titulo %}
+    <h5 style="font-size:1rem; font-weight:700; color:#4db6ad; margin:0 0 10px; text-transform:uppercase; letter-spacing:0.5px;">{{ site.data.credits.explicacion_titulo }}</h5>
+    {% endif %}
+    {% if site.data.credits.descripcion %}
+    <p style="font-size:0.95rem; color:#555; margin:0; line-height:1.7;">{{ site.data.credits.descripcion }}</p>
+    {% endif %}
+    {% if site.data.credits.explicacion_parrafos %}
+      {% for parrafo in site.data.credits.explicacion_parrafos %}
+      <p style="font-size:0.95rem; color:#555; margin:8px 0 0; line-height:1.7;">{{ parrafo }}</p>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% endif %}
+
+</div>
+{% endif %}

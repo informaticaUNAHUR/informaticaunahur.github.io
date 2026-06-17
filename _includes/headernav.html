@@ -1,0 +1,76 @@
+<style>
+  /* Navbar idéntico al home en todas las páginas */
+  .header-area { background-color: #fff !important; box-shadow: 0px 5px 8px rgba(0,0,0,0.03); position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 100px; }
+  /* the-grid define .container{display:flex} — lo reseteamos a block para que el float funcione igual que en home */
+  .header-area .container { display: block !important; }
+  .header-area .row { display: flex !important; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; }
+  .header-area .col-12 { flex: 0 0 100%; max-width: 100%; padding-right: 15px; padding-left: 15px; }
+  .header-area .main-nav { min-height: 80px; background: transparent; }
+  .header-area .main-nav .logo { line-height: 100px !important; float: left; }
+  .header-area .main-nav .logo img { max-height: 55px; width: auto; }
+  .header-area .main-nav ul.nav { float: right !important; margin-top: 30px !important; margin-right: 0 !important; background-color: transparent; position: relative; z-index: 999; list-style: none; padding: 0; flex-wrap: nowrap; }
+  .header-area .main-nav ul.nav li { padding-left: 20px !important; padding-right: 20px !important; list-style: none; }
+  .header-area .main-nav ul.nav li:last-child { padding-right: 0 !important; padding-left: 40px !important; }
+  .header-area .main-nav ul.nav li a { display: block !important; font-family: 'Poppins', sans-serif !important; font-weight: 500 !important; font-size: 15px !important; color: #2a2a2a !important; text-transform: capitalize !important; height: 40px !important; line-height: 40px !important; letter-spacing: 1px !important; text-decoration: none !important; }
+  .header-area .main-nav ul.nav li a.active,
+  .header-area .main-nav ul.nav li:hover a { color: #4da6e7 !important; }
+</style>
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <a href="{{ '/' | relative_url }}" class="logo">
+            <img src="{{ '/assets/img/logo-informatica-con-nombre.jpg' | relative_url }}" alt="UNAHUR Informática" />
+          </a>
+          <!-- ***** Logo End ***** -->
+
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            {% if site.data.nav and site.data.nav.items %}
+              {% for item in site.data.nav.items %}
+              <li class="scroll-to-section">
+                {% assign item_external = item.external | default: item.externo %}
+                {% assign item_url = item.url %}
+
+                {% unless item_external %}
+                  {% assign first_char = item_url | slice: 0 %}
+                  {% if item_url contains '://' or item_url contains 'mailto:' or item_url contains 'tel:' %}
+                  {% elsif first_char == '#' %}
+                  {% else %}
+                    {% assign item_url = item_url | relative_url %}
+                  {% endif %}
+                {% endunless %}
+
+                {% assign item_path = item.url | split: '#' | first %}
+                {% assign is_active = false %}
+                {% if item_path == '/' or item_path == '' %}
+                  {% if page.url == '/' %}{% assign is_active = true %}{% endif %}
+                {% elsif item_path != '' %}
+                  {% if page.url contains item_path %}{% assign is_active = true %}{% endif %}
+                {% endif %}
+
+                {% if item.highlight %}
+                  <div class="border-first-button">
+                    <a href="{{ item_url }}"{% if item_external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a>
+                  </div>
+                {% elsif is_active %}
+                  <a href="{{ item_url }}"{% if item_external %} target="_blank" rel="noopener noreferrer"{% endif %} class="active">{{ item.label }}</a>
+                {% else %}
+                  <a href="{{ item_url }}"{% if item_external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a>
+                {% endif %}
+              </li>
+              {% endfor %}
+            {% endif %}
+          </ul>
+
+          <a class="menu-trigger">
+            <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

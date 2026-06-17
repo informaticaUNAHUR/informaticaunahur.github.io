@@ -1,14 +1,17 @@
-source 'http://rubygems.org'
+source "https://rubygems.org"
+
+gem "jekyll"
+gem "webrick", "~> 1.7"
 
 group :jekyll_plugins do
-  gem 'jekyll'
-  gem 'jekyll-admin'
-  gem 'jekyll-paginate'
-  gem 'support-for'
-  gem 'jekyll-seo-tag'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-livereload'
-  gem 'kramdown-parser-gfm'
- end
+  gem "jekyll-paginate"
+  gem "jekyll-remote-theme"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+end
 
-gem "webrick", "~> 1.7"
+group :development do
+  gem "jekyll-admin"
+  gem "jekyll-livereload"
+  gem "kramdown-parser-gfm"
+end

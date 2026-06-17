@@ -9,13 +9,78 @@ layout: default
 </div>
 <!-- breadcrumbs -->
 
+<div class="size margin" style="margin-bottom: 16px;">
+  <a href="{{ site.baseurl }}/materias/"
+     style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
+    ← Todas las materias
+  </a>
+</div>
+
 <div class="size margin min-height">
   <article>
     <!-- titles -->
     <h1 class="post-title" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0">{{ page.title }}</h1>
+
+    <!-- Metadata de la materia -->
+    <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+      {% if page.carrera %}
+        {% assign carreras_arr = page.carrera %}
+        {% if carreras_arr.size %}
+          {% for c in carreras_arr %}
+          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ c }}</span>
+          {% endfor %}
+        {% else %}
+          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ page.carrera }}</span>
+        {% endif %}
+      {% endif %}
+      {% if page.plan %}
+        {% if page.plan == "vigente" %}
+        <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan vigente 2026</span>
+        {% elsif page.plan == "anterior" %}
+        <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    <!-- Datos rápidos de la materia -->
+    {% if page.carga_horaria or page.creditos or page.correlativas %}
+    <div style="background:#f8f9fa; border-radius:8px; padding:16px 20px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:20px;">
+      {% if page.carga_horaria %}
+      <div>
+        <span style="font-size:0.75rem; color:#888; display:block;">Carga horaria</span>
+        <strong style="font-size:0.95rem;">{{ page.carga_horaria }}</strong>
+      </div>
+      {% endif %}
+      {% if page.creditos %}
+      <div>
+        <span style="font-size:0.75rem; color:#888; display:block;">Créditos</span>
+        <strong style="font-size:0.95rem;">{{ page.creditos }}</strong>
+      </div>
+      {% endif %}
+      {% if page.correlativas %}
+      <div>
+        <span style="font-size:0.75rem; color:#888; display:block;">Correlativas</span>
+        <strong style="font-size:0.95rem;">{{ page.correlativas }}</strong>
+      </div>
+      {% endif %}
+      {% if page.pdf_programa %}
+        {% assign pdf_url = page.pdf_programa %}
+        {% unless pdf_url contains '://' %}
+          {% assign pdf_url = pdf_url | relative_url %}
+        {% endunless %}
+      <div style="margin-left:auto;">
+        <a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block; padding:8px 16px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+          📄 Programa completo
+        </a>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+    <!-- /Datos rápidos -->
+
     <div class="post-date" data-aos="fade-left" data-aos-delay="300" data-aos-offset="0">
     </div>
-    <!-- titles -->
 
     <!-- posts -->
     <div class="margin-top-20 margin-bottom-50">
@@ -60,7 +125,7 @@ layout: default
           <br/>
           <div>
             <span class="list-post-description" style="color: brown;">AULAS: <br/>
-            Cuando dice Laboratorio , son las Salas de Informática en el Primer piso del Edificio Malvinas Argentinas</span>
+            Cuando dice Laboratorio, son las Salas de Informática en el Primer piso del Edificio Malvinas Argentinas</span>
             <br/>{{x.aulas}}
           </div>
           {% endif %}
@@ -87,9 +152,16 @@ layout: default
           </div>
           {% endif %}
           {% if x.programa %}
-          <div>
-            <a href="{{ site.baseurl }}/assets/pdf/programas/{{ x.programa }}" target="_blank"><button>Programa de la materia</button></a>
-          </div>
+            {% assign programa_url = x.programa %}
+            {% unless programa_url contains '://' %}
+              {% assign programa_url = '/assets/pdf/programas/' | append: programa_url | relative_url %}
+            {% endunless %}
+            <div style="margin-top: 16px;">
+              <a href="{{ programa_url }}" target="_blank" rel="noopener noreferrer"
+                 style="display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
+                📄 Descargar programa PDF
+              </a>
+            </div>
           {% endif %}
         </div>
       </div>
@@ -99,7 +171,6 @@ layout: default
 
     <!-- content -->
     {{ content }}
-
     <!-- content -->
   </article>
 </div>

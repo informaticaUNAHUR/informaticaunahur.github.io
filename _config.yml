@@ -1,30 +1,79 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-title: "Planes y materias"
+# ==========================
+# Site
+# ==========================
+title: "Informática UNAHUR"
 email: informatica@unahur.edu.ar
-description: "Ayuda para la inscripción a materias"
-baseurl: ""
-url: ""
-#twitter_username: "gustavoquinalha"
-#github_username:  "gustavoquinalha"
-color_theme: "#4db6ad" #"#0081ff"
-color_text:  "#fff"
-language:  "es"
+description: "Carreras, materias, horarios y novedades del Instituto de Tecnología e Ingeniería - UNAHUR"
 
+url: "https://pfahlerfranco.github.io"
+baseurl: "/UnahurInformatica"
+
+language: "es"
+lang: "es"
+
+color_theme: "#4db6ad"
+color_text: "#fff"
+
+# ==========================
 # Build settings
+# ==========================
 markdown: kramdown
-permalink: /:title/
-gems: [jekyll-paginate]
-paginate: 5
 
+# IMPORTANTE: NO usar permalink global (rompe colecciones)
+# permalink: /:title/
+
+paginate: 5
+paginate_path: "/page:num/"
+
+sass:
+  style: compressed
+
+# ==========================
+# Theme
+# ==========================
 remote_theme: gustavoquinalha/jekyll-help-center-theme
 
+# ==========================
 # Plugins
-plugins_dir:
-  - jekyll-admin
+# ==========================
+plugins:
+  - jekyll-paginate
+  - jekyll-remote-theme
+
+# ==========================
+# Collections
+# ==========================
+collections:
+  banners:
+    output: false
+
+  carreras:
+    output: true
+    permalink: /:name/
+
+  novedades:
+    output: true
+    permalink: /novedades/:slug/
+
+# ==========================
+# Excluir sitio viejo del build principal
+# ==========================
+exclude:
+  - informaticaunahur.github.io/
+  - vendor/bundle/
+
+# ==========================
+# Defaults (IMPORTANTE)
+# asegura que las carreras usen layout page
+# ==========================
+defaults:
+  - scope:
+      path: ""
+      type: "carreras"
+    values:
+      layout: "carrera"
+  - scope:
+      path: ""
+      type: "novedades"
+    values:
+      layout: "novedad"

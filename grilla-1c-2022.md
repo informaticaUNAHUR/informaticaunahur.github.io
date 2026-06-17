@@ -5,10 +5,9 @@ menu: si
 permalink: /horarios-materias/
 
 ---
+[![HORARIOS nuevas tecnicaturas]({{ '/assets/images/pdf.jpg' | relative_url }}) HORARIOS de los 2 primeros cuatrimestres de materias exlcusivas de las nuevas Tecnciaturas]({{ '/assets/pdf/horarios/2022-1er-2do-cuatrimestre-Tecnicaturas-Nuevas.pdf' | relative_url }})
 
-[![HORARIOS nuevas tecnicaturas](/assets/images/pdf.jpg) HORARIOS de los 2 primeros cuatrimestres de materias exlcusivas de las nuevas Tecnciaturas](/assets/pdf/horarios/2022-1er-2do-cuatrimestre-Tecnicaturas-Nuevas.pdf)
-
-[![HORARIOS TUI y Licenciatura](/assets/images/pdf.jpg) HORARIOS de materias comunes a las NUEVAS Tecnicaturas, la TUI y horarios de la LICENCIATURA](/assets/pdf/horarios/2022-TUI-Licenciatura_horarios.pdf)
+[![HORARIOS TUI y Licenciatura]({{ '/assets/images/pdf.jpg' | relative_url }}) HORARIOS de materias comunes a las NUEVAS Tecnicaturas, la TUI y horarios de la LICENCIATURA]({{ '/assets/pdf/horarios/2022-TUI-Licenciatura_horarios.pdf' | relative_url }})
 
 <div>
 <span>

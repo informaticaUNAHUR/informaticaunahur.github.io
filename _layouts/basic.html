@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ site.language }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
-</head>
+{% include headmain.html %}
 
 <body>
 
+  {% include headernav.html %}
 
-    {{ content }}
+  {{ content }}
 
+  <script src="{{ '/vendor/jquery/jquery.min.js' | relative_url }}"></script>
+  <script src="{{ '/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/animation.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
 
-  
 </body>
 
 </html>

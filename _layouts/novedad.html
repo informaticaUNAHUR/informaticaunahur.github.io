@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div style="padding-top: 100px; padding-bottom: 60px; max-width: 780px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+
+  <div style="margin-bottom: 24px;">
+    <a href="{{ '/novedades/' | relative_url }}"
+       style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
+      ← Volver a Novedades
+    </a>
+  </div>
+
+  <h1 style="font-size:2.2rem; font-weight:800; color:#1a1a2e; line-height:1.25; margin-bottom:10px;">{{ page.title }}</h1>
+
+  <h3 style="font-size:1rem; font-weight:400; color:#888; margin-bottom:30px;">
+    {% if page.categoria %}<span style="color:#4db6ad; font-weight:600;">{{ page.categoria }}</span> — {% endif %}{{ page.date | date: "%d/%m/%Y" }}
+  </h3>
+
+  {% if page.imagen %}
+  <div style="margin-bottom: 32px; border-radius: 10px; overflow: hidden;">
+    <img src="{{ page.imagen | relative_url }}" alt="{{ page.title }}" style="width:100%; max-height:420px; object-fit:cover; display:block;">
+  </div>
+  {% endif %}
+
+  <div style="font-size:1rem; color:#333; line-height:1.75;">
+    {{ content }}
+  </div>
+
+  <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #e0e0e0;">
+    <a href="{{ '/novedades/' | relative_url }}"
+       style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
+      ← Volver a Novedades
+    </a>
+  </div>
+
+</div>

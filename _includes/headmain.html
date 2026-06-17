@@ -1,51 +1,48 @@
 <!DOCTYPE html>
-<html lang="{{ site.language }}">
+<html lang="{{ site.lang | default: site.language | default: 'es' }}">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title | default: site.name }}{% endif %}</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
-  
-  <link rel="shortcut icon" href="{{site.url}}{{site.baseurl}}/assets/img/favicon.png">
-  <link rel="icon" href="{{site.url}}{{site.baseurl}}/assets/img/favicon.png">
+  <link rel="shortcut icon" href="{{ '/assets/img/favicon.png' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/img/favicon.png' | relative_url }}">
 
-  <!-- template home-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="{{ '/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}">
 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/templatemo-digimedia-v3.css">
-  <link rel="stylesheet" href="assets/css/animated.css">
-  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="{{ '/assets/css/fontawesome.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/templatemo-digimedia-v3.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/animated.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/owl.css' | relative_url }}">
 
-  <!-- facebook -->
-  <meta property="og:title" content="{{ site.title }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ site.url }}" />
-  <meta property="og:description" content="{{ site.description }}" />
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta property="og:image" content="{{site.url}}{{site.baseurl}}/assets/img/image.png" />
-  <meta property="fb:app_id" content="1154262757941899" />
-  <meta property="fb:admins" content="100002787447461" />
-  <!-- facebook -->
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="{{ site.title | default: site.name }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:site_name" content="{{ site.title | default: site.name }}">
+  <meta property="og:image" content="{{ '/assets/img/image.png' | absolute_url }}">
+  <meta property="fb:app_id" content="1154262757941899">
+  <meta property="fb:admins" content="100002787447461">
 
-  <!-- twitter -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{{ site.title }}">
+  <meta name="twitter:title" content="{{ site.title | default: site.name }}">
   <meta name="twitter:description" content="{{ site.description }}">
   <meta name="twitter:creator" content="{{ site.twitter_username }}">
-  <meta name="twitter:image" content="{{site.url}}{{site.baseurl}}/assets/img/image.png">
-  <meta itemprop="name" content="{{ site.title }}">
+  <meta name="twitter:image" content="{{ '/assets/img/image.png' | absolute_url }}">
+
+  <!-- Schema / Itemprop -->
+  <meta itemprop="name" content="{{ site.title | default: site.name }}">
   <meta itemprop="description" content="{{ site.description }}">
-  <meta itemprop="image" content="{{site.url}}{{site.baseurl}}/assets/img/image.png">
-  <!-- twitter -->
+  <meta itemprop="image" content="{{ '/assets/img/image.png' | absolute_url }}">
 </head>

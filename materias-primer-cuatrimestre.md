@@ -18,5 +18,5 @@ El mismo tiene tres materias que son de 4 horas semanales cada una:
 
 Al dividirse las 3 materias principales, entonces algunas partes de ellas pasan a ser obligatorias según la tecnicatura que sigas:
 
-![Materias 1er cuatri](/assets/animate/materias-composicion.gif)
+![Materias 1er cuatri]({{ '/assets/animate/materias-composicion.gif' | relative_url }})
 

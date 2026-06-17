@@ -1,6 +1,7 @@
 ---
 layout: main
 ---
+
 <!-- ***** Preloader Start ***** -->
 <div id="js-preloader" class="js-preloader">
   <div class="preloader-inner">
@@ -14,58 +15,90 @@ layout: main
 </div>
 <!-- ***** Preloader End ***** -->
 
-<!-- Pre-header Starts -->
-
-
 <!-- ***** Header Area Start ***** -->
-<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <nav class="main-nav">
-          <!-- ***** Logo Start ***** -->
-          <a href="{{ site.baseurl }}/" class="logo"><img src="/assets/img/logo-informatica-con-nombre.jpg"/></a>
-           <!-- ***** Logo End ***** -->
-          <!-- ***** Menu Start ***** -->
-          <ul class="nav">
-            <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
-            <!-- <li class="scroll-to-section"><a href="/preguntas-frecuentes/">¿Preguntas?</a></li> -->
-            <li class="scroll-to-section"><a href="#portfolio">Planes</a></li> 
-            <li class="scroll-to-section"><a href="/materias/">Materias</a></li> 
-            <li class="scroll-to-section"><a href="#contactos">Contactos</a></li>
-            <li class="scroll-to-section"><a href="https://bit.ly/informatica-unahur-horarios-2024-2c" target="_blank">Horarios</a></li>
-            <li class="scroll-to-section"><div class="border-first-button"><a href="#free-quote">Sobre los CRÉDITOS</a></div></li>
-          </ul>        
-          <a class='menu-trigger'>
-              <span>Menu</span>
-          </a>
-          <!-- ***** Menu End ***** -->
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
+{% include headernav.html %}
 <!-- ***** Header Area End ***** -->
 
-
+<!-- ***** Carrusel Novedades Start ***** -->
+<style>
+  .main-banner { overflow-x: hidden; }
+  /* Ocultar decorador izquierdo siempre — superpone el texto en < 1700px */
+  .main-banner:after { display: none !important; }
+  .main-banner .left-content { padding-left: 10px; }
+  @media (max-width: 1200px) {
+    .main-banner .left-content h2 { font-size: 36px; }
+  }
+  @media (max-width: 991px) {
+    .main-banner .left-content { padding-left: 15px; padding-right: 15px; }
+    .main-banner .left-content h2 { font-size: 28px; }
+    .main-banner .right-image img { max-width: 100%; }
+  }
+</style>
+{% assign banners_activos = site.banners | where: "activo", true | sort: "orden" %}
 <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
+        {% if banners_activos.size > 0 %}
+        <div class="owl-carousel owl-banner-novedades" id="banner-novedades">
+          {% for banner in banners_activos %}
+          <div class="item">
+            <div class="row align-items-center">
+              <div class="col-lg-6 align-self-center">
+                <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h6>{{ banner.subtitulo | default: "UNAHUR Informática" }}</h6>
+                      <h2>{{ banner.titulo }}</h2>
+                      <p>{{ banner.descripcion }}</p>
+                    </div>
+                    {% if banner.boton_texto %}
+                    {% if banner.novedad_relacionada %}
+                      {% assign nov_banner = site.novedades | where: "title", banner.novedad_relacionada | first %}
+                    {% endif %}
+                    {% assign btn_url = banner.boton_url | default: '#portfolio' %}
+                    {% if nov_banner %}{% assign btn_url = nov_banner.url %}{% endif %}
+                    <div class="col-lg-12">
+                      <div class="border-first-button scroll-to-section">
+                        {% if banner.boton_externo %}
+                        <a href="{{ btn_url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ banner.boton_texto }}</a>
+                        {% else %}
+                        <a href="{{ btn_url | relative_url }}">{{ banner.boton_texto }}</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% assign nov_banner = nil %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                  {% if banner.imagen %}
+                  <img src="{{ banner.imagen | relative_url }}" alt="{{ banner.titulo }}">
+                  {% else %}
+                  <img src="{{ '/assets/images/services-image.jpg' | relative_url }}" alt="{{ banner.titulo }}">
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <!-- Fallback si no hay novedades -->
         <div class="row">
           <div class="col-lg-6 align-self-center">
             <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
               <div class="row">
                 <div class="col-lg-12">
-                  <h6>30 de Noviembre 2024</h6>
-                  <h2>UNAHUR@TIC #3</h2>
-                  <p>Ya tenemos fecha y lugar para la nueva edición de las Jornadas de Actualización Tecnológicas de las carreras de Informática. 
-                     
-                  </p>
+                  <h6>UNAHUR Informática</h6>
+                  <h2>Carreras de Informática</h2>
+                  <p>Información sobre planes de estudio, materias, horarios y más.</p>
                 </div>
                 <div class="col-lg-12">
                   <div class="border-first-button scroll-to-section">
-                    <a href="https://www.eventbrite.com.ar/e/unahurtic-3-tickets-1068039708519" target="_blank">Reservá tu lugar...</a>
+                    <a href="#portfolio">Ver carreras</a>
                   </div>
                 </div>
               </div>
@@ -73,96 +106,77 @@ layout: main
           </div>
           <div class="col-lg-6">
             <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-              <img src="assets/images/desarrolladores.jpg" alt="">
+              <img src="{{ '/assets/images/services-image.jpg' | relative_url }}" alt="UNAHUR Informática">
             </div>
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
+<!-- ***** Carrusel Novedades End ***** -->
 
+{% if site.data.about %}
 <div id="about" class="about section">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="row">
           <div class="col-lg-6">
-            <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-              <img src="assets/images/about-dec-v3.png" alt="">
+            <div class="about-left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+              <img src="{{ site.data.about.imagen | relative_url }}" alt="{{ site.data.about.titulo }}">
             </div>
           </div>
-          <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+
+          <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
             <div class="about-right-content">
               <div class="section-heading">
-                <h6>Pregrado</h6>
-                <h4>Carga horaria de las<em>Tecnicaturas</em>?</h4>
+                <h6>{{ site.data.about.subtitulo }}</h6>
+                <h4>{{ site.data.about.titulo }}</h4>
                 <div class="line-dec"></div>
               </div>
-              <p>Los nuevos planes de pregrado tienen menor carga horaria. Son más específicos en los <strong style="font-weight: bold;">alcances del título</strong> y requieren una menor dedicación horaria de cursada semanal para que te puedas organizar mejor, sobre todo al inicio de la vida universitaria.</p>
+
+              <p>{{ site.data.about.descripcion }}</p>
+
+              {% if site.data.about.estadisticas %}
               <div class="row">
+                {% assign clases = "first-skill-item,second-skill-item,third-skill-item" | split: "," %}
+                {% for stat in site.data.about.estadisticas %}
                 <div class="col-lg-4 col-sm-4">
-                  <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="progress" data-percentage="80">
-                      <span class="progress-left">
-                        <span class="progress-bar"></span>
-                      </span>
-                      <span class="progress-right">
-                        <span class="progress-bar"></span>
-                      </span>
+                  <div class="skill-item {{ clases[forloop.index0] }} wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
+                    <div class="progress" data-percentage="{{ stat.porcentaje }}">
+                      <span class="progress-left"><span class="progress-bar"></span></span>
+                      <span class="progress-right"><span class="progress-bar"></span></span>
                       <div class="progress-value">
                         <div>
-                          1408 hs<br>
-                          <span>- 25% total</span>
+                          {{ stat.valor }}<br>
+                          <span>{{ stat.detalle }}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-4">
-                  <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="progress" data-percentage="70">
-                      <span class="progress-left">
-                        <span class="progress-bar"></span>
-                      </span>
-                      <span class="progress-right">
-                        <span class="progress-bar"></span>
-                      </span>
-                      <div class="progress-value">
-                        <div>
-                          14hs <br>
-                          <span>x semana - 1er cuatri</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-4">
-                  <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="progress" data-percentage="100">
-                      <span class="progress-left">
-                        <span class="progress-bar"></span>
-                      </span>
-                      <span class="progress-right">
-                        <span class="progress-bar"></span>
-                      </span>
-                      <div class="progress-value">
-                        <div>
-                          35<br>
-                          <span>Créditos por actividades</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              {% if site.data.about.boton_texto and site.data.about.boton_url %}
+                {% assign about_url = site.data.about.boton_url %}
+                {% assign about_externo = site.data.about.boton_externo | default: false %}
+                {% unless about_externo %}
+                  {% if about_url contains '://' or about_url contains '#' or about_url contains 'mailto:' or about_url contains 'tel:' %}
+                  {% else %}
+                    {% assign about_url = about_url | relative_url %}
+                  {% endif %}
+                {% endunless %}
               <div class="row">
-                <p>
-                </p>
+                <p></p>
                 <div class="border-first-button scroll-to-section" style="align-content: center;">
-                  <a href="#services">Más información...</a>
+                  <a href="{{ about_url }}"{% if about_externo %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ site.data.about.boton_texto }}</a>
                 </div>
               </div>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -170,439 +184,244 @@ layout: main
     </div>
   </div>
 </div>
+{% endif %}
 
+<style>
+.services .naccs .menu div { vertical-align: top; }
+@media (max-width: 767px) { .thumb-responsive { height: 140px !important; } }
+</style>
+
+{% if site.data.services and site.data.services.carreras %}
 <div id="services" class="services section">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-          <h6>Propuestas Formativas</h6>
-          <h4>Carreras de <em>INFORMÁTICA</em></h4>
+        <div class="section-heading wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+          <h6>{{ site.data.services.subtitulo }}</h6>
+          <h4>{{ site.data.services.titulo }}</h4>
           <div class="line-dec"></div>
         </div>
       </div>
+
       <div class="col-lg-12">
         <div class="naccs">
           <div class="grid">
             <div class="row">
               <div class="col-lg-12">
                 <div class="menu">
-                  <div class="first-thumb active">
-                    <div class="thumb">                 
-                      <span class="icon"><img src="assets/img/videojuegos-icono.png" alt=""></span>
-                      <span style="color: red">NUEVA:</span> Tecnicatura Universitaria en Programación de Videojuegos
-                    </div>
-                  </div>
-                  <div>
-                    <div class="thumb">                 
-                      <span class="icon"><img src="assets/img/Inteligencia-artificial-icono.png" alt=""></span>
-                      <span style="color: red">NUEVA:</span> Tecnicatura Universitaria en Inteligencia Artificial
-                    </div>
-                  </div>
-                  <div>
-                    <div class="thumb">                 
-                      <span class="icon"><img src="assets/img/programacion-icono.png" alt=""></span>
-                       Tecnicatura Universitaria en Programación
-                    </div>
-                  </div>
-                  <div>  
-                    <div class="thumb">                 
-                      <span class="icon"><img src="assets/img/redes-icono.png" alt=""></span>
-                      Tecnicatura Universitaria en Redes y Operaciones
-                    </div>
-                  </div>
-                  <div class="last-thumb">
+                  {% for carrera in site.data.services.carreras %}
+                  <div class="{% if forloop.first %}first-thumb active{% elsif forloop.last %}last-thumb{% endif %}">
                     <div class="thumb">
-                      <span class="icon"><img src="assets/img/Informatica-licenciatura-icono.png" alt=""></span>
-                      Licenciatura en Informática
+                      <span class="icon"><img src="{{ carrera.icono | relative_url }}"
+                          alt="{{ carrera.nombre }}"></span>
+                      {% if carrera.etiqueta %}<span style="color: red">{{ carrera.etiqueta }}:</span> {% elsif carrera.nueva %}<span style="color: red">NUEVA:</span> {% endif %}{{ carrera.nombre }}
                     </div>
                   </div>
+                  {% endfor %}
                 </div>
-              </div> 
+              </div>
+
               <div class="col-lg-12">
                 <ul class="nacc">
-                  <li class="active">
+                  {% for carrera in site.data.services.carreras %}
+                  <li{% if forloop.first %} class="active" {% endif %}>
                     <div>
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-6 align-self-center">
                             <div class="left-text">
-                              <h4><span style="color: red">NUEVA:</span> Tecnicatura Universitaria en Programación de Videojuegos</h4>
-                              <p>Tiene por objetivo formar técnicas/os capaces de ser parte activa en proyectos de desarrollo de videojuegos; específicamente aplicando herramientas de diseño como motores de programación, recursos multimediales, diferentes lenguajes y tecnologías de interacción.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i> Motores de videojuegos</span> <span><i class="fa fa-check"></i> Diseño lúdico</span> <span><i class="fa fa-check"></i> Arte multimedial</span>
-                                <span><i class="fa fa-check"></i> Diseñar, codificar</span> <span><i class="fa fa-check"></i> Probar, medir y mantener programas</span> <span><i class="fa fa-check"></i> Trabajar en equipo</span></div>
-                              <p>Los/las profesionales Podrán a su vez ser parte de la  industria de los videojuegos,  pudiendo identificar las diferentes modalidades y propuestas mediante la selección de propuestas de software y hardware, atendiendo las cuestiones de calidad.</p>
+                              <h4>{% if carrera.nueva %}<span style="color: red">NUEVA:</span> {% endif %}{{
+                                carrera.nombre }}</h4>
+                              <p>{{ carrera.descripcion_corta }}</p>
+
+                              {% if carrera.habilidades %}
+                              <div class="ticks-list">
+                                {% for habilidad in carrera.habilidades %}
+                                {% assign texto_habilidad = habilidad.habilidad | default: habilidad %}
+                                <span><i class="fa fa-check"></i> {{ texto_habilidad }}</span>
+                                {% endfor %}
+                              </div>
+                              {% endif %}
+
+                              <p>{{ carrera.descripcion_larga }}</p>
                             </div>
                           </div>
+
                           <div class="col-lg-6 align-self-center">
                             <div class="right-image">
-                              <img src="assets/images/services-image-02.jpg" alt="">
+                              <img src="{{ carrera.imagen | relative_url }}" alt="{{ carrera.nombre }}">
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-6 align-self-center">
-                            <div class="left-text">
-                              <h4><span style="color: red">NUEVA:</span> Tecnicatura Universitaria en Inteligencia Artificial</h4>
-                              <p>La carrera tiene por objetivo formar técnicas/os universitarias/os para la resolución de problemas computacionales utilizando conocimientos y conceptos de inteligencia artificial, mediante la aplicación de herramientas y uso de diferentes lenguajes de programación.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i> Aprendizaje automático</span> <span><i class="fa fa-check"></i> Redes Neuronales</span> <span><i class="fa fa-check"></i> Procesamiento de Datos</span>
-                                <span><i class="fa fa-check"></i> Recomendadores</span> <span><i class="fa fa-check"></i> Clasificadores</span> <span><i class="fa fa-check"></i> Imágenes</span></div>
-                              <p>
-                                Las/os técnicas/os podrán predecir y/o detectar patrones agregando valor en áreas como visión artificial, procesamientos del lenguaje natural y aprendizaje automático, a través del análisis y procesamiento de datos de diferentes fuentes, utilizando criterios prácticos y aplicando y evaluando algoritmos adecuados.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 align-self-center">
-                            <div class="right-image">
-                              <img src="assets/images/services-image-03.jpg" alt="">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="active">
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-6 align-self-center">
-                            <div class="left-text">
-                              <h4>Tecnicatura Universitaria en Programación</h4>
-                              <p>Tiene por objetivo formar técnicos/as capaces de elucidar e implementar soluciones en un amplio espectro de problemas realizando tareas de diseño, programación y desarrollo de software.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i> Bases de datos</span> <span><i class="fa fa-check"></i> Back-end</span> <span><i class="fa fa-check"></i> Front-end</span>
-                                <span><i class="fa fa-check"></i> Diseñar, codificar</span> <span><i class="fa fa-check"></i> Probar, medir y mantener programas</span> <span><i class="fa fa-check"></i> Implantación de proyectos de software</span></div>
-                              <p>Los/las profesionales serán capaces de Comprender adecuadamente la pertinencia de construir software de acuerdo a varios parámetros de calidad y alorar la conveniencia de utilizar estándares abiertos y software libre en los entornos operativos y herramientas de desarrollo.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 align-self-center">
-                            <div class="right-image">
-                              <img src="assets/images/services-image-02.jpg" alt="">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-6 align-self-center">
-                            <div class="left-text">
-                              <h4>Tecnicatura Universitaria en Redes y Operaciones Informáticas</h4>
-                              <p>La carrera tiene por objetivo formar técnicos/as capaces de elucidar e implementar soluciones en un amplio espectro de problemas asociados a la conectividad, servicios de apoyo al desarrollo y despliegue de aplicaciones, y configuración de arquitecturas para la integración continua de sistemas informáticos.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i> DevOps</span> <span><i class="fa fa-check"></i> Redes Avanzadas</span> <span><i class="fa fa-check"></i> Servicios en la nube</span>
-                                <span><i class="fa fa-check"></i> Contenedores</span> <span><i class="fa fa-check"></i> Conectividad</span> <span><i class="fa fa-check"></i> Integración continua</span></div>
-                              <p>Las/los profesionales tendrán sólidas bases para formar parte de equipos de Gestión Informática. Serán capaces de comprender adecuadamente la pertinencia de realizar las tareas bajo diferentes parámetros de calidad, entre los que destacamos: claridad, mantenimiento, robustez frente a fallos, uso eficiente de recursos y de la energía. Dispondrán de parámetros para valorar y tener en cuenta los conceptos de estándares abiertos y software libre en los entornos operativos.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 align-self-center">
-                            <div class="right-image">
-                              <img src="assets/images/services-image-03.jpg" alt="">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <div class="thumb">
-                        <div class="row">
-                          <div class="col-lg-6 align-self-center">
-                            <div class="left-text">
-                              <h4>Licenciatura en Informática</h4>
-                              <p>La Licenciada o Licenciado en Informátic	cuenta con una base conceptual sólida que le permite resolver problemas y liderar proyectos de desarrollo de software y aplicaciones de distinta índole y magnitud, tanto en el rol de líderes de equipos o en consultoría. Además, puede intervenir en procedimientos periciales y capacitar en diferentes niveles educativos. Así mismo, integrar y dirigir proyectos de investigación.</p>
-                              <div class="ticks-list"><span><i class="fa fa-check"></i>Arquitectura de Software</span> <span><i class="fa fa-check"></i>Computación de alto desempeño</span> <span><i class="fa fa-check"></i>Inteligencia Artificial</span>
-                                <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i>Ingeniería de Software</span> <span><i class="fa fa-check"></i>Sistemas en tiempo real - IoT</span></div>
-                              <p>Esta carrera de grado tiene entre sus activiades reservadas la de especificar, proyectar y desarrollar sistemas de información, sistemas de comunicación de datos y software cuya utilización pueda afectar la seguridad, salud, bienes o derechos.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6 align-self-center">
-                            <div class="right-image">
-                              <img src="assets/images/services-image.jpg" alt="">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                    {% endfor %}
                 </ul>
-              </div>        
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
+{% endif %}
 
-<div id="portfolio" class="our-portfolio section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5">
-        <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-          <h6>Planes</h6>
-          <h4>Analizalos, leelos y <em>Comparalos</em></h4>
-          <div class="line-dec"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="loop owl-carousel">
-          <div class="item">
-            <a href="/planilla-comparativa/">
-              <div class="portfolio-item">
-              <div class="thumb">
-                <img src="assets/images/planilla-comparativa.jpg" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Planilla Comparativa</h4>
-                <span>Esta planilla de cálculo te permite ver cómo aplican las materias que tenés aprobadas en cada plan</span>
-              </div>
-            </div>
-            </a>  
-          </div>
-          <div class="item">
-            <a href="/tecnicatura-programacion/">
-              <div class="portfolio-item">
-              <div class="thumb">
-                <img src="assets/images/planes-programacion.jpg" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Tecnicatura Universitaria en Programación</h4>
-                <span>Focalizada en desarrollar el pensamiento computacional y los conocimientos para las necesidades de programación de la actualidad.</span>
-              </div>
-            </div>
-            </a>  
-          </div>
-          <div class="item">
-            <a href="/tecnicatura-redes-operaciones/">
-              <div class="portfolio-item">
-              <div class="thumb">
-                <img src="assets/images/planes-redes-operaciones.jpg" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Tecnicatura Universitaria en Redes y Operaciones</h4>
-                <span>Orientada a formar profesionales DevOps que forman parte del ecosistema del desarrollo de software.</span>
-              </div>
-            </div>
-            </a>  
-          </div>
-          <div class="item">
-            <a href="/assets/pdf/planes/licenciatura-informatica-unahur.pdf" target="_blank">
-              <div class="portfolio-item">
-              <div class="thumb">
-                <img src="assets/images/licenciatura.jpg" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Licenciatura en informática</h4>
-                <span>Equivalencias con las Tecnicaturas: acá te mostramos cómo se obtienen materias de la Licenciatura cursando las tecnicaturas.</span>
-              </div>
-            </div>
-            </a>  
-          </div>
-          <div class="item">
-            <a href="/assets/pdf/planes/2023-Tecnicatura-Universitaria-Inteligencia-Artificial.pdf" target="_blank">
-              <div class="portfolio-item">
-              <div class="thumb">
-                <img src="assets/images/licenciatura.jpg" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Tecnicatura Universitaria en Inteligencia Artificial</h4>
-                <span></span>
-              </div>
-            </div>
-            </a>  
-          </div>
-          <div class="item">
-            <a href="/assets/pdf/planes/2022-Plan-Tecnicatura-Universitaria-en-Programacion-de-Videojuegos.pdf" target="_blank">
-              <div class="portfolio-item">
-              <div class="thumb">
-                <img src="assets/images/tecnicatura-videojuego-nueva.png" alt="">
-              </div>
-              <div class="down-content">
-                <h4>Tecnicatura Universitaria en Programación de Videojuegos</h4>
-                <span>Si te gusta la programación y los videojuegos, podés integrarte a este mundo abordando las problemáticas del diseño y desarrollo.</span>
-              </div>
-            </div>
-            </a>  
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- ***** Sección Carreras movida a /carreras/ ***** -->
 
+{% if site.data.blog %}
 <div id="blog" class="blog">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 offset-lg-4  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
+      <div class="col-lg-4 offset-lg-4 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.3s">
         <div class="section-heading">
-          <h6>DETALLES DE LAS PROPUESTAS</h6>
-          <h4>Revisá la <em>Documentación</em></h4>
+          <h6>{{ site.data.blog.subtitulo }}</h6>
+          <h4>{{ site.data.blog.titulo | replace: "Documentación", "<em>Documentación</em>" }}</h4>
           <div class="line-dec"></div>
         </div>
       </div>
-      <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-        <div class="blog-post">
-          <div class="thumb">
-            <a href="#"><img src="assets/images/como-son-tecnicaturas.jpg" alt=""></a>
-          </div>
-          <div class="down-content">
-            <span class="category">Cambio de PLAN</span>
-            <span class="date">2022 - 2023</span>
-            <a href="/planilla-comparativa/"><h4>¿Querés pasarte de la Tecnicatura Univ. en Informática a alguna de las nuevas Tecniaturas 2022/2023?</h4></a>
-            <p>En este corto video te resumimos los alcances de los títulos y cómo podés hacer para inscribirte en alguno de ellos.</p>
-            <span class="author"><img src="assets/img/logo-informatica.png" alt="">Informática UNAHUR</span>
-            <div class="border-first-button"><a href="/planilla-comparativa/"></a></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-        <div class="blog-posts">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="post-item">
-                <div class="thumb">
-                  <a href="#"><img src="assets/images/blog-post-02.jpg" alt=""></a>
-                </div>
-                <div class="right-content">
-                  <span class="category">REGLAMENTO</span>
-                  <span class="date">Junio 2022</span>
-                  <a href="/catalogo-creditos/"><h4>Sistema de créditos</h4></a>
-                  <p>Revisá el reglamento y las posibilidades de sumar los 35 créditos complementarios del plan de estudios.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="post-item last-post-item">
-                <div class="thumb">
-                  <a href="/materias-primer-cuatrimestre/"><img src="assets/images/materias-primer-cuatrimestre.jpg" alt=""></a>
-                </div>
-                <div class="right-content">
-                  <span class="category">Materias</span>
-                  <span class="date">Febrero 2022</span>
-                  <a href="/materias-primer-cuatrimestre/"><h4>Materias del primer cuatrimestre</h4></a>
-                  <p>Te contamos en este apartado cómo se organizan ahora las materias del primer cuatrimestre. Y si ya las cursaste y aprobaste, cómo impactan en los nuevos planes.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>  
 
-<div id="free-quote" class="free-quote">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <div class="section-heading  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-          <h6>En los planes de las Tecnicaturas</h6>
-          <h4>Sistema de Créditos: ¿qué es y cómo funciona?</h4>
-          <div class="line-dec"></div>
+      <div class="col-lg-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+        <div class="row">
+
+          {% if site.data.blog.destacado %}
+          {% assign d = site.data.blog.destacado %}
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="post-item card blog-card-popup" style="border:1px solid #e0e0e0; border-radius:8px; overflow:hidden; height:100%; display:flex; flex-direction:column; cursor:pointer;"
+              data-titulo="{{ d.titulo | escape }}"
+              data-categoria="{{ d.categoria | escape }}"
+              data-imagen="{{ d.imagen | relative_url }}"
+              data-descripcion="{{ d.descripcion | escape }}"
+              data-contenido="{{ d.contenido | escape }}"
+              data-url="{{ d.url }}">
+              <div class="thumb thumb-responsive" style="height:180px; overflow:hidden; pointer-events:none;">
+                <img src="{{ d.imagen | relative_url }}" alt="{{ d.titulo }}" style="width:100%; height:100%; object-fit:cover;">
+              </div>
+              <div class="right-content" style="flex:1; padding:16px;">
+                {% if d.categoria %}
+                <span class="category" style="background:#4db6ad; color:#fff; padding:3px 10px; border-radius:15px; font-size:0.75rem; display:inline-block; margin-bottom:8px;">{{ d.categoria }}</span>
+                {% endif %}
+                <h4 style="font-size:1rem; color:#333; margin:8px 0;">{{ d.titulo }}</h4>
+                <p style="font-size:0.9rem; color:#666;">{{ d.descripcion }}</p>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if site.data.blog.items %}
+            {% for item in site.data.blog.items %}
+            <div class="col-lg-6 col-md-6 mb-4">
+              <div class="post-item card blog-card-popup" style="border:1px solid #e0e0e0; border-radius:8px; overflow:hidden; height:100%; display:flex; flex-direction:column; cursor:pointer;"
+                data-titulo="{{ item.titulo | escape }}"
+                data-categoria="{{ item.categoria | escape }}"
+                data-imagen="{{ item.imagen | relative_url }}"
+                data-descripcion="{{ item.descripcion | escape }}"
+                data-contenido="{{ item.contenido | escape }}"
+                data-url="{{ item.url }}">
+                <div class="thumb thumb-responsive" style="height:180px; overflow:hidden; pointer-events:none;">
+                  <img src="{{ item.imagen | relative_url }}" alt="{{ item.titulo }}" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="right-content" style="flex:1; padding:16px;">
+                  {% if item.categoria %}
+                  <span class="category" style="background:#4db6ad; color:#fff; padding:3px 10px; border-radius:15px; font-size:0.75rem; display:inline-block; margin-bottom:8px;">{{ item.categoria }}</span>
+                  {% endif %}
+                  <h4 style="font-size:1rem; color:#333; margin:8px 0;">{{ item.titulo }}</h4>
+                  <p style="font-size:0.9rem; color:#666;">{{ item.descripcion }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          {% endif %}
+
         </div>
-      </div>
-      <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-            <div class="border-first-button-c">
-              <a href="/catalogo-creditos/">CONSULTAR CATÁLOGO</a>
-            </div>
-          </br>
-            <div class="border-first-button-c">
-              <a href="/assets/pdf/creditos/202206-Reglamento-Creditos-ITI.pdf" target="_blank">REGLAMENTO</a>
-            </div>
-          </br>
-            <div class="border-first-button-c">
-              <a href="/assets/pdf/creditos/procedimientos-estudiantes.pdf" target="_blank">PROCEDIMIENTO</a>
-            </div>
-          </br>
-         la siguiente planilla te permite llevar control de los créditos que vas haciendo. Contiene las actividades abiertas en 2022
-          </br>
-            <div class="border-first-button-c">
-              <a href="https://docs.google.com/spreadsheets/d/1hOk2co2Rv2Q6y7RiNNfTav3QFHDguMcMubB5wFu6BkE/copy" target="_blank">Control de Créditos</a>
-            </div>
-      </div>
-      <p style="margin-top: 20px"></p>
-      <div><h6> ¿Qué son los Créditos?: </h6></div>
-      <div style="background-color: #ffffff">
-        <p>Los planes de estudio de la Tecniatura Universitaria en Programación y de la Tecnicatura Univeristaria en Redes y Operaciones, tiene un complemento de actividades que se validan mediante certificaciones basadas en dedicación, tipo de actividades, relación con la actividad profesional, y otros aspectos detallados en el Reglamento.</p>
-        <p>Esto te permite fortalecer tus conocimientos con otras habilidades y además poder validar actividades que realices fuera de la cursada habitual.</p>
-        <p>Ante cualquier consultá por mail a: creditos.iti@unahur.edu.ar</p>
-        <p style="margin-top: 20px"></p>
       </div>
     </div>
   </div>
 </div>
 
-<div id="contactos" class="contact-us section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-3">
-        <div class="section-heading wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-          <h6>CONTACTOS</h6>
-          <h4>La comunidad de informática se <em>Comunica</em> por</h4>
-          <div class="line-dec"></div>
+<!-- Modal recursos -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="border-radius:12px; overflow:hidden; border:none;">
+      <div style="position:relative;">
+        <div id="blogModalImg" style="height:220px; overflow:hidden; background:#eee;">
+          <img id="blogModalImgEl" src="" alt="" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <button type="button" data-bs-dismiss="modal" aria-label="Cerrar"
+          style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.5); border:none; border-radius:50%; width:32px; height:32px; color:#fff; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;">✕</button>
+      </div>
+      <div class="modal-body" style="padding:28px 32px;">
+        <span id="blogModalCategoria" style="background:#4db6ad; color:#fff; padding:3px 10px; border-radius:15px; font-size:0.75rem; display:inline-block; margin-bottom:12px;"></span>
+        <h4 id="blogModalTitulo" style="font-size:1.3rem; color:#2a2a2a; font-weight:700; margin-bottom:16px;"></h4>
+        <div id="blogModalContenido" style="font-size:0.95rem; color:#555; line-height:1.8;"></div>
+        <div id="blogModalLinkWrap" style="margin-top:20px; display:none;">
+          <a id="blogModalLink" href="#" target="_blank" rel="noopener noreferrer"
+             style="display:inline-block; padding:10px 24px; background:#4db6ad; color:#fff; border-radius:30px; text-decoration:none; font-weight:600; font-size:0.9rem;">
+            Ver más →
+          </a>
         </div>
       </div>
-      <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-        <form id="contact" action="" method="post">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="contact-dec">
-                <img src="assets/images/contact-dec-v3.png" alt="">
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="fill-form">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <div class="info-post">
-                      <div class="icon">
-                        <img src="assets/images/discord-icon.png" alt="">
-                        <a href="https://discord.gg/tqyHtPt" target="_blank">Canal Discord</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="info-post">
-                      <div class="icon">
-                        <img src="assets/images/telegram-icon.jpg" alt="">
-                        <a href="https://t.me/joinchat/AAAAAFaVfVC8RaEkQhQdhg" target="_blank">Canal Telegram</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="info-post">
-                      <div class="icon">
-                        <img src="assets/images/email-icon.png" alt="">
-                        <a href="#">informatica-ayuda@unahur.edu.ar</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="info-post">
-                      <div class="icon">
-                        <img src="assets/images/youtube-icon.png" alt="">
-                        <a href="https://www.youtube.com/channel/UCNkrQDISXSSVs-fnQ9MnqEg" target="_blank">Canal de Youtube</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
+      <div class="modal-footer" style="border:none; padding:0 32px 20px;">
+        <button type="button" data-bs-dismiss="modal" style="border-radius:20px; padding:8px 20px; font-size:0.85rem; background:#6c757d; color:#fff; border:none; cursor:pointer;">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+window.addEventListener('load', function() {
+  var blogModal = new bootstrap.Modal(document.getElementById('blogModal'));
+
+  document.querySelectorAll('.blog-card-popup').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.getElementById('blogModalTitulo').textContent    = this.getAttribute('data-titulo');
+      document.getElementById('blogModalCategoria').textContent = this.getAttribute('data-categoria');
+      document.getElementById('blogModalImgEl').src             = this.getAttribute('data-imagen');
+      document.getElementById('blogModalContenido').innerHTML   = this.getAttribute('data-contenido');
+
+      var url = this.getAttribute('data-url');
+      var linkWrap = document.getElementById('blogModalLinkWrap');
+      if (url && url !== '#') {
+        document.getElementById('blogModalLink').href = url;
+        linkWrap.style.display = 'block';
+      } else {
+        linkWrap.style.display = 'none';
+      }
+
+      blogModal.show();
+    });
+
+    card.addEventListener('mouseenter', function() { this.style.boxShadow = '0 6px 20px rgba(0,0,0,0.12)'; this.style.transform = 'translateY(-2px)'; this.style.transition = '0.2s'; });
+    card.addEventListener('mouseleave', function() { this.style.boxShadow = ''; this.style.transform = ''; });
+  });
+});
+</script>
+{% endif %}
+
+<!-- ***** Sección Créditos movida a /creditos/ ***** -->
+
+<!-- ***** Sección Contactos movida al footer ***** -->
+
+<!-- Script inicialización carrusel novedades -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+      var $bannerCarousel = jQuery('.owl-banner-novedades');
+      if ($bannerCarousel.length) {
+        $bannerCarousel.owlCarousel({
+          items: 1,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 6000,
+          autoplayHoverPause: true,
+          nav: true,
+          dots: true,
+          navText: ['&#8249;', '&#8250;'],
+          animateOut: 'fadeOut'
+        });
+      }
+    }
+  });
+</script>

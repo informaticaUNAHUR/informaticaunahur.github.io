@@ -10,7 +10,6 @@ permalink: /planilla-comparativa/
 >Hacete una copia de la planilla Google y usala
 >Solamente cambiá en la COLUMNA A , en cada materia, por SI o por NO según tengas la materia aprobada.
 
-
-[![Planilla](/assets/images/gsps.png) Planilla comparativa de planes](https://docs.google.com/spreadsheets/d/16tph2RkNO_DqJxjJCxGYNibGpx-nu11lvAT6qntFRwg/copy){:target="_blank"}
+[![Planilla]({{ '/assets/images/gsps.png' | relative_url }}) Planilla comparativa de planes](https://docs.google.com/spreadsheets/d/16tph2RkNO_DqJxjJCxGYNibGpx-nu11lvAT6qntFRwg/copy){:target="_blank"}
 
 ***
