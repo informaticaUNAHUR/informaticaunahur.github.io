@@ -1,34 +1,36 @@
 ---
 layout: carrera
-title: "Licenciatura en Ciberseguridad"
+title: Licenciatura en Ciberseguridad
 permalink: /licenciatura-ciberseguridad/
+icono: /assets/img/redes-icono.png
+descripcion_corta: Licenciatura con título intermedio Técnico/a Universitario en
+  Redes y Operaciones Informáticas.
+imagen: /assets/images/services-image-03.jpg
 vigente: true
 orden: 2
-icono: /assets/img/redes-icono.png
-descripcion_corta: "Licenciatura con título intermedio Técnico/a Universitario en Redes y Operaciones Informáticas."
-titulo_intermedio: "Técnico/a Universitario en Redes y Operaciones Informáticas"
+titulo_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
 total_horas: 6000
+pdf: /assets/pdf/planes/Lic-en-Ciberseguridad-2026.pdf
+correlatividades_imagen: /assets/uploads/planredes.png
 tabla_datos:
-  col_grado: "Licenciado/a en Ciberseguridad"
-  col_intermedio: "Técnico/a Universitario en Redes y Operaciones Informáticas"
+  col_grado: Licenciado/a en Ciberseguridad
+  col_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
   filas:
-    - label: "Duración"
-      grado: "4,5 años"
-      intermedio: "2,5 años"
-    - label: "Horas Interacción pedagógica"
+    - label: Duración
+      grado: 4,5 años
+      intermedio: 2,5 años
+    - label: Horas Interacción pedagógica
       grado: "2240"
       intermedio: "1120"
-    - label: "Materias"
+    - label: Materias
       grado: "31"
       intermedio: "16"
-    - label: "Créditos ACA"
+    - label: Créditos ACA
       grado: "30"
       intermedio: "12"
-    - label: "Créditos Totales"
+    - label: Créditos Totales
       grado: "240"
       intermedio: "120"
-pdf: "/assets/pdf/planes/Lic-en-Ciberseguridad-2026.pdf"
-imagen: /assets/images/services-image-03.jpg
 cuatrimestres:
   - nombre: Primer Año
     horas: ""
