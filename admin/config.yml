@@ -2,7 +2,7 @@ backend:
   name: github
   repo: informaticaUNAHUR/informaticaunahur.github.io
   branch: master
-  base_url: https://decap-cms-oauth-zeta.vercel.app # TODO: reemplazar con proxy propio
+  base_url: https://decap-oauth-unahur.vercel.app
 
 # Opcional: permite editar en local sin publicar
 # local_backend: true
