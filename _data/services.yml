@@ -61,7 +61,8 @@ carreras:
       y hardware, atendiendo cuestiones de calidad y usabilidad.
     imagen: /assets/images/services-image-02.jpg
   - nombre: Tecnicatura Universitaria en Inteligencia Artificial
-    nueva: true
+    nueva: false
+    etiqueta: Nuevo Plan
     icono: /assets/img/Inteligencia-artificial-icono.png
     descripcion_corta: La carrera tiene por objetivo formar técnicas/os
       universitarias/os para la resolución de problemas computacionales
