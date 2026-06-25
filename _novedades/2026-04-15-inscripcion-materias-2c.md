@@ -11,14 +11,23 @@ descripcion: "Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y
 
 
 
-### Fechas importantes
+##### Fechas importantes
 
 **1° inscripción:** 27 y 28 julio (hasta 3 materias) 
-**2° inscripción (repechaje):** 30 julio al 1 agosto  ( hasta 5 materias) 
+
+**2° inscripción (repechaje):** 30 julio al 1 agosto  (hasta 5 materias) 
+
 **Inicio de clases:** 10 agosto
 
 
 
-### ¿Cómo inscribirse?
+##### ¿Cómo inscribirse?
 
 La inscripción se realiza a través del  SIU Guaraní. Si es tu primera vez, podés seguir nuestra guía paso a paso para hacer el proceso sin inconvenientes.
+
+
+
+##### Importante
+
+Las materias disponibles y sus correlatividades son las correspondientes a los nuevos planes de estudio. 
+Consultar cualquier duda sobre cambios de nombre, equivalencias, títulos intermedios y todo lo referidos a la transición de planes de estudios.
