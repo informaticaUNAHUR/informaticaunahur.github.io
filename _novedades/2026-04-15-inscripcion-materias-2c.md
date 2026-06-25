@@ -7,9 +7,9 @@ imagen: /assets/uploads/desarrolladores.jpg
 descripcion: "Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y
   28 julio (diferentes a las publicadas en el calendario académico) "
 ---
-**Inscripción a materias para el 2° cuatrimestre de 2026**.
+**Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y 28 julio (diferentes a las publicadas en el calendario académico)** 
 
-#### Fechas importantes
+## Fechas importantes
 
 * **1° inscripción:** 27 y 28 julio (hasta 3 materias) 
 * **2° inscripción (repechaje):** 30 julio al 1 agosto  ( hasta 5 materias) 
@@ -17,11 +17,13 @@ descripcion: "Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y
 
 
 
-#### ¿Cómo inscribirse?
+## ¿Cómo inscribirse?
 
 La inscripción se realiza a través del  SIU Guaraní. Si es tu primera vez, podés seguir nuestra guía paso a paso para hacer el proceso sin inconvenientes.
 
-#### Nuevas carreras y planes de estudio
+
+
+## Nuevas carreras y planes de estudio
 
 * La inscripción a cursada se realiza de acuerdo a los panes de estudios nuevos de las carreras de informática. 
 * Importante: Revisar cambios de nombre, equivalencias y correlatividades nuevas.
