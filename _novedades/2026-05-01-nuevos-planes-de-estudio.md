@@ -14,4 +14,4 @@ Los nuevos planes y carreras son:
 * **Informática:** Cambios de planes, misma carrera: “Licenciatura en Informática” (4.5 años), con título intermedio de “Técnico/a Univ. en Programación” (2.5 años)
 * **Redes/Ciber:** Nueva carrera de grado “Licenciatura en Ciberseguridad” (4 años) , con título intermedio de “Técnico/a Univ. en Redes y Operaciones Informáticas” (2 años)
 * **Videojuegos/Simulaciones:** Nueva carrera de grado “Licenciatura en Desarrollo de Videojuegos y Simulaciones” (4 años) con título intermedio de “Técnico/a Univ. en programación de Videojuegos”
-* **Inteligencia Artificial:** Cambio de plan, mismo título: “Tecnico/a Univ. en Inteligencia Artificial”. Más adelante “Ingeniería en Computación con título intermedio de Técnico/a Univ. en Inteligencia Artificial”.
+* **Inteligencia Artificial:** Cambio de plan, mismo título: “Técnico/a Univ. en Inteligencia Artificial”. Más adelante “Ingeniería en Computación con título intermedio de Técnico/a Univ. en Inteligencia Artificial”.
