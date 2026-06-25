@@ -20,10 +20,3 @@ descripcion: "Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y
 ### ¿Cómo inscribirse?
 
 La inscripción se realiza a través del  SIU Guaraní. Si es tu primera vez, podés seguir nuestra guía paso a paso para hacer el proceso sin inconvenientes.
-
-
-
-### Nuevas carreras y planes de estudio
-
-* La inscripción a cursada se realiza de acuerdo a los panes de estudios nuevos de las carreras de informática. 
-* Importante: Revisar cambios de nombre, equivalencias y correlatividades nuevas.
