@@ -9,11 +9,13 @@ descripcion: "Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y
 ---
 **Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y 28 julio (diferentes a las publicadas en el calendario académico)** 
 
+
+
 ### Fechas importantes
 
-* **1° inscripción:** 27 y 28 julio (hasta 3 materias) 
-* **2° inscripción (repechaje):** 30 julio al 1 agosto  ( hasta 5 materias) 
-* **Inicio de clases:** 10 agosto
+**1° inscripción:** 27 y 28 julio (hasta 3 materias) 
+**2° inscripción (repechaje):** 30 julio al 1 agosto  ( hasta 5 materias) 
+**Inicio de clases:** 10 agosto
 
 
 
