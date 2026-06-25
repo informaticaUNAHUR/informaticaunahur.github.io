@@ -1,34 +1,36 @@
 ---
 layout: carrera
-title: "Licenciatura en Desarrollo de Videojuegos y Simulaciones"
+title: Licenciatura en Desarrollo de Videojuegos y Simulaciones
 permalink: /licenciatura-videojuegos-simulaciones/
+icono: /assets/img/videojuegos-icono.png
+descripcion_corta: Licenciatura en Desarrollo de Videojuegos y Simulaciones con
+  título intermedio Técnico/a Universitario en Programación de Videojuegos.
+imagen: /assets/images/services-image-02.jpg
 vigente: true
 orden: 3
-icono: /assets/img/videojuegos-icono.png
-descripcion_corta: "Licenciatura con título intermedio Técnico/a Universitario en Programación de Videojuegos."
-titulo_intermedio: "Técnico/a Universitario en Programación de Videojuegos"
+titulo_intermedio: Técnico/a Universitario en Programación de Videojuegos
 total_horas: 6000
+pdf: /assets/uploads/lic-vj-plan-2026.pdf
+correlatividades_imagen: /assets/uploads/lic-vj-2026.png
 tabla_datos:
-  col_grado: "Licenciado/a en Desarrollo de Videojuegos y Simulaciones"
-  col_intermedio: "Técnico/a Universitario en Programación de Videojuegos"
+  col_grado: Licenciado/a en Desarrollo de Videojuegos y Simulaciones
+  col_intermedio: Técnico/a Universitario en Programación de Videojuegos
   filas:
-    - label: "Duración"
-      grado: "4,5 años"
-      intermedio: "2,5 años"
-    - label: "Horas Interacción pedagógica"
+    - label: Duración
+      grado: 4,5 años
+      intermedio: 2,5 años
+    - label: Horas Interacción pedagógica
       grado: "2240"
       intermedio: "1120"
-    - label: "Materias"
+    - label: Materias
       grado: "31"
       intermedio: "16"
-    - label: "Créditos ACA"
+    - label: Créditos ACA
       grado: "30"
       intermedio: "12"
-    - label: "Créditos Totales"
+    - label: Créditos Totales
       grado: "240"
       intermedio: "120"
-pdf: "/assets/pdf/planes/Lic-en-Desarrollo-de-Videojuegos-y-Simulaciones-2026.pdf"
-imagen: /assets/images/services-image-02.jpg
 cuatrimestres:
   - nombre: Primer Año
     horas: ""
