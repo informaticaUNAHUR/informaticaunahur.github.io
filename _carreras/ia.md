@@ -1,26 +1,27 @@
 ---
 layout: carrera
-title: "Tecnicatura Universitaria en Inteligencia Artificial"
+title: Tecnicatura Universitaria en Inteligencia Artificial
 permalink: /tecnicatura-inteligencia-artificial/
+icono: /assets/img/Inteligencia-artificial-icono.png
+descripcion_corta: (En proyecto, continuidad con Ingeniería en Computación)
+imagen: assets/images/licenciatura.jpg
 vigente: true
 orden: 4
-icono: /assets/img/Inteligencia-artificial-icono.png
-descripcion_corta: "Formación en IA, aprendizaje automático y procesamiento de datos."
-imagen: assets/images/licenciatura.jpg
-pdf: /assets/pdf/planes/Tec-Inteligencia-Artificial-2026.pdf
 total_horas: 3000
+pdf: /assets/pdf/planes/Tec-Inteligencia-Artificial-2026.pdf
+correlatividades_imagen: /assets/uploads/tec-ia-2026.png
 tabla_datos:
-  col_grado: "Técnico/a Universitario/a en Inteligencia Artificial"
+  col_grado: Técnico/a Universitario/a en Inteligencia Artificial
   filas:
-    - label: "Duración"
-      grado: "2,5 años"
-    - label: "Horas Interacción pedagógica"
+    - label: Duración
+      grado: 2,5 años
+    - label: Horas Interacción pedagógica
       grado: "1376"
-    - label: "Materias"
+    - label: Materias
       grado: "20"
-    - label: "Créditos ACA"
+    - label: Créditos ACA
       grado: "12"
-    - label: "Créditos Totales"
+    - label: Créditos Totales
       grado: "120"
 cuatrimestres:
   - nombre: Primer Cuatrimestre
