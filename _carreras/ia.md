@@ -8,7 +8,7 @@ imagen: assets/images/licenciatura.jpg
 vigente: true
 orden: 4
 total_horas: 3000
-pdf: /assets/pdf/planes/Tec-Inteligencia-Artificial-2026.pdf
+pdf: /assets/uploads/planes-carreras-informatica-para-web-ia.pdf
 correlatividades_imagen: /assets/uploads/tec-ia-2026.png
 tabla_datos:
   col_grado: Técnico/a Universitario/a en Inteligencia Artificial
