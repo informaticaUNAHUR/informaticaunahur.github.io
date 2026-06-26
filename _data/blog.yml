@@ -46,10 +46,10 @@ items:
     contenido: |
       <h5>Tips para organizar tu cursada</h5>
       <ul>
-        <li>Revisá el <strong>plan de estudios</strong> de tu carrera y trazá un mapa de correlativas.</li>
+        <li>Revisá el <strong>plan de estudios</strong> de tu carrera y miŕa los contenidos.</li>
         <li>No sobrecargues el cuatrimestre: 3 o 4 materias es un ritmo sostenible para la mayoría.</li>
         <li>Priorizá materias que desbloquean correlativas importantes.</li>
-        <li>Usá el <strong>campus virtual</strong> para revisar materiales antes de que empiece el cuatrimestre.</li>
+        <li>Usá el <strong>campus virtual</strong> para revisar materiales .</li>
         <li>Sumáte al <strong>Discord</strong> de informática para conectar con compañeros de las mismas materias.</li>
       </ul>
 
@@ -90,13 +90,10 @@ items:
   - categoria: Cursada
     fecha: "2026"
     titulo: ¿Dónde curso?
-    descripcion: Conocé las sedes y aulas donde se dictan las materias de las carreras de informática.
+    descripcion: Conocé las aulas donde se dictan las materias cada día.
     imagen: /assets/images/blog-post-01.jpg
     url: "#"
     contenido: |
-      <p>Las carreras de informática del ITI se dictan en el <strong>Campus de UNAHUR</strong>, ubicado en:</p>
-      <p><strong>Av. de los Trabajadores 1174, William Morris, Hurlingham.</strong></p>
-      <h5>Edificio TA</h5>
-      <p>La mayoría de las materias de informática se dictan en el edificio TA. La secretaría del ITI se encuentra en la <strong>oficina TA213</strong>.</p>
-      <p>Los horarios y aulas de cada materia se publican al inicio de cada cuatrimestre en el sistema y en el Discord oficial.</p>
+      <p>La mayor parte de las materias de informática se distribuyen en el edificio Malvinas Argentinas, Justicia Social y Trabajo Argentino. En algunos casos, en La Patria, Gratuidad Universitaria o en el anexo de Calasanz.</strong>.</p>
+      <p>Los horarios y aulas de cada materia se publican al inicio de cada cuatrimestre en el sistema de aulas.</p>
       <a href="https://cpudondecurso.unahur.edu.ar/" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:12px; padding:10px 22px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem;">🏫 Buscar mi aula</a>
