@@ -2,19 +2,17 @@ subtitulo: 2° Cuatrimestre 2026
 titulo: Período de transición hacia los nuevos planes de estudio
 descripcion: Con las nuevas carreras y planes de estudio se moderniza y amplia
   la oferta académica. Toda la información para quien ya está cursando las
-  carreras. ¿Cómo impactan los cambios?   carreras se renuevan con títulos
-  intermedios y finales que reflejan mejor el perfil profesional actual. Si ya
-  estás cursando, podés consultar cómo es la transición entre planes.
+  carreras. ¿Cómo impactan los cambios?  ¿Cómo es la transición entre planes?
 imagen: /assets/images/about-dec-v3.png
 estadisticas:
-  - valor: "2026"
-    detalle: 2° Cuatrimestre
+  - valor: "+5000"
+    detalle: Estudiantes
     porcentaje: 100
   - valor: "3"
-    detalle: Títulos de Licenciado/a
-    porcentaje: 75
-  - valor: "4"
-    detalle: Títulos de Técnico/a Univerisitario
-    porcentaje: 100
+    detalle: Licenciaturas
+    porcentaje: 80
+  - valor: "1"
+    detalle: Tecnicatura
+    porcentaje: 40
 boton_texto: Ver carreras
 boton_url: https://informaticaunahur.github.io/carreras/
