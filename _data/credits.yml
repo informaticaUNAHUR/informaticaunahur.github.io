@@ -4,7 +4,7 @@ botones:
   - texto: Sistema de créditos anterior (vigente hasta primer cuatrimestre 2026)
     url: /catalogo-creditos/
     externo: false
-texto_previo_planilla: Nuevo catálogo de créditos “ACA”. Experiencias Formativas.
+texto_previo_planilla: Nuevo catálogo. ACA Experiencias Formativas.
 planilla:
   texto: Ver catálogo
   url: https://docs.google.com/spreadsheets/d/1EuVPNeD5CH0N80FV6vxBXAWtLXp-Ku1lM69dEdYT2D8/edit?gid=0#gid=0
@@ -12,27 +12,27 @@ planilla:
 explicacion_titulo: Transición
 descripcion: >
   Todas los créditos acumulados (CRE) se transforman a los nuevos créditos
-  (ACA), de acuerdo a una serie de comunes a todas las carreras de informática,
-  establecidas en el plan de transición.
-
-  ---
-parrafo: Los créditos ACA, junto con las manterias, son parte del plan de estudios de todas las carreras. 
-  Las licencituras requieren 30 créditos, de los cuales 10 corresponden a Unidades Curriculres (Materias electivas) 
-  otros 10 a Experiencias Formativas (Actividades deportivas, culturales, de extensión, investigación y docencia, cursos y talleres formativos, etc) 
-  y las restantes a elección. Las tecnicaturas requiren 12 créditos, repartidos en igual proporción.
+  (ACA), de acuerdo a una serie de equivalencias comunes a todas las carreras de
+  informática, establecidas en el plan de transición.
+parrafo: Los créditos ACA, junto con las manterias, son parte del plan de
+  estudios de todas las carreras. Las licencituras requieren 30 créditos, de los
+  cuales 10 corresponden a Unidades Curriculres (Materias electivas) otros 10 a
+  Experiencias Formativas (Actividades deportivas, culturales, de extensión,
+  investigación y docencia, cursos y talleres formativos, etc) y las restantes a
+  elección. Las tecnicaturas requiren 12 créditos, repartidos en igual
+  proporción.
 explicacion_parrafos:
   - >
-    Unahur, el ITI e Informática fueron pioneras en crear un sistema de créditos propio. Ahora se suma al SACAU.
-  - >-
-    * Se mantiene su sentido educativo
-  - >-
-    * Haber experimentado dio pie a ajustes para simplificar y potenciar
-  - >-
-    * Se extiende a toda la carrera (y todas las carreras)
-  - >-
-    * Hay criterios comunes para toda la universidad
-  - >-
-    * Se cuantifican con créditos también todas las materias 
-  - >-
-    El sistema de créditos SACAU es un modelo de reconocimiento creado por el CIN para medir el tiempo total de aprendizaje (horas de clase + trabajo autónomo) mediante una unidad común. Busca visibilizar el esfuerzo real, flexibilizar los planes de estudio y facilitar la movilidad estudiantil, estableciendo equivalencias entre carreras y universidades. 1 Crédito = 25 horas
-  - >
+    Unahur, el ITI e Informática fueron pioneras en crear un sistema de créditos
+    propio. Ahora se suma al SACAU.
+  - "* Se mantiene su sentido educativo"
+  - "* Haber experimentado dio pie a ajustes para simplificar y potenciar"
+  - "* Se extiende a toda la carrera (y todas las carreras)"
+  - "* Hay criterios comunes para toda la universidad"
+  - "* Se cuantifican con créditos también todas las materias "
+  - "El sistema de créditos SACAU es un modelo de reconocimiento creado por el
+    CIN para medir el tiempo total de aprendizaje (horas de clase + trabajo
+    autónomo) mediante una unidad común. Busca visibilizar el esfuerzo real,
+    flexibilizar los planes de estudio y facilitar la movilidad estudiantil,
+    estableciendo equivalencias entre carreras y universidades. "
+  - 1 Crédito = 25 horas
