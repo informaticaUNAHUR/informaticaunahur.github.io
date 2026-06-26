@@ -12,14 +12,13 @@ Las inscripciones a cursar el 2° cuatrimestre se realizarán desde la correspon
 
 Previamente, se habilita al cambio de carreras entre carreras de informática (1 al 3 de julio)
 
+Casos especiales:
 
-##### Casos especiales:
-- Quienes están terminando la Licenciatura en Informática o la antigua Tecnicatura en Informática.
-- Quienes ya regularizaron todas las materias de las Tecnicaturas en Programación, Redes, Videojuegos o Inteligencia Artificial, que sólo deban finales o créditos.
+1. Quienes están terminando la Licenciatura en Informática o la antigua Tecnicatura en Informática.
+2. Quienes ya regularizaron todas las materias de las Tecnicaturas en Programación, Redes, Videojuegos o Inteligencia Artificial, que sólo deban finales o créditos.
 
+Importante:
 
-
-##### Importante:**
-- Están aprobados los planes de transición de las respectivas carreras, con las equivalencia de materias y créditos.
-- Está publicado el nuevo catálogo de créditos SACAU, común a toda la UNAHUR
-- Versión actualizada del "Simulador de transiciones" 
+* Están aprobados los planes de transición de las respectivas carreras, con las equivalencia de materias y créditos.
+* Está publicado el nuevo catálogo de créditos SACAU, común a toda la UNAHUR
+* Versión actualizada del "Simulador de transiciones"
