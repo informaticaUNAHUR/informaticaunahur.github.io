@@ -14,6 +14,8 @@ descripcion: >
   Todas los créditos acumulados (CRE) se transforman a los nuevos créditos
   (ACA), de acuerdo a una serie de comunes a todas las carreras de informática,
   establecidas en el plan de transición.
+
+  ---
 parrafo: Se implementa en las carreras de informática desde el segundo
   cuatrimestre 2026.Es un nuevo sistema común a toda la universidad, que al
   igual que el anterior incluye actividades deportivas, culturales, de
@@ -34,20 +36,25 @@ explicacion_parrafos:
     Hay criterios común para toda la universidad
 
     Se cuantifican con créditos también todas las materias 
-  - >
+  - >-
     SACAU
 
 
     Es un modelo de reconocimiento creado por el CIN para medir el tiempo total de aprendizaje (horas de clase + trabajo autónomo) mediante una unidad común. Busca visibilizar el esfuerzo real, flexibilizar los planes de estudio y facilitar la movilidad estudiantil, estableciendo equivalencias entre carreras y universidades. 1 Crédito = 25 horas
-  - |
-    Licenciaturas: 30 cŕeditos ACA
-    Título intermedio: 12 créditos ACA
-  - >
+
+    ---
+  - |-
+    * Licenciaturas: 30 cŕeditos ACA
+    * Título intermedio: 12 créditos ACA
+    ---
+  - >-
     Se simplifican las cuatro categorías de créditos actuales en dos:
 
     * Unidades Curriculares (UC). Tienen el formato de materia en cuanto a los contenidos, la ubicación en un cuatrimestre, una carga horaria importante, criterios de aprobación, pero no están preestablecidas en el plan de estudios, por lo que pueden ir variando. Coloquialmente se les llama “Materias ACA”. 
 
     * Experiencias Formativas (EF) Todo tipo de actividades, como cursos,  talleres, visitas, eventos, deportes, cultura, tareas de investigación, estudiantes asistentes y la mayoría de lo que se conoce actualmente. Coloquialmente, son “Actividades ACA”.
+
+    ---
   - >
     Distribución de créditos
 
