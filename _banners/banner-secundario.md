@@ -1,6 +1,6 @@
 ---
 subtitulo: Unahur
-titulo: "Nuevos planes de estudio "
+titulo: Nuevos planes de estudio
 descripcion: >+
   Vigentes desde 2026 2° Cuatrimestre
 
