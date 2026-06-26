@@ -3,7 +3,7 @@ layout: novedad
 title: Período de transición
 date: 2026-06-25
 categoria: Inscripciones
-imagen: /assets/uploads/cambios-prog.png
+imagen: /assets/uploads/cambios-tec-prog.png
 descripcion: ""
 ---
 Apenas termine el 1° cuatrimestre, todos los estudiantes (regulares) van a quedar inscriptos en las nuevas carreras y con los nuevos planes de estudios, de acuerdo a en qué carrera estén actualmente. 
