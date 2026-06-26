@@ -9,7 +9,7 @@ vigente: true
 orden: 1
 titulo_intermedio: Técnico/a Universitario en Programación
 total_horas: 7175
-pdf: /assets/uploads/lic-info-plan-2025.pdf
+pdf: /assets/uploads/planes-carreras-informatica-para-web-informatica.pdf
 correlatividades_imagen: /assets/uploads/lic-info-2025.png
 tabla_datos:
   col_grado: Licenciado/a en Informática
