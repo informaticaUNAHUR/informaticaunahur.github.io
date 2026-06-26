@@ -12,3 +12,7 @@ Se confirma para el próximo cuatrimestre la implementación del nuevo plan de e
 Las inscripciones a materias se realizará íntegramente de acuerdo al nuevo plan. 
 
 Se discontinúa la Tecnicatura Universitaria en Informática.
+
+
+
+[Explicación detallada, planes, sistema de créditos, preguntas frecuentes](https://docs.google.com/presentation/d/1iG5oC1T_jICv6seME2DreRXgctvmWoQN9CIeZkzcfDw/edit?usp=sharing)
