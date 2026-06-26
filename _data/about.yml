@@ -10,9 +10,9 @@ estadisticas:
     porcentaje: 100
   - valor: "3"
     detalle: Licenciaturas
-    porcentaje: 80
+    porcentaje: 100
   - valor: "1"
     detalle: Tecnicatura
-    porcentaje: 40
-boton_texto: Ver carreras
-boton_url: /collections/novedades/entries/2026-06-25-período-de-transición
+    porcentaje: 100
+boton_texto: Ver transición
+boton_url: /novedades/período-de-transición/
