@@ -1,9 +1,10 @@
 subtitulo: 2° Cuatrimestre 2026
 titulo: Período de transición hacia los nuevos planes de estudio
-descripcion: Con las nuevas carreras y planes de estudio se moderniza y amplia
-  la oferta académica. Toda la información para quien ya está cursando las
-  carreras. ¿Cómo impactan los cambios?  ¿Cómo es la transición entre planes?
-imagen: /assets/images/about-dec-v3.png
+descripcion: >
+  Con las nuevas carreras y planes de estudio se moderniza y amplia la oferta
+  académica. Toda la información para quien ya está cursando las carreras. ¿Cómo
+  impactan los cambios?  ¿Cómo es la transición entre planes?
+imagen: https://docs.google.com/presentation/d/e/2PACX-1vTH8Wq0waUlAqMCc77sN6aGzidBN7krlRXLxS261ECQQjCmeX4yORjPK4t_JyB3Z0aC-ljG0I0ylNvu/pub?start=false&loop=false&delayms=3000
 estadisticas:
   - valor: "+5000"
     detalle: Estudiantes
@@ -16,3 +17,4 @@ estadisticas:
     porcentaje: 100
 boton_texto: Ver transición
 boton_url: /novedades/período-de-transición/
+boton_externo: false
