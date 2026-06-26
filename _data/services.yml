@@ -15,11 +15,9 @@ carreras:
     etiqueta: Nuevo Plan
     icono: /assets/img/Informatica-licenciatura-icono.png
     habilidades:
-      - Arquitectura de Software
-      - Computación de alto desempeño
-      - Inteligencia Artificial
+      - Desarrollo de aplicaciones
       - Ingeniería de Software
-      - Sistemas en tiempo real - IoT
+      - Lenguajes de programación
       - Liderazgo de proyectos
     titulo_intermedio: Técnico/a Universitario en Programación
   - nombre: Licenciatura en Ciberseguridad
@@ -31,10 +29,9 @@ carreras:
       Universitario en Redes y Operaciones Informáticas."
     habilidades:
       - Seguridad ofensiva y defensiva
-      - Redes Avanzadas
-      - Hacking ético
+      - Desarrollo de software seguro
+      - Infraestructura y redes
       - Servicios en la nube
-      - Contenedores
       - Criptografía
     descripcion_larga: La/el Licenciada/o en Ciberseguridad será capaz de diseñar,
       implementar y gestionar estrategias de seguridad informática en
@@ -54,7 +51,7 @@ carreras:
       - Arte multimedial
       - Simulaciones
       - Programación gráfica
-      - Trabajo en equipo
+      - Robótica
     descripcion_larga: Los/las profesionales podrán participar activamente en la
       industria de los videojuegos y simulaciones, identificando diferentes
       modalidades y propuestas mediante la selección de herramientas de software
@@ -72,9 +69,9 @@ carreras:
     habilidades:
       - Aprendizaje automático
       - Redes Neuronales
-      - Procesamiento de Datos
-      - Recomendadores
-      - Clasificadores
+      - Ciencia de Datos
+      - Fundamentos matemáticos
+      - Proyectos de software
       - Visión artificial
     descripcion_larga: Las/os técnicas/os podrán predecir y/o detectar patrones
       agregando valor en áreas como visión artificial, procesamiento del
