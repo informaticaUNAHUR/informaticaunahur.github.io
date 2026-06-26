@@ -1,17 +1,70 @@
-subtitulo: "CRÉDITOS"
-titulo: "Nuevo sistema de créditos SACAU"
-parrafo: "Se implementa en las carreras de informática desde el segundo cuatrimestre 2026.Es un nuevo sistema común a toda la universidad, que al igual que el anterior incluye actividades deportivas, culturales, de extensión, investigación y docencia, cursos y talleres formativos, salidas educativos y eventos científicos, pero con escalas nuevas de créditos acordes a las actualizaciones de los planes de estudio."
+subtitulo: CRÉDITOS
+titulo: Nuevo sistema de créditos SACAU
 botones:
-  - texto: "Sistema de créditos (hasta julio 2026)"
+  - texto: Sistema de créditos anterior (vigente hasta primer cuatrimestre 2026)
     url: /catalogo-creditos/
     externo: false
-
-texto_previo_planilla: "Catálogo de Actividades de créditos “ACA”"
-
+texto_previo_planilla: Nuevo catálogo de créditos “ACA”. Experiencias Formativas.
 planilla:
-  texto: "Abrir planilla"
-  url: "https://docs.google.com/spreadsheets/d/1EuVPNeD5CH0N80FV6vxBXAWtLXp-Ku1lM69dEdYT2D8/edit?gid=0#gid=0"
+  texto: Ver catálogo
+  url: https://docs.google.com/spreadsheets/d/1EuVPNeD5CH0N80FV6vxBXAWtLXp-Ku1lM69dEdYT2D8/edit?gid=0#gid=0
   externo: true
+explicacion_titulo: Transición
+descripcion: >
+  Todas los créditos acumulados (CRE) se transforman a los nuevos créditos
+  (ACA), de acuerdo a una serie de comunes a todas las carreras de informática,
+  establecidas en el plan de transición.
+parrafo: Se implementa en las carreras de informática desde el segundo
+  cuatrimestre 2026.Es un nuevo sistema común a toda la universidad, que al
+  igual que el anterior incluye actividades deportivas, culturales, de
+  extensión, investigación y docencia, cursos y talleres formativos, salidas
+  educativos y eventos científicos, pero con escalas nuevas de créditos acordes
+  a las actualizaciones de los planes de estudio.
+explicacion_parrafos:
+  - >
+    Unahur, el ITI e Informática fueron pioneras en crear un sistema de créditos
+    propio. Ahora se suma al SACAU.
 
-explicacion_titulo: "Transición"
-descripcion: "Todas los créditos acumulados se transforman a los nuevos créditos, de acuerdo al plan de transición de cada carrera."
+    Se mantiene su sentido educativo
+
+    Haber experimentado dio pie a ajustes para simplificar y potenciar
+
+    Se extiende a toda la carrera (y todas las carreras)
+
+    Hay criterios común para toda la universidad
+
+    Se cuantifican con créditos también todas las materias 
+  - >
+    SACAU
+
+
+    Es un modelo de reconocimiento creado por el CIN para medir el tiempo total de aprendizaje (horas de clase + trabajo autónomo) mediante una unidad común. Busca visibilizar el esfuerzo real, flexibilizar los planes de estudio y facilitar la movilidad estudiantil, estableciendo equivalencias entre carreras y universidades. 1 Crédito = 25 horas
+  - |
+    Licenciaturas: 30 cŕeditos ACA
+    Título intermedio: 12 créditos ACA
+  - >
+    Se simplifican las cuatro categorías de créditos actuales en dos:
+
+    * Unidades Curriculares (UC). Tienen el formato de materia en cuanto a los contenidos, la ubicación en un cuatrimestre, una carga horaria importante, criterios de aprobación, pero no están preestablecidas en el plan de estudios, por lo que pueden ir variando. Coloquialmente se les llama “Materias ACA”. 
+
+    * Experiencias Formativas (EF) Todo tipo de actividades, como cursos,  talleres, visitas, eventos, deportes, cultura, tareas de investigación, estudiantes asistentes y la mayoría de lo que se conoce actualmente. Coloquialmente, son “Actividades ACA”.
+  - >
+    Distribución de créditos
+
+
+    Para título de licenciado/a, los 30 créditos ACA tienen que incluir como mínimo
+
+    10 ACA por materias
+
+    10 ACA por otras actividades
+
+    y las restantes a elección
+
+
+    Para título de técnico/a, los 12 créditos ACA tienen que incluir como mínimo
+
+    4 ACA por materias
+
+    4 ACA por otras actividades
+
+    y las restantes a elección
