@@ -10,7 +10,7 @@ vigente: true
 orden: 2
 titulo_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
 total_horas: 6000
-pdf: /assets/uploads/planes-carreras-informatica-para-web-ciberseguridad.pdf
+pdf: /assets/uploads/lic-en-ciberseguridad-2026.pdf
 correlatividades_imagen: /assets/uploads/lic-ciber-2026.png
 tabla_datos:
   col_grado: Licenciado/a en Ciberseguridad
