@@ -5,7 +5,7 @@ permalink: /licenciatura-ciberseguridad/
 icono: /assets/img/redes-icono.png
 descripcion_corta: Licenciatura en Ciberseguridad con título intermedio
   Técnico/a Universitario en Redes y Operaciones Informáticas.
-imagen: /assets/images/services-image-03.jpg
+imagen: /assets/uploads/plan-ciber-2026.png
 vigente: true
 orden: 2
 titulo_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
