@@ -4,12 +4,12 @@ title: Licenciatura en Informática
 permalink: /licenciatura-informatica/
 icono: /assets/img/Informatica-licenciatura-icono.png
 descripcion_corta: Licenciatura con título intermedio Técnico/a Universitario en Programación.
-imagen: assets/images/licenciatura.jpg
+imagen: /assets/uploads/2026.webp
 vigente: true
 orden: 1
 titulo_intermedio: Técnico/a Universitario en Programación
 total_horas: 7175
-pdf: /assets/uploads/planes-carreras-informatica-para-web-informatica.pdf
+pdf: /assets/uploads/lic-informatica-2026.pdf
 correlatividades_imagen: /assets/uploads/lic-info-2025.png
 tabla_datos:
   col_grado: Licenciado/a en Informática
