@@ -10,7 +10,7 @@ vigente: true
 orden: 3
 titulo_intermedio: Técnico/a Universitario en Programación de Videojuegos
 total_horas: 6000
-pdf: /assets/uploads/planes-carreras-informatica-para-web-videojuegos.pdf
+pdf: /assets/uploads/lic-en-desarrollo-de-videojuegos-y-simulaciones-2026.pdf
 correlatividades_imagen: /assets/uploads/lic-vj-2026.png
 tabla_datos:
   col_grado: Licenciado/a en Desarrollo de Videojuegos y Simulaciones
