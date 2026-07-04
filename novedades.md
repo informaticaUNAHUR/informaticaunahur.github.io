@@ -11,9 +11,10 @@ permalink: /novedades/
     <div class="line-dec" style="margin: 16px auto 0;"></div>
   </div>
 
-  {% assign novedades = site.novedades | sort: "date" | reverse %}
+{% assign novedades = site.novedades | sort: "date" | reverse %}
 
-  {% if novedades.size > 0 %}
+{% if novedades.size > 0 %}
+
   <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
     {% for novedad in novedades %}
     <div style="border-radius:8px; border:1px solid #e0e0e0; overflow:hidden; background:#fff; display:flex; flex-direction:column;">
