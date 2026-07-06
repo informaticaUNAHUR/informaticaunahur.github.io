@@ -7,6 +7,7 @@ categoria: Eventos
 imagen: /assets/uploads/whatsapp-image-2026-06-27-at-19.10.04.jpeg
 descripcion: ""
 ---
+
 9 hs. Presentación
 
 9:15 hs. Exposición central

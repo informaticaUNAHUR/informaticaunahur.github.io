@@ -11,13 +11,13 @@ html {
 }
 
 html {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
   @media (min-width: 38em) {
     font-size: 20px;
-}
+  }
 }
 
 body {
@@ -30,7 +30,7 @@ body {
 a {
   color: #1a191b;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 h1,
@@ -44,25 +44,28 @@ h6 {
   font-weight: 600;
   line-height: 1.1;
   color: #1a191b;
-  letter-spacing: -.025rem;
+  letter-spacing: -0.025rem;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3.125rem;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 2.1875rem;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
-h4,
+h4 {
+  font-size: 1rem;
+}
+
 h5,
 h6 {
-  font-size: 1rem;
+  font-size: 0.9375rem;
 }
 
 p {
@@ -85,4 +88,27 @@ img {
 .min-height {
   min-height: calc(100vh - 80px - 200px);
   padding-top: 20px;
+}
+
+/* Content list styles (overrides template's global ul/li reset) */
+article ul,
+article ol,
+.content-post ul,
+.content-post ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+article li,
+.content-post li {
+  font-size: 15px;
+  list-style: disc;
+  margin-bottom: 0.25rem;
+}
+article ol li,
+.content-post ol li {
+  list-style: decimal;
+}
+
+.content-post strong {
+  font-weight: 600;
 }
