@@ -31,6 +31,10 @@ layout: default
       <!-- Tabla de datos generales (solo para carreras vigentes con datos) -->
       {% if page.tabla_datos %}
       <div style="margin-bottom: 40px; overflow-x: auto;">
+        <style>
+          .tabla-datos-odd { background-color: #ffffff; }
+          .tabla-datos-even { background-color: #f8f9fa; }
+        </style>
         <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
           <thead>
             <tr style="background-color:#4db6ad; color:#fff;">
@@ -43,7 +47,7 @@ layout: default
           </thead>
           <tbody>
             {% for fila in page.tabla_datos.filas %}
-            <tr style="background-color:{% cycle '#ffffff', '#f8f9fa' %};">
+            <tr class="{% cycle 'tabla-datos-odd', 'tabla-datos-even' %}">
               <td style="padding:10px 16px; border:1px solid #dee2e6; font-weight:600; color:#555;">{{ fila.label }}</td>
               <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.grado }}</td>
               {% if fila.intermedio %}
@@ -89,34 +93,42 @@ layout: default
                 <th>Hs/Sem</th>
                 <th>Carga horaria total</th>
                 <th>Correlativas</th>
+                <th>Creditos</th>
               </tr>
             </thead>
             <tbody>
               {% for cuatri in page.cuatrimestres %}
               <tr>
-                <td colspan="5" class="tableizer-cuatrimestre">
+                <td colspan="6" class="tableizer-cuatrimestre">
                   {{ cuatri.nombre }}{% if cuatri.horas and cuatri.horas != "" %} — {{ cuatri.horas }} hs{% endif %}
                 </td>
               </tr>
               {% for materia in cuatri.materias %}
+              {% assign materiaData = site.data.materias.materias | where: "slug", materia.slug | first %}
+              {% assign nombre = materiaData.nombre | default: materia.nombre %}
+              {% assign area = materia.area | default: materiaData.area_general %}
+              {% assign creditos = materiaData.creditos | default: materia.creditos %}
               <tr>
-                <td>{{ materia.area }}</td>
+                <td>{{ area }}</td>
                 <td>
                   <a href="{{ '/materias/' | append: materia.slug | append: '/' | relative_url }}">
-                    {{ materia.nombre }}
+                    {{ nombre }}
                   </a>
                 </td>
                 <td>{{ materia.hs_sem }}</td>
                 <td>{{ materia.hs_total }}</td>
                 <td>
+                  <!-- TODO: Cambiar a busqueda de correlativas por slug -->
                   {% if materia.correlativas and materia.correlativas != "-" %}
                     {% assign correlativas = materia.correlativas | split: "," %}
-                    {% for c in correlativas %}
-                      {% assign c_name = c | strip %}
+                    {% for correlativa in correlativas %}
+                      {% assign c_name = correlativa | strip %}
                       {% assign found = false %}
                       {% for cu in page.cuatrimestres %}
                         {% for m in cu.materias %}
-                          {% if m.nombre == c_name %}
+                          {% assign m_canonical = site.data.materias.materias | where: "slug", m.slug | first %}
+                          {% assign m_name = m_canonical.nombre | default: m.nombre %}
+                          {% if m_name == c_name %}
                             <a href="{{ '/materias/' | append: m.slug | append: '/' | relative_url }}">{{ c_name }}</a>{% unless forloop.last %}, {% endunless %}
                             {% assign found = true %}
                           {% endif %}
@@ -127,6 +139,9 @@ layout: default
                   {% else %}
                     —
                   {% endif %}
+                </td>
+                <td>
+                  {{ creditos }}
                 </td>
               </tr>
               {% endfor %}

@@ -16,147 +16,137 @@ tabla_datos:
     - label: Duración
       grado: 2,5 años
     - label: Horas Interacción pedagógica
-      grado: "1376"
+      grado: '1376'
     - label: Materias
-      grado: "20"
+      grado: '20'
     - label: Créditos ACA
-      grado: "12"
+      grado: '12'
     - label: Créditos Totales
-      grado: "120"
+      grado: '120'
 cuatrimestres:
   - nombre: Primer Cuatrimestre
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Matemática para informática
-        slug: matematicaParaInformatica
+      - slug: matematicaParaInformatica1
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Introducción a lógica y problemas computacionales
-        slug: introduccionLogicaProblemasComputacionales
+        correlativas: '-'
+      - slug: introduccionLogicaProblemasComputacionales
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Introducción a la inteligencia artificial
-        slug: introduccionInteligenciaArtificial
+        correlativas: '-'
+      - slug: introduccionInteligenciaArtificial
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Cultura y alfabetización digital en la universidad
-        slug: culturaAlfabetizacionDigital
+        correlativas: '-'
+        creditos: 5
+      - slug: culturaAlfabetizacionDigital
         area: CFC
         hs_sem: 2
         hs_total: 100
-        correlativas: "-"
+        correlativas: '-'
   - nombre: Segundo Cuatrimestre
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Álgebra lineal
-        slug: algebraLineal
+      - slug: algebraLineal
         area: CFB
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Cálculo
-        slug: calculo
+        correlativas: '-'
+      - slug: calculo
         area: CFB
         hs_sem: 6
         hs_total: 150
-        correlativas: "-"
-      - nombre: Taller de Programación I
-        slug: tallerProgramacionI
+        correlativas: '-'
+        creditos: 6
+      - slug: tallerProgramacionI
         area: CFE
         hs_sem: 4
         hs_total: 150
-        correlativas: "-"
-      - nombre: Tecnología y sociedad
-        slug: tecnologiaSociedad
+        correlativas: '-'
+        creditos: 6
+      - slug: tecnologiaSociedad
         area: CFB
         hs_sem: 4
         hs_total: 100
-        correlativas: "-"
+        correlativas: '-'
   - nombre: Tercer Cuatrimestre
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Bases de datos
-        slug: basesDatos
+      - slug: basesDatos
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Probabilidad y estadística
-        slug: probabilidadEstadistica
+        correlativas: '-'
+      - slug: probabilidadEstadistica
         area: CFB
         hs_sem: 6
         hs_total: 125
-        correlativas: "-"
-      - nombre: Taller de Programación II
-        slug: tallerProgramacionII
+        correlativas: '-'
+      - slug: tallerProgramacionII
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Fundamentos de ciencias de datos
-        slug: fundamentosCienciasDatos
+        correlativas: '-'
+        creditos: 5
+      - slug: fundamentosCienciasDatos
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
+        correlativas: '-'
+        creditos: 5
   - nombre: Cuarto Cuatrimestre
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Fundamentos de redes neuronales
-        slug: fundamentosRedesNeuronales
+      - slug: fundamentosRedesNeuronales
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Aprendizaje Automático
-        slug: aprendizajeAutomatico
+        correlativas: '-'
+      - slug: aprendizajeAutomatico
         area: CFE
         hs_sem: 4
         hs_total: 150
-        correlativas: "-"
-      - nombre: Taller de Programación III
-        slug: tallerProgramacionIII
+        correlativas: '-'
+      - slug: tallerProgramacionIII
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Inglés
-        slug: ingles
+        correlativas: '-'
+        creditos: 5
+      - slug: ingles
         area: CFC
         hs_sem: 2
         hs_total: 100
-        correlativas: "-"
+        correlativas: '-'
   - nombre: Quinto Cuatrimestre
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Asignatura UNAHUR
-        slug: asignaturaUNAHUR
+      - slug: asignaturaUNAHUR
         area: CFC
         hs_sem: 2
         hs_total: 75
-        correlativas: "-"
-      - nombre: Aprendizaje Automático Avanzado
-        slug: aprendizajeAutomaticoAvanzado
+        correlativas: '-'
+        creditos: 3
+      - slug: aprendizajeAutomaticoAvanzado
         area: CFE
         hs_sem: 6
         hs_total: 150
-        correlativas: "-"
-      - nombre: Procesamiento de Imágenes y Visión por Computadora
-        slug: procesamientoImagenesVisionComputadora
+        correlativas: '-'
+        creditos: 6
+      - slug: procesamientoImagenesVisionComputadora
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Proyecto integrador
-        slug: proyectoIntegrador
+        correlativas: '-'
+        creditos: 5
+      - slug: proyectoIntegrador
         area: CIC
         hs_sem: 6
         hs_total: 200
-        correlativas: "-"
+        correlativas: '-'
+        creditos: 8
 ---

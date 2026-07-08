@@ -3,8 +3,7 @@ layout: carrera
 title: Licenciatura en Ciberseguridad
 permalink: /licenciatura-ciberseguridad/
 icono: /assets/img/redes-icono.png
-descripcion_corta: Licenciatura en Ciberseguridad con título intermedio
-  Técnico/a Universitario en Redes y Operaciones Informáticas.
+descripcion_corta: Licenciatura en Ciberseguridad con título intermedio Técnico/a Universitario en Redes y Operaciones Informáticas.
 imagen: /assets/uploads/plan-ciber-2026.png
 vigente: true
 orden: 2
@@ -20,214 +19,201 @@ tabla_datos:
       grado: 4,5 años
       intermedio: 2,5 años
     - label: Horas Interacción pedagógica
-      grado: "2240"
-      intermedio: "1120"
+      grado: '2240'
+      intermedio: '1120'
     - label: Materias
-      grado: "31"
-      intermedio: "16"
+      grado: '31'
+      intermedio: '16'
     - label: Créditos ACA
-      grado: "30"
-      intermedio: "12"
+      grado: '30'
+      intermedio: '12'
     - label: Créditos Totales
-      grado: "240"
-      intermedio: "120"
+      grado: '240'
+      intermedio: '120'
 cuatrimestres:
   - nombre: Primer Año
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Matemática para informática I
-        slug: matematicaParaInformatica1
+      - slug: matematicaParaInformatica1
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Introducción a lógica y problemas computacionales
-        slug: introduccionLogicaProblemasComputacionales
+        correlativas: '-'
+      - slug: introduccionLogicaProblemasComputacionales
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Introducción a los sistemas de comunicación y seguridad
-        slug: introduccionSistemasComunicacionSeguridad
+        correlativas: '-'
+      - slug: introduccionSistemasComunicacionSeguridad
         area: CFE
         hs_sem: 6
         hs_total: 250
-        correlativas: "-"
-      - nombre: Cultura y alfabetización digital en la universidad
-        slug: culturaAlfabetizacionDigital
+        correlativas: '-'
+        creditos: 10
+      - slug: culturaAlfabetizacionDigital
         area: CFC
         hs_sem: 2
         hs_total: 100
-        correlativas: "-"
-      - nombre: Taller de intérpretes de comandos
-        slug: tallerInterpretesComandos
+        correlativas: '-'
+      - slug: tallerInterpretesComandos
         area: CFE
         hs_sem: 4
         hs_total: 225
-        correlativas: "-"
-      - nombre: Organización de computadoras I
-        slug: organizacionComputadoras1
+        correlativas: '-'
+        creditos: 9
+      - slug: organizacionComputadoras1
         area: CFB
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Bases de Datos
-        slug: basesDatos
+        correlativas: '-'
+        creditos: 5
+      - slug: basesDatos
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Taller de programación
-        slug: tallerProgramacion
+        correlativas: '-'
+      - slug: tallerProgramacion
         area: CFB
         hs_sem: 4
         hs_total: 150
-        correlativas: "-"
+        correlativas: '-'
+        creditos: 6
   - nombre: Segundo Año
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Redes de computadoras
-        slug: redesComputadoras
+      - slug: redesComputadoras
         area: CFB
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Organización de computadoras II
-        slug: organizacionComputadoras2
+        correlativas: '-'
+      - slug: organizacionComputadoras2
         area: CFB
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Sistemas Operativos
-        slug: sistemasOperativos
+        correlativas: '-'
+      - slug: sistemasOperativos
         area: CFB
         hs_sem: 4
         hs_total: 150
-        correlativas: "-"
-      - nombre: Operaciones
-        slug: operaciones
+        correlativas: '-'
+      - slug: operaciones
         area: CFE
         hs_sem: 4
         hs_total: 225
-        correlativas: "-"
-      - nombre: Materia UNAHUR
-        slug: materiaUNAHUR
+        correlativas: '-'
+        creditos: 9
+      - slug: materiaUnahur
         area: CFC
         hs_sem: 2
         hs_total: 75
-        correlativas: "-"
-      - nombre: Redes avanzadas
-        slug: redesAvanzadas
+        correlativas: '-'
+      - slug: redesAvanzadas
         area: CFE
         hs_sem: 6
         hs_total: 250
-        correlativas: "-"
-      - nombre: Seguridad de la Información
-        slug: seguridadInformacion
+        correlativas: '-'
+        creditos: 10
+      - slug: seguridadInformacion
         area: CFE
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Desarrollo, seguridad y operaciones
-        slug: desarrolloSeguridadOperaciones
+        correlativas: '-'
+      - slug: desarrolloSeguridadOperaciones
         area: CIC
         hs_sem: 6
         hs_total: 250
-        correlativas: "-"
+        correlativas: '-'
+        creditos: 10
   - nombre: Tercer Año
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Lenguajes informáticos
-        slug: lenguajesInformaticos
+      - slug: lenguajesInformaticos
         area: CFB
         hs_sem: 4
         hs_total: 125
-        correlativas: "-"
-      - nombre: Laboratorio de sistemas operativos y redes
-        slug: laboratorioSistemasOperativosRedes
+        correlativas: '-'
+        creditos: 5
+      - slug: laboratorioSistemasOperativosRedes
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Matemática para informática 2
-        slug: matematicaParaInformatica2
+        correlativas: '-'
+        creditos: 7
+      - slug: matematicaParaInformatica2
         area: CFB
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Gestión integral de seguridad
-        slug: gestionIntegralSeguridad
+        correlativas: '-'
+      - slug: gestionIntegralSeguridad
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Tecnología y sociedad
-        slug: tecnologiaSociedad
+        correlativas: '-'
+        creditos: 7
+      - slug: tecnologiaSociedad
         area: CFB
         hs_sem: 4
         hs_total: 100
-        correlativas: "-"
-      - nombre: Desarrollo Seguro
-        slug: desarrolloSeguro
+        correlativas: '-'
+      - slug: desarrolloSeguro
         area: CFE
         hs_sem: 4
         hs_total: 200
-        correlativas: "-"
-      - nombre: Cibercrimen y análisis forense
-        slug: cibercrimenAnalisisForense
+        correlativas: '-'
+        creditos: 8
+      - slug: cibercrimenAnalisisForense
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Criptografía
-        slug: criptografia
+        correlativas: '-'
+        creditos: 7
+      - slug: criptografia
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
+        correlativas: '-'
+        creditos: 7
   - nombre: Cuarto Año
-    horas: ""
+    horas: ''
     materias:
-      - nombre: Ciberseguridad en la nube
-        slug: ciberseguridadNube
+      - slug: ciberseguridadNube
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Ciberseguridad ofensiva
-        slug: ciberseguridadOfensiva
+        correlativas: '-'
+        creditos: 7
+      - slug: ciberseguridadOfensiva
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Administración y respuesta a incidentes
-        slug: administracionRespuestaIncidentes
+        correlativas: '-'
+        creditos: 7
+      - slug: administracionRespuestaIncidentes
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Práctica Profesional Supervisada
-        slug: practicaProfesionalSupervisada
+        correlativas: '-'
+        creditos: 7
+      - slug: practicaProfesionalSupervisada
         area: CIC
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Ciberdefensa y ciberinteligencia
-        slug: ciberdefensaCiberinteligencia
+        correlativas: '-'
+      - slug: ciberdefensaCiberinteligencia
         area: CFE
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
-      - nombre: Ciberseguridad defensiva
-        slug: ciberseguridadDefensiva
+        correlativas: '-'
+        creditos: 7
+      - slug: ciberseguridadDefensiva
         area: CFE
         hs_sem: 6
         hs_total: 200
-        correlativas: "-"
-      - nombre: Proyecto final
-        slug: proyectoFinal
+        correlativas: '-'
+        creditos: 8
+      - slug: proyectoFinal
         area: CIC
         hs_sem: 4
         hs_total: 175
-        correlativas: "-"
+        correlativas: '-'
 ---

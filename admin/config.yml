@@ -540,7 +540,12 @@ collections:
         fields:
           - { label: "Subtítulo", name: "subtitulo", widget: "string" }
           - { label: "Título", name: "titulo", widget: "string" }
-          - { label: "Imagen decorativa", name: "imagen_decorativa", widget: "image", required: false }
+          - {
+              label: "Imagen decorativa",
+              name: "imagen_decorativa",
+              widget: "image",
+              required: false,
+            }
 
           - label: "¿Cómo comunicarse?"
             name: "como_comunicarse"
@@ -552,10 +557,26 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "Nombre", name: "nombre", widget: "string" }
-                  - { label: "Valor visible", name: "valor", widget: "string", required: false }
+                  - {
+                      label: "Valor visible",
+                      name: "valor",
+                      widget: "string",
+                      required: false,
+                    }
                   - { label: "URL", name: "url", widget: "string" }
-                  - { label: "Ícono", name: "icono", widget: "image", required: false }
-                  - { label: "Externo", name: "externo", widget: "boolean", default: false, required: false }
+                  - {
+                      label: "Ícono",
+                      name: "icono",
+                      widget: "image",
+                      required: false,
+                    }
+                  - {
+                      label: "Externo",
+                      name: "externo",
+                      widget: "boolean",
+                      default: false,
+                      required: false,
+                    }
 
           - label: "Discord"
             name: "discord"
@@ -563,9 +584,19 @@ collections:
             required: false
             fields:
               - { label: "Título", name: "titulo", widget: "string" }
-              - { label: "Subtítulo", name: "subtitulo", widget: "string", required: false }
+              - {
+                  label: "Subtítulo",
+                  name: "subtitulo",
+                  widget: "string",
+                  required: false,
+                }
               - { label: "URL", name: "url", widget: "string" }
-              - { label: "Ícono", name: "icono", widget: "image", required: false }
+              - {
+                  label: "Ícono",
+                  name: "icono",
+                  widget: "image",
+                  required: false,
+                }
 
           - label: "Autoridades"
             name: "autoridades"
@@ -591,8 +622,18 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "Nombre", name: "nombre", widget: "string" }
-                  - { label: "Descripción", name: "descripcion", widget: "text", required: false }
-                  - { label: "URL", name: "url", widget: "string", required: false }
+                  - {
+                      label: "Descripción",
+                      name: "descripcion",
+                      widget: "text",
+                      required: false,
+                    }
+                  - {
+                      label: "URL",
+                      name: "url",
+                      widget: "string",
+                      required: false,
+                    }
 
           - label: "Items (legacy)"
             name: "items"
@@ -601,8 +642,19 @@ collections:
             fields:
               - { label: "Nombre", name: "nombre", widget: "string" }
               - { label: "URL", name: "url", widget: "string" }
-              - { label: "Ícono", name: "icono", widget: "image", required: false }
-              - { label: "Externo", name: "externo", widget: "boolean", default: false, required: false }
+              - {
+                  label: "Ícono",
+                  name: "icono",
+                  widget: "image",
+                  required: false,
+                }
+              - {
+                  label: "Externo",
+                  name: "externo",
+                  widget: "boolean",
+                  default: false,
+                  required: false,
+                }
   - name: "posts"
     label: "Página Materias"
     folder: "_posts"
@@ -761,9 +813,21 @@ collections:
             widget: "object"
             fields:
               - { label: "Nombre", name: "nombre", widget: "string" }
-              - { label: "Inicio de clases", name: "inicio_clases", widget: "string" }
-              - { label: "Inscripción a materias", name: "inscripcion", widget: "string" }
-              - { label: "Exámenes parciales", name: "parciales", widget: "string" }
+              - {
+                  label: "Inicio de clases",
+                  name: "inicio_clases",
+                  widget: "string",
+                }
+              - {
+                  label: "Inscripción a materias",
+                  name: "inscripcion",
+                  widget: "string",
+                }
+              - {
+                  label: "Exámenes parciales",
+                  name: "parciales",
+                  widget: "string",
+                }
               - { label: "Exámenes finales", name: "finales", widget: "string" }
               - { label: "Fin de clases", name: "fin_clases", widget: "string" }
 
@@ -772,11 +836,33 @@ collections:
             widget: "object"
             fields:
               - { label: "Nombre", name: "nombre", widget: "string" }
-              - { label: "Inicio de clases", name: "inicio_clases", widget: "string" }
-              - { label: "Inscripción a materias", name: "inscripcion", widget: "string" }
-              - { label: "Exámenes parciales", name: "parciales", widget: "string" }
+              - {
+                  label: "Inicio de clases",
+                  name: "inicio_clases",
+                  widget: "string",
+                }
+              - {
+                  label: "Inscripción a materias",
+                  name: "inscripcion",
+                  widget: "string",
+                }
+              - {
+                  label: "Exámenes parciales",
+                  name: "parciales",
+                  widget: "string",
+                }
               - { label: "Exámenes finales", name: "finales", widget: "string" }
               - { label: "Fin de clases", name: "fin_clases", widget: "string" }
 
-          - { label: "Link embed Google Sheets (iframe)", name: "sheets_embed_url", widget: "string", required: false }
-          - { label: "Link directo Google Sheets", name: "sheets_direct_url", widget: "string", required: false }
+          - {
+              label: "Link embed Google Sheets (iframe)",
+              name: "sheets_embed_url",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Link directo Google Sheets",
+              name: "sheets_direct_url",
+              widget: "string",
+              required: false,
+            }

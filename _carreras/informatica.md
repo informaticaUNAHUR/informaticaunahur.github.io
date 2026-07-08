@@ -34,62 +34,55 @@ cuatrimestres:
   - nombre: Primer Año
     horas: ""
     materias:
-      - nombre: Introducción a lógica y Problemas Computacionales
-        slug: introduccionLogicaProblemasComputacionales
+      - slug: introduccionLogicaProblemasComputacionales
         area: CBGyE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Matemática para Informática 1
-        slug: matematicaParaInformatica1
+      - slug: matematicaParaInformatica1
         area: CBGyE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Organización de las Computadoras 1
-        slug: organizacionComputadoras1
+      - slug: organizacionComputadoras1
         area: ASOyR
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Cultura y alfabetización digital en la universidad
-        slug: culturaAlfabetizacionDigital
+        creditos: 7
+      - slug: culturaAlfabetizacionDigital
         area: OTRAS
         hs_sem: 2
         hs_total: 100
         correlativas: "-"
-      - nombre: Tecnología y Sociedad
-        slug: tecnologiaSociedad
+      - slug: tecnologiaSociedad
         area: ASyP
         hs_sem: 4
         hs_total: 100
         correlativas: "-"
-      - nombre: Inglés
-        slug: ingles
+      - slug: ingles
         area: OTRAS
         hs_sem: 2
         hs_total: 100
         correlativas: "-"
-      - nombre: Programación Estructurada
-        slug: programacionEstructurada
+      - slug: programacionEstructurada
         area: AyL
         hs_sem: 6
         hs_total: 175
         correlativas: "-"
-      - nombre: Matemática para Informática 2
-        slug: matematicaParaInformatica2
+        creditos: 7
+      - slug: matematicaParaInformatica2
         area: CBGyE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Lenguajes Informáticos 1
-        slug: lenguajesInformaticos1
+      - slug: lenguajesInformaticos1
         area: AyL
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Organización de Computadoras 2
-        slug: organizacionComputadoras2
+        creditos: 7
+      - slug: organizacionComputadoras2
         area: ASOyR
         hs_sem: 4
         hs_total: 125
@@ -97,62 +90,58 @@ cuatrimestres:
   - nombre: Segundo Año
     horas: ""
     materias:
-      - nombre: Programación con Objetos 1
-        slug: programacionConObjetos1
+      - slug: programacionConObjetos1
         area: AyL
         hs_sem: 6
         hs_total: 175
         correlativas: "-"
-      - nombre: Estructuras de Datos
-        slug: estructurasDatos
+        creditos: 7
+      - slug: estructurasDatos
         area: AyL
         hs_sem: 6
         hs_total: 175
         correlativas: "-"
-      - nombre: Bases de Datos
-        slug: basesDatos
+        creditos: 7
+      - slug: basesDatos
         area: ISBDySO
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Matemática para Informática 3
-        slug: matematicaParaInformatica3
+      - slug: matematicaParaInformatica3
         area: CBGyE
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Redes de Computadoras
-        slug: redesComputadoras
+        creditos: 5
+      - slug: redesComputadoras
         area: ASOyR
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Programación con Objetos II
-        slug: programacionConObjetos2
+      - slug: programacionConObjetos2
         area: AyL
         hs_sem: 6
         hs_total: 175
         correlativas: "-"
-      - nombre: Asignatura UNAHUR
-        slug: asignaturaUNAHUR
+        creditos: 7
+      - slug: materiaUnahur
         area: OTRAS
         hs_sem: 2
         hs_total: 75
         correlativas: "-"
-      - nombre: Sistemas y organizaciones
-        slug: sistemasOrganizaciones
+      - slug: sistemasOrganizaciones
         area: ISBDySO
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Algoritmos
-        slug: algoritmos
+        creditos: 6
+      - slug: algoritmos
         area: AyL
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Sistemas Operativos
-        slug: sistemasOperativos
+        creditos: 6
+      - slug: sistemasOperativos
         area: ASOyR
         hs_sem: 4
         hs_total: 150
@@ -160,125 +149,120 @@ cuatrimestres:
   - nombre: Tercer Año
     horas: ""
     materias:
-      - nombre: Construcción de Interfaces de Usuario
-        slug: construccionInterfacesUsuario
+      - slug: construccionInterfacesUsuario
         area: ISBDySO
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Estrategias de Persistencia
-        slug: estrategiasPersistencia
+        creditos: 7
+      - slug: estrategiasPersistencia
         area: ISBDySO
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Ingeniería de Software 1
-        slug: ingenieriaSoftware1
+        creditos: 7
+      - slug: ingenieriaSoftware1
         area: ISBDySO
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Álgebra Lineal
-        slug: algebraLineal
+        creditos: 7
+      - slug: algebraLineal
         area: CBGyE
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Ejercicio Profesional en Tecnología
-        slug: ejercicioProfesionalTecnologia
+      - slug: ejercicioProfesionalTecnologia
         area: ASyP
         hs_sem: 4
         hs_total: 100
         correlativas: "-"
-      - nombre: Desarrollo de Aplicaciones
-        slug: desarrolloAplicaciones
+        creditos: 4
+      - slug: desarrolloAplicaciones
         area: AyL
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Laboratorio de Sistemas Operativos y Redes
-        slug: laboratorioSistemasOperativosRedes
+        creditos: 6
+      - slug: laboratorioSistemasOperativosRedes
         area: ASOyR
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Lenguajes Informáticos 2
-        slug: lenguajesInformaticos2
+        creditos: 6
+      - slug: lenguajesInformaticos2
         area: AyL
         hs_sem: 6
         hs_total: 125
         correlativas: "-"
-      - nombre: Arquitectura de Software 1
-        slug: arquitecturaSoftware1
+        creditos: 5
+      - slug: arquitecturaSoftware1
         area: ASOyR
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Matemática para Informática 4
-        slug: matematicaParaInformatica4
+        creditos: 6
+      - slug: matematicaParaInformatica4
         area: CBGyE
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
+        creditos: 5
   - nombre: Cuarto Año
     horas: ""
     materias:
-      - nombre: Ingeniería de Software 2
-        slug: ingenieriaSoftware2
+      - slug: ingenieriaSoftware2
         area: ISBDySO
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Probabilidad y Estadística
-        slug: probabilidadEstadistica
+        creditos: 5
+      - slug: probabilidadEstadistica
         area: CBGyE
         hs_sem: 6
         hs_total: 125
         correlativas: "-"
-      - nombre: Lenguajes Informáticos 3
-        slug: lenguajesInformaticos3
+      - slug: lenguajesInformaticos3
         area: AyL
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Seguridad de la Información
-        slug: seguridadInformacion
+        creditos: 5
+      - slug: seguridadInformacion
         area: ASOyR
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Computabilidad y Complejidad
-        slug: computabilidadComplejidad
+      - slug: computabilidadComplejidad
         area: CBGyE
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Fundamentos de Redes Neuronales
-        slug: fundamentosRedesNeuronales
+        creditos: 5
+      - slug: fundamentosRedesNeuronales
         area: CBGyE
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Lenguajes Informáticos 4
-        slug: lenguajesInformaticos4
+      - slug: lenguajesInformaticos4
         area: AyL
         hs_sem: 6
         hs_total: 150
         correlativas: "-"
-      - nombre: Formalización de Lenguajes y Generación de Código
-        slug: formalizacionLenguajesGeneracionCodigo
+        creditos: 6
+      - slug: formalizacionLenguajesGeneracionCodigo
         area: CBGyE
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Arquitectura de Software 2
-        slug: arquitecturaSoftware2
+        creditos: 5
+      - slug: arquitecturaSoftware2
         area: ASOyR
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Práctica Profesional Supervisada
-        slug: practicaProfesionalSupervisada
+        creditos: 5
+      - slug: practicaProfesionalSupervisada
         area: OTRAS
         hs_sem: 4
         hs_total: 175
@@ -286,32 +270,30 @@ cuatrimestres:
   - nombre: Quinto Año
     horas: ""
     materias:
-      - nombre: Gestión de Proyectos de Desarrollo de Software
-        slug: gestionProyectosDesarrolloSoftware
+      - slug: gestionProyectosDesarrolloSoftware
         area: ISBDySO
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Aprendizaje Automático
-        slug: aprendizajeAutomatico
+        creditos: 5
+      - slug: aprendizajeAutomatico
         area: CBGyE
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Sistemas Distribuidos y Tiempo Real
-        slug: sistemasDistribuidosTiempoReal
+      - slug: sistemasDistribuidosTiempoReal
         area: ASOyR
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Arquitectura de Computadoras
-        slug: arquitecturaComputadoras
+        creditos: 5
+      - slug: arquitecturaComputadoras
         area: ASOyR
         hs_sem: 4
         hs_total: 125
         correlativas: "-"
-      - nombre: Proyecto final de Licenciatura
-        slug: proyectoFinalLicenciatura
+        creditos: 5
+      - slug: proyectoFinalLicenciatura
         area: OTRAS
         hs_sem: 6
         hs_total: 175

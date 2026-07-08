@@ -53,6 +53,7 @@ informaticaunahur.github.io/
 │   ├── contactos.yml            # Contactos del área
 │   ├── credits.yml              # Créditos y reconocimientos
 │   ├── horarios.yml             # Horarios de cursada
+│   ├── materias.yml             # Catálogo canónico de materias (fuente única de verdad)
 │   ├── nav.yml                  # Links de navegación principal
 │   └── services.yml             # Servicios ofrecidos
 │
@@ -219,17 +220,25 @@ Desde el CMS se pueden editar las siguientes secciones:
 
 ## Estructura de datos
 
-El manejo de contenido en el sitio sigue dos modelos complementarios:
+El manejo de contenido en el sitio sigue tres modelos:
+
+### Catálogo canónico de materias (`_data/materias.yml`)
+
+Fuente única de verdad para los nombres y áreas generales de todas las materias.
+Cada materia tiene un `slug` único, `nombre` y `area_general`.
+Las carreras referencian a las materias por su `slug` y solo definen propiedades contextuales (horas por plan, correlativas, área específica).
+Esto elimina la duplicación de datos: cambiar el nombre de una materia en el catálogo lo actualiza automáticamente en todas las carreras que la referencian.
 
 ### Colecciones (archivos Markdown con front matter)
 
 Ubicadas en carpetas con prefijo `_` (`_carreras/`, `_novedades/`, `_posts/`).
 Cada archivo es un documento Markdown cuyo front matter define metadatos (título, descripción, layout, etc.) y el cuerpo contiene el contenido en sí.
 Se acceden desde las plantillas Liquid mediante `site.carreras`, `site.novedades`, etc.
+Las carreras (`_carreras/`) referencian materias por slug y el template resuelve el nombre desde el catálogo canónico.
 
 ### Archivos de datos (YAML en `_data/`)
 
-Archivos `.yml` dentro de `_data/` que almacenan información estructurada (navegación, contactos, horarios).
+Archivos `.yml` dentro de `_data/` que almacenan información estructurada (navegación, contactos, horarios, materias).
 Se acceden desde las plantillas Liquid mediante `site.data.archivo`.
 
 Este enfoque permite que personas sin conocimientos técnicos editen contenidos a través del CMS sin necesidad de tocar código HTML ni la configuración del sitio.

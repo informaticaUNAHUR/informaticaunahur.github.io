@@ -3,8 +3,7 @@ layout: carrera
 title: Licenciatura en Desarrollo de Videojuegos y Simulaciones
 permalink: /licenciatura-videojuegos-simulaciones/
 icono: /assets/img/videojuegos-icono.png
-descripcion_corta: Licenciatura en Desarrollo de Videojuegos y Simulaciones con
-  título intermedio Técnico/a Universitario en Programación de Videojuegos.
+descripcion_corta: Licenciatura en Desarrollo de Videojuegos y Simulaciones con título intermedio Técnico/a Universitario en Programación de Videojuegos.
 imagen: /assets/images/services-image-02.jpg
 vigente: true
 orden: 3
@@ -35,50 +34,46 @@ cuatrimestres:
   - nombre: Primer Año
     horas: ""
     materias:
-      - nombre: Matemática para informática I
-        slug: matematicaParaInformatica1
+      - slug: matematicaParaInformatica1
         area: CFB
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Introducción a lógica y problemas computacionales
-        slug: introduccionLogicaProblemasComputacionales
+      - slug: introduccionLogicaProblemasComputacionales
         area: CFB
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Introducción a los Videojuegos
-        slug: introduccionVideojuegos
+      - slug: introduccionVideojuegos
         area: CFE
         hs_sem: 6
         hs_total: 200
         correlativas: "-"
-      - nombre: Cultura y alfabetización digital en la universidad
-        slug: culturaAlfabetizacionDigital
+        creditos: 8
+      - slug: culturaAlfabetizacionDigital
         area: CFC
         hs_sem: 2
         hs_total: 100
         correlativas: "-"
-      - nombre: Taller de diseño conceptual de juegos
-        slug: tallerDisenoConceptualJuegos
+      - slug: tallerDisenoConceptualJuegos
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Taller de programación
-        slug: tallerProgramacion
+        creditos: 7
+      - slug: tallerProgramacion
         area: CFB
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Arte digital para videojuegos
-        slug: arteDigitalVideojuegos
+        creditos: 7
+      - slug: arteDigitalVideojuegos
         area: CFE
         hs_sem: 4
         hs_total: 200
         correlativas: "-"
-      - nombre: Asignatura UNAHUR
-        slug: asignaturaUNAHUR
+        creditos: 8
+      - slug: materiaUnahur
         area: CFC
         hs_sem: 2
         hs_total: 75
@@ -86,101 +81,98 @@ cuatrimestres:
   - nombre: Segundo Año
     horas: ""
     materias:
-      - nombre: Programación con objetos
-        slug: programacionConObjetos
+      - slug: programacionConObjetos
         area: CFB
         hs_sem: 6
         hs_total: 175
         correlativas: "-"
-      - nombre: Diseño de interfaces y experiencia de usuario
-        slug: disenoInterfacesExperienciaUsuario
+        creditos: 7
+      - slug: disenoInterfacesExperienciaUsuario
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Introducción a motores de videojuegos
-        slug: introduccionMotoresVideojuegos
+        creditos: 7
+      - slug: introduccionMotoresVideojuegos
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Programación de videojuegos I
-        slug: programacionVideojuegos1
+        creditos: 7
+      - slug: programacionVideojuegos1
         area: CFE
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Planificación de negocios
-        slug: planificacionNegocios
+        creditos: 6
+      - slug: planificacionNegocios
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Bases de datos
-        slug: basesDatos
+        creditos: 7
+      - slug: basesDatos
         area: CFB
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Elementos de ingeniería de Software
-        slug: elementosIngenieriaSoftware
+      - slug: elementosIngenieriaSoftware
         area: CFB
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Programación de videojuegos II
-        slug: programacionVideojuegos2
+        creditos: 7
+      - slug: programacionVideojuegos2
         area: CIC
         hs_sem: 6
         hs_total: 225
         correlativas: "-"
+        creditos: 9
   - nombre: Tercer Año
     horas: ""
     materias:
-      - nombre: Diseño Lúdico
-        slug: disenoLudico
+      - slug: disenoLudico
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Tecnologías interactivas
-        slug: tecnologiasInteractivas
+        creditos: 7
+      - slug: tecnologiasInteractivas
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Ciencias aplicadas al Diseño
-        slug: cienciasAplicadasDiseno
+        creditos: 7
+      - slug: cienciasAplicadasDiseno
         area: CFB
         hs_sem: 4
         hs_total: 150
         correlativas: "-"
-      - nombre: Simulación I
-        slug: simulacion1
+        creditos: 6
+      - slug: simulacion1
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Diseño y animación 3d
-        slug: disenoAnimacion3d
+        creditos: 7
+      - slug: disenoAnimacion3d
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Simulación II
-        slug: simulacion2
+        creditos: 7
+      - slug: simulacion2
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Tecnología y sociedad
-        slug: tecnologiaSociedad
+        creditos: 7
+      - slug: tecnologiaSociedad
         area: CFB
         hs_sem: 4
         hs_total: 100
         correlativas: "-"
-      - nombre: Matemática para informática II
-        slug: matematicaParaInformatica2
+      - slug: matematicaParaInformatica2
         area: CFB
         hs_sem: 4
         hs_total: 175
@@ -188,44 +180,42 @@ cuatrimestres:
   - nombre: Cuarto Año
     horas: ""
     materias:
-      - nombre: Simulación III
-        slug: simulacion3
+      - slug: simulacion3
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Programación de videojuegos III
-        slug: programacionVideojuegos3
+        creditos: 7
+      - slug: programacionVideojuegos3
         area: CFE
         hs_sem: 4
         hs_total: 200
         correlativas: "-"
-      - nombre: Computación gráfica
-        slug: computacionGrafica
+        creditos: 8
+      - slug: computacionGrafica
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Práctica Profesional Supervisada
-        slug: practicaProfesionalSupervisada
+        creditos: 7
+      - slug: practicaProfesionalSupervisada
         area: CIC
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Robótica
-        slug: robotica
+      - slug: robotica
         area: CFE
         hs_sem: 4
         hs_total: 175
         correlativas: "-"
-      - nombre: Entornos Virtuales
-        slug: entornosVirtuales
+        creditos: 7
+      - slug: entornosVirtuales
         area: CFE
         hs_sem: 6
         hs_total: 175
         correlativas: "-"
-      - nombre: Proyecto final
-        slug: proyectoFinal
+        creditos: 7
+      - slug: proyectoFinal
         area: CIC
         hs_sem: 4
         hs_total: 175
