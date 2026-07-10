@@ -15,148 +15,91 @@ cuatrimestres:
   - nombre: "Primer Cuatrimestre"
     horas: 224
     materias:
-      - area: "CB"
-        nombre: "Matemática para informática I"
-        slug: "matematicaInformaticaI"
-        hs_sem: 4
-        hs_total: 64
+      - nombre: "Matemática para informática I"
+        slug: "matematicaParaInformatica1"
         correlativas: "-"
 
-      - area: "AyL"
-        nombre: "Introducción a lógica y problemas computacionales"
+      - nombre: "Introducción a lógica y problemas computacionales"
         slug: "introduccionLogicaProblemasComputacionales"
-        hs_sem: 4
-        hs_total: 64
         correlativas: "-"
 
-      - area: "ASOyR"
-        nombre: "Organización de computadoras I"
-        slug: "organizacionComputadorasI"
-        hs_sem: 4
-        hs_total: 64
+      - nombre: "Organización de computadoras I"
+        slug: "organizacionComputadoras1"
         correlativas: "-"
 
-      - area: "Gral."
-        nombre: "Nuevos entornos y lenguajes"
+      - nombre: "Nuevos entornos y lenguajes"
         slug: "nuevosEntornos"
-        hs_sem: 2
-        hs_total: 32
         correlativas: "-"
 
   - nombre: "Segundo Cuatrimestre"
     horas: 256
     materias:
-      - area: "TC"
-        nombre: "Taller de lenguajes de marcado y tecnologías web"
+      - nombre: "Taller de lenguajes de marcado y tecnologías web"
         slug: "tallerLenguajeMarcadoTecnologiasWeb"
-        hs_sem: 4
-        hs_total: 64
         correlativas: "Introducción a lógica y problemas computacionales"
 
-      - area: "AyL"
-        nombre: "Programación estructurada"
+      - nombre: "Programación estructurada"
         slug: "programacionEstructurada"
-        hs_sem: 6
-        hs_total: 96
         correlativas: "Introducción a lógica y problemas computacionales"
 
-      - area: "CB"
-        nombre: "Matemática para informática II"
-        slug: "matematicaInformaticaII"
-        hs_sem: 4
-        hs_total: 64
+      - nombre: "Matemática para informática II"
+        slug: "matematicaParaInformatica2"
         correlativas: "Matemática para informática I"
 
-      - area: "Gral."
-        nombre: "Inglés I"
+      - nombre: "Inglés I"
         slug: "inglesI"
-        hs_sem: 2
-        hs_total: 32
         correlativas: "-"
 
   - nombre: "Tercer Cuatrimestre"
     horas: 352
     materias:
-      - area: "ISBDySI"
-        nombre: "Bases de Datos"
-        slug: "baseDatos"
-        hs_sem: 6
-        hs_total: 96
+      - nombre: "Bases de Datos"
+        slug: "basesDatos"
         correlativas: "Matemática para informática II"
 
-      - area: "AyL"
-        nombre: "Programación de objetos I"
-        slug: "programacionObjetosI"
-        hs_sem: 8
-        hs_total: 128
+      - nombre: "Programación de objetos I"
+        slug: "programacionConObjetos1"
         correlativas: "Programación estructurada"
 
-      - area: "TC"
-        nombre: "Estructuras de datos"
-        slug: "estructuraDatos"
-        hs_sem: 8
-        hs_total: 128
+      - nombre: "Estructuras de datos"
+        slug: "estructurasDatos"
         correlativas: "Programación estructurada"
 
   - nombre: "Cuarto Cuatrimestre"
     horas: 288
     materias:
-      - area: "Gral."
-        nombre: "Materia UNAHUR"
-        slug: "asignaturaUnahurI"
-        hs_sem: 2
-        hs_total: 32
+      - nombre: "Asignatura UNAHUR 1"
+        slug: "materiaUnahur"
         correlativas: "-"
 
-      - area: "AyL"
-        nombre: "Programación de objetos II"
-        slug: "programacionObjetosII"
-        hs_sem: 6
-        hs_total: 96
+      - nombre: "Programación de objetos II"
+        slug: "programacionConObjetos2"
         correlativas: "Programación de objetos I"
 
-      - area: "Elec."
-        nombre: "Electiva I"
+      - nombre: "Electiva I"
         slug: "electivaTupI"
-        hs_sem: 4
-        hs_total: 64
         correlativas: "Programación estructurada"
 
-      - area: "Elec."
-        nombre: "Electiva II"
+      - nombre: "Electiva II"
         slug: "electivaTupII"
-        hs_sem: 4
-        hs_total: 64
         correlativas: "Organización de computadoras I"
 
-      - area: "Gral."
-        nombre: "Inglés II"
+      - nombre: "Inglés II"
         slug: "inglesII"
-        hs_sem: 2
-        hs_total: 32
         correlativas: "Inglés I"
 
   - nombre: "Quinto Cuatrimestre"
     horas: 288
     materias:
-      - area: "ISBDySI"
-        nombre: "Construcción de interfaces de usuario"
+      - nombre: "Construcción de interfaces de usuario"
         slug: "construccionInterfacesUsuario"
-        hs_sem: 6
-        hs_total: 96
         correlativas: "Programación de objetos II"
 
-      - area: "ISBDySI"
-        nombre: "Estrategias de persistencia"
+      - nombre: "Estrategias de persistencia"
         slug: "estrategiasPersistencia"
-        hs_sem: 6
-        hs_total: 96
         correlativas: "Programación de objetos II"
 
-      - area: "ISBDySI"
-        nombre: "Elementos de ingeniería de software"
+      - nombre: "Elementos de ingeniería de software"
         slug: "elementosIngenieriaSoftware"
-        hs_sem: 6
-        hs_total: 96
         correlativas: "Programación de objetos II"
 ---

@@ -35,185 +35,74 @@ cuatrimestres:
     horas: ''
     materias:
       - slug: matematicaParaInformatica1
-        area: CFB
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
       - slug: introduccionLogicaProblemasComputacionales
-        area: CFB
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
       - slug: introduccionSistemasComunicacionSeguridad
-        area: CFE
-        hs_sem: 6
-        hs_total: 250
         correlativas: '-'
-        creditos: 10
       - slug: culturaAlfabetizacionDigital
-        area: CFC
-        hs_sem: 2
-        hs_total: 100
         correlativas: '-'
       - slug: tallerInterpretesComandos
-        area: CFE
-        hs_sem: 4
-        hs_total: 225
         correlativas: '-'
-        creditos: 9
       - slug: organizacionComputadoras1
-        area: CFB
-        hs_sem: 4
-        hs_total: 125
         correlativas: '-'
-        creditos: 5
       - slug: basesDatos
-        area: CFB
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
       - slug: tallerProgramacion
-        area: CFB
-        hs_sem: 4
-        hs_total: 150
         correlativas: '-'
-        creditos: 6
   - nombre: Segundo Año
     horas: ''
     materias:
       - slug: redesComputadoras
-        area: CFB
-        hs_sem: 4
-        hs_total: 125
         correlativas: '-'
       - slug: organizacionComputadoras2
-        area: CFB
-        hs_sem: 4
-        hs_total: 125
         correlativas: '-'
       - slug: sistemasOperativos
-        area: CFB
-        hs_sem: 4
-        hs_total: 150
         correlativas: '-'
       - slug: operaciones
-        area: CFE
-        hs_sem: 4
-        hs_total: 225
         correlativas: '-'
-        creditos: 9
-      - slug: materiaUnahur
-        area: CFC
-        hs_sem: 2
-        hs_total: 75
+      - slug: materiaUNAHUR
         correlativas: '-'
       - slug: redesAvanzadas
-        area: CFE
-        hs_sem: 6
-        hs_total: 250
         correlativas: '-'
-        creditos: 10
       - slug: seguridadInformacion
-        area: CFE
-        hs_sem: 4
-        hs_total: 125
         correlativas: '-'
       - slug: desarrolloSeguridadOperaciones
-        area: CIC
-        hs_sem: 6
-        hs_total: 250
         correlativas: '-'
-        creditos: 10
   - nombre: Tercer Año
     horas: ''
     materias:
       - slug: lenguajesInformaticos
-        area: CFB
-        hs_sem: 4
-        hs_total: 125
         correlativas: '-'
-        creditos: 5
       - slug: laboratorioSistemasOperativosRedes
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: matematicaParaInformatica2
-        area: CFB
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
       - slug: gestionIntegralSeguridad
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: tecnologiaSociedad
-        area: CFB
-        hs_sem: 4
-        hs_total: 100
         correlativas: '-'
       - slug: desarrolloSeguro
-        area: CFE
-        hs_sem: 4
-        hs_total: 200
         correlativas: '-'
-        creditos: 8
       - slug: cibercrimenAnalisisForense
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: criptografia
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
   - nombre: Cuarto Año
     horas: ''
     materias:
       - slug: ciberseguridadNube
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: ciberseguridadOfensiva
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: administracionRespuestaIncidentes
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: practicaProfesionalSupervisada
-        area: CIC
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
       - slug: ciberdefensaCiberinteligencia
-        area: CFE
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
-        creditos: 7
       - slug: ciberseguridadDefensiva
-        area: CFE
-        hs_sem: 6
-        hs_total: 200
         correlativas: '-'
-        creditos: 8
       - slug: proyectoFinal
-        area: CIC
-        hs_sem: 4
-        hs_total: 175
         correlativas: '-'
 ---

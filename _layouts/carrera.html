@@ -105,9 +105,11 @@ layout: default
               </tr>
               {% for materia in cuatri.materias %}
               {% assign materiaData = site.data.materias.materias | where: "slug", materia.slug | first %}
-              {% assign nombre = materiaData.nombre | default: materia.nombre %}
-              {% assign area = materia.area | default: materiaData.area_general %}
+              {% assign nombre = materia.nombre | default: materiaData.nombre %}
+              {% assign area = materiaData.area_general | default: materia.area %}
               {% assign creditos = materiaData.creditos | default: materia.creditos %}
+              {% assign hs_sem = materiaData.hs_sem | default: materia.hs_sem %}
+              {% assign hs_total = materiaData.hs_total | default: materia.hs_total %}
               <tr>
                 <td>{{ area }}</td>
                 <td>
@@ -115,8 +117,8 @@ layout: default
                     {{ nombre }}
                   </a>
                 </td>
-                <td>{{ materia.hs_sem }}</td>
-                <td>{{ materia.hs_total }}</td>
+                <td>{{ hs_sem }}</td>
+                <td>{{ hs_total }}</td>
                 <td>
                   <!-- TODO: Cambiar a busqueda de correlativas por slug -->
                   {% if materia.correlativas and materia.correlativas != "-" %}

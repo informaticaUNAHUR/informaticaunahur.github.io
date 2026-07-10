@@ -2,319 +2,618 @@ materias:
   - slug: administracionRespuestaIncidentes
     nombre: Administración y respuesta a incidentes
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: algebraLineal
     nombre: Álgebra Lineal
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
     creditos: 5
   - slug: algoritmos
     nombre: Algoritmos
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: aprendizajeAutomatico
     nombre: Aprendizaje Automático
-    area_general: CBGyE
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 150
     creditos: 6
   - slug: aprendizajeAutomaticoAvanzado
     nombre: Aprendizaje Automático Avanzado
     area_general: CFE
+    hs_sem: 6
+    hs_total: 150
+    creditos: 6
   - slug: arquitecturaComputadoras
     nombre: Arquitectura de Computadoras
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: arquitecturaSoftware1
     nombre: Arquitectura de Software 1
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: arquitecturaSoftware2
     nombre: Arquitectura de Software 2
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: arteDigitalVideojuegos
     nombre: Arte digital para videojuegos
     area_general: CFE
+    hs_sem: 4
+    hs_total: 200
+    creditos: 8
   - slug: asignaturaUNAHUR
     nombre: Asignatura UNAHUR
-    area_general: OTRAS
-  - slug: materiaUnahur
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 75
+    creditos: 3
+  - slug: materiaUNAHUR
     nombre: Materia UNAHUR
-    area_general: OTRAS
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 75
     creditos: 3
   - slug: basesDatos
     nombre: Bases de Datos
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
     creditos: 7
+
   - slug: calculo
     nombre: Cálculo
     area_general: CFB
+    hs_sem: 6
+    hs_total: 150
+    creditos: 6
   - slug: cibercrimenAnalisisForense
     nombre: Cibercrimen y análisis forense
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: ciberdefensaCiberinteligencia
     nombre: Ciberdefensa y ciberinteligencia
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: ciberseguridadDefensiva
     nombre: Ciberseguridad defensiva
     area_general: CFE
+    hs_sem: 6
+    hs_total: 200
+    creditos: 8
   - slug: ciberseguridadNube
     nombre: Ciberseguridad en la nube
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: ciberseguridadOfensiva
     nombre: Ciberseguridad ofensiva
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: cienciasAplicadasDiseno
     nombre: Ciencias aplicadas al Diseño
     area_general: CFB
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: computabilidadComplejidad
     nombre: Computabilidad y Complejidad
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: computacionGrafica
     nombre: Computación gráfica
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: construccionInterfacesUsuario
     nombre: Construcción de Interfaces de Usuario
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: criptografia
     nombre: Criptografía
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: culturaAlfabetizacionDigital
     nombre: Cultura y alfabetización digital en la universidad
-    area_general: OTRAS
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 100
     creditos: 4
   - slug: desarrolloAplicaciones
     nombre: Desarrollo de Aplicaciones
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: desarrolloSeguridadOperaciones
     nombre: Desarrollo, seguridad y operaciones
     area_general: CIC
+    hs_sem: 6
+    hs_total: 250
+    creditos: 10
   - slug: desarrolloSeguro
     nombre: Desarrollo Seguro
     area_general: CFE
+    hs_sem: 4
+    hs_total: 200
+    creditos: 8
   - slug: disenoAnimacion3d
     nombre: Diseño y animación 3d
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: disenoInterfacesExperienciaUsuario
     nombre: Diseño de interfaces y experiencia de usuario
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: disenoLudico
     nombre: Diseño Lúdico
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
+  - slug: ElectivaITuProgramacionVideojuegos
+    nombre: Electiva I
+    area_general: CFE
+    hs_sem: "Variante"
+    hs_total: "Variante"
+    creditos: "Variante"
   - slug: ejercicioProfesionalTecnologia
     nombre: Ejercicio Profesional en Tecnología
-    area_general: ASyP
+    area_general: CFC
+    hs_sem: 4
+    hs_total: 100
+    creditos: 4
+  - slug: electivaIITuProgramacionVideojuegos
+    nombre: Electiva II
+    area_general: CFE
+    hs_sem: "Variante"
+    hs_total: "Variante"
+    creditos: "Variante"
   - slug: elementosIngenieriaSoftware
     nombre: Elementos de ingeniería de Software
     area_general: CFB
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: entornosVirtuales
     nombre: Entornos Virtuales
     area_general: CFE
+    hs_sem: 6
+    hs_total: 175
+    creditos: 7
   - slug: estrategiasPersistencia
     nombre: Estrategias de Persistencia
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: estructurasDatos
     nombre: Estructuras de Datos
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 175
+    creditos: 7
+
   - slug: formalizacionLenguajesGeneracionCodigo
     nombre: Formalización de Lenguajes y Generación de Código
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: fundamentosCienciasDatos
     nombre: Fundamentos de ciencias de datos
     area_general: CFE
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: fundamentosRedesNeuronales
     nombre: Fundamentos de Redes Neuronales
-    area_general: CBGyE
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 125
     creditos: 5
   - slug: gestionIntegralSeguridad
     nombre: Gestión integral de seguridad
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: gestionProyectosDesarrolloSoftware
     nombre: Gestión de Proyectos de Desarrollo de Software
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: ingenieriaSoftware1
     nombre: Ingeniería de Software 1
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: ingenieriaSoftware2
     nombre: Ingeniería de Software 2
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: ingles
     nombre: Inglés
-    area_general: OTRAS
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 100
     creditos: 4
   - slug: inglesI
     nombre: Inglés I
-    area_general: Gral.
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 32
   - slug: inglesII
     nombre: Inglés II
-    area_general: Gral.
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 32
   - slug: introduccionInteligenciaArtificial
     nombre: Introducción a la inteligencia artificial
     area_general: CFE
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: introduccionLogicaProblemasComputacionales
     nombre: Introducción a lógica y Problemas Computacionales
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
     creditos: 7
-    area_general: CBGyE
   - slug: introduccionMotoresVideojuegos
     nombre: Introducción a motores de videojuegos
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: introduccionSistemasComunicacionSeguridad
     nombre: Introducción a los sistemas de comunicación y seguridad
     area_general: CFE
+    hs_sem: 6
+    hs_total: 250
+    creditos: 10
   - slug: introduccionVideojuegos
     nombre: Introducción a los Videojuegos
     area_general: CFE
+    hs_sem: 6
+    hs_total: 200
+    creditos: 8
   - slug: laboratorioSistemasOperativosRedes
     nombre: Laboratorio de Sistemas Operativos y Redes
-    area_general: ASOyR
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
+    # ciberseguridad dice hs_total:175, creditos:7 (informatica priority)
   - slug: lenguajesInformaticos
     nombre: Lenguajes informáticos
     area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: lenguajesInformaticos1
     nombre: Lenguajes Informáticos 1
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: lenguajesInformaticos2
     nombre: Lenguajes Informáticos 2
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 125
+    creditos: 5
   - slug: lenguajesInformaticos3
     nombre: Lenguajes Informáticos 3
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: lenguajesInformaticos4
     nombre: Lenguajes Informáticos 4
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 150
+    creditos: 6
   - slug: matematicaParaInformatica1
     nombre: Matemática para Informática 1
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
     creditos: 7
+
   - slug: matematicaParaInformatica2
     nombre: Matemática para Informática 2
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
     creditos: 7
+
   - slug: matematicaParaInformatica3
     nombre: Matemática para Informática 3
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: matematicaParaInformatica4
     nombre: Matemática para Informática 4
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: nuevosEntornos
     nombre: Nuevos entornos y lenguajes
-    area_general: Gral.
+    area_general: CFC
+    hs_sem: 2
+    hs_total: 32
   - slug: operaciones
     nombre: Operaciones
     area_general: CFE
+    hs_sem: 4
+    hs_total: 225
+    creditos: 9
   - slug: operacionesI
     nombre: Operaciones I
-    area_general: TC
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 96
   - slug: operacionesII
     nombre: Operaciones II
-    area_general: TC
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 96
   - slug: organizacionComputadoras1
     nombre: Organización de las Computadoras 1
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
+
   - slug: organizacionComputadoras2
     nombre: Organización de Computadoras 2
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
     creditos: 5
+
   - slug: planificacionNegocios
     nombre: Planificación de negocios
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: practicaProfesionalSupervisada
     nombre: Práctica Profesional Supervisada
-    area_general: OTRAS
+    area_general: CIC
+    hs_sem: 4
+    hs_total: 175
     creditos: 7
   - slug: probabilidadEstadistica
     nombre: Probabilidad y Estadística
-    area_general: CBGyE
+    area_general: CFB
+    hs_sem: 6
+    hs_total: 125
     creditos: 5
   - slug: procesamientoImagenesVisionComputadora
     nombre: Procesamiento de Imágenes y Visión por Computadora
     area_general: CFE
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: programacionConObjetos
     nombre: Programación con objetos
     area_general: CFB
+    hs_sem: 6
+    hs_total: 175
+    creditos: 7
   - slug: programacionConObjetos1
     nombre: Programación con Objetos 1
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 175
+    creditos: 7
+
   - slug: programacionConObjetos2
     nombre: Programación con Objetos II
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 175
+    creditos: 7
+
   - slug: programacionEstructurada
     nombre: Programación Estructurada
-    area_general: AyL
+    area_general: CFE
+    hs_sem: 6
+    hs_total: 175
+    creditos: 7
   - slug: programacionVideojuegos1
     nombre: Programación de videojuegos I
     area_general: CFE
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
+
   - slug: programacionVideojuegos2
     nombre: Programación de videojuegos II
     area_general: CIC
+    hs_sem: 6
+    hs_total: 225
+    creditos: 9
+
   - slug: programacionVideojuegos3
     nombre: Programación de videojuegos III
     area_general: CFE
+    hs_sem: 4
+    hs_total: 200
+    creditos: 8
   - slug: proyectoFinal
     nombre: Proyecto final
     area_general: CIC
+    hs_sem: 4
+    hs_total: 175
     creditos: 7
   - slug: proyectoFinalLicenciatura
     nombre: Proyecto final de Licenciatura
-    area_general: OTRAS
+    area_general: CIC
+    hs_sem: 6
+    hs_total: 175
     creditos: 7
   - slug: proyectoIntegrador
     nombre: Proyecto integrador
     area_general: CIC
+    hs_sem: 6
+    hs_total: 200
+    creditos: 8
   - slug: redesAvanzadas
     nombre: Redes avanzadas
     area_general: CFE
+    hs_sem: 6
+    hs_total: 250
+    creditos: 10
   - slug: redesComputadoras
     nombre: Redes de Computadoras
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
     creditos: 5
   - slug: robotica
     nombre: Robótica
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: seguridadInformacion
     nombre: Seguridad de la Información
-    area_general: ASOyR
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 125
     creditos: 5
   - slug: simulacion1
     nombre: Simulación I
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: simulacion2
     nombre: Simulación II
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: simulacion3
     nombre: Simulación III
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
   - slug: sistemasComunicacion
     nombre: Sistemas de comunicación
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 64
   - slug: sistemasDistribuidosTiempoReal
     nombre: Sistemas Distribuidos y Tiempo Real
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: sistemasOperativos
     nombre: Sistemas Operativos
-    area_general: ASOyR
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 150
     creditos: 6
+
   - slug: sistemasOrganizaciones
     nombre: Sistemas y organizaciones
-    area_general: ISBDySO
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: tallerDisenoConceptualJuegos
     nombre: Taller de diseño conceptual de juegos
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
+
   - slug: tallerInterpretesComandos
     nombre: Taller de intérpretes de comandos
     area_general: CFE
+    hs_sem: 4
+    hs_total: 225
+    creditos: 9
   - slug: tallerLenguajeMarcadoTecnologiasWeb
     nombre: Taller de lenguajes de marcado y tecnologías web
-    area_general: TC
+    area_general: CFE
+    hs_sem: 4
+    hs_total: 64
   - slug: tallerProgramacion
     nombre: Taller de programación
     area_general: CFB
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: tallerProgramacionI
     nombre: Taller de Programación I
     area_general: CFE
+    hs_sem: 4
+    hs_total: 150
+    creditos: 6
   - slug: tallerProgramacionII
     nombre: Taller de Programación II
     area_general: CFE
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: tallerProgramacionIII
     nombre: Taller de Programación III
     area_general: CFE
+    hs_sem: 4
+    hs_total: 125
+    creditos: 5
   - slug: tecnologiaSociedad
     nombre: Tecnología y Sociedad
-    area_general: ASyP
+    area_general: CFB
+    hs_sem: 4
+    hs_total: 100
     creditos: 4
   - slug: tecnologiasInteractivas
     nombre: Tecnologías interactivas
     area_general: CFE
+    hs_sem: 4
+    hs_total: 175
+    creditos: 7
