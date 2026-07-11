@@ -15,95 +15,75 @@ cuatrimestres:
   - nombre: "Primer Cuatrimestre"
     horas: 224
     materias:
-      - nombre: "Matemática para informática I"
-        slug: "matematicaParaInformatica1"
+      - slug: "matematicaParaInformatica1"
         correlativas: "-"
 
-      - nombre: "Introducción a lógica y problemas computacionales"
-        slug: "introduccionLogicaProblemasComputacionales"
+      - slug: "introduccionLogicaProblemasComputacionales"
         correlativas: "-"
 
-      - nombre: "Organización de computadoras I"
-        slug: "organizacionComputadoras1"
+      - slug: "organizacionComputadoras1"
         correlativas: "-"
 
-      - nombre: "Nuevos entornos y lenguajes"
-        slug: "nuevosEntornos"
+      - slug: "nuevosEntornos"
         correlativas: "-"
 
   - nombre: "Segundo Cuatrimestre"
     horas: 256
     materias:
-      - nombre: "Taller de intérpretes de comandos"
-        slug: "tallerInterpretesComandos"
+      - slug: "tallerInterpretesComandos"
         correlativas: "Introducción a lógica y problemas computacionales"
 
-      - nombre: "Organización de computadoras II"
-        slug: "organizacionComputadoras2"
+      - slug: "organizacionComputadoras2"
         correlativas: "Organización de computadoras I"
 
-      - nombre: "Sistemas de comunicación"
-        slug: "sistemasComunicacion"
+      - slug: "sistemasComunicacion"
         correlativas: "Organización de computadoras I"
 
-      - nombre: "Inglés I"
-        slug: "inglesI"
+      - slug: "inglesI"
         correlativas: "-"
 
   - nombre: "Tercer Cuatrimestre"
     horas: 384
     materias:
-      - nombre: "Bases de Datos"
-        slug: "basesDatos"
+      - slug: "basesDatos"
         correlativas: "Matemática para informática I"
 
-      - nombre: "Redes de Computadoras"
-        slug: "redesComputadoras"
+      - slug: "redesComputadoras"
         correlativas: "Organización de computadoras II,Sistemas de comunicación"
 
-      - nombre: "Sistemas Operativos"
-        slug: "sistemasOperativos"
+      - slug: "sistemasOperativos"
         correlativas: "Taller de intérpretes de comandos,Organización de computadoras II"
 
-      - nombre: "Operaciones I"
-        slug: "operacionesI"
+      - slug: "operacionesI"
         correlativas: "Taller de intérpretes de comandos"
 
   - nombre: "Cuarto Cuatrimestre"
     horas: 288
     materias:
-      - nombre: "Asignatura UNAHUR 1"
-        slug: "materiaUNAHUR"
+      - slug: "materiaUNAHUR"
         correlativas: "-"
 
-      - nombre: "Redes avanzadas"
-        slug: "redesAvanzadas"
+      - slug: "redesAvanzadas"
         correlativas: "Redes de Computadoras"
 
-      - nombre: "Electiva I"
-        slug: "electivaTurI"
+      - slug: "electivaTurI"
         correlativas: "Organización de computadoras II,Sistemas de comunicación"
 
-      - nombre: "Electiva II"
-        slug: "electivaTurII"
+      - slug: "electivaTurII"
         correlativas: "Matemática para informática I,Taller de intérpretes de comandos"
 
-      - nombre: "Inglés II"
-        slug: "inglesII"
+      - slug: "inglesII"
         correlativas: "Inglés I"
 
   - nombre: "Quinto Cuatrimestre"
     horas: 256
     materias:
-      - nombre: "Seguridad de la Información"
-        slug: "seguridadInformacion"
+      - slug: "seguridadInformacion"
         correlativas: "Redes avanzadas,Operaciones I"
 
-      - nombre: "Laboratorio de sistemas operativos y redes"
-        slug: "laboratorioSistemasOperativosRedes"
+      - slug: "laboratorioSistemasOperativosRedes"
         correlativas: "Redes de Computadoras,Sistemas Operativos"
 
-      - nombre: "Operaciones II"
-        slug: "operacionesII"
+      - slug: "operacionesII"
         correlativas: "Operaciones I,Sistemas Operativos"
 ---

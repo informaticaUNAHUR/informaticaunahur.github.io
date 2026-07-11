@@ -180,7 +180,7 @@ materias:
     hs_sem: 4
     hs_total: 175
     creditos: 7
-  - slug: ElectivaITuProgramacionVideojuegos
+  - slug: electivaITuProgramacionVideojuegos
     nombre: Electiva I
     area_general: CFE
     hs_sem: "Variante"
@@ -198,6 +198,35 @@ materias:
     hs_sem: "Variante"
     hs_total: "Variante"
     creditos: "Variante"
+
+  - slug: electivaTupI
+    nombre: Electiva I
+    area_general: CFE
+    hs_sem: "Variante"
+    hs_total: "Variante"
+    creditos: "Variante"
+
+  - slug: electivaTupII
+    nombre: Electiva II
+    area_general: CFE
+    hs_sem: "Variante"
+    hs_total: "Variante"
+    creditos: "Variante"
+
+  - slug: electivaTurI
+    nombre: Electiva I
+    area_general: CFE
+    hs_sem: "Variante"
+    hs_total: "Variante"
+    creditos: "Variante"
+
+  - slug: electivaTurII
+    nombre: Electiva II
+    area_general: CFE
+    hs_sem: "Variante"
+    hs_total: "Variante"
+    creditos: "Variante"
+
   - slug: elementosIngenieriaSoftware
     nombre: Elementos de ingeniería de Software
     area_general: CFB

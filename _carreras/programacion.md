@@ -15,91 +15,72 @@ cuatrimestres:
   - nombre: "Primer Cuatrimestre"
     horas: 224
     materias:
-      - nombre: "Matemática para informática I"
-        slug: "matematicaParaInformatica1"
+      - slug: matematicaParaInformatica1
         correlativas: "-"
 
-      - nombre: "Introducción a lógica y problemas computacionales"
-        slug: "introduccionLogicaProblemasComputacionales"
+      - slug: introduccionLogicaProblemasComputacionales
         correlativas: "-"
 
-      - nombre: "Organización de computadoras I"
-        slug: "organizacionComputadoras1"
+      - slug: organizacionComputadoras1
         correlativas: "-"
 
-      - nombre: "Nuevos entornos y lenguajes"
-        slug: "nuevosEntornos"
+      - slug: nuevosEntornos
         correlativas: "-"
 
   - nombre: "Segundo Cuatrimestre"
     horas: 256
     materias:
-      - nombre: "Taller de lenguajes de marcado y tecnologías web"
-        slug: "tallerLenguajeMarcadoTecnologiasWeb"
+      - slug: tallerLenguajeMarcadoTecnologiasWeb
         correlativas: "Introducción a lógica y problemas computacionales"
 
-      - nombre: "Programación estructurada"
-        slug: "programacionEstructurada"
+      - slug: programacionEstructurada
         correlativas: "Introducción a lógica y problemas computacionales"
 
-      - nombre: "Matemática para informática II"
-        slug: "matematicaParaInformatica2"
+      - slug: matematicaParaInformatica2
         correlativas: "Matemática para informática I"
 
-      - nombre: "Inglés I"
-        slug: "inglesI"
+      - slug: inglesI
         correlativas: "-"
 
   - nombre: "Tercer Cuatrimestre"
     horas: 352
     materias:
-      - nombre: "Bases de Datos"
-        slug: "basesDatos"
+      - slug: basesDatos
         correlativas: "Matemática para informática II"
 
-      - nombre: "Programación de objetos I"
-        slug: "programacionConObjetos1"
+      - slug: programacionConObjetos1
         correlativas: "Programación estructurada"
 
-      - nombre: "Estructuras de datos"
-        slug: "estructurasDatos"
+      - slug: estructurasDatos
         correlativas: "Programación estructurada"
 
   - nombre: "Cuarto Cuatrimestre"
     horas: 288
     materias:
-      - nombre: "Asignatura UNAHUR 1"
-        slug: "materiaUnahur"
+      - slug: materiaUNAHUR
         correlativas: "-"
 
-      - nombre: "Programación de objetos II"
-        slug: "programacionConObjetos2"
+      - slug: programacionConObjetos2
         correlativas: "Programación de objetos I"
 
-      - nombre: "Electiva I"
-        slug: "electivaTupI"
+      - slug: electivaTupI
         correlativas: "Programación estructurada"
 
-      - nombre: "Electiva II"
-        slug: "electivaTupII"
+      - slug: electivaTupII
         correlativas: "Organización de computadoras I"
 
-      - nombre: "Inglés II"
-        slug: "inglesII"
+      - slug: inglesII
         correlativas: "Inglés I"
 
   - nombre: "Quinto Cuatrimestre"
     horas: 288
     materias:
-      - nombre: "Construcción de interfaces de usuario"
-        slug: "construccionInterfacesUsuario"
+      - slug: construccionInterfacesUsuario
         correlativas: "Programación de objetos II"
 
-      - nombre: "Estrategias de persistencia"
-        slug: "estrategiasPersistencia"
+      - slug: estrategiasPersistencia
         correlativas: "Programación de objetos II"
 
-      - nombre: "Elementos de ingeniería de software"
-        slug: "elementosIngenieriaSoftware"
+      - slug: elementosIngenieriaSoftware
         correlativas: "Programación de objetos II"
 ---
