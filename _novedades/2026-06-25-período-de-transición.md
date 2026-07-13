@@ -24,10 +24,10 @@ Importante:
 * Versión actualizada del ["Simulador de transiciones"](https://docs.google.com/spreadsheets/d/1N1KlgL1yoD1EGTkGC3_YzFNMNESNbSLSOaXcCWHQOA0/copy) (hace tu copia, cargá tus materias y créditos y fijate cuánto te falta)
 * [Explicación detallada, planes, sistema de créditos, preguntas frecuentes](https://docs.google.com/presentation/d/1iG5oC1T_jICv6seME2DreRXgctvmWoQN9CIeZkzcfDw/edit?usp=sharing)
 
-
-
 [Programación e informática](https://informaticaunahur.github.io/novedades/actualizaci%C3%B3n-de-plan-de-estudios-de-programaci%C3%B3n-e-inform%C3%A1tica/)
 
 [Inteligencia Artificial](https://informaticaunahur.github.io/novedades/continuidad-en-inteligencia-artificial/)
 
 [Ciberseguridad / Videojuegos y Simulaciones](https://informaticaunahur.github.io/novedades/nuevos-planes-de-estudio/)
+
+Para situaciones especiales, completar [este formulario](https://forms.gle/8Ejs9AJPUDJ8KpU99)
