@@ -60,25 +60,7 @@ layout: default
       {% if page.correlativas and page.correlativas != "-" and page.correlativas.first %}
       <div>
         <span style="font-size:0.75rem; color:#888; display:block;">Correlativas</span>
-        <strong style="font-size:0.95rem;">
-          {% assign raw = page.correlativas %}
-          {% if raw.first and raw.first.size > 1 %}
-            {% assign items = raw %}
-          {% else %}
-            {% assign items = raw | split: "," %}
-          {% endif %}
-          {% for entry in items %}
-            {% assign slug = entry | strip %}
-            {% assign found = site.materias | where: "slug", slug | first %}
-            {% if found %}
-              <a href="{{ '/materias/' | append: slug | append: '/' | relative_url }}" style="color:#4db6ad;">
-                {{ found.title }}
-              </a>{% unless forloop.last %}, {% endunless %}
-            {% else %}
-              <span class="materia-no-disponible">(Materia no disponible)</span>{% unless forloop.last %}, {% endunless %}
-            {% endif %}
-          {% endfor %}
-        </strong>
+        <strong style="font-size:0.95rem;">{{ page.correlativas }}</strong>
       </div>
       {% endif %}
       {% if page.pdf_programa %}
