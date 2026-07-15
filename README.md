@@ -146,29 +146,54 @@ informaticaunahur.github.io/
 
 - **Ruby** 3.1.4 (ver `.ruby-version`)
 - **Bundler** (`gem install bundler`)
+- **Node.js** 18+ (para el proxy local de Decap CMS)
 - **Git**
 
-### Pasos
+### Pasos — Sitio estático
 
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/informaticaUNAHUR/informaticaunahur.github.io.git
 cd informaticaunahur.github.io
 
-# 2. Instalar dependencias Ruby
+# 2. Configurar Bundler para usar vendor/bundle (aisla las gemas del proyecto)
+bundle config set --local path 'vendor/bundle'
+
+# 3. Instalar dependencias Ruby
 bundle install
 
-# 3. Iniciar el servidor de desarrollo
+# 4. Iniciar el servidor de desarrollo
 bundle exec jekyll serve --livereload --watch
 
-# 4. Abrir en el navegador
+# 5. Abrir en el navegador
 #    http://localhost:4000
 ```
 
 El flag `--livereload` recarga la página automáticamente al detectar cambios.
 El flag `--watch` regenera el sitio cuando se modifica un archivo.
 
-> **Nota:** Si es la primera vez que ejecutás Jekyll, necesitás instalar la gema `bundler` con `gem install bundler` y luego ejecutar `bundle install` desde la raíz del proyecto.
+> **Nota:** Si es la primera vez que ejecutás Jekyll, necesitás instalar la gema `bundler` con `gem install bundler` y luego ejecutar `bundle config set --local path 'vendor/bundle'` y `bundle install` desde la raíz del proyecto.
+
+### Pasos — Decap CMS (edición de contenidos en local)
+
+El modo local permite editar contenidos en tu entorno de desarrollo sin necesidad de autenticación contra GitHub.
+
+```bash
+# En una segunda terminal, desde la raíz del proyecto:
+
+# 1. Habilitar el modo local en la configuración de Decap CMS
+#    Agregá (o verificá que exista) la siguiente línea en admin/config.yml:
+#    local_backend: true
+
+# 2. Iniciar el proxy local de Decap CMS
+npx decap-server
+```
+
+Luego abrí tu navegador en **http://localhost:4000/admin/** y deberías ver el panel de administración funcionando en modo local.
+
+> **Nota:** El proyecto ya incluye `local_backend: true` en `admin/config.yml`, por lo que el paso 1 solo es necesario si estás iniciando desde cero o si la línea no está presente.
+
+> **Nota:** `npx` descarga y ejecuta `decap-server` automáticamente sin necesidad de instalarlo. Si preferís instalarlo de forma global ejecutá `npm install -g decap-server`.
 
 ## Flujo de publicación
 
