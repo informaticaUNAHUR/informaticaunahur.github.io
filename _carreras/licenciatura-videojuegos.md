@@ -44,9 +44,11 @@ cuatrimestres:
       - slug: culturaAlfabetizacionDigital
         correlativas: "-"
       - slug: tallerDisenoConceptualJuegos
-        correlativas: "-"
-      - slug: tallerProgramacion
-        correlativas: "-"
+        correlativas:
+          - introduccionVideojuegos
+      - slug: tallerProgramacionI
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
       - slug: arteDigitalVideojuegos
         correlativas: "-"
       - slug: materiaUNAHUR
@@ -54,56 +56,88 @@ cuatrimestres:
   - nombre: Segundo Año
     horas: ""
     materias:
-      - slug: programacionConObjetos
-        correlativas: "-"
+      - slug: programacionConObjetos1
+        correlativas:
+          - tallerProgramacionI
       - slug: disenoInterfacesExperienciaUsuario
-        correlativas: "-"
+        correlativas:
+          - arteDigitalVideojuegos
       - slug: introduccionMotoresVideojuegos
-        correlativas: "-"
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
       - slug: programacionVideojuegos1
-        correlativas: "-"
+        correlativas:
+          - tallerProgramacionI
       - slug: planificacionNegocios
-        correlativas: "-"
+        correlativas:
+          - programacionVideojuegos1
       - slug: basesDatos
-        correlativas: "-"
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
       - slug: elementosIngenieriaSoftware
-        correlativas: "-"
+        correlativas:
+          - programacionConObjetos1
+          - programacionVideojuegos1
       - slug: programacionVideojuegos2
-        correlativas: "-"
+        correlativas:
+          - disenoInterfacesExperienciaUsuario
+          - introduccionMotoresVideojuegos
+          - programacionVideojuegos1
   - nombre: Tercer Año
     horas: ""
     materias:
       - slug: disenoLudico
-        correlativas: "-"
+        correlativas:
+          - tallerDisenoConceptualJuegos
       - slug: tecnologiasInteractivas
-        correlativas: "-"
+        correlativas:
+          - tallerProgramacionI
       - slug: cienciasAplicadasDiseno
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica1
       - slug: simulacion1
-        correlativas: "-"
+        correlativas:
+          - programacionVideojuegos1
       - slug: disenoAnimacion3d
-        correlativas: "-"
+        correlativas:
+          - arteDigitalVideojuegos
       - slug: simulacion2
-        correlativas: "-"
+        correlativas:
+          - simulacion1
       - slug: tecnologiaSociedad
         correlativas: "-"
       - slug: matematicaParaInformatica2
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica1
   - nombre: Cuarto Año
     horas: ""
     materias:
       - slug: simulacion3
-        correlativas: "-"
+        correlativas:
+          - cienciasAplicadasDiseno
+          - simulacion2
       - slug: programacionVideojuegos3
-        correlativas: "-"
+        correlativas:
+          - basesDatos
+          - programacionConObjetos2
       - slug: computacionGrafica
-        correlativas: "-"
+        correlativas:
+          - disenoAnimacion3d
+          - matematicaParaInformatica2
       - slug: practicaProfesionalSupervisada
-        correlativas: "-"
+        correlativas:
+          - programacionVideojuegos2
+          - simulacion2
       - slug: robotica
-        correlativas: "-"
+        correlativas:
+          - tecnologiasInteractivas
       - slug: entornosVirtuales
-        correlativas: "-"
-      - slug: proyectoFinal
-        correlativas: "-"
+        correlativas:
+          - programacionVideojuegos2
+      - slug: proyectoFinalVideojuegos
+        correlativas:
+          - programacionVideojuegos3
+          - computacionGrafica
+          - practicaProfesionalSupervisada
+        nombre: Proyecto final
 ---

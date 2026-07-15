@@ -6,9 +6,11 @@ permalink: /materias/disenoInterfacesExperienciaUsuario/
 area_general: CFE
 hs_sem: 4
 hs_total: 175
-creditos: 7
-icon: layout
+hs_autonomo: 111
+nombre_anterior: Construccion interfaces de usuario
 plan: vigente
 date: 2026-06-15 00:00:00
+icon: layout
 categories: Materias
+creditos: 7
 ---

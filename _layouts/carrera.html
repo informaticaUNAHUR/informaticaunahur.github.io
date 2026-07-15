@@ -108,6 +108,7 @@ layout: default
               </tr>
               {% for materia in cuatri.materias %}
               {% assign materiaActual = site.materias | where: "slug", materia.slug | first %}
+              {% if materiaActual %}
               {% assign nombre = materia.nombre | default: materiaActual.title %}
               {% assign area = materiaActual.area_general %}
               {% assign creditos = materiaActual.creditos %}
@@ -123,9 +124,9 @@ layout: default
                   </a>
                 </td>
                 <td>{{ hs_sem }}</td>
-                <td>{{ hs_sem | times: 16 }}</td>
-                <td>{{ hs_autonomo }}</td>
-                <td>{{ hs_total }}</td>
+                <td>{% if hs_sem != "Variante" %}{{ hs_sem | times: 16 }}{% else %}Variante{% endif %}</td>
+                <td>{% if hs_sem != "Variante" %}{{ hs_autonomo }}{% else %}Variante{% endif %}</td>
+                <td>{% if hs_sem != "Variante" %}{{ hs_total }}{% else %}Variante{% endif %}</td>
                 <td>
 
                   {% if materia.correlativas and materia.correlativas != "-" and materia.correlativas.first %}
@@ -143,7 +144,7 @@ layout: default
                           {{ found.title }}
                         </a>{% unless forloop.last %}, {% endunless %}
                       {% else %}
-                        {{ slug }}{% unless forloop.last %}, {% endunless %}
+                        <span class="materia-no-disponible">(Materia no disponible)</span>{% unless forloop.last %}, {% endunless %}
                       {% endif %}
                     {% endfor %}
                   {% else %}
@@ -155,6 +156,19 @@ layout: default
                 </td>
                 {% if page.vigente or page.proxima %}<td>{{ nombre_anterior | default: "igual"}}</td>{% endif %}
               </tr>
+              {% else %}
+              <tr>
+                <td></td>
+                <td><span class="materia-no-disponible">(Materia no disponible)</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>—</td>
+                <td></td>
+                {% if page.vigente or page.proxima %}<td></td>{% endif %}
+              </tr>
+              {% endif %}
               {% endfor %}
               {% endfor %}
             </tbody>

@@ -75,7 +75,7 @@ layout: default
                 {{ found.title }}
               </a>{% unless forloop.last %}, {% endunless %}
             {% else %}
-              {{ slug }}{% unless forloop.last %}, {% endunless %}
+              <span class="materia-no-disponible">(Materia no disponible)</span>{% unless forloop.last %}, {% endunless %}
             {% endif %}
           {% endfor %}
         </strong>
