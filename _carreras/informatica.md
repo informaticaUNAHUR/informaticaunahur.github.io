@@ -1,16 +1,16 @@
 ---
+descripcion_corta: Licenciatura con título intermedio Técnico/a Universitario en Programación.
+total_horas: 7175
 layout: carrera
 title: Licenciatura en Informática
 permalink: /licenciatura-informatica/
 icono: /assets/img/Informatica-licenciatura-icono.png
-descripcion_corta: Licenciatura con título intermedio Técnico/a Universitario en Programación.
-imagen: /assets/uploads/2026.webp
+imagen: /assets/uploads/images/2026.webp
 vigente: true
 orden: 1
 titulo_intermedio: Técnico/a Universitario en Programación
-total_horas: 7175
-pdf: /assets/uploads/lic-informatica-2026.pdf
-correlatividades_imagen: /assets/uploads/lic-info-2025.png
+pdf: /assets/uploads/pdfs/lic-informatica-2026.pdf
+correlatividades_imagen: /assets/uploads/images/lic-info-2025.png
 tabla_datos:
   col_grado: Licenciado/a en Informática
   col_intermedio: Técnico/a Universitario en Programación
@@ -18,16 +18,16 @@ tabla_datos:
     - label: Duración
       grado: 4,5 años
       intermedio: 2,5 años
-    - label: Horas Interacción pedagógica
-      grado: "3200"
+    - label: Horas de interaccion pedagogica
       intermedio: "1184"
+      grado: "3200"
     - label: Materias
       grado: "45"
-      intermedio: "17"
+      intermedio: "23"
     - label: Créditos ACA
       grado: "30"
       intermedio: "12"
-    - label: Créditos Totales
+    - label: Creditos
       grado: "287"
       intermedio: "120"
 cuatrimestres:
@@ -38,7 +38,6 @@ cuatrimestres:
         correlativas: "-"
       - slug: matematicaParaInformatica1
         correlativas: "-"
-
       - slug: organizacionComputadoras1
         correlativas: "-"
       - slug: culturaAlfabetizacionDigital
@@ -48,93 +47,147 @@ cuatrimestres:
       - slug: ingles
         correlativas: "-"
       - slug: programacionEstructurada
-        correlativas: "-"
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
       - slug: matematicaParaInformatica2
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica1
       - slug: lenguajesInformaticos1
-        correlativas: "-"
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
       - slug: organizacionComputadoras2
-        correlativas: "-"
+        correlativas:
+          - organizacionComputadoras1
   - nombre: Segundo Año
     horas: ""
     materias:
       - slug: programacionConObjetos1
-        correlativas: "-"
+        correlativas:
+          - programacionEstructurada
       - slug: estructurasDatos
-        correlativas: "-"
+        correlativas:
+          - programacionEstructurada
       - slug: basesDatos
-        correlativas: "-"
+        correlativas:
+          - programacionEstructurada
       - slug: matematicaParaInformatica3
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica2
       - slug: redesComputadoras
-        correlativas: "-"
+        correlativas:
+          - organizacionComputadoras1
       - slug: programacionConObjetos2
-        correlativas: "-"
+        correlativas:
+          - programacionConObjetos1
       - slug: materiaUNAHUR
         correlativas: "-"
+        nombre: Asignatura UNAHUR
       - slug: sistemasOrganizaciones
-        correlativas: "-"
+        correlativas:
+          - programacionEstructurada
       - slug: algoritmos
-        correlativas: "-"
+        correlativas:
+          - estructurasDatos
       - slug: sistemasOperativos
-        correlativas: "-"
+        correlativas:
+          - organizacionComputadoras1
   - nombre: Tercer Año
     horas: ""
     materias:
       - slug: construccionInterfacesUsuario
-        correlativas: "-"
+        correlativas:
+          - basesDatos
+          - programacionConObjetos2
       - slug: estrategiasPersistencia
-        correlativas: "-"
+        correlativas:
+          - basesDatos
+          - programacionConObjetos2
       - slug: ingenieriaSoftware1
-        correlativas: "-"
+        correlativas:
+          - sistemasOrganizaciones
       - slug: algebraLineal
-        correlativas: "-"
+        correlativas:
+          - lenguajesInformaticos1
       - slug: ejercicioProfesionalTecnologia
-        correlativas: "-"
+        correlativas:
+          - tecnologiaSociedad
       - slug: desarrolloAplicaciones
-        correlativas: "-"
+        correlativas:
+          - construccionInterfacesUsuario
+          - estrategiasPersistencia
+          - ingenieriaSoftware1
       - slug: laboratorioSistemasOperativosRedes
-        correlativas: "-"
+        correlativas:
+          - organizacionComputadoras2
+          - redesComputadoras
+          - sistemasOperativos
       - slug: lenguajesInformaticos2
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica2
+          - programacionConObjetos2
+          - algoritmos
       - slug: arquitecturaSoftware1
-        correlativas: "-"
+        correlativas:
+          - construccionInterfacesUsuario
+          - estrategiasPersistencia
+          - ingenieriaSoftware1
       - slug: matematicaParaInformatica4
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica3
+          - algebraLineal
   - nombre: Cuarto Año
     horas: ""
     materias:
       - slug: ingenieriaSoftware2
-        correlativas: "-"
+        correlativas:
+          - ingenieriaSoftware1
       - slug: probabilidadEstadistica
-        correlativas: "-"
+        correlativas:
+          - matematicaParaInformatica4
       - slug: lenguajesInformaticos3
-        correlativas: "-"
+        correlativas:
+          - programacionEstructurada
+          - sistemasOperativos
       - slug: seguridadInformacion
-        correlativas: "-"
+        correlativas:
+          - laboratorioSistemasOperativosRedes
       - slug: computabilidadComplejidad
-        correlativas: "-"
+        correlativas:
+          - algoritmos
+          - algebraLineal
       - slug: fundamentosRedesNeuronales
-        correlativas: "-"
+        correlativas:
+          - probabilidadEstadistica
       - slug: lenguajesInformaticos4
-        correlativas: "-"
+        correlativas:
+          - algoritmos
+          - lenguajesInformaticos2
       - slug: formalizacionLenguajesGeneracionCodigo
-        correlativas: "-"
+        correlativas:
+          - computabilidadComplejidad
       - slug: arquitecturaSoftware2
-        correlativas: "-"
+        correlativas:
+          - arquitecturaSoftware1
       - slug: practicaProfesionalSupervisada
-        correlativas: "-"
+        correlativas:
+          - desarrolloAplicaciones
   - nombre: Quinto Año
     horas: ""
     materias:
       - slug: gestionProyectosDesarrolloSoftware
-        correlativas: "-"
+        correlativas:
+          - ingenieriaSoftware2
       - slug: aprendizajeAutomatico
-        correlativas: "-"
+        correlativas:
+          - computabilidadComplejidad
       - slug: sistemasDistribuidosTiempoReal
-        correlativas: "-"
+        correlativas:
+          - laboratorioSistemasOperativosRedes
       - slug: arquitecturaComputadoras
-        correlativas: "-"
+        correlativas:
+          - laboratorioSistemasOperativosRedes
       - slug: proyectoFinalLicenciatura
-        correlativas: "-"
+        correlativas:
+          - lenguajesInformaticos4
+          - practicaProfesionalSupervisada
 ---

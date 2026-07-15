@@ -1,82 +1,103 @@
 ---
+descripcion_corta: (En proyecto, continuidad con Ingeniería en Computación)
+total_horas: 3000
 layout: carrera
 title: Tecnicatura Universitaria en Inteligencia Artificial
 permalink: /tecnicatura-inteligencia-artificial/
 icono: /assets/img/Inteligencia-artificial-icono.png
-descripcion_corta: (En proyecto, continuidad con Ingeniería en Computación)
 imagen: assets/images/licenciatura.jpg
 vigente: true
 orden: 4
-total_horas: 3000
-pdf: /assets/uploads/planes-carreras-informatica-para-web-ia.pdf
-correlatividades_imagen: /assets/uploads/tec-ia-2026.png
+pdf: /assets/uploads/pdfs/planes-carreras-informatica-para-web-ia.pdf
+correlatividades_imagen: /assets/uploads/images/tec-ia-2026.png
 tabla_datos:
   col_grado: Técnico/a Universitario/a en Inteligencia Artificial
   filas:
     - label: Duración
       grado: 2,5 años
-    - label: Horas Interacción pedagógica
-      grado: '1376'
-    - label: Materias
-      grado: '20'
     - label: Créditos ACA
-      grado: '12'
-    - label: Créditos Totales
-      grado: '120'
+      grado: "12"
+    - label: Horas de interaccion pedagogica
+      grado: "1376"
+    - label: Materias
+      grado: "20"
+    - label: Creditos totales
+      grado: "120"
 cuatrimestres:
   - nombre: Primer Cuatrimestre
-    horas: ''
+    horas: ""
     materias:
       - slug: matematicaParaInformatica1
-        correlativas: '-'
+        correlativas: "-"
       - slug: introduccionLogicaProblemasComputacionales
-        correlativas: '-'
+        correlativas: "-"
       - slug: introduccionInteligenciaArtificial
-        correlativas: '-'
+        correlativas: "-"
       - slug: culturaAlfabetizacionDigital
-        correlativas: '-'
-  - nombre: Segundo Cuatrimestre
-    horas: ''
-    materias:
+        correlativas: "-"
       - slug: algebraLineal
-        correlativas: '-'
+        correlativas:
+          - matematicaParaInformatica1
+  - nombre: Segundo Cuatrimestre
+    horas: ""
+    materias:
       - slug: calculo
-        correlativas: '-'
+        correlativas:
+          - matematicaParaInformatica1
       - slug: tallerProgramacionI
-        correlativas: '-'
+        correlativas:
+          - calculo
       - slug: tecnologiaSociedad
-        correlativas: '-'
+        correlativas:
+          - algebraLineal
   - nombre: Tercer Cuatrimestre
-    horas: ''
+    horas: ""
     materias:
       - slug: basesDatos
-        correlativas: '-'
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
       - slug: probabilidadEstadistica
-        correlativas: '-'
+        correlativas:
+          - algebraLineal
+          - calculo
       - slug: tallerProgramacionII
-        correlativas: '-'
+        correlativas:
+          - tallerProgramacionI
       - slug: fundamentosCienciasDatos
-        correlativas: '-'
+        correlativas:
+          - introduccionInteligenciaArtificial
+          - algebraLineal
+          - calculo
   - nombre: Cuarto Cuatrimestre
-    horas: ''
+    horas: ""
     materias:
       - slug: fundamentosRedesNeuronales
-        correlativas: '-'
+        correlativas:
+          - fundamentosCienciasDatos
       - slug: aprendizajeAutomatico
-        correlativas: '-'
+        correlativas:
+          - tallerProgramacionII
+          - fundamentosCienciasDatos
       - slug: tallerProgramacionIII
-        correlativas: '-'
+        correlativas:
+          - tallerProgramacionIII
       - slug: ingles
-        correlativas: '-'
+        correlativas: "-"
   - nombre: Quinto Cuatrimestre
-    horas: ''
+    horas: ""
     materias:
-      - slug: asignaturaUNAHUR
-        correlativas: '-'
+      - slug: materiaUNAHUR
+        correlativas: "-"
       - slug: aprendizajeAutomaticoAvanzado
-        correlativas: '-'
+        correlativas:
+          - aprendizajeAutomatico
+          - fundamentosCienciasDatos
       - slug: procesamientoImagenesVisionComputadora
-        correlativas: '-'
+        correlativas:
+          - aprendizajeAutomatico
+          - tallerProgramacionIII
       - slug: proyectoIntegrador
-        correlativas: '-'
+        correlativas:
+          - aprendizajeAutomatico
+          - tallerProgramacionIII
 ---

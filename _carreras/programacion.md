@@ -31,13 +31,13 @@ cuatrimestres:
     horas: 256
     materias:
       - slug: tallerLenguajeMarcadoTecnologiasWeb
-        correlativas: "Introducción a lógica y problemas computacionales"
+        correlativas: [introduccionLogicaProblemasComputacionales]
 
       - slug: programacionEstructurada
-        correlativas: "Introducción a lógica y problemas computacionales"
+        correlativas: [introduccionLogicaProblemasComputacionales]
 
       - slug: matematicaParaInformatica2
-        correlativas: "Matemática para informática I"
+        correlativas: [matematicaParaInformatica1]
 
       - slug: inglesI
         correlativas: "-"
@@ -46,13 +46,13 @@ cuatrimestres:
     horas: 352
     materias:
       - slug: basesDatos
-        correlativas: "Matemática para informática II"
+        correlativas: [matematicaParaInformatica2]
 
       - slug: programacionConObjetos1
-        correlativas: "Programación estructurada"
+        correlativas: [programacionEstructurada]
 
       - slug: estructurasDatos
-        correlativas: "Programación estructurada"
+        correlativas: [programacionEstructurada]
 
   - nombre: "Cuarto Cuatrimestre"
     horas: 288
@@ -61,26 +61,26 @@ cuatrimestres:
         correlativas: "-"
 
       - slug: programacionConObjetos2
-        correlativas: "Programación de objetos I"
+        correlativas: [programacionConObjetos1]
 
       - slug: electivaTupI
-        correlativas: "Programación estructurada"
+        correlativas: [programacionEstructurada]
 
       - slug: electivaTupII
-        correlativas: "Organización de computadoras I"
+        correlativas: [organizacionComputadoras1]
 
       - slug: inglesII
-        correlativas: "Inglés I"
+        correlativas: [inglesI]
 
   - nombre: "Quinto Cuatrimestre"
     horas: 288
     materias:
       - slug: construccionInterfacesUsuario
-        correlativas: "Programación de objetos II"
+        correlativas: [programacionConObjetos2]
 
       - slug: estrategiasPersistencia
-        correlativas: "Programación de objetos II"
+        correlativas: [programacionConObjetos2]
 
       - slug: elementosIngenieriaSoftware
-        correlativas: "Programación de objetos II"
+        correlativas: [programacionConObjetos2]
 ---

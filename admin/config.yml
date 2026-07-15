@@ -5,13 +5,13 @@ backend:
   base_url: https://decap-oauth-unahur.vercel.app
 
 # Opcional: permite editar en local sin publicar
-# local_backend: true
+local_backend: true
 
 site_url: https://informaticaunahur.github.io
 display_url: https://informaticaunahur.github.io
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "assets/uploads/images"
+public_folder: "/assets/uploads/images"
 
 locale: "es"
 
@@ -62,6 +62,8 @@ collections:
     folder: "_banners"
     create: true
     delete: true
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     slug: "{{slug}}"
     identifier_field: "titulo"
     fields:
@@ -122,6 +124,8 @@ collections:
 
   - name: "about"
     label: "Sección Transición"
+    media_folder: "assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     files:
       - name: "about"
         label: "Nuevos planes de estudio"
@@ -180,6 +184,8 @@ collections:
 
   - name: "services"
     label: "Sección Propuestas Formativas"
+    media_folder: "assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     files:
       - name: "services"
         label: "Propuestas formativas"
@@ -234,6 +240,8 @@ collections:
   - name: "carreras"
     label: "Página Carreras"
     folder: "_carreras"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     create: true
     delete: true
     slug: "{{slug}}"
@@ -297,19 +305,15 @@ collections:
           widget: "string",
           required: false,
         }
+
       - {
-          label: "Horas Totales",
-          name: "total_horas",
-          widget: "number",
+          label: "PDF del plan",
+          name: "pdf",
+          widget: "file",
+          media_folder: "/assets/uploads/pdfs",
+          public_folder: "/assets/uploads/pdfs",
           required: false,
         }
-      - {
-          label: "Créditos",
-          name: "creditos",
-          widget: "number",
-          required: false,
-        }
-      - { label: "PDF del plan", name: "pdf", widget: "file", required: false }
       - {
           label: "Imagen de correlatividades (PNG)",
           name: "correlatividades_imagen",
@@ -351,26 +355,49 @@ collections:
         widget: "list"
         required: false
         fields:
-          - { label: "Nombre", name: "nombre", widget: "string" }
-          - { label: "Horas", name: "horas", widget: "string", required: false }
+          - {
+              label: "Nombre del cuatrimestre / año",
+              name: "nombre",
+              widget: "string",
+            }
           - label: "Materias"
             name: "materias"
             widget: "list"
             required: false
             fields:
-              - { label: "Nombre", name: "nombre", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string" }
-              - { label: "Área", name: "area", widget: "string" }
-              - { label: "Hs Semanales", name: "hs_sem", widget: "number" }
-              - { label: "Hs Totales", name: "hs_total", widget: "number" }
+              - {
+                  label: "Materia",
+                  name: "slug",
+                  widget: "relation",
+                  collection: "materias",
+                  search_fields: ["title", "slug"],
+                  value_field: "slug",
+                  display_fields: ["title"],
+                  options_length: 150,
+                }
+              - {
+                  label: "Nombre (opcional, si la carrera le da otro nombre a la materia)",
+                  name: "nombre",
+                  widget: "string",
+                  required: false,
+                }
               - {
                   label: "Correlativas",
                   name: "correlativas",
-                  widget: "string",
+                  widget: "relation",
+                  collection: "materias",
+                  search_fields: ["title", "slug"],
+                  value_field: "slug",
+                  display_fields: ["title"],
+                  multiple: true,
+                  required: false,
+                  options_length: 150,
                 }
 
   - name: "blog_section"
     label: "Sección Documentación y Recursos"
+    media_folder: "assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     files:
       - name: "blog"
         label: "Sección Blog"
@@ -533,6 +560,8 @@ collections:
 
   - name: "contactos_section"
     label: "Sección Contactos"
+    media_folder: "assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     files:
       - name: "contactos"
         label: "Contactos"
@@ -655,104 +684,319 @@ collections:
                   default: false,
                   required: false,
                 }
-  - name: "posts"
-    label: "Página Materias"
-    folder: "_posts"
+  - name: "materias"
+    label: "Materias"
+    label_singular: "Materia"
+    folder: "_materias"
+    media_folder: "/assets/uploads/pdfs"
+    public_folder: "/assets/uploads/pdfs"
     create: true
     delete: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
+    identifier_field: "title"
+
     fields:
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "post"
-
-      - label: "Título"
-        name: "title"
-        widget: "string"
-
-      - label: "Fecha"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD HH:mm:ss"
-
-      - label: "Categorías"
-        name: "categories"
-        widget: "string"
-        default: "Materias"
-
-      - label: "Carrera/s"
-        name: "carrera"
-        widget: "list"
-        required: false
-        field:
-          label: "Carrera"
-          name: "carrera"
-          widget: "string"
-
-      - label: "Plan"
-        name: "plan"
-        widget: "select"
-        options:
-          - { label: "Vigente 2026", value: "vigente" }
-          - { label: "Plan anterior", value: "anterior" }
-        required: false
-
-      - label: "Carga horaria"
-        name: "carga_horaria"
-        widget: "string"
-        required: false
-
-      - label: "Créditos"
-        name: "creditos"
-        widget: "string"
-        required: false
-
-      - label: "Correlativas"
-        name: "correlativas"
-        widget: "string"
-        required: false
-
-      - label: "PDF Programa completo"
-        name: "pdf_programa"
-        widget: "file"
-        required: false
-
-      - label: "Autor"
-        name: "by"
-        widget: "string"
-        default: "Informatica UNAHUR"
-
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+      - {
+          label: "Área",
+          name: "area_general",
+          widget: "select",
+          options:
+            [
+              { label: "Campo de Formacion Basica", value: "CFB" },
+              { label: "Campo de Formacion Complementaria", value: "CFC" },
+              { label: "Campo de Formacion Especifica", value: "CFE" },
+              { label: "Campo de Integracion Curricular", value: "CIC" },
+            ],
+        }
+      - { label: "Hs/Sem", name: "hs_sem", widget: "number" }
+      - { label: "Hs/Total", name: "hs_total", widget: "number" }
+      - { label: "Hs Trabajo Autónomo", name: "hs_autonomo", widget: "number" }
+      - {
+          label: "Nombre anterior",
+          name: "nombre_anterior",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Créditos", name: "creditos", widget: "number" }
       - label: "Ícono"
         name: "icon"
-        widget: "string"
+        widget: "select"
         default: "cpu"
-
-      - label: "Programa (archivo PDF, campo legacy)"
-        name: "programa"
-        widget: "file"
-        required: false
-
-      - label: "Preguntas"
-        name: "questions"
-        widget: "list"
-        fields:
-          - label: "Pregunta"
-            name: "question"
-            widget: "string"
-
-          - label: "Respuesta"
-            name: "answer"
-            widget: "string"
-
-          - label: "Contenido"
-            name: "contenido"
-            widget: "text"
+        options:
+          - activity
+          - airplay
+          - alert-circle
+          - alert-octagon
+          - alert-triangle
+          - align-center
+          - align-justify
+          - align-left
+          - align-right
+          - anchor
+          - aperture
+          - arrow-down
+          - arrow-down-left
+          - arrow-down-right
+          - arrow-left
+          - arrow-right
+          - arrow-up
+          - arrow-up-left
+          - arrow-up-right
+          - at-sign
+          - award
+          - bar-chart
+          - bar-chart-2
+          - battery
+          - battery-charging
+          - bell
+          - bell-off
+          - bluetooth
+          - bold
+          - book
+          - bookmark
+          - box
+          - briefcase
+          - calendar
+          - camera
+          - camera-off
+          - cast
+          - check
+          - check-circle
+          - check-square
+          - chevron-down
+          - chevron-left
+          - chevron-right
+          - chevron-up
+          - chevrons-down
+          - chevrons-left
+          - chevrons-right
+          - chevrons-up
+          - chrome
+          - circle
+          - clipboard
+          - clock
+          - cloud
+          - cloud-drizzle
+          - cloud-lightning
+          - cloud-off
+          - cloud-rain
+          - cloud-snow
+          - codepen
+          - command
+          - compass
+          - copy
+          - corner-down-left
+          - corner-down-right
+          - corner-left-down
+          - corner-left-up
+          - corner-right-down
+          - corner-right-up
+          - corner-up-left
+          - corner-up-right
+          - cpu
+          - credit-card
+          - crop
+          - crosshair
+          - delete
+          - disc
+          - download
+          - download-cloud
+          - droplet
+          - edit
+          - edit-2
+          - edit-3
+          - external-link
+          - eye
+          - eye-off
+          - facebook
+          - fast-forward
+          - feather
+          - file
+          - file-minus
+          - file-plus
+          - file-text
+          - film
+          - filter
+          - flag
+          - folder
+          - github
+          - gitlab
+          - globe
+          - grid
+          - hash
+          - headphones
+          - heart
+          - help-circle
+          - home
+          - image
+          - inbox
+          - info
+          - instagram
+          - italic
+          - layers
+          - layout
+          - life-buoy
+          - link
+          - link-2
+          - list
+          - loader
+          - lock
+          - log-in
+          - log-out
+          - mail
+          - map
+          - map-pin
+          - maximize
+          - maximize-2
+          - menu
+          - message-circle
+          - message-square
+          - mic
+          - mic-off
+          - minimize
+          - minimize-2
+          - minus
+          - minus-circle
+          - minus-square
+          - monitor
+          - moon
+          - more-horizontal
+          - more-vertical
+          - move
+          - music
+          - navigation
+          - navigation-2
+          - octagon
+          - package
+          - paperclip
+          - pause
+          - pause-circle
+          - percent
+          - phone
+          - phone-call
+          - phone-forwarded
+          - phone-incoming
+          - phone-missed
+          - phone-off
+          - phone-outgoing
+          - pie-chart
+          - play
+          - play-circle
+          - plus
+          - plus-circle
+          - plus-square
+          - pocket
+          - power
+          - printer
+          - radio
+          - refresh-ccw
+          - refresh-cw
+          - repeat
+          - rewind
+          - rotate-ccw
+          - rotate-cw
+          - save
+          - scissors
+          - search
+          - server
+          - settings
+          - share
+          - share-2
+          - shield
+          - shopping-cart
+          - shuffle
+          - sidebar
+          - skip-back
+          - skip-forward
+          - slack
+          - slash
+          - sliders
+          - smartphone
+          - speaker
+          - square
+          - star
+          - stop-circle
+          - sun
+          - sunrise
+          - sunset
+          - tablet
+          - tag
+          - target
+          - thermometer
+          - thumbs-down
+          - thumbs-up
+          - toggle-left
+          - toggle-right
+          - trash
+          - trash-2
+          - trending-down
+          - trending-up
+          - triangle
+          - tv
+          - twitter
+          - type
+          - umbrella
+          - underline
+          - unlock
+          - upload
+          - upload-cloud
+          - user
+          - user-check
+          - user-minus
+          - user-plus
+          - user-x
+          - users
+          - video
+          - video-off
+          - voicemail
+          - volume
+          - volume-1
+          - volume-2
+          - volume-x
+          - watch
+          - wifi
+          - wifi-off
+          - wind
+          - x
+          - x-circle
+          - x-square
+          - zap
+          - zoom-in
+          - zoom-out
+      - {
+          label: "Plan",
+          name: "plan",
+          widget: "select",
+          required: false,
+          options:
+            [
+              { label: "Vigente 2026", value: "vigente" },
+              { label: "Plan anterior", value: "anterior" },
+            ],
+        }
+      - {
+          label: "PDF Programa",
+          name: "pdf_programa",
+          widget: "file",
+          required: false,
+        }
+      - {
+          label: "Contenido",
+          name: "body",
+          widget: "markdown",
+          required: false,
+        }
 
   - name: "novedades"
     label: "Página Novedades"
     label_singular: "Novedad"
     folder: "_novedades"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
     create: true
     delete: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -797,7 +1041,7 @@ collections:
 
       - label: "Contenido"
         name: "body"
-        widget: "markdown"
+        widget: "richtext"
 
   - name: "horarios_page"
     label: "Página Horarios"

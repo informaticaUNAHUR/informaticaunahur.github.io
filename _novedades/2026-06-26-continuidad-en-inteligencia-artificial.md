@@ -3,7 +3,7 @@ layout: novedad
 title: Continuidad en Inteligencia Artificial
 date: 2026-06-26
 categoria: Planes de estudio
-imagen: /assets/uploads/tec-ia-2026.png
+imagen: /assets/uploads/images/tec-ia-2026.png
 descripcion: La tecnicatura en Inteligencia Artificial actualiza el plan de
   estudios incorporando los créditos SACAU.
 ---

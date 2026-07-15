@@ -31,13 +31,13 @@ cuatrimestres:
     horas: 256
     materias:
       - slug: "tallerInterpretesComandos"
-        correlativas: "Introducción a lógica y problemas computacionales"
+        correlativas: [introduccionLogicaProblemasComputacionales]
 
       - slug: "organizacionComputadoras2"
-        correlativas: "Organización de computadoras I"
+        correlativas: [organizacionComputadoras1]
 
       - slug: "sistemasComunicacion"
-        correlativas: "Organización de computadoras I"
+        correlativas: [organizacionComputadoras1]
 
       - slug: "inglesI"
         correlativas: "-"
@@ -46,16 +46,16 @@ cuatrimestres:
     horas: 384
     materias:
       - slug: "basesDatos"
-        correlativas: "Matemática para informática I"
+        correlativas: [matematicaParaInformatica1]
 
       - slug: "redesComputadoras"
-        correlativas: "Organización de computadoras II,Sistemas de comunicación"
+        correlativas: [organizacionComputadoras2, sistemasComunicacion]
 
       - slug: "sistemasOperativos"
-        correlativas: "Taller de intérpretes de comandos,Organización de computadoras II"
+        correlativas: [tallerInterpretesComandos, organizacionComputadoras2]
 
       - slug: "operacionesI"
-        correlativas: "Taller de intérpretes de comandos"
+        correlativas: [tallerInterpretesComandos]
 
   - nombre: "Cuarto Cuatrimestre"
     horas: 288
@@ -64,26 +64,26 @@ cuatrimestres:
         correlativas: "-"
 
       - slug: "redesAvanzadas"
-        correlativas: "Redes de Computadoras"
+        correlativas: [redesComputadoras]
 
       - slug: "electivaTurI"
-        correlativas: "Organización de computadoras II,Sistemas de comunicación"
+        correlativas: [organizacionComputadoras2, sistemasComunicacion]
 
       - slug: "electivaTurII"
-        correlativas: "Matemática para informática I,Taller de intérpretes de comandos"
+        correlativas: [matematicaParaInformatica1, tallerInterpretesComandos]
 
       - slug: "inglesII"
-        correlativas: "Inglés I"
+        correlativas: [inglesI]
 
   - nombre: "Quinto Cuatrimestre"
     horas: 256
     materias:
       - slug: "seguridadInformacion"
-        correlativas: "Redes avanzadas,Operaciones I"
+        correlativas: [redesAvanzadas, operacionesI]
 
       - slug: "laboratorioSistemasOperativosRedes"
-        correlativas: "Redes de Computadoras,Sistemas Operativos"
+        correlativas: [redesComputadoras, sistemasOperativos]
 
       - slug: "operacionesII"
-        correlativas: "Operaciones I,Sistemas Operativos"
+        correlativas: [operacionesI, sistemasOperativos]
 ---

@@ -6,7 +6,7 @@ descripcion: Entre miércoles 1 y viernes 3 de julio, habilitado el cambio de
   (Redes) y Licenciatura en Desarrollo de Videojuegos y Simulaciones
 novedad_relacionada: Cambios de carrera
 boton_externo: false
-imagen: /assets/uploads/ciber.jpeg
+imagen: /assets/uploads/images/ciber.jpeg
 orden: 1
 activo: true
 ---

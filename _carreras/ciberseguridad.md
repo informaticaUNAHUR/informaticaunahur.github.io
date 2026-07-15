@@ -1,16 +1,17 @@
 ---
+descripcion_corta: Licenciatura en Ciberseguridad con título intermedio
+  Técnico/a Universitario en Redes y Operaciones Informáticas.
+total_horas: 6000
 layout: carrera
 title: Licenciatura en Ciberseguridad
 permalink: /licenciatura-ciberseguridad/
 icono: /assets/img/redes-icono.png
-descripcion_corta: Licenciatura en Ciberseguridad con título intermedio Técnico/a Universitario en Redes y Operaciones Informáticas.
-imagen: /assets/uploads/plan-ciber-2026.png
+imagen: /assets/uploads/images/plan-ciber-2026.png
 vigente: true
 orden: 2
 titulo_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
-total_horas: 6000
-pdf: /assets/uploads/lic-en-ciberseguridad-2026.pdf
-correlatividades_imagen: /assets/uploads/lic-ciber-2026.png
+pdf: /assets/uploads/pdfs/lic-en-ciberseguridad-2026.pdf
+correlatividades_imagen: /assets/uploads/images/lic-ciber-2026.png
 tabla_datos:
   col_grado: Licenciado/a en Ciberseguridad
   col_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
@@ -18,91 +19,129 @@ tabla_datos:
     - label: Duración
       grado: 4,5 años
       intermedio: 2,5 años
-    - label: Horas Interacción pedagógica
-      grado: '2240'
-      intermedio: '1120'
+    - label: Horas de interaccion pedagogica
+      grado: "2240"
+      intermedio: "1120"
     - label: Materias
-      grado: '31'
-      intermedio: '16'
+      grado: "31"
+      intermedio: "16"
     - label: Créditos ACA
-      grado: '30'
-      intermedio: '12'
-    - label: Créditos Totales
-      grado: '240'
-      intermedio: '120'
+      grado: "30"
+      intermedio: "12"
+    - label: Creditos totales
+      grado: "240"
+      intermedio: "120"
 cuatrimestres:
   - nombre: Primer Año
-    horas: ''
+    horas: ""
     materias:
       - slug: matematicaParaInformatica1
-        correlativas: '-'
+        correlativas: "-"
       - slug: introduccionLogicaProblemasComputacionales
-        correlativas: '-'
+        correlativas: "-"
       - slug: introduccionSistemasComunicacionSeguridad
-        correlativas: '-'
+        correlativas: "-"
       - slug: culturaAlfabetizacionDigital
-        correlativas: '-'
+        correlativas: "-"
       - slug: tallerInterpretesComandos
-        correlativas: '-'
+        correlativas:
+          - introduccionSistemasComunicacionSeguridad
       - slug: organizacionComputadoras1
-        correlativas: '-'
+        correlativas: "-"
       - slug: basesDatos
-        correlativas: '-'
-      - slug: tallerProgramacion
-        correlativas: '-'
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
+      - slug: tallerProgramacionI
+        correlativas:
+          - introduccionSistemasComunicacionSeguridad
+        nombre: Taller de programacion
   - nombre: Segundo Año
-    horas: ''
+    horas: ""
     materias:
       - slug: redesComputadoras
-        correlativas: '-'
+        correlativas:
+          - organizacionComputadoras1
       - slug: organizacionComputadoras2
-        correlativas: '-'
+        correlativas:
+          - organizacionComputadoras1
       - slug: sistemasOperativos
-        correlativas: '-'
+        correlativas:
+          - organizacionComputadoras1
       - slug: operaciones
-        correlativas: '-'
+        correlativas:
+          - introduccionLogicaProblemasComputacionales
+          - tallerInterpretesComandos
       - slug: materiaUNAHUR
-        correlativas: '-'
+        correlativas: "-"
       - slug: redesAvanzadas
-        correlativas: '-'
+        correlativas:
+          - redesComputadoras
       - slug: seguridadInformacion
-        correlativas: '-'
+        correlativas:
+          - redesComputadoras
+          - sistemasOperativos
       - slug: desarrolloSeguridadOperaciones
-        correlativas: '-'
+        correlativas:
+          - tallerProgramacionI
+          - operaciones
   - nombre: Tercer Año
-    horas: ''
+    horas: ""
     materias:
-      - slug: lenguajesInformaticos
-        correlativas: '-'
+      - slug: lenguajesInformaticos1
+        correlativas:
+          - tallerProgramacionI
+          - sistemasOperativos
+        nombre: Lenguajes Informaticos
       - slug: laboratorioSistemasOperativosRedes
-        correlativas: '-'
+        correlativas:
+          - redesComputadoras
+          - sistemasOperativos
       - slug: matematicaParaInformatica2
-        correlativas: '-'
+        correlativas:
+          - matematicaParaInformatica1
       - slug: gestionIntegralSeguridad
-        correlativas: '-'
+        correlativas:
+          - seguridadInformacion
       - slug: tecnologiaSociedad
-        correlativas: '-'
+        correlativas: "-"
       - slug: desarrolloSeguro
-        correlativas: '-'
+        correlativas:
+          - basesDatos
+          - desarrolloSeguridadOperaciones
       - slug: cibercrimenAnalisisForense
-        correlativas: '-'
+        correlativas:
+          - redesAvanzadas
+          - seguridadInformacion
       - slug: criptografia
-        correlativas: '-'
+        correlativas:
+          - matematicaParaInformatica2
   - nombre: Cuarto Año
-    horas: ''
+    horas: ""
     materias:
       - slug: ciberseguridadNube
-        correlativas: '-'
+        correlativas:
+          - tecnologiaSociedad
       - slug: ciberseguridadOfensiva
-        correlativas: '-'
+        correlativas:
+          - lenguajesInformaticos1
+          - desarrolloSeguro
       - slug: administracionRespuestaIncidentes
-        correlativas: '-'
+        correlativas:
+          - gestionIntegralSeguridad
       - slug: practicaProfesionalSupervisada
-        correlativas: '-'
+        correlativas:
+          - laboratorioSistemasOperativosRedes
+          - desarrolloSeguro
       - slug: ciberdefensaCiberinteligencia
-        correlativas: '-'
+        correlativas:
+          - cibercrimenAnalisisForense
       - slug: ciberseguridadDefensiva
-        correlativas: '-'
+        correlativas:
+          - ciberseguridadOfensiva
+          - administracionRespuestaIncidentes
       - slug: proyectoFinal
-        correlativas: '-'
+        correlativas:
+          - ciberseguridadOfensiva
+          - ciberseguridadNube
+          - practicaProfesionalSupervisada
 ---

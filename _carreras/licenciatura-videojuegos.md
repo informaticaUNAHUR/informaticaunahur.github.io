@@ -1,16 +1,17 @@
 ---
+descripcion_corta: Licenciatura en Desarrollo de Videojuegos y Simulaciones con
+  título intermedio Técnico/a Universitario en Programación de Videojuegos.
+total_horas: 6000
 layout: carrera
 title: Licenciatura en Desarrollo de Videojuegos y Simulaciones
 permalink: /licenciatura-videojuegos-simulaciones/
 icono: /assets/img/videojuegos-icono.png
-descripcion_corta: Licenciatura en Desarrollo de Videojuegos y Simulaciones con título intermedio Técnico/a Universitario en Programación de Videojuegos.
 imagen: /assets/images/services-image-02.jpg
 vigente: true
 orden: 3
 titulo_intermedio: Técnico/a Universitario en Programación de Videojuegos
-total_horas: 6000
-pdf: /assets/uploads/lic-en-desarrollo-de-videojuegos-y-simulaciones-2026.pdf
-correlatividades_imagen: /assets/uploads/lic-vj-2026.png
+pdf: /assets/uploads/pdfs/lic-en-desarrollo-de-videojuegos-y-simulaciones-2026.pdf
+correlatividades_imagen: /assets/uploads/images/lic-vj-2026.png
 tabla_datos:
   col_grado: Licenciado/a en Desarrollo de Videojuegos y Simulaciones
   col_intermedio: Técnico/a Universitario en Programación de Videojuegos
@@ -18,7 +19,7 @@ tabla_datos:
     - label: Duración
       grado: 4,5 años
       intermedio: 2,5 años
-    - label: Horas Interacción pedagógica
+    - label: Horas de interaccion pedagogica
       grado: "2240"
       intermedio: "1120"
     - label: Materias
@@ -27,7 +28,7 @@ tabla_datos:
     - label: Créditos ACA
       grado: "30"
       intermedio: "12"
-    - label: Créditos Totales
+    - label: Creditos totales
       grado: "240"
       intermedio: "120"
 cuatrimestres:

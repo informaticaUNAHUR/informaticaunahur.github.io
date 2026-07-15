@@ -9,7 +9,7 @@ descripcion: >-
 boton_texto: Más Informacion
 novedad_relacionada: Inscripción a materias 2° cuatrimestre 2026
 boton_externo: false
-imagen: /assets/uploads/desarrolladores.jpg
+imagen: /assets/uploads/images/desarrolladores.jpg
 orden: 1
 activo: true
 ---

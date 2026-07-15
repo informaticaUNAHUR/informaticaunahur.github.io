@@ -4,7 +4,7 @@ title: "Charla: Aprender a programar creando Videojuegos. La experiencia de
   Wollok Game"
 date: 2026-07-02
 categoria: Eventos
-imagen: /assets/uploads/whatsapp-image-2026-06-27-at-19.10.04.jpeg
+imagen: /assets/uploads/images/whatsapp-image-2026-06-27-at-19.10.04.jpeg
 descripcion: ""
 ---
 

@@ -40,7 +40,7 @@ discord:
   titulo: "Discord"
   subtitulo: "Medio de comunicación oficial de las carreras de informática"
   url: "https://discord.com/invite/tqyHtPt"
-  icono: /assets/uploads/discord-icon.png
+  icono: /assets/uploads/images/discord-icon.png
 
 autoridades:
   titulo: "Autoridades"
@@ -95,7 +95,7 @@ items:
   - externo: true
     nombre: Discord (medio oficial)
     url: https://discord.com/invite/tqyHtPt
-    icono: /assets/uploads/discord-icon.png
+    icono: /assets/uploads/images/discord-icon.png
   - nombre: Email Informática
     url: mailto:informatica@unahur.edu.ar
     icono: /assets/images/email-icon.png

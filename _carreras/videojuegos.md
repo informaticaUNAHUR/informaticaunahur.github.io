@@ -27,9 +27,9 @@ cuatrimestres:
     horas: 288
     materias:
       - slug: "tallerDisenoConceptualJuegos"
-        correlativas: "Introducción a los videojuegos"
+        correlativas: [introduccionVideojuegos]
       - slug: "programacionEstructurada"
-        correlativas: "Introducción a lógica y problemas computacionales,Matemática para informática I"
+        correlativas: [introduccionLogicaProblemasComputacionales, matematicaParaInformatica1]
       - slug: "arteDigitalVideojuegos"
         correlativas: "-"
       - slug: "inglesI"
@@ -39,11 +39,11 @@ cuatrimestres:
     horas: 320
     materias:
       - slug: "basesDatos"
-        correlativas: "Matemática para informática I"
+        correlativas: [matematicaParaInformatica1]
       - slug: "programacionConObjetos1"
-        correlativas: "Programación estructurada"
+        correlativas: [programacionEstructurada]
       - slug: "introduccionMotoresVideojuegos"
-        correlativas: "Programación estructurada"
+        correlativas: [programacionEstructurada]
       - slug: "materiaUNAHUR"
         correlativas: "-"
 
@@ -51,21 +51,21 @@ cuatrimestres:
     horas: 288
     materias:
       - slug: "programacionVideojuegos1"
-        correlativas: "Programación con objetos,Introducción a motores de videojuegos"
+        correlativas: [programacionConObjetos, introduccionMotoresVideojuegos]
       - slug: "electivaITuProgramacionVideojuegos"
-        correlativas: "Introducción a motores de videojuegos"
+        correlativas: [introduccionMotoresVideojuegos]
       - slug: "construccionInterfacesUsuario"
-        correlativas: "Programación con objetos"
+        correlativas: [programacionConObjetos]
       - slug: "inglesII"
-        correlativas: "Inglés I"
+        correlativas: [inglesI]
 
   - nombre: "Quinto Cuatrimestre"
     horas: 256
     materias:
       - slug: "electivaIITuProgramacionVideojuegos"
-        correlativas: "Programación de videojuegos I"
+        correlativas: [programacionVideojuegos1]
       - slug: "elementosIngenieriaSoftware"
-        correlativas: "Programación de videojuegos I,Bases de datos"
+        correlativas: [programacionVideojuegos1, basesDatos]
       - slug: "programacionVideojuegos2"
-        correlativas: "Programación de videojuegos I"
+        correlativas: [programacionVideojuegos1]
 ---

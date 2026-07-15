@@ -3,7 +3,7 @@ layout: novedad
 title: Inscripción a materias 2° cuatrimestre 2026
 date: 2026-06-25
 categoria: Inscripciones
-imagen: /assets/uploads/desarrolladores.jpg
+imagen: /assets/uploads/images/desarrolladores.jpg
 descripcion: "Las inscripciones a materias del 2° cuatrimestre 2026 son el 27 y
   28 julio (diferentes a las publicadas en el calendario académico) "
 ---

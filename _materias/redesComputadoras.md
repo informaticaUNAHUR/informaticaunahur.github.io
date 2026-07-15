@@ -1,0 +1,18 @@
+---
+layout: post
+date: 2023-08-12 09:43:25
+categories: Materias
+title: Redes de Computadoras
+slug: redesComputadoras
+permalink: /materias/redesComputadoras/
+area_general: CFB
+hs_sem: 4
+hs_total: 125
+hs_autonomo: 61
+creditos: 5
+icon: cpu
+plan: vigente
+pdf_programa: /assets/uploads/pdfs/14-redes-de-computadoras-lic-.pdf
+---
+
+Concepto de red de computadoras, redes y comunicación. Modelos en capas, modelo OSI, modelo de la Internet. Conceptos de protocolo y de servicio. Nivel físico: dispositivos, cableado estructurado. Nivel de enlace: concepto de enlace, tramas, puentes, enlaces inalámbricos. Nivel de red: concepto de ruteo, topologías, algoritmos de ruteo, protocolos IP, resolución de direcciones. Nivel de transporte: funciones, protocolos UDP y TCP, multiplexación, concepto de socket, control de congestión. Modelo general de Internet: integración de niveles y protocolos, servicios de red (http, dhcp, dns, smtp, etc.). Protocolos de integración. El modelo computacional de la Web. Estándares utilizados en Internet, concepto de RFC. Concepto e implementación de las VPN. Administración de redes: servicios, firewalls. Sistemas cliente/servidor y sus variantes.
