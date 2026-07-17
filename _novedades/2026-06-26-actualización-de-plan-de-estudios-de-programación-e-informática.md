@@ -3,7 +3,7 @@ layout: novedad
 title: Actualización de plan de estudios de Programación e Informática
 date: 2026-06-26
 categoria: Planes de estudio
-imagen: /assets/uploads/lic-info-2025.png
+imagen: /assets/uploads/images/lic-info-2025.png
 descripcion: Se confirma para el próximo cuatrimestre la implementación del
   nuevo plan de estudios de Licenciatura en Informática.
 ---

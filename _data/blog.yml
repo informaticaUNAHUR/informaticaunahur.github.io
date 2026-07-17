@@ -25,7 +25,7 @@ items:
     fecha: "2026"
     titulo: Calendario académico
     descripcion: Fechas importantes de cursada, exámenes y recesos.
-    imagen: /assets/uploads/desarrolladores.jpg
+    imagen: /assets/uploads/images/desarrolladores.jpg
     url: https://unahur.edu.ar/calendario-academico/
     contenido: |
       <p>El calendario académico contiene todas las fechas importantes del año:</p>
@@ -57,7 +57,7 @@ items:
     fecha: "2026"
     titulo: Cómo usar Discord
     descripcion: Discord es el medio de comunicación oficial de las carreras de informática. Aprendé a sacarle el máximo provecho.
-    imagen: /assets/uploads/discord-icon.png
+    imagen: /assets/uploads/images/discord-icon.png
     url: "#"
     contenido: |
       <p><strong>Discord</strong> es el medio de comunicación oficial de las carreras de informática de UNAHUR.</p>

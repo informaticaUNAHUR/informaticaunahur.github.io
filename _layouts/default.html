@@ -27,7 +27,8 @@
     SimpleJekyllSearch({
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('results-container'),
-      json: '{{ site.baseurl }}/search.json'
+      json: '{{ site.baseurl }}/materias.json',
+      searchResultTemplate: '<li><a href="{permalink}">{title}</a></li>'
     })
   </script>
 </body>

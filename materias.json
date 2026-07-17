@@ -1,0 +1,51 @@
+---
+layout: null
+permalink: /materias.json
+---
+{% assign published = site.materias | where_exp: "m", "m.published != false" %}
+[
+{% for post in published %}
+{% assign current_slug = post.slug %}
+{% assign carreras_titles = "" %}
+{% assign carreras_sep = "" %}
+{% assign data_carrera = "" %}
+{% for carrera in site.carreras %}
+  {% for cuatrimestre in carrera.cuatrimestres %}
+    {% for materia in cuatrimestre.materias %}
+      {% if materia.slug == current_slug %}
+        {% assign carreras_titles = carreras_titles | append: carreras_sep | append: carrera.title %}
+        {% assign carreras_sep = "|||" %}
+        {% assign data_carrera = data_carrera | append: " " | append: carrera.slug %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+{% assign carreras_array = carreras_titles | split: "|||" %}
+
+{% assign data_plan = post.plan | default: "" %}
+{% if data_plan == "" %}
+  {% if data_carrera contains "ia" or data_carrera contains "informatica" or data_carrera contains "videojuegos" or data_carrera contains "ciberseguridad" %}
+    {% assign data_plan = "vigente" %}
+  {% else %}
+    {% assign data_plan = "anterior" %}
+  {% endif %}
+{% endif %}
+
+{% assign clean_title = post.title | split: ")-" | last | strip %}
+{% assign full_permalink = site.baseurl | append: post.url %}
+  {
+    "title": {{ clean_title | jsonify }},
+    "slug": {{ post.slug | jsonify }},
+    "permalink": {{ full_permalink | jsonify }},
+    "icon": {{ post.icon | jsonify }},
+    "plan": {{ data_plan | jsonify }},
+    "data_plan": {{ data_plan | jsonify }},
+    "carreras": {{ carreras_array | jsonify }},
+    "data_carrera": {{ data_carrera | strip | jsonify }},
+    "area_general": {{ post.area_general | jsonify }},
+    "hs_sem": {{ post.hs_sem | jsonify }},
+    "hs_total": {{ post.hs_total | jsonify }},
+    "creditos": {{ post.creditos | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

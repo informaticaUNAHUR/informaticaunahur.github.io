@@ -15,155 +15,75 @@ cuatrimestres:
   - nombre: "Primer Cuatrimestre"
     horas: 224
     materias:
-      - area: "CB"
-        nombre: "Matemática para informática I"
-        slug: "matematicaInformaticaI"
-        hs_sem: 4
-        hs_total: 64
+      - slug: "matematicaParaInformatica1"
         correlativas: "-"
 
-      - area: "AyL"
-        nombre: "Introducción a lógica y problemas computacionales"
-        slug: "introduccionLogicaProblemasComputacionales"
-        hs_sem: 4
-        hs_total: 64
+      - slug: "introduccionLogicaProblemasComputacionales"
         correlativas: "-"
 
-      - area: "ASOyR"
-        nombre: "Organización de computadoras I"
-        slug: "organizacionComputadorasI"
-        hs_sem: 4
-        hs_total: 64
+      - slug: "organizacionComputadoras1"
         correlativas: "-"
 
-      - area: "Gral."
-        nombre: "Nuevos entornos y lenguajes"
-        slug: "nuevosEntornos"
-        hs_sem: 2
-        hs_total: 32
+      - slug: "nuevosEntornos"
         correlativas: "-"
 
   - nombre: "Segundo Cuatrimestre"
     horas: 256
     materias:
-      - area: "AyL"
-        nombre: "Taller de intérpretes de comandos"
-        slug: "tallerInterpretesComandos"
-        hs_sem: 4
-        hs_total: 64
-        correlativas: "Introducción a lógica y problemas computacionales"
+      - slug: "tallerInterpretesComandos"
+        correlativas: [introduccionLogicaProblemasComputacionales]
 
-      - area: "ASOyR"
-        nombre: "Organización de computadoras II"
-        slug: "organizacionComputadorasII"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Organización de computadoras I"
+      - slug: "organizacionComputadoras2"
+        correlativas: [organizacionComputadoras1]
 
-      - area: "ASOyR"
-        nombre: "Sistemas de comunicación"
-        slug: "sistemasComunicacion"
-        hs_sem: 4
-        hs_total: 64
-        correlativas: "Organización de computadoras I"
+      - slug: "sistemasComunicacion"
+        correlativas: [organizacionComputadoras1]
 
-      - area: "Gral."
-        nombre: "Inglés I"
-        slug: "inglesI"
-        hs_sem: 2
-        hs_total: 32
+      - slug: "inglesI"
         correlativas: "-"
 
   - nombre: "Tercer Cuatrimestre"
     horas: 384
     materias:
-      - area: "ISBDySI"
-        nombre: "Bases de Datos"
-        slug: "baseDatos"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Matemática para informática I"
+      - slug: "basesDatos"
+        correlativas: [matematicaParaInformatica1]
 
-      - area: "ASOyR"
-        nombre: "Redes de Computadoras"
-        slug: "redesComputadoras"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Organización de computadoras II,Sistemas de comunicación"
+      - slug: "redesComputadoras"
+        correlativas: [organizacionComputadoras2, sistemasComunicacion]
 
-      - area: "ASOyR"
-        nombre: "Sistemas Operativos"
-        slug: "sistemasOperativos"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Taller de intérpretes de comandos,Organización de computadoras II"
+      - slug: "sistemasOperativos"
+        correlativas: [tallerInterpretesComandos, organizacionComputadoras2]
 
-      - area: "TC"
-        nombre: "Operaciones I"
-        slug: "operacionesI"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Taller de intérpretes de comandos"
+      - slug: "operacionesI"
+        correlativas: [tallerInterpretesComandos]
 
   - nombre: "Cuarto Cuatrimestre"
     horas: 288
     materias:
-      - area: "Gral."
-        nombre: "Materia UNAHUR"
-        slug: "asignaturaUnahurI"
-        hs_sem: 2
-        hs_total: 32
+      - slug: "materiaUNAHUR"
         correlativas: "-"
 
-      - area: "ASOyR"
-        nombre: "Redes avanzadas"
-        slug: "redesAvanzadas"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Redes de Computadoras"
+      - slug: "redesAvanzadas"
+        correlativas: [redesComputadoras]
 
-      - area: "Elec."
-        nombre: "Electiva I"
-        slug: "electivaTurI"
-        hs_sem: 4
-        hs_total: 64
-        correlativas: "Organización de computadoras II,Sistemas de comunicación"
+      - slug: "electivaTurI"
+        correlativas: [organizacionComputadoras2, sistemasComunicacion]
 
-      - area: "Elec."
-        nombre: "Electiva II"
-        slug: "electivaTurII"
-        hs_sem: 4
-        hs_total: 64
-        correlativas: "Matemática para informática I,Taller de intérpretes de comandos"
+      - slug: "electivaTurII"
+        correlativas: [matematicaParaInformatica1, tallerInterpretesComandos]
 
-      - area: "Gral."
-        nombre: "Inglés II"
-        slug: "inglesII"
-        hs_sem: 2
-        hs_total: 32
-        correlativas: "Inglés I"
+      - slug: "inglesII"
+        correlativas: [inglesI]
 
   - nombre: "Quinto Cuatrimestre"
     horas: 256
     materias:
-      - area: "ASOyR"
-        nombre: "Seguridad de la Información"
-        slug: "seguridadInformacion"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Redes avanzadas,Operaciones I"
+      - slug: "seguridadInformacion"
+        correlativas: [redesAvanzadas, operacionesI]
 
-      - area: "ASOyR"
-        nombre: "Laboratorio de sistemas operativos y redes"
-        slug: "laboratorioSistemasOperativosRedes"
-        hs_sem: 4
-        hs_total: 64
-        correlativas: "Redes de Computadoras,Sistemas Operativos"
+      - slug: "laboratorioSistemasOperativosRedes"
+        correlativas: [redesComputadoras, sistemasOperativos]
 
-      - area: "TC"
-        nombre: "Operaciones II"
-        slug: "operacionesII"
-        hs_sem: 6
-        hs_total: 96
-        correlativas: "Operaciones I,Sistemas Operativos"
+      - slug: "operacionesII"
+        correlativas: [operacionesI, sistemasOperativos]
 ---

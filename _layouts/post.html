@@ -3,13 +3,9 @@ layout: default
 ---
 {% include minutes-to-read.html %}
 
-<!-- breadcrumbs -->
-<div class="size margin" data-aos="fade-right" data-aos-delay="100" data-aos-offset="0">
-  {% include breadcrumbs.html path=page.path title=page.title %}
-</div>
-<!-- breadcrumbs -->
 
-<div class="size margin" style="margin-bottom: 16px;">
+
+<div class="size margin" style="margin-bottom: 16px; margin-top: 26px;">
   <a href="{{ site.baseurl }}/materias/"
      style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
     ← Todas las materias
@@ -23,16 +19,20 @@ layout: default
 
     <!-- Metadata de la materia -->
     <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-      {% if page.carrera %}
-        {% assign carreras_arr = page.carrera %}
-        {% if carreras_arr.size %}
-          {% for c in carreras_arr %}
-          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ c }}</span>
+      {% assign current_slug = page.slug %}
+      {% for carrera in site.carreras %}
+        {% assign found = false %}
+        {% for cuatrimestre in carrera.cuatrimestres %}
+          {% for materia in cuatrimestre.materias %}
+            {% if materia.slug == current_slug %}
+              {% assign found = true %}
+            {% endif %}
           {% endfor %}
-        {% else %}
-          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ page.carrera }}</span>
+        {% endfor %}
+        {% if found %}
+          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera.title }}</span>
         {% endif %}
-      {% endif %}
+      {% endfor %}
       {% if page.plan %}
         {% if page.plan == "vigente" %}
         <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan vigente 2026</span>
@@ -43,12 +43,12 @@ layout: default
     </div>
 
     <!-- Datos rápidos de la materia -->
-    {% if page.carga_horaria or page.creditos or page.correlativas %}
+    {% if page.hs_total or page.creditos or page.correlativas %}
     <div style="background:#f8f9fa; border-radius:8px; padding:16px 20px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:20px;">
-      {% if page.carga_horaria %}
+      {% if page.hs_total %}
       <div>
         <span style="font-size:0.75rem; color:#888; display:block;">Carga horaria</span>
-        <strong style="font-size:0.95rem;">{{ page.carga_horaria }}</strong>
+        <strong style="font-size:0.95rem;">{{ page.hs_total }}</strong>
       </div>
       {% endif %}
       {% if page.creditos %}
@@ -57,7 +57,7 @@ layout: default
         <strong style="font-size:0.95rem;">{{ page.creditos }}</strong>
       </div>
       {% endif %}
-      {% if page.correlativas %}
+      {% if page.correlativas and page.correlativas != "-" and page.correlativas.first %}
       <div>
         <span style="font-size:0.75rem; color:#888; display:block;">Correlativas</span>
         <strong style="font-size:0.95rem;">{{ page.correlativas }}</strong>
@@ -77,7 +77,6 @@ layout: default
       {% endif %}
     </div>
     {% endif %}
-    <!-- /Datos rápidos -->
 
     <div class="post-date" data-aos="fade-left" data-aos-delay="300" data-aos-offset="0">
     </div>

@@ -36,11 +36,14 @@ layout: default
     margin-bottom: 10px;
     text-decoration: none;
     color: inherit;
-    transition: border-left-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    transition:
+      border-left-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.15s;
   }
   .materia-item:hover {
     border-left-color: #4db6ad;
-    box-shadow: 0 2px 12px rgba(77,182,173,0.12);
+    box-shadow: 0 2px 12px rgba(77, 182, 173, 0.12);
     transform: translateX(2px);
     text-decoration: none;
     color: inherit;
@@ -94,8 +97,8 @@ layout: default
     font-weight: 500;
   }
 
-  /* Filtros */
-  .filtro-btn, .filtro-carrera-btn {
+  .filtro-btn,
+  .filtro-carrera-btn {
     padding: 4px 14px;
     border: 1px solid #4db6ad;
     border-radius: 20px;
@@ -104,9 +107,12 @@ layout: default
     cursor: pointer;
     font-size: 0.8rem;
     font-family: inherit;
-    transition: background 0.15s, color 0.15s;
+    transition:
+      background 0.15s,
+      color 0.15s;
   }
-  .filtro-btn:hover, .filtro-carrera-btn:hover {
+  .filtro-btn:hover,
+  .filtro-carrera-btn:hover {
     background: #e8f5f4;
   }
 
@@ -119,79 +125,314 @@ layout: default
 </style>
 
 <!-- Header búsqueda + filtros -->
-<div style="background: #fff; padding: 28px 0 20px; width: 100%; border-bottom: 1px solid #eee;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-
+<div
+  style="
+    background: #fff;
+    padding: 28px 0 20px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  "
+>
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
     <!-- Barra de búsqueda -->
-    <div style="position: relative; max-width: 680px; margin-bottom: 20px;">
-      <div style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #4db6ad; display: flex; align-items: center;">
+    <div style="position: relative; max-width: 680px; margin-bottom: 20px">
+      <div
+        style="
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #4db6ad;
+          display: flex;
+          align-items: center;
+        "
+      >
         <span class="feather-icon icon-search"></span>
       </div>
-      <input class="input-search" type="text" placeholder="Buscar materia..." id="search-input"
-             style="width:100%; height:48px; border:1.5px solid #d0eeec; border-radius:10px; padding:0 16px 0 46px; font-size:0.95rem; background:#fff; outline:none; color:#333; transition: border-color 0.2s, box-shadow 0.2s;"
-             onfocus="this.style.borderColor='#4db6ad'; this.style.boxShadow='0 0 0 3px rgba(77,182,173,0.12)'"
-             onblur="this.style.borderColor='#d0eeec'; this.style.boxShadow='none'">
-      <div style="position: absolute; width: 100%; background: #fff; z-index: 99; left: 0; border-radius: 0 0 10px 10px; top: 48px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5f4; border-top: none;">
-        <ul id="results-container" style="list-style:none; padding:0; margin:0;"></ul>
+      <input
+        class="input-search"
+        type="text"
+        placeholder="Buscar materia..."
+        id="search-input"
+        style="
+          width: 100%;
+          height: 48px;
+          border: 1.5px solid #d0eeec;
+          border-radius: 10px;
+          padding: 0 16px 0 46px;
+          font-size: 0.95rem;
+          background: #fff;
+          outline: none;
+          color: #333;
+          transition:
+            border-color 0.2s,
+            box-shadow 0.2s;
+        "
+        onfocus="
+          this.style.borderColor = '#4db6ad';
+          this.style.boxShadow = '0 0 0 3px rgba(77,182,173,0.12)';
+        "
+        onblur="
+          this.style.borderColor = '#d0eeec';
+          this.style.boxShadow = 'none';
+        "
+      />
+      <div
+        style="
+          position: absolute;
+          width: 100%;
+          background: #fff;
+          z-index: 99;
+          left: 0;
+          border-radius: 0 0 10px 10px;
+          top: 48px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          border: 1px solid #e8f5f4;
+          border-top: none;
+        "
+      >
+        <ul
+          id="results-container"
+          style="list-style: none; padding: 0; margin: 0"
+        ></ul>
       </div>
     </div>
 
     <!-- Botón Filtros + chips activos -->
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-
-      <button id="btn-toggle-filtros" onclick="toggleFiltros()"
-        style="display:flex; align-items:center; gap:6px; padding:7px 16px; border:1.5px solid #4db6ad; border-radius:20px; background:#fff; color:#4db6ad; cursor:pointer; font-size:0.85rem; font-family:inherit; font-weight:600; transition:background 0.15s;">
-        <span class="feather-icon icon-sliders" style="font-size:0.9rem;"></span>
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
+      <button
+        id="btn-toggle-filtros"
+        onclick="toggleFiltros()"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 7px 16px;
+          border: 1.5px solid #4db6ad;
+          border-radius: 20px;
+          background: #fff;
+          color: #4db6ad;
+          cursor: pointer;
+          font-size: 0.85rem;
+          font-family: inherit;
+          font-weight: 600;
+          transition: background 0.15s;
+        "
+      >
+        <span
+          class="feather-icon icon-sliders"
+          style="font-size: 0.9rem"
+        ></span>
         Filtros
-        <span id="filtro-badge" style="display:none; background:#4db6ad; color:#fff; border-radius:50%; width:18px; height:18px; font-size:0.68rem; font-weight:700; line-height:18px; text-align:center;">0</span>
+        <span
+          id="filtro-badge"
+          style="
+            display: none;
+            background: #4db6ad;
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            line-height: 18px;
+            text-align: center;
+          "
+          >0</span
+        >
       </button>
 
       <!-- Chips de filtros activos -->
-      <span id="chip-plan" style="display:none; background:#e8f5f4; color:#2a7a74; padding:4px 10px; border-radius:20px; font-size:0.78rem; font-weight:500; border:1px solid #c2e2df; cursor:pointer;" onclick="filtrarMaterias('plan','todos'); actualizarChips()"></span>
-      <span id="chip-carrera" style="display:none; background:#e8f5f4; color:#2a7a74; padding:4px 10px; border-radius:20px; font-size:0.78rem; font-weight:500; border:1px solid #c2e2df; cursor:pointer;" onclick="filtrarMaterias('carrera','todas'); actualizarChips()"></span>
-
+      <span
+        id="chip-plan"
+        style="
+          display: none;
+          background: #e8f5f4;
+          color: #2a7a74;
+          padding: 4px 10px;
+          border-radius: 20px;
+          font-size: 0.78rem;
+          font-weight: 500;
+          border: 1px solid #c2e2df;
+          cursor: pointer;
+        "
+        onclick="
+          filtrarMaterias('plan', 'todos');
+          actualizarChips();
+        "
+      ></span>
+      <span
+        id="chip-carrera"
+        style="
+          display: none;
+          background: #e8f5f4;
+          color: #2a7a74;
+          padding: 4px 10px;
+          border-radius: 20px;
+          font-size: 0.78rem;
+          font-weight: 500;
+          border: 1px solid #c2e2df;
+          cursor: pointer;
+        "
+        onclick="
+          filtrarMaterias('carrera', 'todas');
+          actualizarChips();
+        "
+      ></span>
     </div>
 
     <!-- Panel desplegable de filtros -->
-    <div id="panel-filtros" style="display:none; margin-top:14px; background:#f8fffe; border:1.5px solid #d0eeec; border-radius:12px; padding:16px 20px;">
-
+    <div
+      id="panel-filtros"
+      style="
+        display: none;
+        margin-top: 14px;
+        background: #f8fffe;
+        border: 1.5px solid #d0eeec;
+        border-radius: 12px;
+        padding: 16px 20px;
+      "
+    >
       <!-- Filtro Plan -->
-      <div style="margin-bottom:14px;">
-        <span style="display:block; color:#4db6ad; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.8px; font-weight:700; margin-bottom:8px;">Plan</span>
-        <div style="display:flex; flex-wrap:wrap; gap:7px;">
-          <button onclick="filtrarMaterias('plan','todos'); actualizarChips()" class="filtro-btn" id="btn-plan-todos"
-            style="background:#4db6ad; color:#fff;">Todos</button>
-          <button onclick="filtrarMaterias('plan','vigente'); actualizarChips()" class="filtro-btn" id="btn-plan-vigente">
-            Plan vigente 2026</button>
-          <button onclick="filtrarMaterias('plan','anterior'); actualizarChips()" class="filtro-btn" id="btn-plan-anterior">
-            Plan anterior</button>
+      <div style="margin-bottom: 14px">
+        <span
+          style="
+            display: block;
+            color: #4db6ad;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            margin-bottom: 8px;
+          "
+          >Plan</span
+        >
+        <div style="display: flex; flex-wrap: wrap; gap: 7px">
+          <button
+            onclick="
+              filtrarMaterias('plan', 'todos');
+              actualizarChips();
+            "
+            class="filtro-btn"
+            id="btn-plan-todos"
+            style="background: #4db6ad; color: #fff"
+          >
+            Todos
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('plan', 'vigente');
+              actualizarChips();
+            "
+            class="filtro-btn"
+            id="btn-plan-vigente"
+          >
+            Plan vigente 2026
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('plan', 'anterior');
+              actualizarChips();
+            "
+            class="filtro-btn"
+            id="btn-plan-anterior"
+          >
+            Plan anterior
+          </button>
         </div>
       </div>
 
       <!-- Separador -->
-      <div style="height:1px; background:#e0f0ee; margin-bottom:14px;"></div>
+      <div style="height: 1px; background: #e0f0ee; margin-bottom: 14px"></div>
 
       <!-- Filtro Carrera -->
       <div>
-        <span style="display:block; color:#4db6ad; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.8px; font-weight:700; margin-bottom:8px;">Carrera</span>
-        <div style="display:flex; flex-wrap:wrap; gap:7px;">
-          <button onclick="filtrarMaterias('carrera','todas'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-todas"
-            style="background:#4db6ad; color:#fff;">Todas</button>
-          <button onclick="filtrarMaterias('carrera','informatica'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-informatica">
-            Lic. Informática</button>
-          <button onclick="filtrarMaterias('carrera','ciberseguridad'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-ciberseguridad">
-            Lic. Ciberseguridad</button>
-          <button onclick="filtrarMaterias('carrera','videojuegos'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-videojuegos">
-            Lic. Videojuegos</button>
-          <button onclick="filtrarMaterias('carrera','ia'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-ia">
-            Tec. IA</button>
-          <button onclick="filtrarMaterias('carrera','programacion'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-programacion">
-            Tec. Programación</button>
-          <button onclick="filtrarMaterias('carrera','redes'); actualizarChips()" class="filtro-carrera-btn" id="btn-carrera-redes">
-            Tec. Redes</button>
+        <span
+          style="
+            display: block;
+            color: #4db6ad;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            margin-bottom: 8px;
+          "
+          >Carrera</span
+        >
+        <div style="display: flex; flex-wrap: wrap; gap: 7px">
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'todas');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-todas"
+            style="background: #4db6ad; color: #fff"
+          >
+            Todas
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'informatica');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-informatica"
+          >
+            Lic. Informática
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'ciberseguridad');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-ciberseguridad"
+          >
+            Lic. Ciberseguridad
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'videojuegos');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-videojuegos"
+          >
+            Lic. Videojuegos
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'ia');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-ia"
+          >
+            Tec. IA
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'programacion');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-programacion"
+          >
+            Tec. Programación
+          </button>
+          <button
+            onclick="
+              filtrarMaterias('carrera', 'redes');
+              actualizarChips();
+            "
+            class="filtro-carrera-btn"
+            id="btn-carrera-redes"
+          >
+            Tec. Redes
+          </button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -199,173 +440,261 @@ layout: default
 <!-- Lista de materias -->
 <div class="content-post">
   <div class="size margin">
-
     <p class="contador-materias" id="contador-materias"></p>
 
     <div id="lista-materias">
-      {% if site.posts.size == 0 %}
-      <p style="color:#888;">No hay materias disponibles.</p>
-      {% else %}
+      {% if site.materias.size == 0 %}
+      <p style="color: #888">No hay materias disponibles.</p>
+      {% else %} {% for post in site.materias %} {% assign current_slug =
+      post.slug %} {% assign data_carrera = "" %} {% for carrera in
+      site.carreras %} {% for cuatrimestre in carrera.cuatrimestres %} {% for
+      materia in cuatrimestre.materias %} {% if materia.slug == current_slug %}
+      {% assign data_carrera = data_carrera | append: " " | append: carrera.slug
+      %} {% endif %} {% endfor %} {% endfor %} {% endfor %} {% assign
+      data_carrera = data_carrera | strip %} {% assign data_plan = post.plan |
+      default: "" %} {% if data_plan == "" %} {% if data_carrera contains "ia"
+      or data_carrera contains "informatica" or data_carrera contains
+      "videojuegos" or data_carrera contains "ciberseguridad" %} {% assign
+      data_plan = "vigente" %} {% else %} {% assign data_plan = "anterior" %} {%
+      endif %} {% endif %} {% assign clean_title = post.title | split: ")-" |
+      last | strip %}
 
-      {% for post in site.posts %}
-
-      {% assign carreras_answer = "" %}
-      {% for q in post.questions %}
-        {% if q.question == "CARRERAS" %}
-          {% assign carreras_answer = q.answer %}
-        {% endif %}
-      {% endfor %}
-
-      {% assign data_carrera = "" %}
-      {% if carreras_answer contains "Inteligencia Artificial" %}{% assign data_carrera = data_carrera | append: " ia" %}{% endif %}
-      {% if carreras_answer contains "Videojuegos" %}{% assign data_carrera = data_carrera | append: " videojuegos" %}{% endif %}
-      {% if carreras_answer contains "Ciberseguridad" %}{% assign data_carrera = data_carrera | append: " ciberseguridad" %}{% endif %}
-      {% if carreras_answer contains "Redes" %}{% assign data_carrera = data_carrera | append: " redes" %}{% endif %}
-      {% if carreras_answer contains "Informática" %}{% assign data_carrera = data_carrera | append: " informatica" %}{% endif %}
-      {% if carreras_answer contains "Programación" %}
-        {% unless carreras_answer contains "Videojuegos" %}
-          {% assign data_carrera = data_carrera | append: " programacion" %}
-        {% endunless %}
-      {% endif %}
-
-      {% assign data_plan = post.plan | default: "" %}
-      {% if data_plan == "" %}
-        {% if data_carrera contains "ia" or data_carrera contains "informatica" or data_carrera contains "videojuegos" or data_carrera contains "ciberseguridad" %}
-          {% assign data_plan = "vigente" %}
-        {% else %}
-          {% assign data_plan = "anterior" %}
-        {% endif %}
-      {% endif %}
-
-      {% assign clean_title = post.title | split: ")-" | last | strip %}
-
-      <a href="{{ site.baseurl }}{{ post.url }}"
-         class="materia-item"
-         data-plan="{{ data_plan }}"
-         data-carrera="{{ data_carrera | strip }}">
-
+      <a
+        href="{{ site.baseurl }}{{ post.url }}"
+        class="materia-item"
+        data-plan="{{ data_plan }}"
+        data-carrera="{{ data_carrera | strip }}"
+      >
         <div class="materia-icon">
           <span class="feather-icon icon-{{ post.icon }}"></span>
         </div>
 
-        <div style="flex: 1; min-width: 0;">
+        <div style="flex: 1; min-width: 0">
           <p class="materia-title">{{ clean_title }}</p>
           <div class="materia-badges">
-            {% if data_carrera contains "informatica" %}<span class="badge-carrera">Lic. Informática</span>{% endif %}
-            {% if data_carrera contains "ciberseguridad" %}<span class="badge-carrera">Lic. Ciberseguridad</span>{% endif %}
-            {% if data_carrera contains "videojuegos" %}<span class="badge-carrera">Lic. Videojuegos</span>{% endif %}
-            {% if data_carrera contains "ia" %}<span class="badge-carrera">Tec. IA</span>{% endif %}
-            {% if data_carrera contains "programacion" %}<span class="badge-carrera">Tec. Programación</span>{% endif %}
-            {% if data_carrera contains "redes" %}<span class="badge-carrera">Tec. Redes</span>{% endif %}
-            {% if data_plan == "vigente" %}<span class="badge-plan-vigente">Plan 2026</span>{% endif %}
-            {% if data_plan == "anterior" %}<span class="badge-plan-anterior">Plan anterior</span>{% endif %}
+            {% if data_carrera contains "informatica" %}<span
+              class="badge-carrera"
+              >Lic. Informática</span
+            >{% endif %} {% if data_carrera contains "ciberseguridad" %}<span
+              class="badge-carrera"
+              >Lic. Ciberseguridad</span
+            >{% endif %} {% if data_carrera contains "videojuegos" %}<span
+              class="badge-carrera"
+              >Lic. Videojuegos</span
+            >{% endif %} {% if data_carrera contains "ia" %}<span
+              class="badge-carrera"
+              >Tec. IA</span
+            >{% endif %} {% if data_carrera contains "programacion" %}<span
+              class="badge-carrera"
+              >Tec. Programación</span
+            >{% endif %} {% if data_carrera contains "redes" %}<span
+              class="badge-carrera"
+              >Tec. Redes</span
+            >{% endif %} {% if data_plan == "vigente" %}<span
+              class="badge-plan-vigente"
+              >Plan 2026</span
+            >{% endif %} {% if data_plan == "anterior" %}<span
+              class="badge-plan-anterior"
+              >Plan anterior</span
+            >{% endif %}
           </div>
         </div>
-
       </a>
-      {% endfor %}
-      {% endif %}
+      {% endfor %} {% endif %}
     </div>
 
-    <p id="sin-resultados" style="display:none; color:#888; text-align:center; padding: 40px 0;">
+    <p
+      id="sin-resultados"
+      style="display: none; color: #888; text-align: center; padding: 40px 0"
+    >
       No se encontraron materias con los filtros seleccionados.
     </p>
-
   </div>
 </div>
 
 <script>
-var filtroActual = { plan: 'todos', carrera: 'todas' };
+  var filtroActual = { plan: "todos", carrera: "todas" };
 
-var ACTIVO   = { bg: '#4db6ad', color: '#fff',    border: '1px solid #4db6ad' };
-var INACTIVO = { bg: '#fff',    color: '#4db6ad', border: '1px solid #4db6ad' };
+  var ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
+  var INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
 
-function setEstado(btn, activo) {
-  var s = activo ? ACTIVO : INACTIVO;
-  btn.style.background = s.bg;
-  btn.style.color      = s.color;
-  btn.style.border     = s.border;
-}
-
-function actualizarContador() {
-  var visibles = document.querySelectorAll('.materia-item:not([style*="display: none"]):not([style*="display:none"])').length;
-  var total    = document.querySelectorAll('.materia-item').length;
-  var el = document.getElementById('contador-materias');
-  if (el) {
-    el.textContent = filtroActual.plan === 'todos' && filtroActual.carrera === 'todas'
-      ? total + ' materias'
-      : visibles + ' de ' + total + ' materias';
-  }
-  var sinRes = document.getElementById('sin-resultados');
-  if (sinRes) sinRes.style.display = visibles === 0 ? '' : 'none';
-}
-
-function filtrarMaterias(tipo, valor) {
-  filtroActual[tipo] = valor;
-
-  if (tipo === 'plan') {
-    document.querySelectorAll('.filtro-btn').forEach(function(btn) {
-      setEstado(btn, btn.id === 'btn-plan-' + valor);
-    });
-  } else {
-    document.querySelectorAll('.filtro-carrera-btn').forEach(function(btn) {
-      setEstado(btn, btn.id === 'btn-carrera-' + valor);
-    });
+  function setEstado(btn, activo) {
+    var s = activo ? ACTIVO : INACTIVO;
+    btn.style.background = s.bg;
+    btn.style.color = s.color;
+    btn.style.border = s.border;
   }
 
-  var items = document.querySelectorAll('.materia-item');
-  items.forEach(function(item) {
-    var pasaPlan    = filtroActual.plan    === 'todos' || item.getAttribute('data-plan')    === filtroActual.plan;
-    var pasaCarrera = filtroActual.carrera === 'todas' || (item.getAttribute('data-carrera') || '').includes(filtroActual.carrera);
-    item.style.display = (pasaPlan && pasaCarrera) ? '' : 'none';
+  function actualizarContador() {
+    let visibles = document.querySelectorAll(
+      '.materia-item:not([style*="display: none"]):not([style*="display:none"])',
+    ).length;
+    let total = document.querySelectorAll(".materia-item").length;
+    let element = document.getElementById("contador-materias");
+    if (element) {
+      element.textContent =
+        filtroActual.plan === "todos" && filtroActual.carrera === "todas"
+          ? total + " materias"
+          : visibles + " de " + total + " materias";
+    }
+    let sinRes = document.getElementById("sin-resultados");
+    if (sinRes) sinRes.style.display = visibles === 0 ? "" : "none";
+  }
+
+  function filtrarMaterias(tipo, valor) {
+    filtroActual[tipo] = valor;
+
+    if (tipo === "plan") {
+      document.querySelectorAll(".filtro-btn").forEach(function (btn) {
+        setEstado(btn, btn.id === "btn-plan-" + valor);
+      });
+    } else {
+      document.querySelectorAll(".filtro-carrera-btn").forEach(function (btn) {
+        setEstado(btn, btn.id === "btn-carrera-" + valor);
+      });
+    }
+
+    let items = document.querySelectorAll(".materia-item");
+    items.forEach(function (item) {
+      let pasaPlan =
+        filtroActual.plan === "todos" ||
+        item.getAttribute("data-plan") === filtroActual.plan;
+      let pasaCarrera =
+        filtroActual.carrera === "todas" ||
+        (item.getAttribute("data-carrera") || "").includes(
+          filtroActual.carrera,
+        );
+      item.style.display = pasaPlan && pasaCarrera ? "" : "none";
+    });
+
+    actualizarContador();
+  }
+
+  function toggleFiltros() {
+    let panel = document.getElementById("panel-filtros");
+    let btn = document.getElementById("btn-toggle-filtros");
+    let abierto = panel.style.display !== "none";
+    panel.style.display = abierto ? "none" : "";
+    btn.style.background = abierto ? "#fff" : "#e8f5f4";
+  }
+
+  document.addEventListener("click", function (e) {
+    let panel = document.getElementById("panel-filtros");
+    let btn = document.getElementById("btn-toggle-filtros");
+    if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
+      panel.style.display = "none";
+      btn.style.background = "#fff";
+    }
   });
 
-  actualizarContador();
-}
+  const LABELS_PLAN = {
+    todos: null,
+    vigente: "Plan 2026 ✕",
+    anterior: "Plan anterior ✕",
+  };
+  const LABELS_CARRERA = {
+    todas: null,
+    informatica: "Lic. Informática ✕",
+    ciberseguridad: "Lic. Ciberseguridad ✕",
+    videojuegos: "Lic. Videojuegos ✕",
+    ia: "Tec. IA ✕",
+    programacion: "Tec. Programación ✕",
+    redes: "Tec. Redes ✕",
+  };
 
-function toggleFiltros() {
-  var panel = document.getElementById('panel-filtros');
-  var btn   = document.getElementById('btn-toggle-filtros');
-  var abierto = panel.style.display !== 'none';
-  panel.style.display = abierto ? 'none' : '';
-  btn.style.background = abierto ? '#fff' : '#e8f5f4';
-}
+  function actualizarChips() {
+    const chipPlan = document.getElementById("chip-plan");
+    const chipCarrera = document.getElementById("chip-carrera");
+    const badge = document.getElementById("filtro-badge");
 
-// Cierra el panel si se hace click fuera
-document.addEventListener('click', function(e) {
-  var panel = document.getElementById('panel-filtros');
-  var btn   = document.getElementById('btn-toggle-filtros');
-  if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
-    panel.style.display = 'none';
-    btn.style.background = '#fff';
+    const labelPlan = LABELS_PLAN[filtroActual.plan];
+    chipPlan.style.display = labelPlan ? "" : "none";
+    chipPlan.textContent = labelPlan || "";
+
+    const labelCarrera = LABELS_CARRERA[filtroActual.carrera];
+    chipCarrera.style.display = labelCarrera ? "" : "none";
+    chipCarrera.textContent = labelCarrera || "";
+
+    const activos = (labelPlan ? 1 : 0) + (labelCarrera ? 1 : 0);
+    badge.style.display = activos > 0 ? "" : "none";
+    badge.textContent = activos;
   }
-});
 
-var LABELS_PLAN    = { todos: null, vigente: 'Plan 2026 ✕', anterior: 'Plan anterior ✕' };
-var LABELS_CARRERA = { todas: null, informatica: 'Lic. Informática ✕', ciberseguridad: 'Lic. Ciberseguridad ✕',
-  videojuegos: 'Lic. Videojuegos ✕', ia: 'Tec. IA ✕', programacion: 'Tec. Programación ✕', redes: 'Tec. Redes ✕' };
+  function escapeHTML(str) {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
-function actualizarChips() {
-  var chipPlan    = document.getElementById('chip-plan');
-  var chipCarrera = document.getElementById('chip-carrera');
-  var badge       = document.getElementById('filtro-badge');
+  function rebuildCards(data) {
+    const container = document.getElementById("lista-materias");
+    const html = "";
+    for (var i = 0; i < data.length; i++) {
+      var m = data[i];
+      html +=
+        '<a href="' +
+        m.permalink +
+        '" class="materia-item" data-plan="' +
+        m.data_plan +
+        '" data-carrera="' +
+        m.data_carrera +
+        '">';
+      html +=
+        '<div class="materia-icon"><span class="feather-icon icon-' +
+        m.icon +
+        '"></span></div>';
+      html += '<div style="flex:1;min-width:0">';
+      html += '<p class="materia-title">' + escapeHTML(m.title) + "</p>";
+      html += '<div class="materia-badges">';
+      if (m.data_carrera.indexOf("informatica") !== -1)
+        html += '<span class="badge-carrera">Lic. Informática</span>';
+      if (m.data_carrera.indexOf("ciberseguridad") !== -1)
+        html += '<span class="badge-carrera">Lic. Ciberseguridad</span>';
+      if (m.data_carrera.indexOf("videojuegos") !== -1)
+        html += '<span class="badge-carrera">Lic. Videojuegos</span>';
+      if (m.data_carrera.indexOf("ia") !== -1)
+        html += '<span class="badge-carrera">Tec. IA</span>';
+      if (m.data_carrera.indexOf("programacion") !== -1)
+        html += '<span class="badge-carrera">Tec. Programación</span>';
+      if (m.data_carrera.indexOf("redes") !== -1)
+        html += '<span class="badge-carrera">Tec. Redes</span>';
+      if (m.data_plan === "vigente")
+        html += '<span class="badge-plan-vigente">Plan 2026</span>';
+      if (m.data_plan === "anterior")
+        html += '<span class="badge-plan-anterior">Plan anterior</span>';
+      html += "</div></div></a>";
+    }
+    container.innerHTML = html;
+    actualizarContador();
+    actualizarChips();
+  }
 
-  var labelPlan = LABELS_PLAN[filtroActual.plan];
-  chipPlan.style.display    = labelPlan    ? '' : 'none';
-  chipPlan.textContent      = labelPlan    || '';
+  async function loadMateriasJSON() {
+    try {
+      const res = await fetch("/materias.json");
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      const ssrCount = document.querySelectorAll(".materia-item").length;
+      if (data.length !== ssrCount) {
+        console.log(
+          "materias.json: " +
+            data.length +
+            " entries vs SSR: " +
+            ssrCount +
+            " — rebuilding cards",
+        );
+        rebuildCards(data);
+      } else {
+        console.log("materias.json: count matches SSR (" + ssrCount + ")");
+      }
+    } catch (e) {
+      console.warn("materias.json fetch failed, keeping SSR content:", e);
+    }
+  }
 
-  var labelCarrera = LABELS_CARRERA[filtroActual.carrera];
-  chipCarrera.style.display = labelCarrera ? '' : 'none';
-  chipCarrera.textContent   = labelCarrera || '';
-
-  var activos = (labelPlan ? 1 : 0) + (labelCarrera ? 1 : 0);
-  badge.style.display  = activos > 0 ? '' : 'none';
-  badge.textContent    = activos;
-}
-
-// Contador inicial
-document.addEventListener('DOMContentLoaded', function() {
-  actualizarContador();
-  actualizarChips();
-});
+  document.addEventListener("DOMContentLoaded", function () {
+    actualizarContador();
+    actualizarChips();
+    loadMateriasJSON();
+  });
 </script>

@@ -28,9 +28,12 @@ layout: default
         <div class="line-dec" style="margin: 20px auto 0;"></div>
       </div>
 
-      <!-- Tabla de datos generales (solo para carreras vigentes con datos) -->
       {% if page.tabla_datos %}
-      <div style="margin-bottom: 40px; overflow-x: auto;">
+      <div style="margin-bottom: 40px; overflow-x:auto;">
+        <style>
+          .tabla-datos-odd { background-color: #ffffff; }
+          .tabla-datos-even { background-color: #f8f9fa; }
+        </style>
         <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
           <thead>
             <tr style="background-color:#4db6ad; color:#fff;">
@@ -43,14 +46,16 @@ layout: default
           </thead>
           <tbody>
             {% for fila in page.tabla_datos.filas %}
-            <tr style="background-color:{% cycle '#ffffff', '#f8f9fa' %};">
+            {%- assign flabel = fila.label | strip -%}
+            <tr class="{% cycle 'tabla-datos-odd', 'tabla-datos-even' %}">
               <td style="padding:10px 16px; border:1px solid #dee2e6; font-weight:600; color:#555;">{{ fila.label }}</td>
               <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.grado }}</td>
               {% if fila.intermedio %}
               <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.intermedio }}</td>
               {% endif %}
             </tr>
-            {% endfor %}
+            {% endfor %}  
+            </tr>
           </tbody>
         </table>
       </div>
@@ -66,7 +71,6 @@ layout: default
       </div>
       {% endif %}
 
-      <!-- Plan de estudios (tabla de materias) -->
       {% if page.cuatrimestres %}
       <div style="margin-bottom: 40px;">
         <h4 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:20px;">Plan de estudios</h4>
@@ -80,55 +84,91 @@ layout: default
           .tableizer-table a:hover { color: #4db6ad; }
         </style>
 
-        <div style="overflow-x:auto;">
+        <div style="overflow-x:visible;">
           <table class="tableizer-table">
             <thead>
               <tr>
                 <th>Área</th>
                 <th>Materia</th>
                 <th>Hs/Sem</th>
+                <th>Hs pedag</th>
+                <th>Hs autonom</th>
                 <th>Carga horaria total</th>
                 <th>Correlativas</th>
+                <th>Creditos</th>
+                {% if page.vigente or page.proxima %}<th>Nombre anterior</th>{% endif %}
               </tr>
             </thead>
             <tbody>
               {% for cuatri in page.cuatrimestres %}
               <tr>
-                <td colspan="5" class="tableizer-cuatrimestre">
+                <td colspan="9" class="tableizer-cuatrimestre">
                   {{ cuatri.nombre }}{% if cuatri.horas and cuatri.horas != "" %} — {{ cuatri.horas }} hs{% endif %}
                 </td>
               </tr>
               {% for materia in cuatri.materias %}
+              {% assign materiaActual = site.materias | where: "slug", materia.slug | first %}
+              {% if materiaActual %}
+              {% assign nombre = materia.nombre | default: materiaActual.title %}
+              {% assign area = materiaActual.area_general %}
+              {% assign creditos = materiaActual.creditos %}
+              {% assign hs_sem = materiaActual.hs_sem %}
+              {% assign hs_total = materiaActual.hs_total %}
+              {% assign hs_autonomo = materiaActual.hs_autonomo %}
+              {% assign nombre_anterior = materiaActual.nombre_anterior %}
               <tr>
-                <td>{{ materia.area }}</td>
+                <td>{{ area }}</td>
                 <td>
                   <a href="{{ '/materias/' | append: materia.slug | append: '/' | relative_url }}">
-                    {{ materia.nombre }}
+                    {{ nombre }}
                   </a>
                 </td>
-                <td>{{ materia.hs_sem }}</td>
-                <td>{{ materia.hs_total }}</td>
+                <td>{{ hs_sem }}</td>
+                <td>{% if hs_sem != "Variante" %}{{ hs_sem | times: 16 }}{% else %}Variante{% endif %}</td>
+                <td>{% if hs_sem != "Variante" %}{{ hs_autonomo }}{% else %}Variante{% endif %}</td>
+                <td>{% if hs_sem != "Variante" %}{{ hs_total }}{% else %}Variante{% endif %}</td>
                 <td>
-                  {% if materia.correlativas and materia.correlativas != "-" %}
-                    {% assign correlativas = materia.correlativas | split: "," %}
-                    {% for c in correlativas %}
-                      {% assign c_name = c | strip %}
-                      {% assign found = false %}
-                      {% for cu in page.cuatrimestres %}
-                        {% for m in cu.materias %}
-                          {% if m.nombre == c_name %}
-                            <a href="{{ '/materias/' | append: m.slug | append: '/' | relative_url }}">{{ c_name }}</a>{% unless forloop.last %}, {% endunless %}
-                            {% assign found = true %}
-                          {% endif %}
-                        {% endfor %}
-                      {% endfor %}
-                      {% unless found %}{{ c_name }}{% unless forloop.last %}, {% endunless %}{% endunless %}
+
+                  {% if materia.correlativas and materia.correlativas != "-" and materia.correlativas.first %}
+                    {% assign raw = materia.correlativas %}
+                    {% if raw.first and raw.first.size > 1 %}
+                      {% assign items = raw %}
+                    {% else %}
+                      {% assign items = raw | split: "," %}
+                    {% endif %}
+                    {% for entry in items %}
+                      {% assign slug = entry | strip %}
+                      {% assign found = site.materias | where: "slug", slug | first %}
+                      {% if found %}
+                        <a href="{{ '/materias/' | append: slug | append: '/' | relative_url }}">
+                          {{ found.title }}
+                        </a>{% unless forloop.last %}, {% endunless %}
+                      {% else %}
+                        <span class="materia-no-disponible">(Materia no disponible)</span>{% unless forloop.last %}, {% endunless %}
+                      {% endif %}
                     {% endfor %}
                   {% else %}
                     —
                   {% endif %}
                 </td>
+                <td>
+                  {{ creditos }}
+                </td>
+                {% if page.vigente or page.proxima %}<td>{{ nombre_anterior | default: "igual"}}</td>{% endif %}
               </tr>
+              {% else %}
+              <tr>
+                <td></td>
+                <td><span class="materia-no-disponible">(Materia no disponible)</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>—</td>
+                <td></td>
+                {% if page.vigente or page.proxima %}<td></td>{% endif %}
+              </tr>
+              {% endif %}
               {% endfor %}
               {% endfor %}
             </tbody>
