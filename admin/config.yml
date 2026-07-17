@@ -5,7 +5,7 @@ backend:
   base_url: https://decap-oauth-unahur.vercel.app
 
 # Opcional: permite editar en local sin publicar
-local_backend: true
+# local_backend: true
 
 site_url: https://informaticaunahur.github.io
 display_url: https://informaticaunahur.github.io
