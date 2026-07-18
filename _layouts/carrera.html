@@ -79,12 +79,12 @@ layout: default
           .tableizer-table { font-size: 12px; border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width:100%; }
           .tableizer-table td, .tableizer-table th { padding: 6px 10px; border: 1px solid #CCC; }
           .tableizer-table th { background-color: #4db6ad; color: #FFF; font-weight: bold; }
-          .tableizer-cuatrimestre { font-weight: bold; text-align: center; background-color: #e8f5f4 !important; color: #2a7a74; }
+          .tableizer-cuatrimestre { font-weight: bold; text-align: center; background-color: #e8f5f4; color: #2a7a74; }
           .tableizer-table a { color: #1A6B66; text-decoration: underline; }
           .tableizer-table a:hover { color: #4db6ad; }
         </style>
 
-        <div style="overflow-x:visible;">
+        <div style="overflow-x:auto" id="table-div">
           <table class="tableizer-table">
             <thead>
               <tr>
@@ -130,14 +130,14 @@ layout: default
                 <td>
 
                   {% if materia.correlativas and materia.correlativas != "-" and materia.correlativas.first %}
-                    {% assign raw = materia.correlativas %}
-                    {% if raw.first and raw.first.size > 1 %}
-                      {% assign items = raw %}
+                    {% assign slugs = materia.correlativas %}
+                    {% if slugs.first and slugs.first.size > 1 %}
+                      {% assign correlativas = slugs %}
                     {% else %}
-                      {% assign items = raw | split: "," %}
+                      {% assign correlativas = slugs | split: "," %}
                     {% endif %}
-                    {% for entry in items %}
-                      {% assign slug = entry | strip %}
+                    {% for correlativa in correlativas %}
+                      {% assign slug = correlativa | strip %}
                       {% assign found = site.materias | where: "slug", slug | first %}
                       {% if found %}
                         <a href="{{ '/materias/' | append: slug | append: '/' | relative_url }}">
