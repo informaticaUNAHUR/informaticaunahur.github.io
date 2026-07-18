@@ -3,9 +3,9 @@ layout: default
 ---
 
 <div style="padding-top: 120px; padding-bottom: 60px;">
-  <div style="max-width: 720px; margin: 0 auto; padding: 0 20px;">
+  <div style="max-width: 1140px; margin: 0 auto; padding: 0 20px;">
 
-      <!-- Botón volver -->
+    
       <div style="margin-bottom: 24px;">
         <a href="{{ '/carreras/' | relative_url }}"
            style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; color:#4db6ad; border:1.5px solid #4db6ad; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem;">
@@ -61,7 +61,6 @@ layout: default
       </div>
       {% endif %}
 
-      <!-- Botón descargar PDF -->
       {% if page.pdf %}
       <div style="margin-bottom: 40px; text-align: center;">
         <a href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener noreferrer"
@@ -84,7 +83,7 @@ layout: default
           .tableizer-table a:hover { color: #4db6ad; }
         </style>
 
-        <div style="overflow-x:auto" id="table-div">
+        <div id="table-div">
           <table class="tableizer-table">
             <thead>
               <tr>

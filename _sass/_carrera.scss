@@ -1,0 +1,13 @@
+#table-div {
+  font-size: 1rem;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: visible;
+}
+
+@media (max-width: 768px) {
+  #table-div {
+    font-size: 0.8rem;
+    overflow-x: auto;
+  }
+}
