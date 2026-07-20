@@ -23,13 +23,14 @@
     AOS.init({
       once: true
     });
-
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '{{ site.baseurl }}/materias.json',
-      searchResultTemplate: '<li><a href="{permalink}">{title}</a></li>'
-    })
+    if (document.getElementById('search-input')) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '{{ site.baseurl }}/materias.json',
+        searchResultTemplate: '<li><a href="{permalink}">{title}</a></li>'
+      })
+    }
   </script>
 </body>
 
