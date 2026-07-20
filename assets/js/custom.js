@@ -15,16 +15,18 @@
   });
 
   $(document).ready(function () {
-    $(".owl-carousel").owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: true,
-      responsive: {
-        0: { items: 1 },
-        600: { items: 2 },
-        1000: { items: 3 },
-      },
-    });
+    if ($(".owl-testimonials").length) {
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: { items: 1 },
+          600: { items: 2 },
+          1000: { items: 3 },
+        },
+      });
+    }
   });
 
   // Menu Dropdown Toggle
@@ -97,7 +99,10 @@
     var scrollPos = $(document).scrollTop();
     $(".nav a").each(function () {
       var currLink = $(this);
-      var refElement = $(currLink.attr("href"));
+      var href = currLink.attr("href");
+      if (!href || href.indexOf("#") === -1) return;
+      var refElement = $(href.substring(href.indexOf("#")));
+      if (!refElement.length) return;
       if (
         refElement.position().top <= scrollPos &&
         refElement.position().top + refElement.height() > scrollPos
