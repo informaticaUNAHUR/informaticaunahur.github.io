@@ -481,10 +481,7 @@ header
   font-weight: 400;
 }
 
-.header-area .main-nav .nav li:last-child a:hover,
-.background-header .main-nav .nav li:last-child a:hover {
-  color: #fff !important;
-}
+
 
 .header-area .main-nav .nav li a {
   display: block;
