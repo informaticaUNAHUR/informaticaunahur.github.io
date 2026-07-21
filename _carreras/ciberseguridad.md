@@ -87,7 +87,7 @@ cuatrimestres:
   - nombre: Tercer Año
     horas: ""
     materias:
-      - slug: lenguajesInformaticos1
+      - slug: lenguajesInformaticos3
         correlativas:
           - tallerProgramacionI
           - sistemasOperativos
