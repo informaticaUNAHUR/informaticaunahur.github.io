@@ -1,7 +1,7 @@
 ---
 layout: novedad
 title: Inscripción a materias 2° cuatrimestre 2026
-date: 2026-07-18
+date: 2026-07-23
 categoria: Inscripciones
 imagen: /assets/uploads/images/whatsapp-image-2026-07-18-at-09.49.21.jpeg
 descripcion: >
@@ -14,10 +14,12 @@ descripcion: >
 
 ##### Fechas importantes
 
-* **1° inscripción:** 27 y 28 julio (hasta 3 materias)
-* **2° inscripción (repechaje):** 30 julio al 1 agosto (hasta 5 materias)
+* **1° inscripción:** 27 y 28 julio - Materias (hasta 3 materias) 
+* **2° inscripción (repechaje):** 30 julio al 1 agosto - Materias y Unidades Curriculares de créditos (hasta 5 materias) 
 
 **Inicio de clases:** 10 agosto
+
+[Ya están los horarios disponibles ](https://informaticaunahur.github.io/horarios/)
 
 - - -
 
