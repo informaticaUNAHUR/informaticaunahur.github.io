@@ -34,4 +34,6 @@ La inscripción se realiza a través del SIU Guaraní. Si es tu primera vez, pod
 Las materias disponibles y sus correlatividades son las correspondientes a los nuevos planes de estudio.
 Consultar cualquier duda sobre cambios de nombre, equivalencias, títulos intermedios y todo lo referidos a la transición de planes de estudios.
 
+Si necesitas una excepción de correlatividad para anotarte, completá este formulario**:** [https://forms.gle/KcgxQid82SeneaDz8 ](https://forms.gle/KcgxQid82SeneaDz8 "https\://forms.gle/KcgxQid82SeneaDz8")(Por ejemplo, Ingenieria de SW I, del nuevo plan de Lic en Informática requiere como correlativa a Sistemas y Organizaciones, que es nueva. Todo estudiante que quiera cursarla tiene que pedir la excepción para Ing SW I y luego anotarse a las dos materias a la par)
+
 [Más información](https://docs.google.com/presentation/d/1iG5oC1T_jICv6seME2DreRXgctvmWoQN9CIeZkzcfDw/edit?usp=sharing)
