@@ -23,7 +23,7 @@ categories: Materias
 * Análisis de procedimientos recursivos. 
 * Algoritmos Basados en Programación Dinámica. 
 * Estrategias de diseño de algoritmos. 
-* Algoritmos Greedy.Algoritmos de Precondicionamiento y Transformación del Dominio. 
+* Algoritmos Greedy. Algoritmos de Precondicionamiento y Transformación del Dominio. 
 * Algoritmos de programación matemática. 
 * Uso de Heurísticas en Algoritmos. 
 * Algoritmos numéricos y propagación del error. 
