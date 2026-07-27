@@ -18,7 +18,7 @@ categories: Materias
 * Criterios des elección de un algoritmo. Notación O y W. 
 * Análisis teórico del tiempo de ejecución de un algoritmo 
 * Análisis práctico del tiempo de ejecución de un algoritmo. 
-* Algoritmos Divide yVencerás. 
+* Algoritmos Divide y Vencerás. 
 * Recursividad. 
 * Análisis de procedimientos recursivos. 
 * Algoritmos Basados en Programación Dinámica. 
