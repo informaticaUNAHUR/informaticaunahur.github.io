@@ -15,3 +15,32 @@ pdf_programa: /assets/uploads/pdfs/36-formalización-de-lenguajes-y-generación-
 date: 2026-06-15 00:00:00
 categories: Materias
 ---
+* Lenguajes y gramáticas. 
+* Gramáticas e isomorfismos. 
+* Jerarquía de Chomsky. 
+* Lenguajes regulares. 
+* Autómatas. 
+* Expresiones regulares. 
+* Minimización de autómatas. 
+* Analizadores lexico gráficos. 
+* Lenguajes independientes de contexto. 
+* Árboles de derivación. 
+* Autómatas depila. 
+* Lenguajes determinísticos. 
+* Lenguajes tipo 1 y tipo 0. 
+* Máquinas asociadas. 
+* Máquinas de Turing. 
+* Problema de la detención. 
+* Estructura de compiladores. 
+* Compilación vs.interpretación. 
+* Estructura de un compilador. 
+* Análisis léxico. 
+* Análisis sintáctico. 
+* Métodos ascendentes y descendentes. 
+* Tabla de símbolos. 
+* Árboles de parsing y árboles de sintaxis abstracta. 
+* Tratamiento de errores. 
+* Análisis semántico. 
+* Verificación de tipos. 
+* Generación de código. 
+* Optimización de código.
