@@ -1,6 +1,7 @@
 ---
 descripcion_corta: Licenciatura en Ciberseguridad con título intermedio
   Técnico/a Universitario en Redes y Operaciones Informáticas.
+nombre_corto: Lic. Ciberseguridad
 total_horas: 6000
 layout: carrera
 title: Licenciatura en Ciberseguridad

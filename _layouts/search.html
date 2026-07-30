@@ -2,6 +2,12 @@
 layout: default
 ---
 
+{% assign carreras_filtrables = site.carreras | where_exp: "c",
+"c.cuatrimestres.size > 0" | sort: "orden" %} {% capture vigentes_str %} {%- for
+c in site.carreras -%}{%- unless c.anterior or c.proxima -%} {{ c.slug }}{%-
+endunless -%}{%- endfor -%} {% endcapture %} {% assign vigentes_list =
+vigentes_str | strip | split: " " %}
+
 <style>
   /* Autocomplete */
   #results-container li {
@@ -371,66 +377,18 @@ layout: default
           >
             Todas
           </button>
+          {% for c in carreras_filtrables %}
           <button
             onclick="
-              filtrarMaterias('carrera', 'informatica');
+              filtrarMaterias('carrera', '{{ c.slug }}');
               actualizarChips();
             "
             class="filtro-carrera-btn"
-            id="btn-carrera-informatica"
+            id="btn-carrera-{{ c.slug }}"
           >
-            Lic. Informática
+            {{ c.nombre_corto | default: c.title }}
           </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'ciberseguridad');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-ciberseguridad"
-          >
-            Lic. Ciberseguridad
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'videojuegos');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-videojuegos"
-          >
-            Lic. Videojuegos
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'ia');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-ia"
-          >
-            Tec. IA
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'programacion');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-programacion"
-          >
-            Tec. Programación
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'redes');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-redes"
-          >
-            Tec. Redes
-          </button>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -452,12 +410,11 @@ layout: default
       {% assign data_carrera = data_carrera | append: " " | append: carrera.slug
       %} {% endif %} {% endfor %} {% endfor %} {% endfor %} {% assign
       data_carrera = data_carrera | strip %} {% assign data_plan = post.plan |
-      default: "" %} {% if data_plan == "" %} {% if data_carrera contains "ia"
-      or data_carrera contains "informatica" or data_carrera contains
-      "videojuegos" or data_carrera contains "ciberseguridad" %} {% assign
-      data_plan = "vigente" %} {% else %} {% assign data_plan = "anterior" %} {%
-      endif %} {% endif %} {% assign clean_title = post.title | split: ")-" |
-      last | strip %}
+      default: "" %} {% if data_plan == "" %} {% assign data_plan = "anterior"
+      %} {% assign dc_parts = data_carrera | split: " " %} {% for part in
+      dc_parts %} {% if vigentes_list contains part %} {% assign data_plan =
+      "vigente" %} {% endif %} {% endfor %} {% endif %} {% assign clean_title =
+      post.title | split: ")-" | last | strip %}
 
       <a
         href="{{ site.baseurl }}{{ post.url }}"
@@ -472,25 +429,11 @@ layout: default
         <div style="flex: 1; min-width: 0">
           <p class="materia-title">{{ clean_title }}</p>
           <div class="materia-badges">
-            {% if data_carrera contains "informatica" %}<span
+            {% assign dc_parts = data_carrera | split: " " %} {% for c in
+            carreras_filtrables %} {% if dc_parts contains c.slug %}<span
               class="badge-carrera"
-              >Lic. Informática</span
-            >{% endif %} {% if data_carrera contains "ciberseguridad" %}<span
-              class="badge-carrera"
-              >Lic. Ciberseguridad</span
-            >{% endif %} {% if data_carrera contains "videojuegos" %}<span
-              class="badge-carrera"
-              >Lic. Videojuegos</span
-            >{% endif %} {% if data_carrera contains "ia" %}<span
-              class="badge-carrera"
-              >Tec. IA</span
-            >{% endif %} {% if data_carrera contains "programacion" %}<span
-              class="badge-carrera"
-              >Tec. Programación</span
-            >{% endif %} {% if data_carrera contains "redes" %}<span
-              class="badge-carrera"
-              >Tec. Redes</span
-            >{% endif %} {% if data_plan == "vigente" %}<span
+              >{{ c.nombre_corto | default: c.title }}</span
+            >{% endif %} {% endfor %} {% if data_plan == "vigente" %}<span
               class="badge-plan-vigente"
               >Plan 2026</span
             >{% endif %} {% if data_plan == "anterior" %}<span
@@ -513,188 +456,183 @@ layout: default
 </div>
 
 <script>
-  var filtroActual = { plan: "todos", carrera: "todas" };
+  // Aparece como error en el editor pero funciona bien en el navegador
+    var CARRERAS = {
+  {% for c in carreras_filtrables %}
+      "{{ c.slug }}": { nombre_corto: "{{ c.nombre_corto | default: c.title }}", vigente: {{ c.vigente | default: false }} }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+    };
 
-  var ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
-  var INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
+    var filtroActual = { plan: "vigente", carrera: "todas" };
 
-  function setEstado(btn, activo) {
-    var s = activo ? ACTIVO : INACTIVO;
-    btn.style.background = s.bg;
-    btn.style.color = s.color;
-    btn.style.border = s.border;
-  }
+    var ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
+    var INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
 
-  function actualizarContador() {
-    let visibles = document.querySelectorAll(
-      '.materia-item:not([style*="display: none"]):not([style*="display:none"])',
-    ).length;
-    let total = document.querySelectorAll(".materia-item").length;
-    let element = document.getElementById("contador-materias");
-    if (element) {
-      element.textContent =
-        filtroActual.plan === "todos" && filtroActual.carrera === "todas"
-          ? total + " materias"
-          : visibles + " de " + total + " materias";
-    }
-    let sinRes = document.getElementById("sin-resultados");
-    if (sinRes) sinRes.style.display = visibles === 0 ? "" : "none";
-  }
-
-  function filtrarMaterias(tipo, valor) {
-    filtroActual[tipo] = valor;
-
-    if (tipo === "plan") {
-      document.querySelectorAll(".filtro-btn").forEach(function (btn) {
-        setEstado(btn, btn.id === "btn-plan-" + valor);
-      });
-    } else {
-      document.querySelectorAll(".filtro-carrera-btn").forEach(function (btn) {
-        setEstado(btn, btn.id === "btn-carrera-" + valor);
-      });
+    function setEstado(btn, activo) {
+      var s = activo ? ACTIVO : INACTIVO;
+      btn.style.background = s.bg;
+      btn.style.color = s.color;
+      btn.style.border = s.border;
     }
 
-    let items = document.querySelectorAll(".materia-item");
-    items.forEach(function (item) {
-      let pasaPlan =
-        filtroActual.plan === "todos" ||
-        item.getAttribute("data-plan") === filtroActual.plan;
-      let pasaCarrera =
-        filtroActual.carrera === "todas" ||
-        (item.getAttribute("data-carrera") || "").includes(
-          filtroActual.carrera,
-        );
-      item.style.display = pasaPlan && pasaCarrera ? "" : "none";
+    function actualizarContador() {
+      let visibles = document.querySelectorAll(
+        '.materia-item:not([style*="display: none"]):not([style*="display:none"])',
+      ).length;
+      let total = document.querySelectorAll(".materia-item").length;
+      let element = document.getElementById("contador-materias");
+      if (element) {
+        element.textContent =
+          filtroActual.plan === "todos" && filtroActual.carrera === "todas"
+            ? total + " materias"
+            : visibles + " de " + total + " materias";
+      }
+      let sinRes = document.getElementById("sin-resultados");
+      if (sinRes) sinRes.style.display = visibles === 0 ? "" : "none";
+    }
+
+    function filtrarMaterias(tipo, valor) {
+      filtroActual[tipo] = valor;
+
+      if (tipo === "plan") {
+        document.querySelectorAll(".filtro-btn").forEach(function (btn) {
+          setEstado(btn, btn.id === "btn-plan-" + valor);
+        });
+      } else {
+        document.querySelectorAll(".filtro-carrera-btn").forEach(function (btn) {
+          setEstado(btn, btn.id === "btn-carrera-" + valor);
+        });
+      }
+
+      let items = document.querySelectorAll(".materia-item");
+      items.forEach(function (item) {
+        let pasaPlan =
+          filtroActual.plan === "todos" ||
+          item.getAttribute("data-plan") === filtroActual.plan;
+        let carreraAttr = item.getAttribute("data-carrera") || "";
+        let carrerasList = carreraAttr.split(" ").filter(function(s) { return s; });
+        let pasaCarrera =
+          filtroActual.carrera === "todas" ||
+          carrerasList.indexOf(filtroActual.carrera) !== -1;
+        item.style.display = pasaPlan && pasaCarrera ? "" : "none";
+      });
+
+      actualizarContador();
+    }
+
+    function toggleFiltros() {
+      let panel = document.getElementById("panel-filtros");
+      let btn = document.getElementById("btn-toggle-filtros");
+      let abierto = panel.style.display !== "none";
+      panel.style.display = abierto ? "none" : "";
+      btn.style.background = abierto ? "#fff" : "#e8f5f4";
+    }
+
+    document.addEventListener("click", function (e) {
+      let panel = document.getElementById("panel-filtros");
+      let btn = document.getElementById("btn-toggle-filtros");
+      if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
+        panel.style.display = "none";
+        btn.style.background = "#fff";
+      }
     });
 
-    actualizarContador();
-  }
+    const LABELS_PLAN = {
+      todos: null,
+      vigente: "Plan 2026 ✕",
+      anterior: "Plan anterior ✕",
+    };
 
-  function toggleFiltros() {
-    let panel = document.getElementById("panel-filtros");
-    let btn = document.getElementById("btn-toggle-filtros");
-    let abierto = panel.style.display !== "none";
-    panel.style.display = abierto ? "none" : "";
-    btn.style.background = abierto ? "#fff" : "#e8f5f4";
-  }
+    function actualizarChips() {
+      const chipPlan = document.getElementById("chip-plan");
+      const chipCarrera = document.getElementById("chip-carrera");
+      const badge = document.getElementById("filtro-badge");
 
-  document.addEventListener("click", function (e) {
-    let panel = document.getElementById("panel-filtros");
-    let btn = document.getElementById("btn-toggle-filtros");
-    if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
-      panel.style.display = "none";
-      btn.style.background = "#fff";
-    }
-  });
+      const labelPlan = LABELS_PLAN[filtroActual.plan];
+      chipPlan.style.display = labelPlan ? "" : "none";
+      chipPlan.textContent = labelPlan || "";
 
-  const LABELS_PLAN = {
-    todos: null,
-    vigente: "Plan 2026 ✕",
-    anterior: "Plan anterior ✕",
-  };
-  const LABELS_CARRERA = {
-    todas: null,
-    informatica: "Lic. Informática ✕",
-    ciberseguridad: "Lic. Ciberseguridad ✕",
-    videojuegos: "Lic. Videojuegos ✕",
-    ia: "Tec. IA ✕",
-    programacion: "Tec. Programación ✕",
-    redes: "Tec. Redes ✕",
-  };
-
-  function actualizarChips() {
-    const chipPlan = document.getElementById("chip-plan");
-    const chipCarrera = document.getElementById("chip-carrera");
-    const badge = document.getElementById("filtro-badge");
-
-    const labelPlan = LABELS_PLAN[filtroActual.plan];
-    chipPlan.style.display = labelPlan ? "" : "none";
-    chipPlan.textContent = labelPlan || "";
-
-    const labelCarrera = LABELS_CARRERA[filtroActual.carrera];
-    chipCarrera.style.display = labelCarrera ? "" : "none";
-    chipCarrera.textContent = labelCarrera || "";
-
-    const activos = (labelPlan ? 1 : 0) + (labelCarrera ? 1 : 0);
-    badge.style.display = activos > 0 ? "" : "none";
-    badge.textContent = activos;
-  }
-
-  function escapeHTML(str) {
-    const div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
-  function rebuildCards(data) {
-    const container = document.getElementById("lista-materias");
-    const html = "";
-    for (var i = 0; i < data.length; i++) {
-      var m = data[i];
-      html +=
-        '<a href="' +
-        m.permalink +
-        '" class="materia-item" data-plan="' +
-        m.data_plan +
-        '" data-carrera="' +
-        m.data_carrera +
-        '">';
-      html +=
-        '<div class="materia-icon"><span class="feather-icon icon-' +
-        m.icon +
-        '"></span></div>';
-      html += '<div style="flex:1;min-width:0">';
-      html += '<p class="materia-title">' + escapeHTML(m.title) + "</p>";
-      html += '<div class="materia-badges">';
-      if (m.data_carrera.indexOf("informatica") !== -1)
-        html += '<span class="badge-carrera">Lic. Informática</span>';
-      if (m.data_carrera.indexOf("ciberseguridad") !== -1)
-        html += '<span class="badge-carrera">Lic. Ciberseguridad</span>';
-      if (m.data_carrera.indexOf("videojuegos") !== -1)
-        html += '<span class="badge-carrera">Lic. Videojuegos</span>';
-      if (m.data_carrera.indexOf("ia") !== -1)
-        html += '<span class="badge-carrera">Tec. IA</span>';
-      if (m.data_carrera.indexOf("programacion") !== -1)
-        html += '<span class="badge-carrera">Tec. Programación</span>';
-      if (m.data_carrera.indexOf("redes") !== -1)
-        html += '<span class="badge-carrera">Tec. Redes</span>';
-      if (m.data_plan === "vigente")
-        html += '<span class="badge-plan-vigente">Plan 2026</span>';
-      if (m.data_plan === "anterior")
-        html += '<span class="badge-plan-anterior">Plan anterior</span>';
-      html += "</div></div></a>";
-    }
-    container.innerHTML = html;
-    actualizarContador();
-    actualizarChips();
-  }
-
-  async function loadMateriasJSON() {
-    try {
-      const res = await fetch("/materias.json");
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const data = await res.json();
-      const ssrCount = document.querySelectorAll(".materia-item").length;
-      if (data.length !== ssrCount) {
-        console.log(
-          "materias.json: " +
-            data.length +
-            " entries vs SSR: " +
-            ssrCount +
-            " — rebuilding cards",
-        );
-        rebuildCards(data);
-      } else {
-        console.log("materias.json: count matches SSR (" + ssrCount + ")");
+      var labelCarrera = null;
+      if (filtroActual.carrera !== "todas" && CARRERAS[filtroActual.carrera]) {
+        labelCarrera = CARRERAS[filtroActual.carrera].nombre_corto + " ✕";
       }
-    } catch (e) {
-      console.warn("materias.json fetch failed, keeping SSR content:", e);
-    }
-  }
+      chipCarrera.style.display = labelCarrera ? "" : "none";
+      chipCarrera.textContent = labelCarrera || "";
 
-  document.addEventListener("DOMContentLoaded", function () {
-    actualizarContador();
-    actualizarChips();
-    loadMateriasJSON();
-  });
+      const activos = (labelPlan ? 1 : 0) + (labelCarrera ? 1 : 0);
+      badge.style.display = activos > 0 ? "" : "none";
+      badge.textContent = activos;
+    }
+
+    function escapeHTML(str) {
+      const div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    function rebuildCards(data) {
+      const container = document.getElementById("lista-materias");
+      var html = "";
+      for (var i = 0; i < data.length; i++) {
+        var m = data[i];
+        html +=
+          '<a href="' +
+          m.permalink +
+          '" class="materia-item" data-plan="' +
+          m.data_plan +
+          '" data-carrera="' +
+          m.data_carrera +
+          '">';
+        html +=
+          '<div class="materia-icon"><span class="feather-icon icon-' +
+          m.icon +
+          '"></span></div>';
+        html += '<div style="flex:1;min-width:0">';
+        html += '<p class="materia-title">' + escapeHTML(m.title) + "</p>";
+        html += '<div class="materia-badges">';
+        var slugs = (m.data_carrera || "").split(" ");
+        for (var s = 0; s < slugs.length; s++) {
+          if (slugs[s] && CARRERAS[slugs[s]]) {
+            html += '<span class="badge-carrera">' + CARRERAS[slugs[s]].nombre_corto + '</span>';
+          }
+        }
+        if (m.data_plan === "vigente")
+          html += '<span class="badge-plan-vigente">Plan 2026</span>';
+        if (m.data_plan === "anterior")
+          html += '<span class="badge-plan-anterior">Plan anterior</span>';
+        html += "</div></div></a>";
+      }
+      container.innerHTML = html;
+      actualizarContador();
+      actualizarChips();
+    }
+
+    async function loadMateriasJSON() {
+      try {
+        const res = await fetch("/materias.json");
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const ssrCount = document.querySelectorAll(".materia-item").length;
+        if (data.length !== ssrCount) {
+          console.log(
+            "materias.json: " +
+              data.length +
+              " entries vs SSR: " +
+              ssrCount +
+              " — rebuilding cards",
+          );
+          rebuildCards(data);
+        } else {
+          console.log("materias.json: count matches SSR (" + ssrCount + ")");
+        }
+      } catch (e) {
+        console.warn("materias.json fetch failed, keeping SSR content:", e);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      filtrarMaterias("plan", "vigente");
+      loadMateriasJSON();
+      actualizarChips();
+    });
 </script>

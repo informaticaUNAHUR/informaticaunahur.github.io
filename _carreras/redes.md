@@ -6,6 +6,7 @@ anterior: true
 orden: 4
 icono: /assets/img/redes-icono.png
 descripcion_corta: "Plan anterior. Vigente hasta 2026 1° Cuatrimestre."
+nombre_corto: Tec. Redes
 imagen: "assets/images/planes-redes-operaciones.jpg"
 pdf: /assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Redes-y-Operaciones-Informaticas-unahur.pdf
 total_horas: 1408

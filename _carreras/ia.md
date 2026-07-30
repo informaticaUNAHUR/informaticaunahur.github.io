@@ -1,5 +1,6 @@
 ---
 descripcion_corta: (En proyecto, continuidad con Ingeniería en Computación)
+nombre_corto: Tec. IA
 total_horas: 3000
 layout: carrera
 title: Tecnicatura Universitaria en Inteligencia Artificial

@@ -1,6 +1,7 @@
 ---
 descripcion_corta: Licenciatura en Desarrollo de Videojuegos y Simulaciones con
   título intermedio Técnico/a Universitario en Programación de Videojuegos.
+nombre_corto: Lic. Videojuegos
 total_horas: 6000
 layout: carrera
 title: Licenciatura en Desarrollo de Videojuegos y Simulaciones

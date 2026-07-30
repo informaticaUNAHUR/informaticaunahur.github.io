@@ -254,6 +254,13 @@ collections:
         default: "carrera"
 
       - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Nombre corto (para filtros y badges)",
+          name: "nombre_corto",
+          widget: "string",
+          hint: "Versión abreviada del nombre para mostrar en filtros y pills. Ej: 'Lic. Ciberseguridad'",
+          required: true,
+        }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Ícono", name: "icono", widget: "image", required: false }
       - {

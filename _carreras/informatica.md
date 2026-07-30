@@ -1,5 +1,6 @@
 ---
 descripcion_corta: Licenciatura con título intermedio Técnico/a Universitario en Programación.
+nombre_corto: Lic. Informática
 total_horas: 7175
 layout: carrera
 title: Licenciatura en Informática

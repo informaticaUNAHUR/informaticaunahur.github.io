@@ -22,13 +22,19 @@ permalink: /materias.json
 {% endfor %}
 {% assign carreras_array = carreras_titles | split: "|||" %}
 
+{% capture vigentes_str %}
+{%- for c in site.carreras -%}{%- unless c.anterior or c.proxima -%} {{ c.slug }}{%- endunless -%}{%- endfor -%}
+{% endcapture %}
+{% assign vigentes_list = vigentes_str | strip | split: " " %}
 {% assign data_plan = post.plan | default: "" %}
 {% if data_plan == "" %}
-  {% if data_carrera contains "ia" or data_carrera contains "informatica" or data_carrera contains "videojuegos" or data_carrera contains "ciberseguridad" %}
-    {% assign data_plan = "vigente" %}
-  {% else %}
-    {% assign data_plan = "anterior" %}
-  {% endif %}
+  {% assign data_plan = "anterior" %}
+  {% assign dc_parts = data_carrera | split: " " %}
+  {% for part in dc_parts %}
+    {% if vigentes_list contains part %}
+      {% assign data_plan = "vigente" %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
 
 {% assign clean_title = post.title | split: ")-" | last | strip %}
