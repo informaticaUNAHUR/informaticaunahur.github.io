@@ -20,6 +20,7 @@ layout: default
     <!-- Metadata de la materia -->
     <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
       {% assign current_slug = page.slug %}
+      {% assign data_carrera = "" %}
       {% for carrera in site.carreras %}
         {% assign found = false %}
         {% for cuatrimestre in carrera.cuatrimestres %}
@@ -30,15 +31,16 @@ layout: default
           {% endfor %}
         {% endfor %}
         {% if found %}
+          {% assign data_carrera = data_carrera | append: " " | append: carrera.slug %}
           <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera.title }}</span>
         {% endif %}
       {% endfor %}
-      {% if page.plan %}
-        {% if page.plan == "vigente" %}
-        <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan vigente 2026</span>
-        {% elsif page.plan == "anterior" %}
-        <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
-        {% endif %}
+      {% assign data_carrera = data_carrera | strip %}
+      {% capture data_plan %}{% include plan-materia.html materia=page data_carrera=data_carrera %}{% endcapture %}{% assign data_plan = data_plan | strip %}
+      {% if data_plan == "vigente" %}
+      <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan 2026</span>
+      {% elsif data_plan == "anterior" or data_plan == "proxima" %}
+      <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
       {% endif %}
     </div>
 

@@ -1,6 +1,7 @@
 ---
 layout: carrera
 title: "Ingeniería en Computación"
+nombre_corto: Ing. Computación
 permalink: /ingenieria-computacion/
 proxima: true
 orden: 1

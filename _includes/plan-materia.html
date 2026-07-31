@@ -1,0 +1,18 @@
+{%- assign p = include.materia.plan | default: "" -%}
+{%- if p == "vigente" or p == "proxima" or p == "anterior" -%}
+{{- p -}}
+{%- else -%}
+{%- assign tokens = include.data_carrera | strip | split: " " -%}
+{%- assign plan_val = "anterior" -%}
+{%- for c in site.carreras -%}
+  {%- if tokens contains c.slug -%}
+    {%- if c.vigente -%}
+      {%- assign plan_val = "vigente" -%}
+      {%- break -%}
+    {%- elsif c.proxima -%}
+      {%- assign plan_val = "proxima" -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- plan_val -}}
+{%- endif -%}

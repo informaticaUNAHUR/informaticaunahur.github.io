@@ -1,6 +1,7 @@
 ---
 layout: carrera
 title: "Tecnicatura Universitaria en Programación"
+nombre_corto: Tec. Programación
 permalink: /tecnicatura-programacion/
 anterior: true
 orden: 2

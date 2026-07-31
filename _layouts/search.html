@@ -371,67 +371,36 @@ layout: default
           >
             Todas
           </button>
+          {% for c in site.carreras %}{% if c.cuatrimestres.size > 0 %}
           <button
             onclick="
-              filtrarMaterias('carrera', 'informatica');
+              filtrarMaterias('carrera', '{{ c.slug }}');
               actualizarChips();
             "
             class="filtro-carrera-btn"
-            id="btn-carrera-informatica"
+            id="btn-carrera-{{ c.slug }}"
+            data-carrera="{{ c.slug }}"
+            data-label="{{ c.nombre_corto | default: c.title | escape }}"
+            data-estado="{% if c.vigente %}vigente{% elsif c.proxima %}proxima{% else %}anterior{% endif %}"
           >
-            Lic. Informática
+            {{ c.nombre_corto | default: c.title }}
           </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'ciberseguridad');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-ciberseguridad"
-          >
-            Lic. Ciberseguridad
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'videojuegos');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-videojuegos"
-          >
-            Lic. Videojuegos
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'ia');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-ia"
-          >
-            Tec. IA
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'programacion');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-programacion"
-          >
-            Tec. Programación
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'redes');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-redes"
-          >
-            Tec. Redes
-          </button>
+          {% endif %}{% endfor %}
         </div>
+        <p
+          id="aviso-carrera"
+          style="
+            display: none;
+            margin-top: 10px;
+            padding: 8px 10px;
+            font-size: 0.78rem;
+            line-height: 1.4;
+            border-radius: 6px;
+            background: #fff7e6;
+            border: 1px solid #ffd54f;
+            color: #8a6d1a;
+          "
+        ></p>
       </div>
     </div>
   </div>
@@ -451,13 +420,10 @@ layout: default
       materia in cuatrimestre.materias %} {% if materia.slug == current_slug %}
       {% assign data_carrera = data_carrera | append: " " | append: carrera.slug
       %} {% endif %} {% endfor %} {% endfor %} {% endfor %} {% assign
-      data_carrera = data_carrera | strip %} {% assign data_plan = post.plan |
-      default: "" %} {% if data_plan == "" %} {% if data_carrera contains "ia"
-      or data_carrera contains "informatica" or data_carrera contains
-      "videojuegos" or data_carrera contains "ciberseguridad" %} {% assign
-      data_plan = "vigente" %} {% else %} {% assign data_plan = "anterior" %} {%
-      endif %} {% endif %} {% assign clean_title = post.title | split: ")-" |
-      last | strip %}
+      data_carrera = data_carrera | strip %} {% capture data_plan %}{% include
+      plan-materia.html materia=post data_carrera=data_carrera %}{% endcapture
+      %}{% assign data_plan = data_plan | strip %} {% assign clean_title =
+      post.title | split: ")-" | last | strip %}
 
       <a
         href="{{ site.baseurl }}{{ post.url }}"
@@ -472,28 +438,13 @@ layout: default
         <div style="flex: 1; min-width: 0">
           <p class="materia-title">{{ clean_title }}</p>
           <div class="materia-badges">
-            {% if data_carrera contains "informatica" %}<span
-              class="badge-carrera"
-              >Lic. Informática</span
-            >{% endif %} {% if data_carrera contains "ciberseguridad" %}<span
-              class="badge-carrera"
-              >Lic. Ciberseguridad</span
-            >{% endif %} {% if data_carrera contains "videojuegos" %}<span
-              class="badge-carrera"
-              >Lic. Videojuegos</span
-            >{% endif %} {% if data_carrera contains "ia" %}<span
-              class="badge-carrera"
-              >Tec. IA</span
-            >{% endif %} {% if data_carrera contains "programacion" %}<span
-              class="badge-carrera"
-              >Tec. Programación</span
-            >{% endif %} {% if data_carrera contains "redes" %}<span
-              class="badge-carrera"
-              >Tec. Redes</span
-            >{% endif %} {% if data_plan == "vigente" %}<span
-              class="badge-plan-vigente"
-              >Plan 2026</span
-            >{% endif %} {% if data_plan == "anterior" %}<span
+            {% assign tokens = data_carrera | split: " " %} {% for c in
+            site.carreras %}{% if c.cuatrimestres.size > 0 %}{% if tokens
+            contains c.slug %}<span class="badge-carrera"
+              >{{ c.nombre_corto | default: c.title | escape }}</span
+            >{% endif %}{% endif %}{% endfor %} {% if data_plan == "vigente"
+            %}<span class="badge-plan-vigente">Plan 2026</span>{% endif %} {% if
+            data_plan == "anterior" or data_plan == "proxima" %}<span
               class="badge-plan-anterior"
               >Plan anterior</span
             >{% endif %}
@@ -511,6 +462,12 @@ layout: default
     </p>
   </div>
 </div>
+
+<script type="application/json" id="data-labels-carrera">
+  {
+  {% assign first = true %}{% for c in site.carreras %}{% if c.cuatrimestres.size > 0 %}{% unless first %},{% endunless %}"{{ c.slug }}": {{ c.nombre_corto | default: c.title | jsonify }}{% assign first = false %}{% endif %}{% endfor %}
+  }
+</script>
 
 <script>
   var filtroActual = { plan: "todos", carrera: "todas" };
@@ -541,6 +498,11 @@ layout: default
     if (sinRes) sinRes.style.display = visibles === 0 ? "" : "none";
   }
 
+  function matchearCarrera(dc, slug) {
+    if (slug === "todas") return true;
+    return (dc || "").split(" ").indexOf(slug) !== -1;
+  }
+
   function filtrarMaterias(tipo, valor) {
     filtroActual[tipo] = valor;
 
@@ -559,11 +521,10 @@ layout: default
       let pasaPlan =
         filtroActual.plan === "todos" ||
         item.getAttribute("data-plan") === filtroActual.plan;
-      let pasaCarrera =
-        filtroActual.carrera === "todas" ||
-        (item.getAttribute("data-carrera") || "").includes(
-          filtroActual.carrera,
-        );
+      let pasaCarrera = matchearCarrera(
+        item.getAttribute("data-carrera"),
+        filtroActual.carrera,
+      );
       item.style.display = pasaPlan && pasaCarrera ? "" : "none";
     });
 
@@ -592,15 +553,9 @@ layout: default
     vigente: "Plan 2026 ✕",
     anterior: "Plan anterior ✕",
   };
-  const LABELS_CARRERA = {
-    todas: null,
-    informatica: "Lic. Informática ✕",
-    ciberseguridad: "Lic. Ciberseguridad ✕",
-    videojuegos: "Lic. Videojuegos ✕",
-    ia: "Tec. IA ✕",
-    programacion: "Tec. Programación ✕",
-    redes: "Tec. Redes ✕",
-  };
+  const LABELS_CARRERA = JSON.parse(
+    document.getElementById("data-labels-carrera").textContent,
+  );
 
   function actualizarChips() {
     const chipPlan = document.getElementById("chip-plan");
@@ -613,11 +568,29 @@ layout: default
 
     const labelCarrera = LABELS_CARRERA[filtroActual.carrera];
     chipCarrera.style.display = labelCarrera ? "" : "none";
-    chipCarrera.textContent = labelCarrera || "";
+    chipCarrera.textContent = labelCarrera ? labelCarrera + " ✕" : "";
 
     const activos = (labelPlan ? 1 : 0) + (labelCarrera ? 1 : 0);
     badge.style.display = activos > 0 ? "" : "none";
     badge.textContent = activos;
+
+    const aviso = document.getElementById("aviso-carrera");
+    const btnCarrera = document.getElementById(
+      "btn-carrera-" + filtroActual.carrera,
+    );
+    const estado = btnCarrera ? btnCarrera.getAttribute("data-estado") : null;
+    if (estado && estado !== "vigente") {
+      const label = LABELS_CARRERA[filtroActual.carrera] || "";
+      aviso.textContent =
+        estado === "proxima"
+          ? "«" +
+            label +
+            "» aún no está vigente: es una carrera próxima a comenzar."
+          : "«" + label + "» no está vigente: corresponde a un plan anterior.";
+      aviso.style.display = "";
+    } else {
+      aviso.style.display = "none";
+    }
   }
 
   function escapeHTML(str) {
@@ -646,21 +619,16 @@ layout: default
       html += '<div style="flex:1;min-width:0">';
       html += '<p class="materia-title">' + escapeHTML(m.title) + "</p>";
       html += '<div class="materia-badges">';
-      if (m.data_carrera.indexOf("informatica") !== -1)
-        html += '<span class="badge-carrera">Lic. Informática</span>';
-      if (m.data_carrera.indexOf("ciberseguridad") !== -1)
-        html += '<span class="badge-carrera">Lic. Ciberseguridad</span>';
-      if (m.data_carrera.indexOf("videojuegos") !== -1)
-        html += '<span class="badge-carrera">Lic. Videojuegos</span>';
-      if (m.data_carrera.indexOf("ia") !== -1)
-        html += '<span class="badge-carrera">Tec. IA</span>';
-      if (m.data_carrera.indexOf("programacion") !== -1)
-        html += '<span class="badge-carrera">Tec. Programación</span>';
-      if (m.data_carrera.indexOf("redes") !== -1)
-        html += '<span class="badge-carrera">Tec. Redes</span>';
+      var tokens = (m.data_carrera || "").split(" ").filter(Boolean);
+      for (var j = 0; j < tokens.length; j++) {
+        var label = LABELS_CARRERA[tokens[j]];
+        if (label)
+          html +=
+            '<span class="badge-carrera">' + escapeHTML(label) + "</span>";
+      }
       if (m.data_plan === "vigente")
         html += '<span class="badge-plan-vigente">Plan 2026</span>';
-      if (m.data_plan === "anterior")
+      if (m.data_plan === "anterior" || m.data_plan === "proxima")
         html += '<span class="badge-plan-anterior">Plan anterior</span>';
       html += "</div></div></a>";
     }

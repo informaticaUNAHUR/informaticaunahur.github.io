@@ -1,6 +1,7 @@
 ---
 layout: carrera
 title: "Tecnicatura Universitaria en Informática"
+nombre_corto: Tec. Informática
 permalink: /tecnicatura-informatica/
 anterior: true
 orden: 3

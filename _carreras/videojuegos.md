@@ -3,6 +3,7 @@ descripcion_corta: Plan anterior. Vigente hasta 2026 1° Cuatrimestre.
 total_horas: 1408
 layout: carrera
 title: Tecnicatura Universitaria en Programación de Videojuegos
+nombre_corto: Tec. Videojuegos
 permalink: /tecnicatura-desarrollo-videojuegos/
 icono: /assets/img/videojuegos-icono.png
 imagen: assets/images/planes-programacion.jpg

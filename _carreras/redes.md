@@ -1,6 +1,7 @@
 ---
 layout: carrera
 title: "Tecnicatura Universitaria en Redes y Operaciones Informáticas"
+nombre_corto: Tec. Redes
 permalink: /tecnicatura-redes-operaciones/
 anterior: true
 orden: 4

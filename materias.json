@@ -22,14 +22,10 @@ permalink: /materias.json
 {% endfor %}
 {% assign carreras_array = carreras_titles | split: "|||" %}
 
-{% assign data_plan = post.plan | default: "" %}
-{% if data_plan == "" %}
-  {% if data_carrera contains "ia" or data_carrera contains "informatica" or data_carrera contains "videojuegos" or data_carrera contains "ciberseguridad" %}
-    {% assign data_plan = "vigente" %}
-  {% else %}
-    {% assign data_plan = "anterior" %}
-  {% endif %}
-{% endif %}
+{% capture data_plan %}
+{% include plan-materia.html materia=post data_carrera=data_carrera %}
+{% endcapture %}
+{% assign data_plan = data_plan | strip %}
 
 {% assign clean_title = post.title | split: ")-" | last | strip %}
 {% assign full_permalink = site.baseurl | append: post.url %}
