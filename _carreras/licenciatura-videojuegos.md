@@ -7,7 +7,7 @@ title: Licenciatura en Desarrollo de Videojuegos y Simulaciones
 nombre_corto: Lic. Videojuegos y Simulaciones
 permalink: /licenciatura-videojuegos-simulaciones/
 icono: /assets/img/videojuegos-icono.png
-imagen: /assets/images/services-image-02.jpg
+imagen: /assets/uploads/images/services-image-02.jpg
 vigente: true
 orden: 3
 titulo_intermedio: Técnico/a Universitario en Programación de Videojuegos

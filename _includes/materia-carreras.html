@@ -1,4 +1,4 @@
-{%- assign doble_salida_sep = "@@@" -%}
+{%- assign separador = "@@@" -%}
 {%- assign titulos_sep = "|||" -%}
 {%- assign materia_slug = include.materia.slug -%}
 {%- assign carreras_slugs = "" -%}
@@ -17,4 +17,4 @@
     {%- endfor -%}
   {%- endif -%}
 {%- endfor -%}
-{{ carreras_slugs | strip }}{{ doble_salida_sep }}{{ carreras_titles }}
+{{ carreras_slugs | strip }}{{ separador }}{{ carreras_titles }}

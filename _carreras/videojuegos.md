@@ -6,7 +6,7 @@ title: Tecnicatura Universitaria en Programación de Videojuegos
 nombre_corto: Tec. Videojuegos
 permalink: /tecnicatura-desarrollo-videojuegos/
 icono: /assets/img/videojuegos-icono.png
-imagen: assets/images/planes-programacion.jpg
+imagen: assets/uploads/images/planes-programacion.jpg
 anterior: true
 orden: 5
 pdf: /assets/pdf/planes/2022-Plan-Tecnicatura-Universitaria-en-Programacion-de-Videojuegos.pdf

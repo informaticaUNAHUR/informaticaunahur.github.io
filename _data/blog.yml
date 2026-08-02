@@ -5,10 +5,10 @@ destacado:
   fecha: "2026"
   titulo: ¿Cómo inscribirse a materias?
   descripcion: Guía paso a paso para realizar la inscripción correctamente desde el SIU Guaraní.
-  imagen: /assets/images/blog-post-01.jpg
+  imagen: /assets/uploads/images/blog-post-01.jpg
   url: "#"
   autor_texto: UNAHUR Informática
-  autor_imagen: /assets/images/author-post.jpg
+  autor_imagen: /assets/uploads/images/author-post.jpg
   contenido: |
     <h5>Pasos para inscribirse</h5>
     <ol>
@@ -41,7 +41,7 @@ items:
     fecha: "2026"
     titulo: Cómo organizar tu cursada
     descripcion: Tips para planificar mejor tu año académico.
-    imagen: /assets/images/blog-post-04.jpg
+    imagen: /assets/uploads/images/blog-post-04.jpg
     url: "#"
     contenido: |
       <h5>Tips para organizar tu cursada</h5>
@@ -74,7 +74,7 @@ items:
     fecha: "2026"
     titulo: Campus virtual y otros recursos
     descripcion: Accedé al campus virtual, tutoriales y materiales de apoyo para tus materias.
-    imagen: /assets/images/blog-post-03.jpg
+    imagen: /assets/uploads/images/blog-post-03.jpg
     url: "#"
     contenido: |
       <h5>Usuario SIU</h5>
@@ -91,7 +91,7 @@ items:
     fecha: "2026"
     titulo: ¿Dónde curso?
     descripcion: Conocé las aulas donde se dictan las materias cada día.
-    imagen: /assets/images/blog-post-01.jpg
+    imagen: /assets/uploads/images/blog-post-01.jpg
     url: "#"
     contenido: |
       <p>La mayor parte de las materias de informática se distribuyen en el edificio Malvinas Argentinas, Justicia Social y Trabajo Argentino. En algunos casos, en La Patria, Gratuidad Universitaria o en el anexo de Calasanz.</strong>.</p>

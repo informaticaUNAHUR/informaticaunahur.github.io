@@ -7,7 +7,7 @@ anterior: true
 orden: 2
 icono: /assets/img/programacion-icono.png
 descripcion_corta: "Plan anterior. Vigente hasta 2026 1° Cuatrimestre."
-imagen: "assets/images/planes-programacion.jpg"
+imagen: "assets/uploads/images/planes-programacion.jpg"
 pdf: /assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Programacion-unahur.pdf
 total_horas: 1408
 creditos: 35

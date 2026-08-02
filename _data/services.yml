@@ -11,7 +11,7 @@ carreras:
       afectar la seguridad, salud, bienes o derechos.
     nueva: true
     nombre: Licenciatura en Informática
-    imagen: /assets/images/services-image.jpg
+    imagen: /assets/uploads/images/services-image.jpg
     etiqueta: Nuevo Plan
     icono: /assets/img/Informatica-licenciatura-icono.png
     habilidades:
@@ -37,7 +37,7 @@ carreras:
       implementar y gestionar estrategias de seguridad informática en
       organizaciones de diversa índole, analizando vulnerabilidades y
       desarrollando respuestas ante incidentes.
-    imagen: /assets/images/services-image-03.jpg
+    imagen: /assets/uploads/images/services-image-03.jpg
   - nombre: Licenciatura en Desarrollo de Videojuegos y Simulaciones
     titulo_intermedio: Técnico/a Universitario en Programación de Videojuegos
     nueva: true
@@ -56,7 +56,7 @@ carreras:
       industria de los videojuegos y simulaciones, identificando diferentes
       modalidades y propuestas mediante la selección de herramientas de software
       y hardware, atendiendo cuestiones de calidad y usabilidad.
-    imagen: /assets/images/services-image-02.jpg
+    imagen: /assets/uploads/images/services-image-02.jpg
   - nombre: Tecnicatura Universitaria en Inteligencia Artificial
     nueva: false
     etiqueta: Nuevo Plan
@@ -77,4 +77,4 @@ carreras:
       agregando valor en áreas como visión artificial, procesamiento del
       lenguaje natural y aprendizaje automático, a través del análisis y
       procesamiento de datos de diferentes fuentes.
-    imagen: /assets/images/services-image-03.jpg
+    imagen: /assets/uploads/images/services-image-03.jpg

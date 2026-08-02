@@ -392,7 +392,7 @@ layout: default
           {% assign carreras_parts = carreras_double_output | split: "@@@" %}
           {% assign carreras_slugs = carreras_parts[0] %}
           {% capture plan_calculado %}
-            {% include plan-materia.html materia=materia data_carrera=carreras_slugs%}
+            {% include plan-materia.html materia=materia data_carrera=carreras_slugs %}
           {% endcapture %}
           {% assign plan_calculado = plan_calculado | strip %}
           {% capture clean_title %}{% include materia-clean-title.html materia=materia
@@ -446,10 +446,10 @@ layout: default
 </script>
 
 <script>
-  var filtroActual = { plan: "todos", carrera: "todas" };
+  let filtroActual = { plan: "todos", carrera: "todas" };
 
-  var ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
-  var INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
+  let ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
+  let INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
 
   function setEstado(btn, activo) {
     var s = activo ? ACTIVO : INACTIVO;
