@@ -4,6 +4,7 @@ title: Electiva II
 slug: electivaIITuProgramacionVideojuegos
 permalink: /materias/electivaIITuProgramacionVideojuegos/
 area_general: CFE
+excluida_busqueda: true
 hs_sem: Variante
 hs_total: Variante
 creditos: Variante
