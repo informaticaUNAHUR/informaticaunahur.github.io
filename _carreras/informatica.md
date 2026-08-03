@@ -179,7 +179,7 @@ cuatrimestres:
           - ingenieriaSoftware2
       - slug: aprendizajeAutomatico
         correlativas:
-          - computabilidadComplejidad
+          - fundamentosRedesNeuronales
       - slug: sistemasDistribuidosTiempoReal
         correlativas:
           - laboratorioSistemasOperativosRedes
