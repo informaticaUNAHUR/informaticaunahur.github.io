@@ -7,7 +7,7 @@ area_general: CIC
 hs_sem: 4
 hs_total: 175
 hs_autonomo: 79
-nombre_anterior: Tesina de grado
+nombre_anterior: Nueva
 creditos: 6
 icon: briefcase
 plan: vigente
