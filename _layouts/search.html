@@ -352,7 +352,7 @@ layout: default
                 id="btn-carrera-{{ carrera.slug }}"
                 data-carrera="{{ carrera.slug }}"
                 data-label="{{ carrera.nombre_corto | default: carrera.title | escape }}"
-                data-estado="{% if carrera.vigente %}vigente{% elsif carrera.proxima %}proxima{% else %}anterior{% endif %}">
+                data-estado="{% if carrera.vigente or carrera.estado == "vigente" %}vigente{% elsif carrera.proxima or carrera.estado == "proxima" %}proxima{% else %}anterior{% endif %}">
                 {{ carrera.nombre_corto | default: carrera.title }}
               </button>
             {% endif %}

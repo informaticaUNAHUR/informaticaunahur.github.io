@@ -6,7 +6,7 @@
 
     {% for cuatrimestre in carrera.cuatrimestres %}
       {% for materia in cuatrimestre.materias %}
-        {% if materia.slug == materiaActual.slug and carrera.anterior %}
+        {% if materia.slug == materiaActual.slug and carrera.anterior or carrera.estado == "anterior" %}
           {% assign nombreAnterior = "Igual" %}
           {% break %}
           {{ nombreAnterior }}
