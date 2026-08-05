@@ -254,6 +254,12 @@ collections:
         default: "carrera"
 
       - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Nombre corto (para filtros y badges)",
+          name: "nombre_corto",
+          widget: "string",
+          required: true,
+        }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Ícono", name: "icono", widget: "image", required: false }
       - {
@@ -396,7 +402,7 @@ collections:
 
   - name: "blog_section"
     label: "Sección Documentación y Recursos"
-    media_folder: "assets/uploads/images"
+    media_folder: "/assets/uploads/images"
     public_folder: "/assets/uploads/images"
     files:
       - name: "blog"
@@ -1041,7 +1047,7 @@ collections:
 
       - label: "Contenido"
         name: "body"
-        widget: "richtext"
+        widget: "markdown"
 
   - name: "horarios_page"
     label: "Página Horarios"

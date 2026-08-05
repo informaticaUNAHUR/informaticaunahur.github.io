@@ -2,50 +2,37 @@
 layout: null
 permalink: /materias.json
 ---
-{% assign published = site.materias | where_exp: "m", "m.published != false" %}
+{% assign materias_publicadas = site.materias | where_exp: "materia", "materia.published != false" | where_exp: "materia", "materia.excluida_busqueda != true" %}
 [
-{% for post in published %}
-{% assign current_slug = post.slug %}
-{% assign carreras_titles = "" %}
-{% assign carreras_sep = "" %}
-{% assign data_carrera = "" %}
-{% for carrera in site.carreras %}
-  {% for cuatrimestre in carrera.cuatrimestres %}
-    {% for materia in cuatrimestre.materias %}
-      {% if materia.slug == current_slug %}
-        {% assign carreras_titles = carreras_titles | append: carreras_sep | append: carrera.title %}
-        {% assign carreras_sep = "|||" %}
-        {% assign data_carrera = data_carrera | append: " " | append: carrera.slug %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-{% endfor %}
-{% assign carreras_array = carreras_titles | split: "|||" %}
+{% for materia in materias_publicadas %}
+{% capture carreras_double_output %}{% include materia-carreras.html materia=materia %}{% endcapture %}
+{% assign carreras_parts = carreras_double_output | split: "@@@" %}
+{% assign carreras_slugs = carreras_parts[0] %}
+{% assign carreras_titles = carreras_parts[1] | strip %}
+{% assign carreras_titles_array = carreras_titles | split: "|||" %}
 
-{% assign data_plan = post.plan | default: "" %}
-{% if data_plan == "" %}
-  {% if data_carrera contains "ia" or data_carrera contains "informatica" or data_carrera contains "videojuegos" or data_carrera contains "ciberseguridad" %}
-    {% assign data_plan = "vigente" %}
-  {% else %}
-    {% assign data_plan = "anterior" %}
-  {% endif %}
-{% endif %}
+{% capture plan_calculado %}
+{% include plan-materia.html materia=materia data_carrera=carreras_slugs %}
+{% endcapture %}
+{% assign plan_calculado = plan_calculado | strip %}
 
-{% assign clean_title = post.title | split: ")-" | last | strip %}
-{% assign full_permalink = site.baseurl | append: post.url %}
+{% capture clean_title %}{% include materia-clean-title.html materia=materia %}{% endcapture %}
+{% assign clean_title = clean_title | strip %}
+
+{% assign full_permalink = site.baseurl | append: materia.url %}
   {
     "title": {{ clean_title | jsonify }},
-    "slug": {{ post.slug | jsonify }},
+    "slug": {{ materia.slug | jsonify }},
     "permalink": {{ full_permalink | jsonify }},
-    "icon": {{ post.icon | jsonify }},
-    "plan": {{ data_plan | jsonify }},
-    "data_plan": {{ data_plan | jsonify }},
-    "carreras": {{ carreras_array | jsonify }},
-    "data_carrera": {{ data_carrera | strip | jsonify }},
-    "area_general": {{ post.area_general | jsonify }},
-    "hs_sem": {{ post.hs_sem | jsonify }},
-    "hs_total": {{ post.hs_total | jsonify }},
-    "creditos": {{ post.creditos | jsonify }}
+    "icon": {{ materia.icon | jsonify }},
+    "plan": {{ plan_calculado | jsonify }},
+    "data_plan": {{ plan_calculado | jsonify }},
+    "carreras": {{ carreras_titles_array | jsonify }},
+    "data_carrera": {{ carreras_slugs | strip | jsonify }},
+    "area_general": {{ materia.area_general | jsonify }},
+    "hs_sem": {{ materia.hs_sem | jsonify }},
+    "hs_total": {{ materia.hs_total | jsonify }},
+    "creditos": {{ materia.creditos | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]

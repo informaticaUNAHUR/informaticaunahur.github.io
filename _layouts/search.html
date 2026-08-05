@@ -36,10 +36,9 @@ layout: default
     margin-bottom: 10px;
     text-decoration: none;
     color: inherit;
-    transition:
-      border-left-color 0.2s,
-      box-shadow 0.2s,
-      transform 0.15s;
+    transition: border-left-color 0.2s
+    , box-shadow 0.2s
+    , transform 0.15s;
   }
   .materia-item:hover {
     border-left-color: #4db6ad;
@@ -63,7 +62,7 @@ layout: default
     font-size: 0.95rem;
     font-weight: 600;
     color: #222;
-    margin: 0 0 5px 0;
+    margin: 0 0 5px;
     line-height: 1.3;
   }
   .materia-badges {
@@ -107,9 +106,8 @@ layout: default
     cursor: pointer;
     font-size: 0.8rem;
     font-family: inherit;
-    transition:
-      background 0.15s,
-      color 0.15s;
+    transition: background 0.15s
+    , color 0.15s;
   }
   .filtro-btn:hover,
   .filtro-carrera-btn:hover {
@@ -125,19 +123,16 @@ layout: default
 </style>
 
 <!-- Header búsqueda + filtros -->
-<div
-  style="
+<div style="
     background: #fff;
     padding: 28px 0 20px;
     width: 100%;
     border-bottom: 1px solid #eee;
-  "
->
+  ">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
     <!-- Barra de búsqueda -->
     <div style="position: relative; max-width: 680px; margin-bottom: 20px">
-      <div
-        style="
+      <div style="
           position: absolute;
           left: 15px;
           top: 50%;
@@ -145,8 +140,7 @@ layout: default
           color: #4db6ad;
           display: flex;
           align-items: center;
-        "
-      >
+        ">
         <span class="feather-icon icon-search"></span>
       </div>
       <input
@@ -175,10 +169,8 @@ layout: default
         onblur="
           this.style.borderColor = '#d0eeec';
           this.style.boxShadow = 'none';
-        "
-      />
-      <div
-        style="
+        " />
+      <div style="
           position: absolute;
           width: 100%;
           background: #fff;
@@ -189,12 +181,8 @@ layout: default
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
           border: 1px solid #e8f5f4;
           border-top: none;
-        "
-      >
-        <ul
-          id="results-container"
-          style="list-style: none; padding: 0; margin: 0"
-        ></ul>
+        ">
+        <ul id="results-container" style="list-style: none; padding: 0; margin: 0"></ul>
       </div>
     </div>
 
@@ -217,16 +205,10 @@ layout: default
           font-family: inherit;
           font-weight: 600;
           transition: background 0.15s;
-        "
-      >
-        <span
-          class="feather-icon icon-sliders"
-          style="font-size: 0.9rem"
-        ></span>
+        ">
+        <span class="feather-icon icon-sliders" style="font-size: 0.9rem"></span>
         Filtros
-        <span
-          id="filtro-badge"
-          style="
+        <span id="filtro-badge" style="
             display: none;
             background: #4db6ad;
             color: #fff;
@@ -237,9 +219,8 @@ layout: default
             font-weight: 700;
             line-height: 18px;
             text-align: center;
-          "
-          >0</span
-        >
+          ">
+          0</span>
       </button>
 
       <!-- Chips de filtros activos -->
@@ -259,8 +240,8 @@ layout: default
         onclick="
           filtrarMaterias('plan', 'todos');
           actualizarChips();
-        "
-      ></span>
+        ">
+</span>
       <span
         id="chip-carrera"
         style="
@@ -277,26 +258,22 @@ layout: default
         onclick="
           filtrarMaterias('carrera', 'todas');
           actualizarChips();
-        "
-      ></span>
+        ">
+</span>
     </div>
 
     <!-- Panel desplegable de filtros -->
-    <div
-      id="panel-filtros"
-      style="
+    <div id="panel-filtros" style="
         display: none;
         margin-top: 14px;
         background: #f8fffe;
         border: 1.5px solid #d0eeec;
         border-radius: 12px;
         padding: 16px 20px;
-      "
-    >
+      ">
       <!-- Filtro Plan -->
       <div style="margin-bottom: 14px">
-        <span
-          style="
+        <span style="
             display: block;
             color: #4db6ad;
             font-size: 0.7rem;
@@ -304,9 +281,8 @@ layout: default
             letter-spacing: 0.8px;
             font-weight: 700;
             margin-bottom: 8px;
-          "
-          >Plan</span
-        >
+          ">
+          Plan</span>
         <div style="display: flex; flex-wrap: wrap; gap: 7px">
           <button
             onclick="
@@ -315,8 +291,7 @@ layout: default
             "
             class="filtro-btn"
             id="btn-plan-todos"
-            style="background: #4db6ad; color: #fff"
-          >
+            style="background: #4db6ad; color: #fff">
             Todos
           </button>
           <button
@@ -325,8 +300,7 @@ layout: default
               actualizarChips();
             "
             class="filtro-btn"
-            id="btn-plan-vigente"
-          >
+            id="btn-plan-vigente">
             Plan vigente 2026
           </button>
           <button
@@ -335,8 +309,7 @@ layout: default
               actualizarChips();
             "
             class="filtro-btn"
-            id="btn-plan-anterior"
-          >
+            id="btn-plan-anterior">
             Plan anterior
           </button>
         </div>
@@ -347,8 +320,7 @@ layout: default
 
       <!-- Filtro Carrera -->
       <div>
-        <span
-          style="
+        <span style="
             display: block;
             color: #4db6ad;
             font-size: 0.7rem;
@@ -356,9 +328,8 @@ layout: default
             letter-spacing: 0.8px;
             font-weight: 700;
             margin-bottom: 8px;
-          "
-          >Carrera</span
-        >
+          ">
+          Carrera</span>
         <div style="display: flex; flex-wrap: wrap; gap: 7px">
           <button
             onclick="
@@ -367,71 +338,38 @@ layout: default
             "
             class="filtro-carrera-btn"
             id="btn-carrera-todas"
-            style="background: #4db6ad; color: #fff"
-          >
+            style="background: #4db6ad; color: #fff">
             Todas
           </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'informatica');
+          {% for carrera in site.carreras %}
+            {% if carrera.cuatrimestres.size > 0 %}
+              <button
+                onclick="
+              filtrarMaterias('carrera', '{{ carrera.slug }}');
               actualizarChips();
             "
-            class="filtro-carrera-btn"
-            id="btn-carrera-informatica"
-          >
-            Lic. Informática
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'ciberseguridad');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-ciberseguridad"
-          >
-            Lic. Ciberseguridad
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'videojuegos');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-videojuegos"
-          >
-            Lic. Videojuegos
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'ia');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-ia"
-          >
-            Tec. IA
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'programacion');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-programacion"
-          >
-            Tec. Programación
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'redes');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-redes"
-          >
-            Tec. Redes
-          </button>
+                class="filtro-carrera-btn"
+                id="btn-carrera-{{ carrera.slug }}"
+                data-carrera="{{ carrera.slug }}"
+                data-label="{{ carrera.nombre_corto | default: carrera.title | escape }}"
+                data-estado="{% if carrera.vigente or carrera.estado == "vigente" %}vigente{% elsif carrera.proxima or carrera.estado == "proxima" %}proxima{% else %}anterior{% endif %}">
+                {{ carrera.nombre_corto | default: carrera.title }}
+              </button>
+            {% endif %}
+          {% endfor %}
         </div>
+        <p id="aviso-carrera" style="
+            display: none;
+            margin-top: 10px;
+            padding: 8px 10px;
+            font-size: 0.78rem;
+            line-height: 1.4;
+            border-radius: 6px;
+            background: #fff7e6;
+            border: 1px solid #ffd54f;
+            color: #8a6d1a;
+          ">
+</p>
       </div>
     </div>
   </div>
@@ -444,79 +382,74 @@ layout: default
 
     <div id="lista-materias">
       {% if site.materias.size == 0 %}
-      <p style="color: #888">No hay materias disponibles.</p>
-      {% else %} {% for post in site.materias %} {% assign current_slug =
-      post.slug %} {% assign data_carrera = "" %} {% for carrera in
-      site.carreras %} {% for cuatrimestre in carrera.cuatrimestres %} {% for
-      materia in cuatrimestre.materias %} {% if materia.slug == current_slug %}
-      {% assign data_carrera = data_carrera | append: " " | append: carrera.slug
-      %} {% endif %} {% endfor %} {% endfor %} {% endfor %} {% assign
-      data_carrera = data_carrera | strip %} {% assign data_plan = post.plan |
-      default: "" %} {% if data_plan == "" %} {% if data_carrera contains "ia"
-      or data_carrera contains "informatica" or data_carrera contains
-      "videojuegos" or data_carrera contains "ciberseguridad" %} {% assign
-      data_plan = "vigente" %} {% else %} {% assign data_plan = "anterior" %} {%
-      endif %} {% endif %} {% assign clean_title = post.title | split: ")-" |
-      last | strip %}
+        <p style="color: #888">No hay materias disponibles.</p>
+      {% else %}
+        {% assign materias_publicadas = site.materias | where_exp: "materia", "materia.published != false" | where_exp: "materia", "materia.excluida_busqueda != true" %}
+        {% for materia in materias_publicadas %}
+          {% capture carreras_double_output %}
+            {% include materia-carreras.html materia=materia %}
+        {% endcapture %}
+          {% assign carreras_parts = carreras_double_output | split: "@@@" %}
+          {% assign carreras_slugs = carreras_parts[0] %}
+          {% capture plan_calculado %}
+            {% include plan-materia.html materia=materia data_carrera=carreras_slugs %}
+          {% endcapture %}
+          {% assign plan_calculado = plan_calculado | strip %}
+          {% capture clean_title %}{% include materia-clean-title.html materia=materia
+      %}{% endcapture %}
+          {% assign clean_title = clean_title | strip %}
 
-      <a
-        href="{{ site.baseurl }}{{ post.url }}"
-        class="materia-item"
-        data-plan="{{ data_plan }}"
-        data-carrera="{{ data_carrera | strip }}"
-      >
-        <div class="materia-icon">
-          <span class="feather-icon icon-{{ post.icon }}"></span>
-        </div>
+          <a
+            href="{{ site.baseurl }}{{ materia.url }}"
+            class="materia-item"
+            data-plan="{{ plan_calculado }}"
+            data-carrera="{{ carreras_slugs | strip }}">
+            <div class="materia-icon">
+              <span class="feather-icon icon-{{ materia.icon }}"></span>
+            </div>
 
-        <div style="flex: 1; min-width: 0">
-          <p class="materia-title">{{ clean_title }}</p>
-          <div class="materia-badges">
-            {% if data_carrera contains "informatica" %}<span
-              class="badge-carrera"
-              >Lic. Informática</span
-            >{% endif %} {% if data_carrera contains "ciberseguridad" %}<span
-              class="badge-carrera"
-              >Lic. Ciberseguridad</span
-            >{% endif %} {% if data_carrera contains "videojuegos" %}<span
-              class="badge-carrera"
-              >Lic. Videojuegos</span
-            >{% endif %} {% if data_carrera contains "ia" %}<span
-              class="badge-carrera"
-              >Tec. IA</span
-            >{% endif %} {% if data_carrera contains "programacion" %}<span
-              class="badge-carrera"
-              >Tec. Programación</span
-            >{% endif %} {% if data_carrera contains "redes" %}<span
-              class="badge-carrera"
-              >Tec. Redes</span
-            >{% endif %} {% if data_plan == "vigente" %}<span
-              class="badge-plan-vigente"
-              >Plan 2026</span
-            >{% endif %} {% if data_plan == "anterior" %}<span
-              class="badge-plan-anterior"
-              >Plan anterior</span
-            >{% endif %}
-          </div>
-        </div>
-      </a>
-      {% endfor %} {% endif %}
+            <div style="flex: 1; min-width: 0">
+              <p class="materia-title">{{ clean_title }}</p>
+              <div class="materia-badges">
+                {% assign carreras_slugs_array = carreras_slugs | split: " " %}
+                {% for carrera in site.carreras %}
+                  {% if carrera.cuatrimestres.size > 0 %}
+                    {% if carreras_slugs_array contains carrera.slug %}
+                      <span class="badge-carrera">{{ carrera.nombre_corto | default: carrera.title | escape }}</span>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+                {% if plan_calculado == "vigente"
+                %}
+                  <span class="badge-plan-vigente">Plan 2026</span>
+                {% endif %}
+                {% if plan_calculado == "anterior" or plan_calculado == "proxima" %}
+                  <span class="badge-plan-anterior">Plan anterior</span>
+                {% endif %}
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
     </div>
 
-    <p
-      id="sin-resultados"
-      style="display: none; color: #888; text-align: center; padding: 40px 0"
-    >
+    <p id="sin-resultados" style="display: none; color: #888; text-align: center; padding: 40px 0">
       No se encontraron materias con los filtros seleccionados.
     </p>
   </div>
 </div>
 
-<script>
-  var filtroActual = { plan: "todos", carrera: "todas" };
+<script type="application/json" id="data-labels-carrera">
+  {
+  {% assign es_primer_carrera = true %}{% for carrera in site.carreras %}{% if carrera.cuatrimestres.size > 0 %}{% unless es_primer_carrera %},{% endunless %}"{{ carrera.slug }}": {{ carrera.nombre_corto | default: carrera.title | jsonify }}{% assign es_primer_carrera = false %}{% endif %}{% endfor %}
+  }
+</script>
 
-  var ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
-  var INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
+<script>
+  let filtroActual = { plan: "todos", carrera: "todas" };
+
+  let ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
+  let INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
 
   function setEstado(btn, activo) {
     var s = activo ? ACTIVO : INACTIVO;
@@ -541,6 +474,11 @@ layout: default
     if (sinRes) sinRes.style.display = visibles === 0 ? "" : "none";
   }
 
+  function matchearCarrera(dc, slug) {
+    if (slug === "todas") return true;
+    return (dc || "").split(" ").indexOf(slug) !== -1;
+  }
+
   function filtrarMaterias(tipo, valor) {
     filtroActual[tipo] = valor;
 
@@ -559,11 +497,10 @@ layout: default
       let pasaPlan =
         filtroActual.plan === "todos" ||
         item.getAttribute("data-plan") === filtroActual.plan;
-      let pasaCarrera =
-        filtroActual.carrera === "todas" ||
-        (item.getAttribute("data-carrera") || "").includes(
-          filtroActual.carrera,
-        );
+      let pasaCarrera = matchearCarrera(
+        item.getAttribute("data-carrera"),
+        filtroActual.carrera,
+      );
       item.style.display = pasaPlan && pasaCarrera ? "" : "none";
     });
 
@@ -592,15 +529,9 @@ layout: default
     vigente: "Plan 2026 ✕",
     anterior: "Plan anterior ✕",
   };
-  const LABELS_CARRERA = {
-    todas: null,
-    informatica: "Lic. Informática ✕",
-    ciberseguridad: "Lic. Ciberseguridad ✕",
-    videojuegos: "Lic. Videojuegos ✕",
-    ia: "Tec. IA ✕",
-    programacion: "Tec. Programación ✕",
-    redes: "Tec. Redes ✕",
-  };
+  const LABELS_CARRERA = JSON.parse(
+    document.getElementById("data-labels-carrera").textContent,
+  );
 
   function actualizarChips() {
     const chipPlan = document.getElementById("chip-plan");
@@ -613,88 +544,33 @@ layout: default
 
     const labelCarrera = LABELS_CARRERA[filtroActual.carrera];
     chipCarrera.style.display = labelCarrera ? "" : "none";
-    chipCarrera.textContent = labelCarrera || "";
+    chipCarrera.textContent = labelCarrera ? labelCarrera + " ✕" : "";
 
     const activos = (labelPlan ? 1 : 0) + (labelCarrera ? 1 : 0);
     badge.style.display = activos > 0 ? "" : "none";
     badge.textContent = activos;
-  }
 
-  function escapeHTML(str) {
-    const div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
-  function rebuildCards(data) {
-    const container = document.getElementById("lista-materias");
-    const html = "";
-    for (var i = 0; i < data.length; i++) {
-      var m = data[i];
-      html +=
-        '<a href="' +
-        m.permalink +
-        '" class="materia-item" data-plan="' +
-        m.data_plan +
-        '" data-carrera="' +
-        m.data_carrera +
-        '">';
-      html +=
-        '<div class="materia-icon"><span class="feather-icon icon-' +
-        m.icon +
-        '"></span></div>';
-      html += '<div style="flex:1;min-width:0">';
-      html += '<p class="materia-title">' + escapeHTML(m.title) + "</p>";
-      html += '<div class="materia-badges">';
-      if (m.data_carrera.indexOf("informatica") !== -1)
-        html += '<span class="badge-carrera">Lic. Informática</span>';
-      if (m.data_carrera.indexOf("ciberseguridad") !== -1)
-        html += '<span class="badge-carrera">Lic. Ciberseguridad</span>';
-      if (m.data_carrera.indexOf("videojuegos") !== -1)
-        html += '<span class="badge-carrera">Lic. Videojuegos</span>';
-      if (m.data_carrera.indexOf("ia") !== -1)
-        html += '<span class="badge-carrera">Tec. IA</span>';
-      if (m.data_carrera.indexOf("programacion") !== -1)
-        html += '<span class="badge-carrera">Tec. Programación</span>';
-      if (m.data_carrera.indexOf("redes") !== -1)
-        html += '<span class="badge-carrera">Tec. Redes</span>';
-      if (m.data_plan === "vigente")
-        html += '<span class="badge-plan-vigente">Plan 2026</span>';
-      if (m.data_plan === "anterior")
-        html += '<span class="badge-plan-anterior">Plan anterior</span>';
-      html += "</div></div></a>";
-    }
-    container.innerHTML = html;
-    actualizarContador();
-    actualizarChips();
-  }
-
-  async function loadMateriasJSON() {
-    try {
-      const res = await fetch("/materias.json");
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const data = await res.json();
-      const ssrCount = document.querySelectorAll(".materia-item").length;
-      if (data.length !== ssrCount) {
-        console.log(
-          "materias.json: " +
-            data.length +
-            " entries vs SSR: " +
-            ssrCount +
-            " — rebuilding cards",
-        );
-        rebuildCards(data);
-      } else {
-        console.log("materias.json: count matches SSR (" + ssrCount + ")");
-      }
-    } catch (e) {
-      console.warn("materias.json fetch failed, keeping SSR content:", e);
+    const aviso = document.getElementById("aviso-carrera");
+    const btnCarrera = document.getElementById(
+      "btn-carrera-" + filtroActual.carrera,
+    );
+    const estado = btnCarrera ? btnCarrera.getAttribute("data-estado") : null;
+    if (estado && estado !== "vigente") {
+      const label = LABELS_CARRERA[filtroActual.carrera] || "";
+      aviso.textContent =
+        estado === "proxima"
+          ? "«" +
+            label +
+            "» aún no está vigente: es una carrera próxima a comenzar."
+          : "«" + label + "» no está vigente: corresponde a un plan anterior.";
+      aviso.style.display = "";
+    } else {
+      aviso.style.display = "none";
     }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     actualizarContador();
     actualizarChips();
-    loadMateriasJSON();
   });
 </script>

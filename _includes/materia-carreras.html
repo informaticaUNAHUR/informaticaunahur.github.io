@@ -1,0 +1,20 @@
+{%- assign separador = "@@@" -%}
+{%- assign titulos_sep = "|||" -%}
+{%- assign materia_slug = include.materia.slug -%}
+{%- assign carreras_slugs = "" -%}
+{%- assign carreras_titles = "" -%}
+{%- assign titulos_joiner = "" -%}
+{%- for carrera in site.carreras -%}
+  {%- if carrera.cuatrimestres.size > 0 -%}
+    {%- for cuatrimestre in carrera.cuatrimestres -%}
+      {%- for materia in cuatrimestre.materias -%}
+        {%- if materia.slug == materia_slug -%}
+          {%- assign carreras_slugs = carreras_slugs | append: " " | append: carrera.slug -%}
+          {%- assign carreras_titles = carreras_titles | append: titulos_joiner | append: carrera.title -%}
+          {%- assign titulos_joiner = titulos_sep -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{{ carreras_slugs | strip }}{{ separador }}{{ carreras_titles }}

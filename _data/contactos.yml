@@ -1,6 +1,6 @@
 subtitulo: Contacto
 titulo: Comunicate con nosotros
-imagen_decorativa: /assets/images/contact-dec.png
+imagen_decorativa: /assets/uploads/images/contact-dec.png
 
 como_comunicarse:
   titulo: "¿Cómo comunicarse?"
@@ -8,32 +8,32 @@ como_comunicarse:
     - nombre: "Email Informática"
       valor: "informatica@unahur.edu.ar"
       url: "mailto:informatica@unahur.edu.ar"
-      icono: /assets/images/email-icon.png
+      icono: /assets/uploads/images/email-icon.png
       externo: false
     - nombre: "Email Créditos"
       valor: "creditos.iti@unahur.edu.ar"
       url: "mailto:creditos.iti@unahur.edu.ar"
-      icono: /assets/images/email-icon.png
+      icono: /assets/uploads/images/email-icon.png
       externo: false
     - nombre: "Instagram UNAHUR"
       valor: "@unahurlingham"
       url: "https://www.instagram.com/unahurlingham/"
-      icono: /assets/images/phone-icon.png
+      icono: /assets/uploads/images/phone-icon.png
       externo: true
     - nombre: "Instagram ITI"
       valor: "@iti.unahur"
       url: "https://www.instagram.com/tecnologia.ingenieria.unahur/"
-      icono: /assets/images/phone-icon.png
+      icono: /assets/uploads/images/phone-icon.png
       externo: true
     - nombre: "Sitio Web UNAHUR"
       valor: "unahur.edu.ar"
       url: "https://unahur.edu.ar"
-      icono: /assets/images/location-icon.png
+      icono: /assets/uploads/images/location-icon.png
       externo: true
     - nombre: "Personalmente"
       valor: "Oficina ITI - TA213"
       url: "https://maps.app.goo.gl/21wTgUf5kLp2UVMy7"
-      icono: /assets/images/location-icon.png
+      icono: /assets/uploads/images/location-icon.png
       externo: true
 
 discord:
@@ -86,11 +86,11 @@ tramites:
 items:
   - nombre: Sitio UNAHUR
     url: https://unahur.edu.ar
-    icono: /assets/images/location-icon.png
+    icono: /assets/uploads/images/location-icon.png
     externo: true
   - nombre: Instagram
     url: https://www.instagram.com/unahurlingham/
-    icono: /assets/images/phone-icon.png
+    icono: /assets/uploads/images/phone-icon.png
     externo: true
   - externo: true
     nombre: Discord (medio oficial)
@@ -98,9 +98,9 @@ items:
     icono: /assets/uploads/images/discord-icon.png
   - nombre: Email Informática
     url: mailto:informatica@unahur.edu.ar
-    icono: /assets/images/email-icon.png
+    icono: /assets/uploads/images/email-icon.png
     externo: false
   - nombre: Email Créditos
     url: mailto:creditos.iti@unahur.edu.ar
-    icono: /assets/images/email-icon.png
+    icono: /assets/uploads/images/email-icon.png
     externo: false

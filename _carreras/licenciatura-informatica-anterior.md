@@ -1,10 +1,11 @@
 ---
 layout: carrera
 title: Licenciatura en Informática (Plan 2018)
+nombre_corto: Lic. Informática (Plan 2018)
 permalink: /licenciatura-informatica-anterior/
 icono: /assets/img/Informatica-licenciatura-icono.png
 descripcion_corta: Plan de estudios de la Licenciatura en Informática.
-imagen: /assets/images/services-image.jpg
+imagen: /assets/uploads/images/services-image.jpg
 estado: anterior
 anterior: true
 orden: 1

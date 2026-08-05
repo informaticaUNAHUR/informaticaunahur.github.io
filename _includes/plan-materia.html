@@ -1,0 +1,17 @@
+{%- assign plan_declarado = include.materia.plan | default: "" -%}
+{%- if plan_declarado == "vigente" or plan_declarado == "proxima" or plan_declarado == "anterior" -%}
+  {{- plan_declarado -}}
+{%- else -%}
+  {%- assign carreras_slugs_array = include.data_carrera | strip | split: " " -%} {%- assign plan_calculado = "anterior" -%}
+  {%- for carrera in site.carreras -%}
+    {%- if carreras_slugs_array contains carrera.slug -%}
+      {%- if carrera.vigente or carrera.estado == "vigente" -%}
+        {%- assign plan_calculado = "vigente" -%} {%- break -%}
+      {%- elsif carrera.proxima or carrera.estado == "proxima"
+      -%}
+        {%- assign plan_calculado = "proxima" -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {{- plan_calculado -}}
+{%- endif -%}

@@ -23,7 +23,8 @@ El sitio está pensado como un portal centralizado donde la comunidad universita
 | ------------------ | ----------------------------------------------- | ------- |
 | **Ruby**           | Lenguaje base del ecosistema Jekyll             | 3.1.4   |
 | **Jekyll**         | Generador de sitios estáticos                   | 3.10.0  |
-| **Decap CMS**      | Sistema de gestión de contenidos headless       | 1.x     |
+| **Tema remoto**    | `gustavoquinalha/jekyll-help-center-theme`     | —       |
+| **Decap CMS**      | Sistema de gestión de contenidos headless       | —       |
 | **Bootstrap**      | Framework CSS para diseño responsivo            | 5.1.0   |
 | **jQuery**         | Biblioteca JavaScript para manipulación del DOM | 3.3.1   |
 | **Owl Carousel**   | Carrusel de contenido interactivo               | 2.3.4   |
@@ -32,7 +33,9 @@ El sitio está pensado como un portal centralizado donde la comunidad universita
 | **GitHub Actions** | Integración continua y despliegue automático    | —       |
 | **Netlify**        | Servidor OAuth para autenticación de Decap CMS  | —       |
 | **kramdown**       | Procesador Markdown (predeterminado de Jekyll)  | 2.5.2   |
-| **webrick**        | Servidor HTTP local para desarrollo             | 1.9.2   |
+| **webrick**        | Servidor HTTP local para development            | 1.9.2   |
+
+> **Nota:** Los plugins `jekyll-paginate`, `jekyll-remote-theme`, `jekyll-seo-tag` y `jekyll-sitemap` se utilizan como parte del grupo de plugins de Jekyll (ver `Gemfile`).
 
 ## Arquitectura
 
@@ -42,12 +45,14 @@ informaticaunahur.github.io/
 ├── Gemfile                      # Dependencias Ruby (Jekyll, plugins, servidor local)
 ├── Gemfile.lock                 # Versiones exactas de las dependencias
 ├── .ruby-version                # Versión de Ruby requerida (3.1.4)
+├── netlify.toml                 # Build en Netlify (jekyll build → _site)
+├── package.json                 # Herramientas Node (proxy local de Decap CMS)
 │
 ├── .github/
 │   └── workflows/
-│       └── pages.yml            # Pipeline CI/CD: build + deploy a GitHub Pages
+│       └── pages.yml            # Pipeline CI/CD: build + deploy a GitHub Pages (rama master)
 │
-├── _data/                       # Archivos de datos estructurados (YAML)
+├── _data/                       # Archivos de datos estructurados (YAML) — 7
 │   ├── about.yml                # Información institucional
 │   ├── blog.yml                 # Configuración del blog
 │   ├── contactos.yml            # Contactos del área
@@ -56,7 +61,7 @@ informaticaunahur.github.io/
 │   ├── nav.yml                  # Links de navegación principal
 │   └── services.yml             # Servicios ofrecidos
 │
-├── _layouts/                    # Plantillas HTML (Liquid)
+├── _layouts/                    # Plantillas HTML (Liquid) — 9
 │   ├── default.html             # Layout base con estructura completa
 │   ├── basic.html               # Layout mínimo
 │   ├── page.html                # Página genérica
@@ -67,7 +72,7 @@ informaticaunahur.github.io/
 │   ├── presentation.html        # Presentación / landing
 │   └── search.html              # Página de búsqueda
 │
-├── _includes/                   # Fragmentos reutilizables (Liquid)
+├── _includes/                   # Fragmentos reutilizables (Liquid) — 15
 │   ├── head.html                # Metadatos y estilos globales
 │   ├── head-inner.html          # Metadatos para páginas internas
 │   ├── header.html              # Encabezado principal
@@ -79,9 +84,12 @@ informaticaunahur.github.io/
 │   ├── menu_old.html            # Menú legacy
 │   ├── breadcrumbs.html         # Migas de pan
 │   ├── posts.html               # Listado de entradas
-│   └── minutes-to-read.html     # Indicador de tiempo de lectura
+│   ├── minutes-to-read.html     # Indicador de tiempo de lectura
+│   ├── materia-carreras.html    # Materias de una carrera
+│   ├── materia-clean-title.html # Título limpio de materia
+│   └── plan-materia.html        # Plan de una materia
 │
-├── _sass/                       # Estilos SASS (parciales compilados por Jekyll)
+├── _sass/                       # Estilos SASS (parciales compilados por Jekyll) — 10
 │   ├── _base.scss               # Estilos base
 │   ├── _layout.scss             # Estructura y layout
 │   ├── _header.scss             # Encabezados
@@ -90,14 +98,15 @@ informaticaunahur.github.io/
 │   ├── _post.scss               # Entradas individuales
 │   ├── _icons.scss              # Iconos
 │   ├── _breadcrumbs.scss        # Migas de pan
-│   └── _syntax-highlighting.scss  # Resaltado de sintaxis
+│   ├── _syntax-highlighting.scss  # Resaltado de sintaxis
+│   └── _carrera.scss            # Estilos específicos de carreras
 │
-├── _banners/                    # Colección: banners promocionales (no pública)
+├── _banners/                    # Colección: banners promocionales (no pública) — 3
 │   ├── banner-secundario.md
 │   ├── cambios-de-carrera.md
 │   └── inscripción-a-materias-2°-cuatrimestre-2026.md
 │
-├── _carreras/                   # Colección: páginas de carreras (10)
+├── _carreras/                   # Colección: páginas de carreras — 10
 │   ├── programacion.md
 │   ├── informatica.md
 │   ├── ia.md
@@ -109,13 +118,10 @@ informaticaunahur.github.io/
 │   ├── tecnicatura-informatica.md
 │   └── ingenieria-computacion.md
 │
-├── _materias/                   # Colección: catálogo canónico de materias (slug, nombre, área)
+├── _materias/                   # Colección: catálogo canónico de materias (slug, nombre, área) — 107
 │   └── *.md
 │
-├── _novedades/                  # Colección: novedades del instituto (7)
-│   └── *.md
-│
-├── _posts/                      # Colección: materias con programas (148+)
+├── _novedades/                  # Colección: novedades del instituto — 8
 │   └── *.md
 │
 ├── admin/                       # Configuración de Decap CMS
@@ -127,6 +133,8 @@ informaticaunahur.github.io/
 │   ├── js/                      # Scripts (custom.js, owl-carousel, isotope, etc.)
 │   ├── img/                     # Imágenes del sitio
 │   ├── images/                  # Imágenes decorativas
+│   ├── fonts/                   # Fuentes
+│   ├── animate/                 # Animaciones
 │   ├── uploads/                 # Archivos subidos vía CMS
 │   └── pdf/                     # Programas, planes de estudio y documentación
 │
@@ -135,10 +143,28 @@ informaticaunahur.github.io/
 │   └── jquery/
 │
 ├── index.html                   # Página principal
-├── about.html                   # Página "Acerca de"
-├── 404.html                     # Página de error 404
-└── search.html                  # Página de búsqueda
+├── materias.md                  # Índice de materias
+├── carreras.html                # Página de carreras
+├── creditos.html                # Créditos
+├── horarios.md                  # Horarios
+├── novedades.md                 # Novedades del instituto
+├── materias-primer-cuatrimestre.md
+├── catalogo-creditos.md         # Catálogo de créditos
+├── preguntas-frecuentes.md      # Preguntas frecuentes
+├── cambio-plan.md               # Información sobre cambio de plan
+├── planilla-comparativa.md
+├── plan-tecnicatura-programacion.md
+├── plan-tecnicatura-redes-operaciones.md
+├── index-1c-2022.html           # Versión legacy (1C 2022)
+├── index2022.md                 # Índice legacy (2022)
+├── index-contador.html          # Contador legacy
+├── unahurtic2023.html           # Jornadas UNAHUR TIC 2023
+├── grilla.md                    # Grilla de horarios
+├── grilla-1c-2022.md            # Grilla legacy (1C 2022)
+└── feed.xml                     # RSS del sitio
 ```
+
+> **Nota:** El árbol es curado, no exhaustivo. Los conteos de `_data`, `_layouts`, `_includes`, `_sass` y de las colecciones corresponden al estado actual del repo.
 
 ## Cómo correrlo en local
 
@@ -212,7 +238,7 @@ GitHub Actions — .github/workflows/pages.yml
      ├── 1. Checkout del repositorio
      ├── 2. Setup Ruby 3.1.4
      ├── 3. bundle install (cacheado)
-     ├── 4. bundle exec jekyll build
+     ├── 4. bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
      └── 5. Upload artifact (_site/)
      │
      ▼
@@ -222,7 +248,12 @@ GitHub Pages — despliegue automático
 https://informaticaunahur.github.io  ← sitio en vivo
 ```
 
+El trigger se configura desde `pages.yml` sobre la rama `master` (push y `workflow_dispatch`).
 El proceso completo suele tomar entre 1 y 3 minutos desde que se guarda un cambio hasta que se refleja en el sitio en vivo.
+
+### Despliegue alternativo con Netlify
+
+Además de GitHub Pages, el repo incluye `netlify.toml` para compilar con Netlify: comando `jekyll build`, publicación desde `_site/` y `RUBY_VERSION` 3.1.4 (entorno `JEKYLL_ENV=production`). También define un redirect de `/admin` a `/admin/index.html`.
 
 ## Administración de contenidos (Decap CMS)
 
@@ -241,9 +272,10 @@ Desde el CMS se pueden editar las siguientes secciones:
 - **Servicios** (`_data/services.yml`)
 - **Horarios** (`_data/horarios.yml`)
 - **Créditos** (`_data/credits.yml`)
+- **Banners** (colección `_banners/`)
 - **Novedades** (colección `_novedades/`)
 - **Carreras** (colección `_carreras/`)
-- **Materias** (colección `_posts/`)
+- **Materias** (colección `_materias/`)
 
 ## Estructura de datos
 
@@ -251,16 +283,16 @@ El manejo de contenido en el sitio sigue tres modelos:
 
 ### Catálogo canónico de materias (colección `_materias/`)
 
-Cada archivo Markdown dentro de `_materias/` representa una materia.
+Cada archivo Markdown dentro de `_materias/` (107 en total) representa una materia.
 El front matter define `slug` (único), `title` (nombre), `area_general` y otros metadatos.
 Se accede desde las plantillas Liquid mediante `site.materias`.
 Las carreras referencian a las materias por su `slug` y solo definen propiedades contextuales (horas por plan, correlativas, área específica).
 Esto elimina la duplicación de datos: cambiar el nombre de una materia en el catálogo lo actualiza automáticamente en todas las carreras que la referencian.
 
-### Colecciones (archivos Markdown con front matter)
+### Colecciones (archivos Markdown con frontmatter)
 
-Ubicadas en carpetas con prefijo `_` (`_carreras/`, `_materias/`, `_novedades/`, `_posts/`).
-Cada archivo es un documento Markdown cuyo front matter define metadatos (título, descripción, layout, etc.) y el cuerpo contiene el contenido en sí.
+Ubicadas en carpetas con prefijo `_` (`_carreras/`, `_materias/`, `_novedades/`, `_banners/`).
+Cada archivo es un documento Markdown cuyo frontmatter define metadatos (título, descripción, layout, etc.) y el cuerpo contiene el contenido en sí.
 Se acceden desde las plantillas Liquid mediante `site.carreras`, `site.novedades`, etc.
 Las carreras (`_carreras/`) referencian materias por slug y el template resuelve el nombre desde el catálogo canónico.
 
@@ -276,12 +308,12 @@ Este enfoque permite que personas sin conocimientos técnicos editen contenidos 
 Las contribuciones son bienvenidas.
 
 1. Crea una rama para tu cambio (`git checkout -b mi-mejora`).
-2. Realizá los cambios y commiteá (`git commit -m "Descripción del cambio"`).
+2. Realizá los cambios y commiteá (`git commit -m "mensaje del cambio"`).
 3. Enviá un pull request.
 
-Si tu cambio modifica la estructura del proyecto, el árbol de archivos de este README debe mantenerse actualizado.
+Si tu cambio modifica la estructura del proyecto, el árbol de archivos de este archivo debe mantenerse actualizado.
 
 ## Licencia
 
-- El código del tema y la configuración del sitio se distribuyen bajo licencia [MIT](https://opensource.org/licenses/MIT).
+- El código del tema y la configuración del repositorio se distribuyen bajo licencia [MIT](https://opensource.org/licenses/MIT).
 - El contenido institucional (textos, programas, planes de estudio) es propiedad de la Universidad Nacional de Hurlingham.

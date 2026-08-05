@@ -4,6 +4,7 @@ title: Electiva I
 slug: electivaTurI
 permalink: /materias/electivaTurI/
 area_general: CFE
+excluida_busqueda: true
 hs_sem: Variante
 hs_total: Variante
 creditos: Variante

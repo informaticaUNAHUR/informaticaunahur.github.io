@@ -1,12 +1,13 @@
 ---
 layout: carrera
 title: "Tecnicatura Universitaria en Redes y Operaciones Informáticas"
+nombre_corto: Tec. Redes
 permalink: /tecnicatura-redes-operaciones/
 anterior: true
 orden: 4
 icono: /assets/img/redes-icono.png
 descripcion_corta: "Plan anterior. Vigente hasta 2026 1° Cuatrimestre."
-imagen: "assets/images/planes-redes-operaciones.jpg"
+imagen: "assets/uploads/images/planes-redes-operaciones.jpg"
 pdf: /assets/pdf/planes/2022-Tecnicatura-Universitaria-en-Redes-y-Operaciones-Informaticas-unahur.pdf
 total_horas: 1408
 creditos: 35

@@ -20,7 +20,7 @@ boton_texto: Ver transición
 novedad_relacionada: Período de transición
 boton_url: /novedades/per%C3%ADodo-de-transici%C3%B3n/
 boton_externo: false
-imagen: /assets/images/services-image.jpg
+imagen: /assets/uploads/images/services-image.jpg
 orden: 2
 activo: true
 ---

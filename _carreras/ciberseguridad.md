@@ -4,6 +4,7 @@ descripcion_corta: Licenciatura en Ciberseguridad con título intermedio
 total_horas: 6000
 layout: carrera
 title: Licenciatura en Ciberseguridad
+nombre_corto: Lic. Ciberseguridad
 permalink: /licenciatura-ciberseguridad/
 icono: /assets/img/redes-icono.png
 imagen: /assets/uploads/images/plan-ciber-2026.png

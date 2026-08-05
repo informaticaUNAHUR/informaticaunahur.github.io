@@ -3,9 +3,10 @@ descripcion_corta: (En proyecto, continuidad con Ingeniería en Computación)
 total_horas: 3000
 layout: carrera
 title: Tecnicatura Universitaria en Inteligencia Artificial
+nombre_corto: Tec. IA
 permalink: /tecnicatura-inteligencia-artificial/
 icono: /assets/img/Inteligencia-artificial-icono.png
-imagen: assets/images/licenciatura.jpg
+imagen: assets/uploads/images/licenciatura.jpg
 vigente: true
 orden: 4
 pdf: /assets/uploads/pdfs/planes-carreras-informatica-para-web-ia.pdf

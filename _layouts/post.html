@@ -19,26 +19,22 @@ layout: default
 
     <!-- Metadata de la materia -->
     <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-      {% assign current_slug = page.slug %}
-      {% for carrera in site.carreras %}
-        {% assign found = false %}
-        {% for cuatrimestre in carrera.cuatrimestres %}
-          {% for materia in cuatrimestre.materias %}
-            {% if materia.slug == current_slug %}
-              {% assign found = true %}
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-        {% if found %}
-          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera.title }}</span>
+      {% capture carreras_double_output %}
+      {% include materia-carreras.html materia=page %}
+      {% endcapture %}
+      {% assign carreras_parts = carreras_double_output | split: "@@@" %}
+      {% assign carreras_slugs = carreras_parts[0] %}
+      {% assign carreras_titles_array = carreras_parts[1] | strip | split: "|||" %}
+      {% for carrera_title in carreras_titles_array %}
+        {% if carrera_title != "" %}
+        <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera_title }}</span>
         {% endif %}
       {% endfor %}
-      {% if page.plan %}
-        {% if page.plan == "vigente" %}
-        <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan vigente 2026</span>
-        {% elsif page.plan == "anterior" %}
-        <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
-        {% endif %}
+      {% capture plan_calculado %}{% include plan-materia.html materia=page data_carrera=carreras_slugs %}{% endcapture %}{% assign plan_calculado = plan_calculado | strip %}
+      {% if plan_calculado == "vigente" %}
+      <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan 2026</span>
+      {% elsif plan_calculado == "anterior" or plan_calculado == "proxima" %}
+      <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
       {% endif %}
     </div>
 

@@ -3,6 +3,7 @@ descripcion_corta: Licenciatura con título intermedio Técnico/a Universitario 
 total_horas: 7175
 layout: carrera
 title: Licenciatura en Informática
+nombre_corto: Lic. Informática
 permalink: /licenciatura-informatica/
 icono: /assets/img/Informatica-licenciatura-icono.png
 imagen: /assets/uploads/images/2026.webp

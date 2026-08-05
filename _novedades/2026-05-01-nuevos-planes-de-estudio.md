@@ -3,7 +3,7 @@ layout: novedad
 title: Se implementan las nuevas licenciaturas en el 2° cuatrimestre
 date: 2026-06-25
 categoria: Planes de estudio
-imagen: /assets/images/services-image.jpg
+imagen: /assets/uploads/images/services-image.jpg
 descripcion: A partir del 2° cuatrimestre de 2026 entran en vigencia los nuevos
   planes de estudio de las carreras de Informática.
 ---
