@@ -153,10 +153,17 @@ layout: default
                 <td>
                   {{ creditos }}
                 </td>
-                {% capture nombreAnteriorDefault %}
-                  {% include nombre-anterior-materia.html materia=materiaActual %}
-                {% endcapture %}
-                {% if page.vigente or page.proxima %}<td>{{ nombre_anterior | default: nombreAnteriorDefault }}</td>{% endif %}
+                {% if page.vigente or page.proxima -%}
+                  <td>{%- if nombre_anterior -%}
+                    {{- nombre_anterior -}}
+                  {%- else -%}
+                    {%- capture nombreAnteriorDefault -%}
+                      {%- include nombre-anterior-materia.html materia=materiaActual -%}
+                    {%- endcapture -%}
+                    {{- nombreAnteriorDefault | strip -}}
+                  {%- endif -%}
+                  </td>
+                {%- endif %}
               </tr>
               {% else %}
               <tr>

@@ -9,7 +9,6 @@
         {% if materia.slug == materiaActual.slug and carrera.anterior or carrera.estado == "anterior" %}
           {% assign nombreAnterior = "Igual" %}
           {% break %}
-          {{ nombreAnterior }}
         {% endif %}
       {% endfor %}
     {% endfor %}
