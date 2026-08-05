@@ -1,0 +1,18 @@
+{% assign nombreAnterior = "Nueva" %}
+{% assign materiaActual = include.materia %}
+
+{% for carrera in site.carreras %}
+  {% if carrera.cuatrimestres.size > 0 %}
+
+    {% for cuatrimestre in carrera.cuatrimestres %}
+      {% for materia in cuatrimestre.materias %}
+        {% if materia.slug == materiaActual.slug and carrera.anterior %}
+          {% assign nombreAnterior = "Igual" %}
+          {% break %}
+          {{ nombreAnterior }}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{{ nombreAnterior }}
