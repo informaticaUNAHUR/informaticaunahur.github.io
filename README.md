@@ -35,7 +35,7 @@ El sitio está pensado como un portal centralizado donde la comunidad universita
 | **kramdown**       | Procesador Markdown (predeterminado de Jekyll)  | 2.5.2   |
 | **webrick**        | Servidor HTTP local para development            | 1.9.2   |
 
-> **Nota:** Los plugins `jekyll-paginate`, `jekyll-remote-theme`, `jekyll-seo-tag` y `jekyll-sitemap` se utilizan como parte del grupo de plugins de Jekyll (ver `Gemfile`).
+> **Nota:** Los plugins `jekyll-remote-theme` y `jekyll-sitemap` se utilizan como parte del grupo de plugins de Jekyll (ver `Gemfile`).
 
 ## Arquitectura
 
@@ -72,24 +72,18 @@ informaticaunahur.github.io/
 │   ├── presentation.html        # Presentación / landing
 │   └── search.html              # Página de búsqueda
 │
-├── _includes/                   # Fragmentos reutilizables (Liquid) — 15
-│   ├── head.html                # Metadatos y estilos globales
+├── _includes/                   # Fragmentos reutilizables (Liquid) — 9
 │   ├── head-inner.html          # Metadatos para páginas internas
-│   ├── header.html              # Encabezado principal
 │   ├── headernav.html           # Barra de navegación
 │   ├── headmain.html            # Encabezado de portada
 │   ├── footer.html              # Pie de página genérico
 │   ├── footermain.html          # Pie de página de portada
-│   ├── menu.html                # Menú de navegación
-│   ├── menu_old.html            # Menú legacy
-│   ├── breadcrumbs.html         # Migas de pan
-│   ├── posts.html               # Listado de entradas
 │   ├── minutes-to-read.html     # Indicador de tiempo de lectura
 │   ├── materia-carreras.html    # Materias de una carrera
 │   ├── materia-clean-title.html # Título limpio de materia
 │   └── plan-materia.html        # Plan de una materia
 │
-├── _sass/                       # Estilos SASS (parciales compilados por Jekyll) — 10
+├── _sass/                       # Estilos SASS (parciales compilados por Jekyll) — 9
 │   ├── _base.scss               # Estilos base
 │   ├── _layout.scss             # Estructura y layout
 │   ├── _header.scss             # Encabezados
@@ -98,7 +92,6 @@ informaticaunahur.github.io/
 │   ├── _post.scss               # Entradas individuales
 │   ├── _icons.scss              # Iconos
 │   ├── _breadcrumbs.scss        # Migas de pan
-│   ├── _syntax-highlighting.scss  # Resaltado de sintaxis
 │   └── _carrera.scss            # Estilos específicos de carreras
 │
 ├── _banners/                    # Colección: banners promocionales (no pública) — 3
@@ -130,7 +123,7 @@ informaticaunahur.github.io/
 │
 ├── assets/                      # Recursos estáticos
 │   ├── css/                     # Estilos compilados
-│   ├── js/                      # Scripts (custom.js, owl-carousel, isotope, etc.)
+│   ├── js/                      # Scripts (custom.js, owl-carousel, etc.)
 │   ├── img/                     # Imágenes del sitio
 │   ├── images/                  # Imágenes decorativas
 │   ├── fonts/                   # Fuentes
@@ -148,23 +141,14 @@ informaticaunahur.github.io/
 ├── creditos.html                # Créditos
 ├── horarios.md                  # Horarios
 ├── novedades.md                 # Novedades del instituto
-├── materias-primer-cuatrimestre.md
 ├── catalogo-creditos.md         # Catálogo de créditos
-├── preguntas-frecuentes.md      # Preguntas frecuentes
-├── cambio-plan.md               # Información sobre cambio de plan
-├── planilla-comparativa.md
-├── plan-tecnicatura-programacion.md
-├── plan-tecnicatura-redes-operaciones.md
-├── index-1c-2022.html           # Versión legacy (1C 2022)
-├── index2022.md                 # Índice legacy (2022)
-├── index-contador.html          # Contador legacy
-├── unahurtic2023.html           # Jornadas UNAHUR TIC 2023
-├── grilla.md                    # Grilla de horarios
-├── grilla-1c-2022.md            # Grilla legacy (1C 2022)
-└── feed.xml                     # RSS del sitio
+│
+├── _legacy/                     # Contenido legacy archivado (fuera del build)
+│   ├── assets/images/           # Imágenes legacy (fuera del build)
+│   └── *.html / *.md            # Páginas legacy (2022, grillas, planes, etc.)
 ```
 
-> **Nota:** El árbol es curado, no exhaustivo. Los conteos de `_data`, `_layouts`, `_includes`, `_sass` y de las colecciones corresponden al estado actual del repo.
+> **Nota:** El árbol es curado, no exhaustivo. Los conteos de `_data`, `_layouts`, `_includes`, `_sass` y de las colecciones corresponden al estado actual del repo. El contenido archivado en `_legacy/` (excluido del build por Jekyll) conserva las páginas e imágenes legacy fuera del sitio publicado.
 
 ## Cómo correrlo en local
 

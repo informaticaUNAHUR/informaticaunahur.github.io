@@ -22,9 +22,6 @@ markdown: kramdown
 # IMPORTANTE: NO usar permalink global (rompe colecciones)
 # permalink: /:title/
 
-paginate: 5
-paginate_path: "/page:num/"
-
 sass:
   style: compressed
 
@@ -37,8 +34,8 @@ remote_theme: gustavoquinalha/jekyll-help-center-theme
 # Plugins
 # ==========================
 plugins:
-  - jekyll-paginate
   - jekyll-remote-theme
+  - jekyll-sitemap
 
 # ==========================
 # Collections
