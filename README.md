@@ -23,7 +23,7 @@ El sitio está pensado como un portal centralizado donde la comunidad universita
 | ------------------ | ----------------------------------------------- | ------- |
 | **Ruby**           | Lenguaje base del ecosistema Jekyll             | 3.1.4   |
 | **Jekyll**         | Generador de sitios estáticos                   | 3.10.0  |
-| **Tema remoto**    | `gustavoquinalha/jekyll-help-center-theme`     | —       |
+| **Tema remoto**    | `gustavoquinalha/jekyll-help-center-theme`      | —       |
 | **Decap CMS**      | Sistema de gestión de contenidos headless       | —       |
 | **Bootstrap**      | Framework CSS para diseño responsivo            | 5.1.0   |
 | **jQuery**         | Biblioteca JavaScript para manipulación del DOM | 3.3.1   |
@@ -72,16 +72,17 @@ informaticaunahur.github.io/
 │   ├── presentation.html        # Presentación / landing
 │   └── search.html              # Página de búsqueda
 │
-├── _includes/                   # Fragmentos reutilizables (Liquid) — 9
-│   ├── head-inner.html          # Metadatos para páginas internas
-│   ├── headernav.html           # Barra de navegación
-│   ├── headmain.html            # Encabezado de portada
-│   ├── footer.html              # Pie de página genérico
-│   ├── footermain.html          # Pie de página de portada
-│   ├── minutes-to-read.html     # Indicador de tiempo de lectura
-│   ├── materia-carreras.html    # Materias de una carrera
-│   ├── materia-clean-title.html # Título limpio de materia
-│   └── plan-materia.html        # Plan de una materia
+├── _includes/                       # Fragmentos reutilizables (Liquid) — 10
+│   ├── head-inner.html              # Metadatos para páginas internas
+│   ├── headernav.html               # Barra de navegación
+│   ├── headmain.html                # Encabezado de portada
+│   ├── footer.html                  # Pie de página genérico
+│   ├── footermain.html              # Pie de página de portada
+│   ├── minutes-to-read.html         # Indicador de tiempo de lectura
+│   ├── materia-carreras.html        # Materias de una carrera
+│   ├── materia-clean-title.html     # Título limpio de materia
+│   ├── plan-materia.html            # Plan de una materia
+│   └── nombreCorrelativaDeCarrera.html # Nombre contextual de una materia en una carrera
 │
 ├── _sass/                       # Estilos SASS (parciales compilados por Jekyll) — 9
 │   ├── _base.scss               # Estilos base
