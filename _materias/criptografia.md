@@ -7,6 +7,7 @@ area_general: CFE
 hs_sem: 4
 hs_total: 175
 hs_autonomo: 111
+nombre_anterior: Nueva
 creditos: 7
 icon: lock
 plan: vigente

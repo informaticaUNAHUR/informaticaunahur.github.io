@@ -7,6 +7,7 @@ area_general: CFE
 hs_sem: 4
 hs_total: 150
 hs_autonomo: 86
+nombre_anterior: Nueva
 creditos: 6
 icon: cpu
 pdf_programa: /assets/uploads/pdfs/25-laboratorio-de-sistemas-operativos-y-redes-lic-1-.pdf

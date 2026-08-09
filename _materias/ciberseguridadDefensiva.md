@@ -7,6 +7,7 @@ area_general: CFE
 hs_sem: 6
 hs_total: 200
 hs_autonomo: 104
+nombre_anterior: Nueva
 creditos: 8
 icon: shield
 plan: vigente

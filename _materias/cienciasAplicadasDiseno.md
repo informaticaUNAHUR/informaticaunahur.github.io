@@ -7,6 +7,7 @@ area_general: CFB
 hs_sem: 4
 hs_total: 150
 hs_autonomo: 86
+nombre_anterior: Nueva
 creditos: 6
 icon: edit-3
 plan: vigente

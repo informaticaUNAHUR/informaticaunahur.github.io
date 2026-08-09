@@ -6,6 +6,7 @@ permalink: /materias/lenguajesInformaticos/
 area_general: CFB
 hs_sem: 4
 hs_total: 125
+nombre_anterior: Nueva
 creditos: 5
 icon: code
 plan: vigente
