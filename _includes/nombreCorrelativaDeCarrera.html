@@ -1,0 +1,13 @@
+{%- assign nombreCorrelativaResultado = "" -%}
+{%- assign materiaCatalogo = site.materias | where: "slug", include.slug | first -%}
+{%- if materiaCatalogo -%}
+  {%- assign nombreCorrelativaResultado = materiaCatalogo.title -%}
+  {%- for cuatrimestre in include.carrera.cuatrimestres -%}
+    {%- assign materiaEnPlan = cuatrimestre.materias | where: "slug", materiaCatalogo.slug | first -%}
+    {%- if materiaEnPlan and materiaEnPlan.nombre -%}
+      {%- assign nombreCorrelativaResultado = materiaEnPlan.nombre -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{{ nombreCorrelativaResultado | strip }}

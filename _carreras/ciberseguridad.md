@@ -124,8 +124,8 @@ cuatrimestres:
           - tecnologiaSociedad
       - slug: ciberseguridadOfensiva
         correlativas:
-          - lenguajesInformaticos1
           - desarrolloSeguro
+          - lenguajesInformaticos3
       - slug: administracionRespuestaIncidentes
         correlativas:
           - gestionIntegralSeguridad

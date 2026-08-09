@@ -192,10 +192,11 @@ layout: default
                           {% endif %}
                           {% for correlativa in correlativas %}
                             {% assign slug = correlativa | strip %}
-                            {% assign found = site.materias | where: "slug", slug | first %}
-                            {% if found %}
+                            {% capture nombreCorrelativa %}{% include nombreCorrelativaDeCarrera.html slug=slug carrera=page %}{% endcapture %}
+                            {% assign nombreCorrelativa = nombreCorrelativa | strip %}
+                            {% if nombreCorrelativa != "" %}
                               <a href="{{ '/materias/' | append: slug | append: '/' | relative_url }}">
-                                {{ found.title }}
+                                {{ nombreCorrelativa }}
                               </a>
                               {% unless forloop.last %},
                               {% endunless %}
