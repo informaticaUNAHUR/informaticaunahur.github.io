@@ -18,8 +18,8 @@ tabla_datos:
   col_intermedio: Técnico/a Universitario en Redes y Operaciones Informáticas
   filas:
     - label: Duración
-      grado: 4,5 años
-      intermedio: 2,5 años
+      grado: 4 años
+      intermedio: 2 años
     - label: Horas de interaccion pedagogica
       grado: "2240"
       intermedio: "1120"
