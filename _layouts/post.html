@@ -4,10 +4,8 @@ layout: default
 {% include minutes-to-read.html %}
 
 
-
 <div class="size margin" style="margin-bottom: 16px; margin-top: 26px;">
-  <a href="{{ site.baseurl }}/materias/"
-     style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
+  <a href="{{ site.baseurl }}/materias/" style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
     ← Todas las materias
   </a>
 </div>
@@ -15,7 +13,11 @@ layout: default
 <div class="size margin min-height">
   <article>
     <!-- titles -->
-    <h1 class="post-title" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0">{{ page.title }}</h1>
+    <h1
+      class="post-title"
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-offset="0">{{ page.title }}</h1>
 
     <!-- Metadata de la materia -->
     <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
@@ -27,145 +29,89 @@ layout: default
       {% assign carreras_titles_array = carreras_parts[1] | strip | split: "|||" %}
       {% for carrera_title in carreras_titles_array %}
         {% if carrera_title != "" %}
-        <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera_title }}</span>
+          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera_title }}</span>
         {% endif %}
       {% endfor %}
-      {% capture plan_calculado %}{% include plan-materia.html materia=page data_carrera=carreras_slugs %}{% endcapture %}{% assign plan_calculado = plan_calculado | strip %}
+      {% capture plan_calculado %}{% include plan-materia.html materia=page data_carrera=carreras_slugs %}{% endcapture %}
+      {% assign plan_calculado = plan_calculado | strip %}
       {% if plan_calculado == "vigente" %}
-      <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan 2026</span>
+        <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan 2026</span>
       {% elsif plan_calculado == "anterior" or plan_calculado == "proxima" %}
-      <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
+        <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
       {% endif %}
     </div>
+    {% if page.plan-anterior %}
+      {% assign materia = site.materias | where: "slug", page.plan-anterior | first %}
+      {% if materia %}
+        <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <span style="background:#ffc107; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
+          <a href="{{ "/materias/" | append: materia.slug | append : "/" | relative_url }}" style="background:#f8f9fa; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem; text-decoration:none;">
+            {{ materia.title }}
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+    {% assign materia-plan-proximo = site.materias | where: "plan-anterior", page.slug %}
+    {% if materia-plan-proximo.size > 0 %}
+      <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+        <span style="background:#17a2b8; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan próximo</span>
+        {% for plan-proximo in materia-plan-proximo %}
+          <a href="{{ "/materias/" | append: plan-proximo.slug | append : "/" | relative_url }}" style="background:#f8f9fa; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem; text-decoration:none;">
+            {{ plan-proximo.title }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <!-- Datos rápidos de la materia -->
     {% if page.hs_total or page.creditos or page.correlativas %}
-    <div style="background:#f8f9fa; border-radius:8px; padding:16px 20px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:20px;">
-      {% if page.hs_total %}
-      <div>
-        <span style="font-size:0.75rem; color:#888; display:block;">Carga horaria</span>
-        <strong style="font-size:0.95rem;">{{ page.hs_total }}</strong>
+      <div style="background:#f8f9fa; border-radius:8px; padding:16px 20px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:20px;">
+        {% if page.hs_total %}
+          <div>
+            <span style="font-size:0.75rem; color:#888; display:block;">Carga horaria</span>
+            <strong style="font-size:0.95rem;">{{ page.hs_total }}</strong>
+          </div>
+        {% endif %}
+        {% if page.creditos %}
+          <div>
+            <span style="font-size:0.75rem; color:#888; display:block;">Créditos</span>
+            <strong style="font-size:0.95rem;">{{ page.creditos }}</strong>
+          </div>
+        {% endif %}
+        {% if page.correlativas and page.correlativas != "-" and page.correlativas.first %}
+          <div>
+            <span style="font-size:0.75rem; color:#888; display:block;">Correlativas</span>
+            <strong style="font-size:0.95rem;">{{ page.correlativas }}</strong>
+          </div>
+        {% endif %}
+        {% if page.pdf_programa %}
+          {% assign pdf_url = page.pdf_programa %}
+          {% unless pdf_url contains '://' %}
+            {% assign pdf_url = pdf_url | relative_url %}
+          {% endunless %}
+          <div style="margin-left:auto;">
+            <a
+              href="{{ pdf_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="display:inline-block; padding:8px 16px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
+              📄 Programa completo
+            </a>
+          </div>
+        {% endif %}
       </div>
-      {% endif %}
-      {% if page.creditos %}
-      <div>
-        <span style="font-size:0.75rem; color:#888; display:block;">Créditos</span>
-        <strong style="font-size:0.95rem;">{{ page.creditos }}</strong>
-      </div>
-      {% endif %}
-      {% if page.correlativas and page.correlativas != "-" and page.correlativas.first %}
-      <div>
-        <span style="font-size:0.75rem; color:#888; display:block;">Correlativas</span>
-        <strong style="font-size:0.95rem;">{{ page.correlativas }}</strong>
-      </div>
-      {% endif %}
-      {% if page.pdf_programa %}
-        {% assign pdf_url = page.pdf_programa %}
-        {% unless pdf_url contains '://' %}
-          {% assign pdf_url = pdf_url | relative_url %}
-        {% endunless %}
-      <div style="margin-left:auto;">
-        <a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer"
-           style="display:inline-block; padding:8px 16px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-          📄 Programa completo
-        </a>
-      </div>
-      {% endif %}
-    </div>
     {% endif %}
 
-    <div class="post-date" data-aos="fade-left" data-aos-delay="300" data-aos-offset="0">
-    </div>
+    <div
+      class="post-date"
+      data-aos="fade-left"
+      data-aos-delay="300"
+      data-aos-offset="0">
+  </div>
 
-    <!-- posts -->
-    <div class="margin-top-20 margin-bottom-50">
-      {% for x in page.questions %}
-      <div class="list-item-2 container wrap-reverse align-items-end justify-content-center" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0">
-        {% if x.image %}
-        <div class="list-item-2-img flex-basis-300 flex-grow-1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
-          <img src="{{ site.baseurl }}/assets/img/{{ x.image }}" width="100%" alt="">
-          {% if x.modalidad %}
-          <span class="list-post-description">
-            {{x.modalidad}}
-          </span>
-          {% endif %}
-          {% if x.otros %}
-          <div>
-            OTRO DATO: {{x.otros}}
-          </div>
-          {% endif %}
-        </div>
-        {% endif %}
-        <div class="list-item-2-img flex-basis-360 flex-grow-1" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
-          {% if x.modalidad %}
-          <p></p>
-          <span class="list-post-description" style="color: brown;">
-            {{x.modalidad}}
-          </span>
-          {% endif %}
-          {% if x.otros %}
-          <p></p>
-          <div>
-            OTRO DATO: {{x.otros}}
-          </div>
-          {% endif %}
-          {% if x.comisiones %}
-        </br>
-          <div>
-            <span class="list-post-description" style="color: brown;">HORARIOS:</span>
-            <br/>{{x.comisiones}}
-          </div>
-          {% endif %}
-          {% if x.aulas %}
-          <br/>
-          <div>
-            <span class="list-post-description" style="color: brown;">AULAS: <br/>
-            Cuando dice Laboratorio, son las Salas de Informática en el Primer piso del Edificio Malvinas Argentinas</span>
-            <br/>{{x.aulas}}
-          </div>
-          {% endif %}
-        </div>
-        <div class="flex-basis-400 flex-grow-5">
-          <div class="" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
-            <h2 class="list-post-title">
-            {{x.question}}
-            </h2>
-          </div>
-          <div class="" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0">
-            <span class="list-post-description">
-              {{x.answer}}
-            </span>
-          </div>
-          {% if x.contenido %}
-          <div>
-            <h3 class="list-post-title">
-            Contenidos Mínimos
-            </h3>
-            <span class="list-post-description">
-              {{x.contenido}}
-            </span>
-          </div>
-          {% endif %}
-          {% if x.programa %}
-            {% assign programa_url = x.programa %}
-            {% unless programa_url contains '://' %}
-              {% assign programa_url = '/assets/pdf/programas/' | append: programa_url | relative_url %}
-            {% endunless %}
-            <div style="margin-top: 16px;">
-              <a href="{{ programa_url }}" target="_blank" rel="noopener noreferrer"
-                 style="display:inline-flex; align-items:center; gap:6px; padding:9px 18px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
-                📄 Descargar programa PDF
-              </a>
-            </div>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    <!-- posts -->
 
     <!-- content -->
     {{ content }}
-    <!-- content -->
+  <!-- content -->
   </article>
 </div>

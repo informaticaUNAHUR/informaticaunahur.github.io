@@ -182,7 +182,6 @@ layout: default
                           {{ hs_total }}{% else %}-{% endif %}
                       </td>
                       <td>
-
                         {% if materia.correlativas and materia.correlativas != "-" and materia.correlativas.first %}
                           {% assign slugs = materia.correlativas %}
                           {% if slugs.first and slugs.first.size > 1 %}

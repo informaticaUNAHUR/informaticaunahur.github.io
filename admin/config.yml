@@ -5,7 +5,7 @@ backend:
   base_url: https://decap-oauth-unahur.vercel.app
 
 # Opcional: permite editar en local sin publicar
-local_backend: true
+# local_backend: true
 
 site_url: https://informaticaunahur.github.io
 display_url: https://informaticaunahur.github.io
@@ -355,7 +355,6 @@ collections:
                   widget: "string",
                   required: false,
                 }
-
       - label: "Cuatrimestres / Años"
         name: "cuatrimestres"
         widget: "list"
@@ -977,7 +976,7 @@ collections:
           label: "Plan",
           name: "plan",
           widget: "select",
-          required: false,
+          required: true,
           options:
             [
               { label: "Vigente 2026", value: "vigente" },
@@ -989,6 +988,18 @@ collections:
           name: "pdf_programa",
           widget: "file",
           required: false,
+        }
+      - {
+          label: "Plan anterior",
+          name: "plan-anterior",
+          widget: "relation",
+          collection: "materias",
+          search_fields: ["title", "slug"],
+          value_field: "slug",
+          display_fields: ["title"],
+          multiple: false,
+          required: false,
+          options_length: 150,
         }
       - {
           label: "Contenido",
