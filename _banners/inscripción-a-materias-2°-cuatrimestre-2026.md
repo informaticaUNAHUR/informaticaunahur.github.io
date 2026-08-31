@@ -11,5 +11,5 @@ novedad_relacionada: Inscripción a materias 2° cuatrimestre 2026
 boton_externo: false
 imagen: /assets/uploads/images/whatsapp-image-2026-07-18-at-09.49.21.jpeg
 orden: 0
-activo: true
+activo: false
 ---
