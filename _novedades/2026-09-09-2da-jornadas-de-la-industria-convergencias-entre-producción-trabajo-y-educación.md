@@ -2,7 +2,7 @@
 layout: novedad
 title: 2da Jornadas de la Industria. Convergencias entre producción, trabajo y
   educación
-date: 2026-09-09
+date: 2026-08-31
 categoria: Eventos
 imagen: /assets/uploads/images/semana.jpg
 ---
