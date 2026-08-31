@@ -1,5 +1,5 @@
 ---
-title: 2° Jornada de la Industria - Convocatoria
+title: 2da Jornada de la Industria - Convocatoria
 date: 2026-09-09
 imagen: /assets/uploads/images/semana-10x10.jpeg
 ---
