@@ -11,6 +11,8 @@ baseurl: ""
 language: "es"
 lang: "es"
 
+future: true
+
 color_theme: "#4db6ad"
 color_text: "#fff"
 
