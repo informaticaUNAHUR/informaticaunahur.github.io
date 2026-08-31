@@ -1,6 +1,6 @@
 ---
 subtitulo: UNAHUR Informática
-titulo: "2° Jornadas de la Industria: convergencias entre producción, trabajo y
+titulo: "2da Jornadas de la Industria: convergencias entre producción, trabajo y
   educación"
 descripcion: >
   La Universidad Nacional de Hurlingham (UNAHUR) llevará a cabo las “Segundas
