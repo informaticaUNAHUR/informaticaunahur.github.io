@@ -8,5 +8,5 @@ novedad_relacionada: Cambios de carrera
 boton_externo: false
 imagen: /assets/uploads/images/ciber.jpeg
 orden: 1
-activo: true
+activo: false
 ---
