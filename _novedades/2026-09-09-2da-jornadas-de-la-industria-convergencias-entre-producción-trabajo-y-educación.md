@@ -2,33 +2,29 @@
 layout: novedad
 title: 2da Jornadas de la Industria. Convergencias entre producción, trabajo y
   educación
-date: 2026-08-31
+date: 2026-09-09
 categoria: Eventos
 imagen: /assets/uploads/images/semana.jpg
 ---
 **Programa**
 
-**Día 1: Miércoles  9/9** 
+**Día 1: Miércoles  9/9**  
 
 9.00hs	Acreditación
 
 9:45hs	Apertura 
 
-10:00hs 	Conferencias de apertura: “**Energía, minería y desarrollo:  Desafíos y oportunidades para la Industria Argentina”.** 	*Senadora Nacional Ing. Flavia Royón.* 
+10:00hs  Conferencias de apertura: “**Energía, minería y desarrollo:  Desafíos y oportunidades para la Industria Argentina”.**  *Senadora Nacional Ing. Flavia Royón.* 
 
 11:00hs	Conferencia: **“Sistemas de generación de energía para satélites”** *Dr. Hernán Socolovsky - CNEA (Comisión Nacional de Energía Atómica)*
 
 *Lugar: Auditorio Trabajo Argentino*
-
-
 
 12:30 a 14.00	Almuerzo libre
 
 14.30 a 16.30hs **“Ponencias 10 x 10”** Presentación de 10 proyectos de estudiantes de las carreras del Instituto de Tecnología e Ingeniería contados en 10 minutos
 
 *Lugar: Hall Trabajo Argentino*
-
-
 
 17:00		Conferencia: **“Servicios, sustentabilidad y eficiencia de recursos en Argentina”**
 
@@ -40,8 +36,6 @@ imagen: /assets/uploads/images/semana.jpg
 Modera: Lucas Spigariol
 
 *Lugar: auditorio Trabajo Argentino*
-
-
 
 18.30 a 20.00hs	**Conferencias específicas de las carreras del Instituto**
 
@@ -65,8 +59,6 @@ Modera: Florencia Cornara
 
 *Lugar: auditorio Trabajo Argentino*
 
-
-
 11:30 a 13hs	Mesa redonda:  **“Panorama actual  y futuro de la producción nacional”**
 
 * Cristian Iuliano (Saphirus)
@@ -79,27 +71,19 @@ Modera:  Javier Viqueira (Adox) 
 
 *Lugar: auditorio Trabajo Argentino*
 
-
-
 13.00hs	Almuerzo libre 
 
 13.30 a 14.30  “**Taller de armado de cv, entrevistas y búsqueda de empleo**		(Adecco Consultora)
 
 *Lugar: auditorio Trabajo Argentino*
 
-
-
 14.30 a 16.30hs **“Ponencias 10 x 10”** Presentación de 10 proyectos de estudiantes de las carreras del Instituto de Tecnología e Ingeniería contados en 10 minutos
 
 *Lugar: Hall Trabajo Argentino*
 
-
-
 17.00hs	**Fundaciones que fomentan trayectorias: expectativas vs realidad** Gustavo Gallo (Fundación YPF-Fundación Rocca ) 
 
 *Lugar: auditorio Trabajo Argentino*
-
-
 
 18:00hs	Mesa redonda: “**Docencia y experiencia profesional”**
 
