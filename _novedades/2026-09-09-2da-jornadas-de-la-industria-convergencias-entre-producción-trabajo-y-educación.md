@@ -20,11 +20,15 @@ imagen: /assets/uploads/images/semana.jpg
 
 *Lugar: Auditorio Trabajo Argentino*
 
+
+
 12:30 a 14.00	Almuerzo libre
 
 14.30 a 16.30hs **“Ponencias 10 x 10”** Presentación de 10 proyectos de estudiantes de las carreras del Instituto de Tecnología e Ingeniería contados en 10 minutos
 
 *Lugar: Hall Trabajo Argentino*
+
+
 
 17:00		Conferencia: **“Servicios, sustentabilidad y eficiencia de recursos en Argentina”**
 
@@ -37,6 +41,8 @@ Modera: Lucas Spigariol
 
 *Lugar: auditorio Trabajo Argentino*
 
+
+
 18.30 a 20.00hs	**Conferencias específicas de las carreras del Instituto**
 
 * Metalurgia:  **Fortalecimiento de la cadena de valor Minera- Industria Nacional -** Lugar: TA 007
@@ -44,6 +50,8 @@ Modera: Lucas Spigariol
 * Diseño Industrial: **Mesa redonda con estudios de diseño**  *\-* Lugar: Hall TA 
 * Licenciatura en Gestión de Mantenimiento: **Software de gestión de mantenimiento: hacia dónde van las tendencias -** Lugar: TA11
 * Informática: **El oficio de programar. Tendencias y tensiones en la industria informática -** Lugar: Auditorio TA
+
+
 
 **Día 2: jueves 10 de septiembre** 
 
@@ -59,6 +67,8 @@ Modera: Florencia Cornara
 
 *Lugar: auditorio Trabajo Argentino*
 
+
+
 11:30 a 13hs	Mesa redonda:  **“Panorama actual  y futuro de la producción nacional”**
 
 * Cristian Iuliano (Saphirus)
@@ -73,17 +83,25 @@ Modera:  Javier Viqueira (Adox) 
 
 13.00hs	Almuerzo libre 
 
+
+
 13.30 a 14.30  “**Taller de armado de cv, entrevistas y búsqueda de empleo**		(Adecco Consultora)
 
 *Lugar: auditorio Trabajo Argentino*
+
+
 
 14.30 a 16.30hs **“Ponencias 10 x 10”** Presentación de 10 proyectos de estudiantes de las carreras del Instituto de Tecnología e Ingeniería contados en 10 minutos
 
 *Lugar: Hall Trabajo Argentino*
 
-17.00hs	**Fundaciones que fomentan trayectorias: expectativas vs realidad** Gustavo Gallo (Fundación YPF-Fundación Rocca ) 
+
+
+17.00hs	Conferencia "La innovación como puente entre la formación y el desarrollo productivo"
 
 *Lugar: auditorio Trabajo Argentino*
+
+
 
 18:00hs	Mesa redonda: “**Docencia y experiencia profesional”**
 
