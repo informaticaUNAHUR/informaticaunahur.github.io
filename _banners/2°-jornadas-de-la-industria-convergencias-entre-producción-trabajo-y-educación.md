@@ -11,7 +11,7 @@ descripcion: >
   Tesei) .
 novedad_relacionada: 2da Jornadas de la Industria. Convergencias entre
   producción, trabajo y educación
-boton_externo: false
+boton_externo: true
 imagen: /assets/uploads/images/semana.jpg
 orden: 1
 activo: true
