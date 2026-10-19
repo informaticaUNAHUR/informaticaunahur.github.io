@@ -15,5 +15,5 @@ boton_url: https://docs.google.com/forms/d/e/1FAIpQLSfDcfiAwZ55qfod1aBNQydqXhQxX
 boton_externo: false
 imagen: /assets/uploads/images/cuantica.jpg
 orden: 1
-activo: true
+activo: false
 ---
