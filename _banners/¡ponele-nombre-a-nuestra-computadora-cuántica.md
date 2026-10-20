@@ -6,9 +6,9 @@ descripcion: >
   todavía no tiene nombre.
 
 
-  Adelantá tu propuesta hasta el jueves 22/10
+  Se reciben sugerencias originales de nombres  en el evento UNAHUR TIC 2026 (sábado 24/10).
 
-  Los mejores nombres se votan el sábado 24/10 en el evento UNAHUR TIC 2026.
+  Adelantá tu propuesta en este form
 boton_texto: Propuestas acá
 novedad_relacionada: Unahur TIC 2026
 boton_url: https://docs.google.com/forms/d/e/1FAIpQLSfDcfiAwZ55qfod1aBNQydqXhQxX0XFuMALSsHQF8NMSCWtTQ/viewform
