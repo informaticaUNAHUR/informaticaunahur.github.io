@@ -14,5 +14,5 @@ novedad_relacionada: 2da Jornadas de la Industria. Convergencias entre
 boton_externo: true
 imagen: /assets/uploads/images/semana.jpg
 orden: 1
-activo: true
+activo: false
 ---
