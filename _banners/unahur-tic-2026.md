@@ -11,6 +11,6 @@ descripcion: >-
 novedad_relacionada: Unahur TIC 2026
 boton_externo: false
 imagen: /assets/uploads/images/logo-unahur-tic.png
-orden: 1
+orden: 0
 activo: true
 ---
