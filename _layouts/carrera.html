@@ -8,27 +8,27 @@ layout: default
       <div class="col-12 col-xl-10">
 
 
-    <div style="margin-bottom: 24px;">
-      <a href="{{ '/carreras/' | relative_url }}" style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; color:#4db6ad; border:1.5px solid #4db6ad; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem;">
-        ← Volver a Carreras
-      </a>
-    </div>
-
     <!-- Encabezado -->
-    <div class="section-heading" style="margin-bottom: 40px; text-align: center;">
-      <h6 style="text-transform: uppercase; letter-spacing: 2px; color: #4db6ad; font-weight: 600; margin-bottom: 12px;">
-        {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre
-          {% elsif page.anterior %}Plan anterior
-          {% elsif page.proxima %}Próximamente
-        {% endif %}
-      </h6>
-      <h2 style="font-size: 2.4rem; font-weight: 800; color: #1a1a2e; line-height: 1.2; margin-bottom: 16px;">{{ page.title }}</h2>
+    <div class="section-heading mb-5">
+      <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-semibold">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
+      </a>
+
+      {% if page.vigente or page.anterior or page.proxima %}
+        <div class="mb-3">
+          <span class="cr-badge badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+            {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre{% elsif page.anterior %}Plan anterior{% elsif page.proxima %}Próximamente{% endif %}
+          </span>
+        </div>
+      {% endif %}
+
+      <h1 class="fw-bold mb-2">{{ page.title }}</h1>
       {% if page.titulo_intermedio %}
-        <p style="font-size:1.05rem; color:#666; margin-bottom: 0;">Título intermedio:
-          <strong style="color: #4db6ad;">{{ page.titulo_intermedio }}</strong>
+        <p class="fs-5 text-muted mb-0">Título intermedio:
+          <span class="cr-intermedio fw-semibold">{{ page.titulo_intermedio }}</span>
         </p>
       {% endif %}
-      <div class="line-dec" style="margin: 20px auto 0;"></div>
+      <div class="line-dec mt-4"></div>
     </div>
 
     {% if page.tabla_datos %}
