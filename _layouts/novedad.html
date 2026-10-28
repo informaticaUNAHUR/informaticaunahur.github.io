@@ -2,77 +2,169 @@
 layout: default
 ---
 
-<div style="
-    padding-top: 100px;
-    padding-bottom: 60px;
-    max-width: 780px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-  ">
-  <div style="margin-bottom: 24px">
-    <a href="{{ '/novedades/' | relative_url }}" style="
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 18px;
-        background: #f0fafa;
-        border: 1px solid #4db6ad;
-        color: #4db6ad;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 0.875rem;
-        font-weight: 600;
-      ">
-      ← Volver a Novedades
-    </a>
-  </div>
+<style>
+  .novedad {
+    --nv-accent: #4db6ad;
+    --nv-accent-dark: #3a9d95;
+    --nv-accent-soft: #f0fafa;
+    --nv-ink: #1a1a2e;
+    --nv-text: #2d3436;
+  }
 
-  <h1 style="
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #1a1a2e;
-      line-height: 1.25;
-      margin-bottom: 10px;
-    ">
-    {{ page.title }}
-  </h1>
+  .novedad .breadcrumb-item + .breadcrumb-item::before { color: #adb5bd; }
+  .novedad .nv-link { color: var(--nv-accent-dark); }
+  .novedad .nv-link:hover { color: var(--nv-ink); }
 
-  <h3 style="font-size: 1rem; font-weight: 400; color: #888; margin-bottom: 30px">
-    {% if page.categoria %}
-      <span style="color: #4db6ad; font-weight: 600">{{ page.categoria }}</span>
-      —
-    {% endif %}
-    {{ page.date | date: "%d/%m/%Y" }}</h3>
+   .novedad .nv-cover {
+    max-height: 760px;
+    object-fit: contain;
+    object-position: center center;
+    background: #fff;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-  {% if page.imagen %}
-    <div style="margin-bottom: 32px; border-radius: 10px; overflow: hidden">
-      <img
-        src="{{ page.imagen | relative_url }}"
-        alt="{{ page.title }}"
-        style="width: 100%; max-height: 420px; object-fit: cover; display: block" />
+  .novedad .nv-badge {
+    background: linear-gradient(135deg, var(--nv-accent) 0%, var(--nv-accent-dark) 100%);
+    font-size: .75rem;
+    letter-spacing: .5px;
+  }
+
+  .novedad .nv-title {
+    color: var(--nv-ink);
+    line-height: 1.16;
+    font-size: clamp(1.9rem, 4vw + .5rem, 3rem);
+  }
+
+   .novedad .nv-btn-back {
+    background: #ffffff !important;
+    border: 2px solid var(--nv-accent) !important;
+    color: var(--nv-accent-dark) !important;
+    box-shadow: none !important;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .novedad .nv-btn-back:hover,
+  .novedad .nv-btn-back:focus-visible {
+    background: var(--nv-accent) !important;
+    color: #fff !important;
+  }
+  .novedad a:focus-visible {
+    outline: 3px solid var(--nv-accent);
+    outline-offset: 3px;
+  }
+
+  /* Contenido del post (markdown renderizado) */
+  .content-post {
+    font-size: 1.08rem;
+    color: var(--nv-text);
+    line-height: 1.9;
+  }
+  .content-post h1, .content-post h2, .content-post h3,
+  .content-post h4, .content-post h5, .content-post h6 {
+    color: var(--nv-ink);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 2.75rem 0 1.25rem;
+  }
+  .content-post > :first-child { margin-top: 0; }
+  .content-post h2 { font-size: 1.65rem; }
+  .content-post h3 { font-size: 1.4rem; }
+  .content-post h4 { font-size: 1.25rem; }
+  .content-post h5 { font-size: 1.15rem; }
+  .content-post h6 { font-size: 1.08rem; text-transform: uppercase; letter-spacing: .5px; }
+  .content-post p { margin-bottom: 1.6rem; }
+  .content-post ul, .content-post ol { margin: 1.8rem 0; padding-left: 2rem; }
+  .content-post li { margin-bottom: .7rem; }
+  .content-post li > ul, .content-post li > ol { margin: .8rem 0; }
+  .content-post hr { margin: 3.5rem 0; opacity: .15; }
+  .content-post a {
+    color: var(--nv-accent-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .content-post a:hover { color: var(--nv-ink); }
+  .content-post strong { color: var(--nv-ink); font-weight: 600; }
+  .content-post img,
+  .content-post video,
+  .content-post iframe { max-width: 100%; height: auto; border-radius: .5rem; }
+  .content-post table { display: block; overflow-x: auto; max-width: 100%; }
+  .content-post pre { overflow-x: auto; padding: 1rem; background: #f8f9fa; border-radius: .5rem; }
+  .content-post blockquote {
+    border-left: 4px solid var(--nv-accent);
+    background: #f8fdfc;
+    padding: 1.25rem 1.75rem;
+    margin: 2rem 0;
+    border-radius: 0 .5rem .5rem 0;
+  }
+  .content-post blockquote > :last-child { margin-bottom: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .novedad * { transition: none !important; }
+  }
+</style>
+
+<section class="novedad pt-5 pb-5" style="padding-top: clamp(6rem, 12vw, 8.75rem) !important;">
+  <div class="container-fluid px-3 px-md-5 px-lg-6">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10 col-xxl-9">
+
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item">
+              <a href="{{ '/novedades/' | relative_url }}" class="nv-link text-decoration-none">Novedades</a>
+            </li>
+            <li class="breadcrumb-item active text-muted text-truncate" style="max-width: 60vw;" aria-current="page">
+              {{ page.title | truncate: 60 }}
+            </li>
+          </ol>
+        </nav>
+
+        <article class="card border-0 shadow overflow-hidden rounded-4 mb-5">
+          {% if page.imagen %}
+          <div class="bg-light text-center">
+          <div class="w-100">
+            <img
+              src="{{ page.imagen | relative_url }}"
+              alt="{{ page.title }}"
+              class="nv-cover w-100"
+              loading="eager"
+              decoding="async">
+          </div>
+          </div>
+          {% endif %}
+
+          <div class="card-body px-4 px-md-6 px-lg-7 py-4 py-md-5">
+            <header class="mb-2 pb-2 border-bottom">
+              <div class="d-flex flex-wrap align-items-center gap-3 mb-1">
+                {% if page.categoria %}
+                <span class="badge rounded-pill px-3 py-2 text-uppercase fw-semibold nv-badge">
+                  {{ page.categoria }}
+                </span>
+                {% endif %}
+                <time class="text-muted d-inline-flex align-items-center small" datetime="{{ page.date | date_to_xmlschema }}">
+                  <i class="far fa-calendar-alt me-2" style="color: var(--nv-accent);" aria-hidden="true"></i>
+                  {{ page.date | date: "%d/%m/%Y" }}
+                </time>
+              </div>
+              <h1 class="nv-title fw-bold mb-0">{{ page.title }}</h1>
+            </header>
+
+            <div class="content-post text-break" style="margin-top: 0.75rem;">
+              {{ content }}
+            </div>
+          </div>
+        </article>
+
+        <footer class="d-flex justify-content-end pt-0 mt-0" style="background: transparent !important; margin-top: -1.5rem !important;">
+          <a href="{{ '/novedades/' | relative_url }}"
+             class="btn nv-btn-back d-inline-flex align-items-center gap-2 px-3 py-1 rounded-3 fw-semibold" style="font-size: 0.9rem;">
+            <span aria-hidden="true">←</span>
+            Volver a Novedades
+          </a>
+        </footer>
+
+      </div>
     </div>
-  {% endif %}
-
-  <div class="content-post" style="font-size: 1rem; color: #333; line-height: 1.6">
-    {{ content }}
   </div>
-
-  <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #e0e0e0">
-    <a href="{{ '/novedades/' | relative_url }}" style="
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 18px;
-        background: #f0fafa;
-        border: 1px solid #4db6ad;
-        color: #4db6ad;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 0.875rem;
-        font-weight: 600;
-      ">
-      ← Volver a Novedades
-    </a>
-  </div>
-</div>
+</section>
