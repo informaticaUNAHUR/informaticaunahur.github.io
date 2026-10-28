@@ -54,11 +54,34 @@ layout: default
     outline-offset: 3px;
   }
 
+  .novedad .nv-footer-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 575.98px) {
+    .novedad .nv-footer-wrap {
+      position: sticky;
+      bottom: 0.75rem;
+      justify-content: center;
+      pointer-events: none;
+      margin-top: 1.5rem;
+    }
+    .novedad .nv-footer-wrap .nv-btn-back {
+      pointer-events: auto;
+      box-shadow: 0 4px 12px rgba(77, 182, 173, 0.25);
+    }
+  }
+
   /* Contenido del post (markdown renderizado) */
-  .content-post {
+   .content-post {
     font-size: 1.08rem;
     color: var(--nv-text);
     line-height: 1.9;
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
   }
   .content-post h1, .content-post h2, .content-post h3,
   .content-post h4, .content-post h5, .content-post h6 {
@@ -156,12 +179,14 @@ layout: default
           </div>
         </article>
 
-        <footer class="d-flex justify-content-end pt-0 mt-0" style="background: transparent !important; margin-top: -1.5rem !important;">
-          <a href="{{ '/novedades/' | relative_url }}"
-             class="btn nv-btn-back d-inline-flex align-items-center gap-2 px-3 py-1 rounded-3 fw-semibold" style="font-size: 0.9rem;">
-            <span aria-hidden="true">←</span>
-            Volver a Novedades
-          </a>
+        <footer class="pt-0 mt-0" style="background: transparent !important; margin-top: -1.5rem !important; padding-bottom: env(safe-area-inset-bottom, 0);">
+          <div class="nv-footer-wrap">
+            <a href="{{ '/novedades/' | relative_url }}"
+               class="btn nv-btn-back d-inline-flex align-items-center gap-2 px-3 py-1 rounded-3 fw-semibold" style="font-size: 0.9rem;">
+              <span aria-hidden="true">←</span>
+              Volver a Novedades
+            </a>
+          </div>
         </footer>
 
       </div>
