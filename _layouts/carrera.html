@@ -2,70 +2,80 @@
 layout: default
 ---
 
-<div class="py-5">
-  <div class="container-fluid px-3 px-md-5">
+<div class="py-5 px-3 px-md-5">
+  <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-12 col-xl-10">
+      <div class="col-12">
 
 
     <!-- Encabezado -->
-    <div class="section-heading mb-5">
-      <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-semibold">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
-      </a>
+    <div class="row g-4 align-items-start mb-5">
+      <div class="col-12{% if page.tabla_datos.filas %} col-lg-7{% endif %}">
+        <div class="section-heading">
+          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-semibold">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
+          </a>
 
-      {% if page.vigente or page.anterior or page.proxima %}
-        <div class="mb-3">
-          <span class="cr-badge badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
-            {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre{% elsif page.anterior %}Plan anterior{% elsif page.proxima %}Próximamente{% endif %}
-          </span>
+          {% if page.vigente or page.anterior or page.proxima %}
+            <div class="mb-3">
+              <span class="cr-badge badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+                {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre{% elsif page.anterior %}Plan anterior{% elsif page.proxima %}Próximamente{% endif %}
+              </span>
+            </div>
+          {% endif %}
+
+          <h1 class="fw-bold mb-2">{{ page.title }}</h1>
+          {% if page.titulo_intermedio %}
+            <p class="fs-5 text-muted mb-0">Título intermedio:
+              <span class="cr-intermedio fw-semibold">{{ page.titulo_intermedio }}</span>
+            </p>
+          {% endif %}
+          <div class="line-dec mt-4"></div>
+        </div>
+      </div>
+
+      {% if page.tabla_datos.filas %}
+        <div class="col-12 col-lg-5">
+          <!-- Resumen del plan (tabla_datos) -->
+          <div class="cr-resumen card bg-light border rounded-3">
+            <div class="card-body p-4">
+              <dl class="row g-4 mb-0">
+                {% for fila in page.tabla_datos.filas %}
+                  {% assign icono = "fa-info-circle" %}
+                  {% if fila.label contains "Duraci" %}{% assign icono = "fa-clock-o" %}
+                  {% elsif fila.label contains "Materia" %}{% assign icono = "fa-book" %}
+                  {% elsif fila.label contains "ACA" %}{% assign icono = "fa-graduation-cap" %}
+                  {% elsif fila.label contains "dito" %}{% assign icono = "fa-certificate" %}
+                  {% elsif fila.label contains "Horas" %}{% assign icono = "fa-calendar" %}
+                  {% endif %}
+                  <div class="{% if forloop.first %}col-12 pb-4 border-bottom{% else %}col-12 col-sm-6{% endif %} d-flex gap-3">
+                    <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2 bg-white border rounded-circle text-muted align-self-start">
+                      <i class="fa {{ icono }} fa-fw" aria-hidden="true"></i>
+                    </span>
+                    <div>
+                      <dt class="small text-muted fw-normal lh-sm mb-1">{{ fila.label }}</dt>
+                      <dd class="d-flex align-items-start gap-2 mb-0">
+                        <span>
+                          <span class="d-block fs-5 fw-bold lh-sm text-nowrap">{{ fila.grado }}</span>
+                          {% if fila.intermedio %}<span class="d-block small text-muted">Grado</span>{% endif %}
+                        </span>
+                        {% if fila.intermedio %}
+                          <span class="fs-5 lh-sm text-muted" aria-hidden="true">|</span>
+                          <span>
+                            <span class="d-block fs-5 fw-bold lh-sm text-nowrap text-secondary">{{ fila.intermedio }}</span>
+                            <span class="d-block small text-muted">Intermedio</span>
+                          </span>
+                        {% endif %}
+                      </dd>
+                    </div>
+                  </div>
+                {% endfor %}
+              </dl>
+            </div>
+          </div>
         </div>
       {% endif %}
-
-      <h1 class="fw-bold mb-2">{{ page.title }}</h1>
-      {% if page.titulo_intermedio %}
-        <p class="fs-5 text-muted mb-0">Título intermedio:
-          <span class="cr-intermedio fw-semibold">{{ page.titulo_intermedio }}</span>
-        </p>
-      {% endif %}
-      <div class="line-dec mt-4"></div>
     </div>
-
-    {% if page.tabla_datos %}
-      <div style="margin-bottom: 40px; overflow-x:auto;">
-        <style>
-          .tabla-datos-odd {
-            background-color: #ffffff;
-          }
-          .tabla-datos-even {
-            background-color: #f8f9fa;
-          }
-        </style>
-        <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
-          <thead>
-            <tr style="background-color:#4db6ad; color:#fff;">
-              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">Título</th>
-              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">{{ page.tabla_datos.col_grado }}</th>
-              {% if page.tabla_datos.col_intermedio %}
-                <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">{{ page.tabla_datos.col_intermedio }}</th>
-              {% endif %}
-            </tr>
-          </thead>
-          <tbody>
-            {% for fila in page.tabla_datos.filas %}
-              {%- assign flabel = fila.label | strip -%}
-              <tr class="{% cycle 'tabla-datos-odd', 'tabla-datos-even' %}">
-                <td style="padding:10px 16px; border:1px solid #dee2e6; font-weight:600; color:#555;">{{ fila.label }}</td>
-                <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.grado }}</td>
-                {% if fila.intermedio %}
-                  <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.intermedio }}</td>
-                {% endif %}
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    {% endif %}
 
     {% if page.pdf %}
       <div style="margin-bottom: 40px; text-align: center;">
