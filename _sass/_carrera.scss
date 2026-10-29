@@ -11,3 +11,19 @@
     overflow-x: auto;
   }
 }
+
+// Detalle de carrera (_layouts/carrera.html)
+.carrera-detalle {
+  .cr-btn-pdf {
+    background-color: #4db6ad;
+    border-color: #4db6ad;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #3a9d95;
+      border-color: #3a9d95;
+      color: #fff;
+    }
+  }
+}

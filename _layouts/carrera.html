@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="py-5 px-3 px-md-5">
+<div class="carrera-detalle py-5 px-3 px-md-5">
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-12">
@@ -12,7 +12,7 @@ layout: default
     <div class="row g-4 align-items-start mb-5">
       <div class="col-12{% if page.tabla_datos.filas %} col-lg-7{% endif %}">
         <div class="section-heading">
-          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-semibold">
+          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-bold">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
           </a>
 
@@ -27,7 +27,7 @@ layout: default
           <h1 class="fw-bold mb-2">{{ page.title }}</h1>
           {% if page.titulo_intermedio %}
             <p class="fs-5 text-muted mb-0">Título intermedio:
-              <span class="cr-intermedio fw-semibold">{{ page.titulo_intermedio }}</span>
+              <span class="cr-intermedio fw-bold">{{ page.titulo_intermedio }}</span>
             </p>
           {% endif %}
           <div class="line-dec mt-4"></div>
@@ -78,13 +78,15 @@ layout: default
     </div>
 
     {% if page.pdf %}
-      <div style="margin-bottom: 40px; text-align: center;">
+      <div class="text-center mb-5">
         <a
           href="{{ page.pdf | relative_url }}"
           target="_blank"
           rel="noopener noreferrer"
-          style="display:inline-block; padding:12px 28px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:1rem;">
-          📄 Descargar plan de estudios en PDF
+          class="cr-btn-pdf btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          Descargar plan de estudios en PDF
+          <i class="fa fa-download" aria-hidden="true"></i>
         </a>
       </div>
     {% endif %}
