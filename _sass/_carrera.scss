@@ -102,6 +102,15 @@
       padding: .75rem 1rem;
     }
 
+    @media (max-width: 767.98px) {
+      font-size: .75rem;
+
+      td,
+      th {
+        padding: .5rem .75rem;
+      }
+    }
+
     a {
       @extend %cr-link;
     }
@@ -116,6 +125,10 @@
 
       &:hover {
         background-color: #d3ece9;
+      }
+
+      @media (max-width: 767.98px) {
+        font-size: .7rem;
       }
     }
   }
