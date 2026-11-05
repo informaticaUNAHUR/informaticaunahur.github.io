@@ -257,18 +257,21 @@ layout: default
 
     <!-- Gráfico de correlatividades -->
     {% if page.correlatividades_imagen %}
-      <div style="margin-top: 40px;">
-        <h4 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:20px;">Gráfico de correlatividades</h4>
-        <div style="text-align:center;">
+      <section class="mb-5">
+        <div class="d-flex align-items-center gap-4 mb-4">
+          <h2 class="fw-bold mb-0 flex-shrink-0">Gráfico de correlatividades</h2>
+          <div class="cr-linea flex-grow-1"></div>
+        </div>
+        <figure class="text-center mb-0">
           <img
             src="{{ page.correlatividades_imagen | relative_url }}"
             alt="Gráfico de correlatividades - {{ page.title }}"
-            style="max-width:100%; height:auto; border-radius:8px; border:1px solid #e0e0e0;">
-        </div>
-        <p style="font-size:0.8rem; color:#999; text-align:center; margin-top:8px;">
-          Gráfico de correlatividades para {{ page.title }}
-        </p>
-      </div>
+            class="img-fluid border rounded-3">
+          <figcaption class="small text-muted mt-2">
+            Gráfico de correlatividades para {{ page.title }}
+          </figcaption>
+        </figure>
+      </section>
     {% endif %}
 
       </div>
