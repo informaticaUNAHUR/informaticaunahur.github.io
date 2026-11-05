@@ -2,146 +2,145 @@
 layout: default
 ---
 
-<div style="padding-top: 120px; padding-bottom: 60px;">
-  <div style="max-width: 720px; margin: 0 auto; padding: 0 20px;">
+<div class="carrera-detalle py-5 px-3 px-md-5">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
 
-
-    <div style="margin-bottom: 24px;">
-      <a href="{{ '/carreras/' | relative_url }}" style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; color:#4db6ad; border:1.5px solid #4db6ad; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.92rem;">
-        ← Volver a Carreras
-      </a>
-    </div>
 
     <!-- Encabezado -->
-    <div class="section-heading" style="margin-bottom: 40px; text-align: center;">
-      <h6 style="text-transform: uppercase; letter-spacing: 2px; color: #4db6ad; font-weight: 600; margin-bottom: 12px;">
-        {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre
-          {% elsif page.anterior %}Plan anterior
-          {% elsif page.proxima %}Próximamente
-        {% endif %}
-      </h6>
-      <h2 style="font-size: 2.4rem; font-weight: 800; color: #1a1a2e; line-height: 1.2; margin-bottom: 16px;">{{ page.title }}</h2>
-      {% if page.titulo_intermedio %}
-        <p style="font-size:1.05rem; color:#666; margin-bottom: 0;">Título intermedio:
-          <strong style="color: #4db6ad;">{{ page.titulo_intermedio }}</strong>
-        </p>
+    <div class="row g-4 align-items-start mb-5">
+      <div class="col-12{% if page.tabla_datos.filas %} col-lg-7{% endif %}">
+        <div class="section-heading">
+          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-bold">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
+          </a>
+
+          {% if page.vigente or page.anterior or page.proxima %}
+            <div class="mb-3">
+              <span class="cr-badge badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+                {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre{% elsif page.anterior %}Plan anterior{% elsif page.proxima %}Próximamente{% endif %}
+              </span>
+            </div>
+          {% endif %}
+
+          <h1 class="fw-bold mb-2">{{ page.title }}</h1>
+          {% if page.titulo_intermedio %}
+            <p class="fs-5 text-muted mb-0">Título intermedio:
+              <span class="cr-intermedio fw-bold">{{ page.titulo_intermedio }}</span>
+            </p>
+          {% endif %}
+          <div class="line-dec mt-4"></div>
+        </div>
+      </div>
+
+      {% if page.tabla_datos.filas %}
+        <div class="col-12 col-lg-5">
+          <!-- Resumen del plan (tabla_datos) -->
+          <div class="cr-resumen card bg-light border rounded-3">
+            <div class="card-body p-4">
+              <dl class="row g-4 mb-0">
+                {% for fila in page.tabla_datos.filas %}
+                  {% assign icono = "fa-info-circle" %}
+                  {% if fila.label contains "Duraci" %}{% assign icono = "fa-clock-o" %}
+                  {% elsif fila.label contains "Materia" %}{% assign icono = "fa-book" %}
+                  {% elsif fila.label contains "ACA" %}{% assign icono = "fa-graduation-cap" %}
+                  {% elsif fila.label contains "dito" %}{% assign icono = "fa-certificate" %}
+                  {% elsif fila.label contains "Horas" %}{% assign icono = "fa-calendar" %}
+                  {% endif %}
+                  <div class="{% if forloop.first %}col-12 pb-4 border-bottom{% else %}col-12 col-sm-6{% endif %} d-flex gap-3">
+                    <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2 bg-white border rounded-circle text-muted align-self-start">
+                      <i class="fa {{ icono }} fa-fw" aria-hidden="true"></i>
+                    </span>
+                    <div>
+                      <dt class="small text-muted fw-normal lh-sm mb-1">{{ fila.label }}</dt>
+                      <dd class="d-flex align-items-start gap-2 mb-0">
+                        <span>
+                          <span class="d-block fs-5 fw-bold lh-sm text-nowrap">{{ fila.grado }}</span>
+                          {% if fila.intermedio %}<span class="d-block small text-muted">Grado</span>{% endif %}
+                        </span>
+                        {% if fila.intermedio %}
+                          <span class="fs-5 lh-sm text-muted" aria-hidden="true">|</span>
+                          <span>
+                            <span class="d-block fs-5 fw-bold lh-sm text-nowrap text-secondary">{{ fila.intermedio }}</span>
+                            <span class="d-block small text-muted">Intermedio</span>
+                          </span>
+                        {% endif %}
+                      </dd>
+                    </div>
+                  </div>
+                {% endfor %}
+              </dl>
+            </div>
+          </div>
+        </div>
       {% endif %}
-      <div class="line-dec" style="margin: 20px auto 0;"></div>
     </div>
 
-    {% if page.tabla_datos %}
-      <div style="margin-bottom: 40px; overflow-x:auto;">
-        <style>
-          .tabla-datos-odd {
-            background-color: #ffffff;
-          }
-          .tabla-datos-even {
-            background-color: #f8f9fa;
-          }
-        </style>
-        <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
-          <thead>
-            <tr style="background-color:#4db6ad; color:#fff;">
-              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">Título</th>
-              <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">{{ page.tabla_datos.col_grado }}</th>
-              {% if page.tabla_datos.col_intermedio %}
-                <th style="padding:12px 16px; text-align:left; border:1px solid #3da09a;">{{ page.tabla_datos.col_intermedio }}</th>
-              {% endif %}
-            </tr>
-          </thead>
-          <tbody>
-            {% for fila in page.tabla_datos.filas %}
-              {%- assign flabel = fila.label | strip -%}
-              <tr class="{% cycle 'tabla-datos-odd', 'tabla-datos-even' %}">
-                <td style="padding:10px 16px; border:1px solid #dee2e6; font-weight:600; color:#555;">{{ fila.label }}</td>
-                <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.grado }}</td>
-                {% if fila.intermedio %}
-                  <td style="padding:10px 16px; border:1px solid #dee2e6;">{{ fila.intermedio }}</td>
-                {% endif %}
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    {% endif %}
-
     {% if page.pdf %}
-      <div style="margin-bottom: 40px; text-align: center;">
+      <div class="text-center mb-5">
         <a
           href="{{ page.pdf | relative_url }}"
           target="_blank"
           rel="noopener noreferrer"
-          style="display:inline-block; padding:12px 28px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-weight:600; font-size:1rem;">
-          📄 Descargar plan de estudios en PDF
+          class="cr-btn-pdf btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          Descargar plan de estudios en PDF
+          <i class="fa fa-download" aria-hidden="true"></i>
         </a>
       </div>
     {% endif %}
 
     {% if page.cuatrimestres %}
-      <div style="margin-bottom: 40px;">
-        <h4 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:20px;">Plan de estudios</h4>
+      <section class="mb-5">
+        <div class="d-flex align-items-center gap-4 mb-4">
+          <h2 class="fw-bold mb-0 flex-shrink-0">Plan de estudios</h2>
+          <div class="cr-linea flex-grow-1"></div>
+        </div>
 
-        <style>
-          .tableizer-table {
-            font-size: 12px;
-            border: 1px solid #CCC;
-            font-family: Arial
-            , Helvetica
-            , sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-          }
-          .tableizer-table td,
-          .tableizer-table th {
-            padding: 6px 10px;
-            border: 1px solid #CCC;
-          }
-          .tableizer-table th {
-            background-color: #4db6ad;
-            color: #FFF;
-            font-weight: bold;
-          }
-          .tableizer-cuatrimestre {
-            font-weight: bold;
-            text-align: center;
-            background-color: #e8f5f4;
-            color: #2a7a74;
-          }
-          .tableizer-table a {
-            color: #1A6B66;
-            text-decoration: underline;
-          }
-          .tableizer-table a:hover {
-            color: #4db6ad;
-          }
-        </style>
-
-        <div id="table-div">
-          <table class="tableizer-table">
-            <thead>
-              <tr>
-                <th>Área</th>
-                <th>Materia</th>
-                <th>Hs/Sem</th>
-                <th>Hs pedag</th>
-                <th>Hs autonom</th>
-                <th>Carga horaria total</th>
-                <th>Correlativas</th>
-                <th>Creditos</th>
-                {% if page.vigente or page.proxima %}
-                  <th>Nombre anterior</th>
-                {% endif %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for cuatri in page.cuatrimestres %}
-                <tr>
-                  <td colspan="9" class="tableizer-cuatrimestre">
-                    {{ cuatri.nombre }}{% if cuatri.horas and cuatri.horas != "" %}
-                      — {{ cuatri.horas }} hs{% endif %}
-                  </td>
-                </tr>
+        {% assign nro_materia = 0 %}
+        {% for cuatri in page.cuatrimestres %}
+          {% assign cuatri_id = "cuatri-" | append: forloop.index %}
+          <div class="card border rounded-3 shadow-sm overflow-hidden mb-4">
+            <h3 class="h5 mb-0">
+              <button
+                class="cr-cuatri-toggle btn w-100 d-flex align-items-center gap-3 p-3 text-start rounded-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#{{ cuatri_id }}"
+                aria-expanded="true"
+                aria-controls="{{ cuatri_id }}">
+                <span class="cr-numero d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle fw-bold">{{ forloop.index }}°</span>
+                <span class="fw-bold flex-grow-1">{{ cuatri.nombre }}</span>
+                <span class="badge rounded-pill bg-light text-dark border fw-normal px-3 py-2 d-none d-sm-inline-block">
+                  {{ cuatri.materias.size }} materias{% if cuatri.horas and cuatri.horas != "" %} · {{ cuatri.horas }} hs{% endif %}
+                </span>
+                <span class="cr-chevron d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle border bg-white" aria-hidden="true">
+                  <i class="fa fa-chevron-down"></i>
+                </span>
+              </button>
+            </h3>
+            <div id="{{ cuatri_id }}" class="collapse show">
+              <div class="table-responsive border-top">
+                <table class="cr-tabla table table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Materia</th>
+                      <th scope="col">H. Sem.</th>
+                      <th scope="col">H. Pedag.</th>
+                      <th scope="col">H. Autón.</th>
+                      <th scope="col">Carga horaria total</th>
+                      <th scope="col">Correlativa/s</th>
+                      <th scope="col">Crédito</th>
+                      {% if page.vigente or page.proxima %}
+                        <th scope="col">Materia anterior</th>
+                      {% endif %}
+                    </tr>
+                  </thead>
+                  <tbody>
                 {% for materia in cuatri.materias %}
+                  {% assign nro_materia = nro_materia | plus: 1 %}
                   {% assign materiaActual = site.materias | where: "slug", materia.slug | first %}
                   {% if materiaActual %}
                     {% assign nombre = materia.nombre | default: materiaActual.title %}
@@ -152,32 +151,32 @@ layout: default
                     {% assign hs_autonomo = materiaActual.hs_autonomo %}
                     {% assign nombre_anterior = materiaActual.nombre_anterior %}
                     <tr>
-                      <td>{{ area }}</td>
+                      <td class="text-muted">{{ nro_materia }}</td>
                       <td>
                         <a href="{{ '/materias/' | append: materia.slug | append: '/' | relative_url }}">
                           {{ nombre }}
                         </a>
                       </td>
                       {% if hs_sem != "Variante" %}
-                        <td>{{ hs_sem }}</td>
+                        <td class="text-center">{{ hs_sem }}</td>
                       {% else %}
-                        <td>-</td>
+                        <td class="text-center">-</td>
                       {% endif %}
-                      <td>
+                      <td class="text-center">
                         {% if hs_sem != "Variante" %}
                           {{ hs_sem | times: 16 }}
                         {% else %}
                           -
                         {% endif %}
                       </td>
-                      <td>
+                      <td class="text-center">
                         {% if hs_sem != "Variante" and page.vigente or page.estado == "vigente" %}
                           {{ hs_autonomo }}
                         {% else %}
                           -
                         {% endif %}
                       </td>
-                      <td>
+                      <td class="text-center">
                         {% if hs_sem != "Variante" %}
                           {{ hs_total }}{% else %}-{% endif %}
                       </td>
@@ -189,27 +188,26 @@ layout: default
                           {% else %}
                             {% assign correlativas = slugs | split: "," %}
                           {% endif %}
+                          <div class="d-flex flex-column align-items-start gap-1">
                           {% for correlativa in correlativas %}
                             {% assign slug = correlativa | strip %}
                             {% capture nombreCorrelativa %}{% include nombreCorrelativaDeCarrera.html slug=slug carrera=page %}{% endcapture %}
                             {% assign nombreCorrelativa = nombreCorrelativa | strip %}
                             {% if nombreCorrelativa != "" %}
-                              <a href="{{ '/materias/' | append: slug | append: '/' | relative_url }}">
-                                {{ nombreCorrelativa }}
+                              <a class="cr-chip d-inline-flex align-items-center gap-2 rounded-pill px-3 py-1" href="{{ '/materias/' | append: slug | append: '/' | relative_url }}">
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                <span>{{ nombreCorrelativa }}</span>
                               </a>
-                              {% unless forloop.last %},
-                              {% endunless %}
                             {% else %}
                               <span class="materia-no-disponible">(Materia no disponible)</span>
-                              {% unless forloop.last %},
-                              {% endunless %}
                             {% endif %}
                           {% endfor %}
+                          </div>
                         {% else %}
                           —
                         {% endif %}
                       </td>
-                      <td>
+                      <td class="text-center">
                         {% if page.anterior or page.estado == "anterior" %}
                           -
                         {% else %}
@@ -224,7 +222,7 @@ layout: default
                     </tr>
                   {% else %}
                     <tr>
-                      <td></td>
+                      <td class="text-muted">{{ nro_materia }}</td>
                       <td>
                         <span class="materia-no-disponible">(Materia no disponible)</span>
                       </td>
@@ -240,35 +238,44 @@ layout: default
                     </tr>
                   {% endif %}
                 {% endfor %}
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </section>
     {% endif %}
 
     <!-- Contenido adicional del markdown -->
-    {% if content and content != "" %}
-      <div style="margin-bottom: 40px;">
-        {{ content }}
+    {% assign contenido = content | strip %}
+    {% if contenido != "" %}
+      <div class="cr-aviso d-flex gap-3 p-4 bg-light border rounded-3 mb-5">
+        <i class="fa fa-info-circle fa-lg text-muted mt-1" aria-hidden="true"></i>
+        <div>{{ content }}</div>
       </div>
     {% endif %}
 
     <!-- Gráfico de correlatividades -->
     {% if page.correlatividades_imagen %}
-      <div style="margin-top: 40px;">
-        <h4 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:20px;">Gráfico de correlatividades</h4>
-        <div style="text-align:center;">
+      <section class="mb-5">
+        <div class="d-flex align-items-center gap-4 mb-4">
+          <h2 class="fw-bold mb-0 flex-shrink-0">Gráfico de correlatividades</h2>
+          <div class="cr-linea flex-grow-1"></div>
+        </div>
+        <figure class="text-center mb-0">
           <img
             src="{{ page.correlatividades_imagen | relative_url }}"
             alt="Gráfico de correlatividades - {{ page.title }}"
-            style="max-width:100%; height:auto; border-radius:8px; border:1px solid #e0e0e0;">
-        </div>
-        <p style="font-size:0.8rem; color:#999; text-align:center; margin-top:8px;">
-          Gráfico de correlatividades para {{ page.title }}
-        </p>
-      </div>
+            class="img-fluid border rounded-3">
+          <figcaption class="small text-muted mt-2">
+            Gráfico de correlatividades para {{ page.title }}
+          </figcaption>
+        </figure>
+      </section>
     {% endif %}
 
+      </div>
+    </div>
   </div>
-</div></div>
+</div>

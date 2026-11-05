@@ -1,13 +1,135 @@
-#table-div {
-  font-size: 1rem;
-  border-collapse: collapse;
-  width: 100%;
-  overflow-x: visible;
+// Detalle de carrera (_layouts/carrera.html)
+
+// Links de texto: el tema fuerza text-decoration:none !important en todos los <a>
+%cr-link {
+  color: #1a6b66;
+  font-weight: 600;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: #4db6ad;
+  }
 }
 
-@media (max-width: 768px) {
-  #table-div {
-    font-size: 0.8rem;
-    overflow-x: auto;
+.carrera-detalle {
+  .cr-btn-pdf {
+    background-color: #4db6ad;
+    border-color: #4db6ad;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #3a9d95;
+      border-color: #3a9d95;
+      color: #fff;
+    }
+  }
+
+  .cr-volver {
+    color: #1a6b66;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: #4db6ad;
+    }
+  }
+
+  // Texto del markdown (body del .md)
+  .cr-aviso {
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      @extend %cr-link;
+    }
+  }
+
+  // Plan de estudios
+  .cr-linea {
+    height: 2px;
+    background-color: #4db6ad;
+    opacity: .4;
+  }
+
+  .cr-cuatri-toggle {
+    color: inherit;
+    font-size: inherit;
+
+    &:focus {
+      box-shadow: inset 0 0 0 .2rem rgba(77, 182, 173, .35);
+    }
+  }
+
+  .cr-numero {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #2a7a74;
+    color: #fff;
+  }
+
+  .cr-chevron {
+    width: 2rem;
+    height: 2rem;
+    font-size: .8rem;
+
+    .fa {
+      transition: transform .2s;
+    }
+  }
+
+  .cr-cuatri-toggle:not(.collapsed) .cr-chevron .fa {
+    transform: rotate(180deg);
+  }
+
+  .cr-tabla {
+    font-size: .85rem;
+
+    th {
+      font-weight: 600;
+      color: #495057;
+    }
+
+    td,
+    th {
+      padding: .75rem 1rem;
+    }
+
+    @media (max-width: 767.98px) {
+      font-size: .75rem;
+
+      td,
+      th {
+        padding: .5rem .75rem;
+      }
+    }
+
+    a {
+      @extend %cr-link;
+    }
+
+    .cr-chip {
+      background-color: #e8f5f4;
+      color: #1a6b66;
+      font-weight: 400;
+      text-decoration: none !important;
+      font-size: .8rem;
+      line-height: 1.3;
+
+      &:hover {
+        background-color: #d3ece9;
+      }
+
+      @media (max-width: 767.98px) {
+        font-size: .7rem;
+      }
+    }
   }
 }
