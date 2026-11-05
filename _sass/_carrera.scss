@@ -1,4 +1,17 @@
 // Detalle de carrera (_layouts/carrera.html)
+
+// Links de texto: el tema fuerza text-decoration:none !important en todos los <a>
+%cr-link {
+  color: #1a6b66;
+  font-weight: 600;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: #4db6ad;
+  }
+}
+
 .carrera-detalle {
   .cr-btn-pdf {
     background-color: #4db6ad;
@@ -20,6 +33,22 @@
     &:hover,
     &:focus {
       color: #4db6ad;
+    }
+  }
+
+  // Texto del markdown (body del .md)
+  .cr-aviso {
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      @extend %cr-link;
     }
   }
 
@@ -74,14 +103,14 @@
     }
 
     a {
-      color: #1a6b66;
-      text-decoration: underline;
+      @extend %cr-link;
     }
 
     .cr-chip {
       background-color: #e8f5f4;
       color: #1a6b66;
-      text-decoration: none;
+      font-weight: 400;
+      text-decoration: none !important;
       font-size: .8rem;
       line-height: 1.3;
 

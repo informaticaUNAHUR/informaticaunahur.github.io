@@ -249,8 +249,9 @@ layout: default
 
     <!-- Contenido adicional del markdown -->
     {% if content and content != "" %}
-      <div style="margin-bottom: 40px;">
-        {{ content }}
+      <div class="cr-aviso d-flex gap-3 p-4 bg-light border rounded-3 mb-5">
+        <i class="fa fa-info-circle fa-lg text-muted mt-1" aria-hidden="true"></i>
+        <div>{{ content }}</div>
       </div>
     {% endif %}
 
