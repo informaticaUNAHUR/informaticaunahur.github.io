@@ -47,41 +47,41 @@
     }
   }
 
-  .pf-grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+  // Cards de carreras anteriores (horizontales, más discretas)
+  .cl-card-anterior {
+    background-color: #f9f9f9;
+    border-color: #e8e8e8;
+    transition: box-shadow .2s ease, border-color .2s ease;
 
-  .pf-card-anterior {
-    border: 1px solid #e8e8e8;
-    border-radius: 10px;
-    background: #f9f9f9;
-    padding: 20px 16px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 150px;
-    height: 100%;
-    box-sizing: border-box;
-    transition: box-shadow 0.2s ease;
+    .cl-chevron {
+      color: #999;
+      transition: transform .2s ease, color .2s ease;
+    }
 
     &:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: #4db6ad;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+      .cl-chevron {
+        color: #4db6ad;
+        transform: translateX(3px);
+      }
     }
   }
 
-  @media (max-width: 991px) {
-    .pf-grid-3 {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .cl-icono-sm {
+    height: 44px;
+    width: 44px;
+    object-fit: contain;
   }
 
-  @media (max-width: 575px) {
-    .pf-grid-3 {
-      grid-template-columns: 1fr;
-    }
+  .cl-icono-sm.cl-icono-fallback {
+    font-size: 1.2rem;
+  }
+
+  .cl-link-anterior {
+    color: #555;
+    font-size: .95rem;
+    line-height: 1.35;
   }
 }
