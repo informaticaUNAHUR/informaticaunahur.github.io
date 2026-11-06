@@ -7,18 +7,21 @@ permalink: /carreras/
 <div class="carreras-listado py-5 px-3 px-md-5">
   <div class="container-fluid">
 
-  <div style="text-align:left; margin-bottom:40px;">
-    <h6 style="font-size:0.85rem; font-weight:600; color:#4db6ad; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Vigentes desde 2026 2° Cuatrimestre</h6>
-    <h4 style="font-size:2rem; color:#2a2a2a; font-weight:700; margin:0 0 12px;"><em style="color:#4db6ad; font-style:normal;">Carreras</em> de Informática</h4>
-    <div style="width:60px; height:3px; background:#4db6ad;"></div>
-  </div>
-
   {% assign carreras_vigentes  = site.carreras | where: "vigente",  true | sort: "orden" %}
   {% assign carreras_anteriores = site.carreras | where: "anterior", true | sort: "orden" %}
   {% assign carreras_proximas  = site.carreras | where: "proxima",  true | sort: "orden" %}
 
   <!-- Carreras vigentes: 4 cards en fila -->
   {% if carreras_vigentes.size > 0 %}
+  <div class="mb-4">
+    <span class="badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+      Vigentes desde 2026 2° Cuatrimestre
+    </span>
+  </div>
+  <div class="d-flex align-items-center gap-4 mb-4">
+    <h2 class="fw-bold mb-0 flex-shrink-0">Carreras vigentes</h2>
+    <div class="cl-linea flex-grow-1"></div>
+  </div>
   <div class="pf-grid-4">
     {% for carrera in carreras_vigentes %}
     <a href="{{ carrera.url | relative_url }}" style="text-decoration:none; display:block;">

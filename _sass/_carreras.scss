@@ -1,6 +1,13 @@
 // Listado de carreras (carreras.html)
 
 .carreras-listado {
+  // Línea al lado de los títulos de sección (igual que .cr-linea del detalle)
+  .cl-linea {
+    height: 2px;
+    background-color: #4db6ad;
+    opacity: .4;
+  }
+
   .pf-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
