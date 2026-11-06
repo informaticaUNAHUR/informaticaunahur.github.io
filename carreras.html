@@ -84,19 +84,38 @@ permalink: /carreras/
 
   <!-- Próximamente -->
   {% if carreras_proximas.size > 0 %}
-  <div style="text-align:center; margin-top:16px;">
-    <h5 style="color:#dc3545; font-size:1rem; font-weight:700; margin-bottom:20px; letter-spacing:0.5px;">⏳ Próximamente</h5>
-    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:16px;">
+  <section class="cl-proximamente rounded-3 p-4 d-flex flex-column flex-lg-row align-items-lg-center gap-4">
+    <!-- Izquierda: ícono + título -->
+    <div class="d-flex align-items-center gap-3 flex-grow-1">
+      <div class="cl-proxima-icono rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+      </div>
+      <h2 class="cl-proxima-titulo fw-bold mb-0">Próximamente</h2>
+    </div>
+
+    <!-- Derecha: carreras próximas -->
+    <div class="d-flex flex-column gap-3">
       {% for carrera in carreras_proximas %}
-      <div style="border:2px dashed #dc3545; border-radius:10px; background:#fff5f5; padding:20px 40px; text-align:center; max-width:400px;">
-        <h4 style="font-size:1rem; color:#dc3545; margin:0 0 8px; font-weight:600;">{{ carrera.title }}</h4>
-        {% if carrera.titulo_intermedio %}
-        <p style="font-size:0.85rem; color:#777; margin:0;">Tít. intermedio: <strong>{{ carrera.titulo_intermedio }}</strong></p>
+      <div class="cl-card-proxima position-relative rounded-3 d-flex align-items-center gap-3 p-3">
+        {% if carrera.icono %}
+        <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono-sm flex-shrink-0">
+        {% else %}
+        <div class="cl-icono-sm cl-icono-fallback rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </div>
         {% endif %}
+        <div>
+          <a href="{{ carrera.url | relative_url }}" class="cl-link-proxima stretched-link fw-bold d-block">
+            {{ carrera.title }}
+          </a>
+          {% if carrera.titulo_intermedio %}
+          <span class="small text-muted d-block">Título intermedio: {{ carrera.titulo_intermedio }}</span>
+          {% endif %}
+        </div>
       </div>
       {% endfor %}
     </div>
-  </div>
+  </section>
   {% endif %}
 
   </div>

@@ -84,4 +84,42 @@
     font-size: .95rem;
     line-height: 1.35;
   }
+
+  // Próximamente (rojo suave)
+  .cl-proximamente {
+    border: 2px dashed #e8a0a0;
+    background-color: #fff5f5;
+  }
+
+  .cl-proxima-icono {
+    width: 72px;
+    height: 72px;
+    background-color: #fde2e2;
+    color: #c94a4a;
+    font-size: 2rem;
+  }
+
+  .cl-proxima-titulo {
+    color: #c94a4a;
+  }
+
+  .cl-card-proxima {
+    border: 1.5px dashed #e8a0a0;
+    background-color: #fff;
+    transition: box-shadow .2s ease, border-color .2s ease;
+
+    @media (min-width: 992px) {
+      width: 420px;
+    }
+
+    &:hover {
+      border-color: #e57373;
+      box-shadow: 0 4px 12px rgba(229, 115, 115, .15);
+    }
+  }
+
+  .cl-link-proxima {
+    color: #2a2a2a;
+    line-height: 1.35;
+  }
 }
