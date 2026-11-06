@@ -51,23 +51,35 @@ permalink: /carreras/
   </div>
   {% endif %}
 
-  <!-- Carreras anteriores: 3 por fila -->
+  <!-- Carreras anteriores: cards horizontales compactas -->
   {% if carreras_anteriores.size > 0 %}
-  <div style="margin-bottom:48px;">
-    <h5 style="color:#888; font-size:1rem; font-weight:600; border-bottom:2px solid #e8e8e8; padding-bottom:12px; margin-bottom:20px;">Carreras anteriores</h5>
-    <div class="pf-grid-3">
+  <section class="mb-5">
+    <div class="d-flex align-items-center gap-4 mb-4">
+      <h2 class="fw-bold mb-0 flex-shrink-0">Carreras anteriores</h2>
+      <div class="cl-linea flex-grow-1"></div>
+    </div>
+    <div class="row g-3">
       {% for carrera in carreras_anteriores %}
-      <a href="{{ carrera.url | relative_url }}" style="text-decoration:none; display:block;">
-        <div class="pf-card-anterior">
-          {% if carrera.icono %}
-          <img src="{{ carrera.icono | relative_url }}" alt="{{ carrera.title }}" style="height:48px; width:auto; margin-bottom:12px; object-fit:contain; opacity:0.7;">
-          {% endif %}
-          <h4 style="font-size:0.88rem; color:#666; margin:0; line-height:1.4; font-weight:500;">{{ carrera.title }}</h4>
+      <div class="col-md-6 col-lg-4">
+        <div class="cl-card-anterior card h-100 rounded-3">
+          <div class="card-body d-flex align-items-center gap-3 p-3">
+            {% if carrera.icono %}
+            <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono-sm flex-shrink-0">
+            {% else %}
+            <div class="cl-icono-sm cl-icono-fallback rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            </div>
+            {% endif %}
+            <a href="{{ carrera.url | relative_url }}" class="cl-link-anterior stretched-link fw-semibold flex-grow-1">
+              {{ carrera.title }}
+            </a>
+            <i class="cl-chevron fa fa-chevron-right flex-shrink-0" aria-hidden="true"></i>
+          </div>
         </div>
-      </a>
+      </div>
       {% endfor %}
     </div>
-  </div>
+  </section>
   {% endif %}
 
   <!-- Próximamente -->
