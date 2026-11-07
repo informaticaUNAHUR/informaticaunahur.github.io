@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Header del sitio - Informatica UNAHUR
+   Estilos standalone: no depende de templatemo-digimedia.
+   ========================================================================== */
+
+.site-header {
+  background-color: #fff;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.site-header .navbar {
+  min-height: 76px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Marca / logo */
+.site-header .navbar-brand.site-brand {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.site-header .site-brand img {
+  display: block;
+  width: auto;
+  max-height: 40px;
+}
+
+.site-header .site-brand:focus-visible {
+  outline: 2px solid #3c932f;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Menu */
+.site-header .navbar-light .navbar-nav {
+  align-items: center;
+  gap: 6px;
+}
+
+.site-header .navbar-light .navbar-nav .nav-link {
+  position: relative;
+  padding: 10px 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  color: #0a1b54;
+  transition: color 0.2s ease;
+}
+
+.site-header .navbar-light .navbar-nav .nav-link:hover,
+.site-header .navbar-light .navbar-nav .nav-link:focus {
+  color: #4caf50;
+}
+
+.site-header .navbar-light .navbar-nav .nav-link:focus-visible {
+  outline: 2px solid #3c932f;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.site-header .navbar-light .navbar-nav .nav-link.active {
+  color: #3c932f;
+  font-weight: 600;
+}
+
+.site-header .navbar-light .navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #3c932f;
+}
+
+/* Boton hamburguesa */
+.site-header .navbar-light .navbar-toggler {
+  padding: 6px 10px;
+  border: 1px solid #dfe3e9;
+  border-radius: 8px;
+}
+
+.site-header .navbar-light .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(60, 147, 47, 0.18);
+}
+
+/* El home no usa spacer: compensamos la altura del header fijo en el banner */
+.main-banner {
+  padding-top: 202px;
+}
+
+/* ==========================================================================
+   Mobile / tablet
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .site-header .navbar {
+    min-height: 64px;
+  }
+
+  .site-header .site-brand img {
+    max-height: 32px;
+  }
+
+  .site-header .navbar-collapse {
+    margin-top: 8px;
+    padding: 6px 0 10px;
+    border-top: 1px solid #eef0f3;
+  }
+
+  .site-header .navbar-light .navbar-nav {
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-header .navbar-light .navbar-nav .nav-link {
+    padding: 12px 4px;
+    border-bottom: 1px solid #f1f3f6;
+  }
+
+  .site-header .navbar-light .navbar-nav .nav-item:last-child .nav-link {
+    border-bottom: 0;
+  }
+
+  .site-header .navbar-light .navbar-nav .nav-link.active::after {
+    display: none;
+  }
+
+  .main-banner {
+    padding-top: 190px;
+  }
+}

@@ -12,3 +12,5 @@ items:
     url: /novedades/
   - label: Horarios
     url: /horarios/
+  - label: Proyectos
+    url: /proyectos/
