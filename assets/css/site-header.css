@@ -24,7 +24,7 @@
 .site-header .site-brand img {
   display: block;
   width: auto;
-  max-height: 40px;
+  max-height: 76px;
 }
 
 .site-header .site-brand:focus-visible {
@@ -95,6 +95,30 @@
 }
 
 /* ==========================================================================
+   Tablet horizontal / notebooks chicas
+   El logo es ancho (ratio ~4:1): entre 992 y 1199 px hay que achicarlo y
+   compactar el menu para que los 7 items entren en una linea.
+   ========================================================================== */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .site-header .site-brand img {
+    max-height: 60px;
+  }
+
+  .site-header .navbar-light .navbar-nav {
+    gap: 2px;
+  }
+
+  .site-header .navbar-light .navbar-nav .nav-link {
+    padding: 10px;
+  }
+
+  .site-header .navbar-light .navbar-nav .nav-link.active::after {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+/* ==========================================================================
    Mobile / tablet
    ========================================================================== */
 @media (max-width: 991.98px) {
@@ -103,7 +127,7 @@
   }
 
   .site-header .site-brand img {
-    max-height: 32px;
+    max-height: 64px;
   }
 
   .site-header .navbar-collapse {
