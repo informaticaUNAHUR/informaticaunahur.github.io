@@ -33,7 +33,8 @@ permalink: /novedades/
   }
 </style>
 {%- assign novedades = site.novedades | sort: "date" | reverse -%}
-<div class="novedades-page mx-auto px-3" style="max-width:1200px; padding-top:120px; padding-bottom:60px;">
+<div class="novedades-page container-fluid py-5 px-3 px-md-5">
+<div class="row"><div class="col-12">
 <div class="d-flex align-items-center justify-content-between p-4 p-md-5 mb-5" style="background:rgba(77,182,173,0.12); border-radius:16px;">
 <div class="flex-grow-1">
 <span class="small fw-bold text-uppercase" style="color:#4db6ad; letter-spacing:1.5px;">Actualidad</span>
@@ -95,4 +96,5 @@ permalink: /novedades/
 {%- else -%}
 <div class="text-center text-muted py-5"><p>No hay novedades publicadas aún.</p></div>
 {%- endif -%}
+</div></div>
 </div>
