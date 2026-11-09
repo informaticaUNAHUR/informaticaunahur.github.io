@@ -1127,3 +1127,93 @@ collections:
               widget: "string",
               required: false,
             }
+
+  - name: "Proyetos"
+    label: "Página Proyectos"
+    files:
+       - name: "categorias"
+         label: "Categorías de Proyectos"
+         file: "_data/categorias-proyectos.yml"
+         fields:
+           - { label: "Título de la página", name: "titulo", widget: "string" }
+           
+
+  - name: "categorias_proyectos"
+    label: "Categorías de Proyectos"
+    label_singular: "Categoría de Proyecto"
+    folder: "_data/categorias-proyectos"
+    create: true
+    delete: true
+    extension: "yml"
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+
+  - name: "tipos_proyecto"
+    label: "Tipos de Proyecto"
+    label_singular: "Tipo de Proyecto"
+    folder: "_data/tipos-proyecto"
+    create: true
+    delete: true
+    extension: "yml"
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+
+  - name: "estados_proyecto"
+    label: "Estados de Proyecto"
+    label_singular: "Estado de Proyecto"
+    folder: "_data/estados-proyecto"
+    create: true
+    delete: true
+    extension: "yml"
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+
+  - name: "proyectos"
+    label: "Proyectos"
+    label_singular: "Proyecto"
+    folder: "_proyectos"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - {
+          label: "Categoría",
+          name: "categoria",
+          widget: "relation",
+          collection: "categorias_proyectos",
+          search_fields: ["nombre"],
+          value_field: "nombre",
+          display_fields: ["nombre"],
+        }
+      - {
+          label: "Tipo",
+          name: "tipo",
+          widget: "relation",
+          collection: "tipos_proyecto",
+          search_fields: ["nombre"],
+          value_field: "nombre",
+          display_fields: ["nombre"],
+        }
+      - {
+          label: "Estado",
+          name: "estado",
+          widget: "relation",
+          collection: "estados_proyecto",
+          search_fields: ["nombre"],
+          value_field: "nombre",
+          display_fields: ["nombre"],
+        }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image" }
+      - { label: "URL del proyecto", name: "url", widget: "string" }
+      - { label: "Contenido", name: "body", widget: "markdown" }

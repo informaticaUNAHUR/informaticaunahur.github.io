@@ -10,6 +10,7 @@ services:
         - .:/app
         - jekyll_site:/app/_site
     decap-cms:
+        user: "1000:1000"
         depends_on:
         - jekyll
         image: node:20
