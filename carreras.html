@@ -40,14 +40,16 @@ permalink: /carreras/
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
           </div>
           {% endif %}
-          <h3 class="fs-6 fw-bold mb-3">{{ carrera.title }}</h3>
+          <h3 class="fs-6 fw-bold mb-3">
+            <a href="{{ carrera.url | relative_url }}" class="cl-link-vigente">{{ carrera.title }}</a>
+          </h3>
           {% if carrera.titulo_intermedio %}
           <p class="small text-muted mb-4">
             <span class="fw-semibold">Título intermedio:</span><br>{{ carrera.titulo_intermedio }}
           </p>
           {% endif %}
           <a href="{{ carrera.url | relative_url }}"
-             class="cl-btn-ver btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold mt-auto stretched-link">
+             class="cl-btn-ver btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold mt-auto">
             Ver más <i class="fa fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
