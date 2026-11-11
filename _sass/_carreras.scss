@@ -122,4 +122,42 @@
     color: #2a2a2a;
     line-height: 1.35;
   }
+
+  // Mobile: ícono de próximamente más chico
+  @media (max-width: 575.98px) {
+    .cl-proxima-icono {
+      width: 56px;
+      height: 56px;
+      font-size: 1.5rem;
+    }
+  }
+
+  // Foco visible con teclado (el link stretched cubre toda la card)
+  .cl-card-vigente,
+  .cl-card-anterior {
+    &:focus-within {
+      outline: 2px solid #3a9d95;
+      outline-offset: 2px;
+    }
+  }
+
+  .cl-card-proxima:focus-within {
+    outline: 2px solid #c94a4a;
+    outline-offset: 2px;
+  }
+
+  // Sin animaciones si el usuario lo pide
+  @media (prefers-reduced-motion: reduce) {
+    .cl-card-vigente,
+    .cl-card-anterior,
+    .cl-card-proxima,
+    .cl-chevron {
+      transition: none;
+    }
+
+    .cl-card-vigente:hover,
+    .cl-card-anterior:hover .cl-chevron {
+      transform: none;
+    }
+  }
 }

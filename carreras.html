@@ -7,7 +7,7 @@ permalink: /carreras/
 <div class="carreras-listado py-5 px-3 px-md-5">
   <div class="container-fluid">
 
-  <!-- Hero (solo texto, como en carrera detalle) -->
+  <!-- Hero -->
   <div class="section-heading mb-5">
     <h1 class="fw-bold mb-0">{{ page.title }}</h1>
     <div class="line-dec mt-4"></div>
@@ -17,7 +17,7 @@ permalink: /carreras/
   {% assign carreras_anteriores = site.carreras | where: "anterior", true | sort: "orden" %}
   {% assign carreras_proximas  = site.carreras | where: "proxima",  true | sort: "orden" %}
 
-  <!-- Carreras vigentes: 4 cards en fila -->
+  <!-- Carreras vigentes -->
   {% if carreras_vigentes.size > 0 %}
   <div class="mb-4">
     <span class="badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
@@ -57,7 +57,7 @@ permalink: /carreras/
   </div>
   {% endif %}
 
-  <!-- Carreras anteriores: cards horizontales compactas -->
+  <!-- Carreras anteriores -->
   {% if carreras_anteriores.size > 0 %}
   <section class="mb-5">
     <div class="d-flex align-items-center gap-4 mb-4">
@@ -91,7 +91,6 @@ permalink: /carreras/
   <!-- Próximamente -->
   {% if carreras_proximas.size > 0 %}
   <section class="cl-proximamente rounded-3 p-4 d-flex flex-column flex-lg-row align-items-lg-center gap-4">
-    <!-- Izquierda: ícono + título -->
     <div class="d-flex align-items-center gap-3 flex-grow-1">
       <div class="cl-proxima-icono rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -99,7 +98,6 @@ permalink: /carreras/
       <h2 class="cl-proxima-titulo fw-bold mb-0">Próximamente</h2>
     </div>
 
-    <!-- Derecha: carreras próximas -->
     <div class="d-flex flex-column gap-3">
       {% for carrera in carreras_proximas %}
       <div class="cl-card-proxima position-relative rounded-3 d-flex align-items-center gap-3 p-3">
