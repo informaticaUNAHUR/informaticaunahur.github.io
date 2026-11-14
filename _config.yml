@@ -58,6 +58,10 @@ collections:
     output: true
     permalink: /materias/:name/
 
+  proyectos:
+    output: true
+    permalink: /proyectos/:name/
+
 # ==========================
 # Excluir sitio viejo del build principal
 # ==========================
