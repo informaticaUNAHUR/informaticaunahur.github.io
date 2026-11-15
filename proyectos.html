@@ -1,0 +1,168 @@
+---
+layout: default
+title: Proyectos de Informática
+permalink: /proyectos/
+carousel: true
+---
+
+{% include proyectos-styles.html %}
+
+<style>
+  .main-banner { padding-top: 126px; }
+  @media (max-width: 767px) {
+    .main-banner { padding-top: 156px; }
+  }
+
+  .main-banner { overflow-x: hidden; }
+  .main-banner:after { display: none !important; }
+  .main-banner .left-content { padding-left: 10px; }
+  @media (max-width: 1200px) {
+    .main-banner .left-content h2 { font-size: 36px; }
+  }
+  @media (max-width: 991px) {
+    .main-banner .left-content { padding-left: 15px; padding-right: 15px; }
+    .main-banner .left-content h2 { font-size: 28px; }
+    .main-banner .right-image img { max-width: 100%; }
+  }
+</style>
+{% assign banners_activos = site.bannersProyectos %}
+<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        {% if banners_activos.size > 0 %}
+        <div class="owl-carousel owl-banner-novedades" id="banner-novedades">
+          {% for banner in banners_activos %}
+          <div class="item">
+            <div class="row align-items-center">
+              <div class="col-lg-6 align-self-center">
+                <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h6>{{ banner.subtitulo | default: "UNAHUR Informática" }}</h6>
+                      <h2>{{ banner.titulo }}</h2>
+                      <p>{{ banner.descripcion }}</p>
+                    </div>
+                    {% if banner.boton_texto %}
+                    {% if banner.novedad_relacionada %}
+                      {% assign nov_banner = site.novedades | where: "title", banner.novedad_relacionada | first %}
+                    {% endif %}
+                    {% assign btn_url = banner.boton_url | default: '#portfolio' %}
+                    {% if nov_banner %}{% assign btn_url = nov_banner.url %}{% endif %}
+                    <div class="col-lg-12">
+                      <div class="border-first-button scroll-to-section">
+                        {% if banner.boton_externo %}
+                        <a href="{{ btn_url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ banner.boton_texto }}</a>
+                        {% else %}
+                        <a href="{{ btn_url | relative_url }}">{{ banner.boton_texto }}</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% assign nov_banner = nil %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                  {% if banner.imagen %}
+                  <img src="{{ banner.imagen | relative_url }}" alt="{{ banner.titulo }}">
+                  {% else %}
+                  <img src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}" alt="{{ banner.titulo }}">
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="row">
+          <div class="col-lg-6 align-self-center">
+            <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h6>UNAHUR Informática</h6>
+                  <h2>Carreras de Informática</h2>
+                  <p>Información sobre planes de estudio, materias, horarios y más.</p>
+                </div>
+                <div class="col-lg-12">
+                  <div class="border-first-button scroll-to-section">
+                    <a href="#portfolio">Ver carreras</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+              <img src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}" alt="UNAHUR Informática">
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="portfolio" class="proyectos-wrap">
+  <div style="text-align:left; margin-bottom:40px;">
+    <h6 style="font-size:0.85rem; font-weight:600; color:#4db6ad; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">UNAHUR Informática</h6>
+    <h4 style="font-size:2rem; color:#2a2a2a; font-weight:700; margin:0 0 12px;"><em style="color:#4db6ad; font-style:normal;">Proyectos</em> de Informática</h4>
+    <div style="width:60px; height:3px; background:#4db6ad;"></div>
+  </div>
+
+  {% assign proyectos = site.proyectos | sort: "nombre" %}
+  {% if proyectos.size > 0 %}
+  <div class="pf-grid-3">
+    {% for proyecto in proyectos %}
+    <a class="pf-card-proyecto" href="{{ proyecto.url | relative_url }}">
+      {% if proyecto.imagen %}
+      <img class="pf-card-img" src="{{ proyecto.imagen | relative_url }}" alt="{{ proyecto.nombre }}">
+      {% endif %}
+      <div class="pf-card-body">
+        <div>
+          {% if proyecto.destacado %}<span class="pf-badge pf-badge-destacado">Destacado</span>{% endif %}
+          {% if proyecto.categoria %}<span class="pf-badge pf-badge-categoria">{{ proyecto.categoria }}</span>{% endif %}
+          {% if proyecto.tipo %}<span class="pf-badge pf-badge-tipo">{{ proyecto.tipo }}</span>{% endif %}
+          {% if proyecto.estado %}<span class="pf-badge pf-badge-estado">{{ proyecto.estado }}</span>{% endif %}
+        </div>
+        <h4 style="font-size:1rem; color:#333; margin:0 0 8px; font-weight:600;">{{ proyecto.nombre }}</h4>
+        {% if proyecto.descripcion %}
+        <p style="font-size:0.85rem; color:#777; margin:0; line-height:1.5;">{{ proyecto.descripcion }}</p>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p style="color:#777;">No hay proyectos publicados por el momento.</p>
+  {% endif %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
+      var $bannerCarousel = jQuery('.owl-banner-novedades');
+      if ($bannerCarousel.length) {
+        $bannerCarousel.owlCarousel({
+          items: 1,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 6000,
+          autoplayHoverPause: true,
+          nav: true,
+          dots: true,
+          navText: ['&#8249;', '&#8250;'],
+          animateOut: 'fadeOut'
+        });
+      }
+    }
+  });
+
+  console.log({{ banners_activos | jsonify }});
+</script>

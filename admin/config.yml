@@ -1214,5 +1214,26 @@ collections:
         }
       - { label: "Descripción", name: "descripcion", widget: "text" }
       - { label: "Imagen", name: "imagen", widget: "image" }
-      - { label: "URL del proyecto", name: "url", widget: "string" }
+      - { label: "URL del proyecto", name: "enlace", widget: "string" }
       - { label: "Contenido", name: "body", widget: "markdown" }
+
+  - name: "banner-proyectos"
+    label: "Banner de Proyectos"
+    folder: "_bannersProyectos"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "titulo"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string", }
+      - { label: "Activo", name: "activo", widget: "boolean", default: true, required: false }
+      - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
+      - { label: "URL del botón", name: "boton_url", widget: "string" }
+      - { label: "Texto del botón", name: "boton_texto", widget: "string" }
+      - { label: "Orden", name: "orden", widget: "number", value_type: "int" }
+      - { label: "Botón externo", name: "boton_externo", widget: "boolean", default: false, required: false }
+      

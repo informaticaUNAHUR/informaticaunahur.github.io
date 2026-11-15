@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+
+
+<div class="proyectos-wrap">
+  <nav style="font-size:0.85rem; color:#888; margin-bottom:24px;">
+    <a href="{{ '/proyectos/' | relative_url }}" style="color:#4db6ad; text-decoration:none;">Proyectos</a>
+    <span style="margin:0 6px;">/</span>
+    <span>{{ page.nombre }}</span>
+  </nav>
+
+  <article style="border:1px solid #e8e8e8; border-radius:10px; background:#fff; overflow:hidden; max-width:860px;">
+    {% if page.imagen %}
+    <img src="{{ page.imagen | relative_url }}" alt="{{ page.nombre }}" style="width:100%; max-height:340px; object-fit:cover; display:block;">
+    {% endif %}
+    <div style="padding:28px 24px;">
+      <div style="margin-bottom:12px;">
+        {% if page.destacado %}<span class="pf-badge pf-badge-destacado">Destacado</span>{% endif %}
+        {% if page.categoria %}<span class="pf-badge pf-badge-categoria">{{ page.categoria }}</span>{% endif %}
+        {% if page.tipo %}<span class="pf-badge pf-badge-tipo">{{ page.tipo }}</span>{% endif %}
+        {% if page.estado %}<span class="pf-badge pf-badge-estado">{{ page.estado }}</span>{% endif %}
+      </div>
+
+      <h1 style="font-size:1.9rem; color:#2a2a2a; font-weight:700; margin:0 0 14px;">{{ page.nombre }}</h1>
+
+      {% if page.descripcion %}
+      <p style="font-size:1rem; color:#555; line-height:1.6; margin:0 0 18px;">{{ page.descripcion }}</p>
+      {% endif %}
+
+      <div style="font-size:0.95rem; color:#444; line-height:1.7;">
+        {{ content }}
+      </div>
+
+      {% if page.enlace %}
+      <div style="margin-top:24px;">
+        <a href="{{ page.enlace }}" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block; background:#4db6ad; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; text-decoration:none;">Ver proyecto</a>
+      </div>
+      {% endif %}
+
+      <div style="margin-top:28px; border-top:1px solid #eee; padding-top:18px;">
+        <a href="{{ '/proyectos/' | relative_url }}" style="color:#4db6ad; font-weight:600; text-decoration:none;">← Volver a Proyectos</a>
+      </div>
+    </div>
+  </article>
+</div>

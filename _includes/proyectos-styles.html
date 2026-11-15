@@ -1,0 +1,66 @@
+<style>
+.proyectos-wrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.pf-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pf-card-proyecto {
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.pf-card-proyecto:hover {
+  box-shadow: 0 6px 20px rgba(77,182,173,0.25);
+  transform: translateY(-2px);
+  color: inherit;
+}
+.pf-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  background: #e8f5f4;
+}
+.pf-card-body {
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.pf-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin: 0 6px 8px 0;
+}
+.pf-badge-categoria { background: #e8f5f4; color: #2a7a72; }
+.pf-badge-tipo { background: #eef3ff; color: #3b5bdb; }
+.pf-badge-estado { background: #fff3cd; color: #997404; }
+.pf-badge-destacado { background: #4db6ad; color: #fff; }
+@media (max-width: 991px) {
+  .pf-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575px) {
+  .pf-grid-3 { grid-template-columns: 1fr; }
+}
+</style>

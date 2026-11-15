@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title | default: site.name }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }}{% elsif page.nombre %}{{ page.nombre }}{% else %}{{ site.title | default: site.name }}{% endif %}</title>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,9 @@
   <link rel="stylesheet" href="{{ '/assets/css/fontawesome.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/templatemo-digimedia-v3.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/animated.css' | relative_url }}">
+  {% if page.carousel %}
+  <link rel="stylesheet" href="{{ '/assets/css/owl.css' | relative_url }}">
+  {% endif %}
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ site.title | default: site.name }}">
