@@ -42,7 +42,7 @@
   }
 
   .md-badge-career {
-    background-color: var(--md-accent);
+    background-color: var(--md-accent-dark);
     color: #fff;
   }
 
@@ -95,15 +95,15 @@
   .md-program-link {
     border: 1px solid var(--md-accent);
     border-radius: 0.4rem;
-    background-color: var(--md-accent);
+    background-color: var(--md-accent-dark);
     color: #fff !important;
     font-size: 0.875rem;
     font-weight: 600;
   }
 
   .md-program-link:hover {
-    border-color: var(--md-accent-dark);
-    background-color: var(--md-accent-dark);
+    border-color: #124f4b;
+    background-color: #124f4b;
     color: #fff !important;
   }
 
@@ -218,6 +218,32 @@
 
     .md-hero {
       padding-top: 1rem;
+    }
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--md-accent-dark);
+    outline-offset: 3px;
+  }
+
+  .md-badge-link:focus-visible,
+  .md-program-link:focus-visible {
+    box-shadow: 0 0 0 0.2rem rgba(26, 107, 102, 0.25);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    [data-aos] {
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 }
