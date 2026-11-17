@@ -5,6 +5,9 @@
 
 .site-footer {
   --sf-navy: #06273e;
+  /* Ancho de la columna de acciones: el pipe del legal cae exactamente
+     debajo del divisor vertical de las redes */
+  --sf-actions-width: 157px;
   --sf-gradient: linear-gradient(
     90deg,
     #509933 0%,
@@ -58,6 +61,11 @@
   background: rgba(255, 255, 255, 0.65);
 }
 
+.site-footer__top .col-auto,
+.site-footer__bottom .col-auto {
+  width: var(--sf-actions-width);
+}
+
 .site-footer__social {
   display: flex;
   align-items: center;
@@ -93,11 +101,27 @@
   background: var(--sf-gradient);
 }
 
+.site-footer__bottom .container-fluid {
+  position: relative;
+}
+
 .site-footer__institution,
-.site-footer__legal {
-  font-size: 13px;
+.site-footer__legal,
+.site-footer__copyright {
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
+}
+
+/* El bloque legal queda centrado en TODO el footer */
+.site-footer__copyright {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
 }
 
 /* templatemo centra los <p>: lo forzamos a la izquierda, debajo del logo */
@@ -112,7 +136,7 @@
 .site-footer__legal {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
 }
 
@@ -140,21 +164,31 @@
 /* ==========================================================================
    Tablet / mobile
    ========================================================================== */
-/* En pantallas medianas apilamos la franja inferior para que nada se parta
-   y el bloque legal pueda centrarse de verdad */
-@media (max-width: 1279.98px) {
-  .site-footer__bottom .row > [class*="col"] {
+/* En notebooks chicas apilamos la franja inferior: el copyright centrado
+   no debe cruzarse con la frase institucional */
+@media (max-width: 1399.98px) {
+  .site-footer__bottom .col {
+    order: 1;
     flex: 0 0 100%;
     max-width: 100%;
   }
 
-  .site-footer__institution {
-    text-align: left;
+  .site-footer__copyright {
+    position: static;
+    order: 2;
+    width: 100%;
+    transform: none;
+    margin-top: 8px;
+    text-align: center;
   }
 
-  .site-footer__legal {
-    justify-content: center;
-    margin-top: 8px;
+  .site-footer__bottom .col-auto {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .site-footer__institution {
+    text-align: left;
   }
 }
 
@@ -198,14 +232,21 @@
     display: none;
   }
 
+  .site-footer__top .col-auto,
+  .site-footer__bottom .col-auto {
+    width: auto;
+    margin-left: 0;
+  }
+
   .site-footer__social {
     justify-content: center;
     margin-top: 14px;
   }
 
+  /* El pipe viaja con "Contacto" en la misma línea */
   .site-footer__legal {
-    flex-direction: column;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 2px 8px;
     margin-top: 8px;
   }
 }
