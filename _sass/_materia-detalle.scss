@@ -182,4 +182,42 @@
     border-left: 4px solid var(--md-accent);
     background-color: #f8fbfb;
   }
+
+  @media (max-width: 575.98px) {
+    .size {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .min-height {
+      padding-top: 0.5rem;
+    }
+
+    .md-hero {
+      padding: 0.75rem 0 1rem;
+    }
+
+    .md-title {
+      font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .md-program-link {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .md-content {
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .size {
+      max-width: 100%;
+    }
+
+    .md-hero {
+      padding-top: 1rem;
+    }
+  }
 }
