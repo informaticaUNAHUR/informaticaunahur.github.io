@@ -17,30 +17,41 @@ permalink: /horarios/
   </div>
 
   <!-- Fechas importantes -->
-  <div style="margin-bottom: 48px;">
-    <h2 style="font-size:1.4rem; color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:24px;">Fechas importantes 2026</h2>
-    <div class="horarios-grid">
-
-      <div style="background:#f8f9fa; border-radius:8px; padding:24px;">
-        <h3 style="font-size:1rem; color:#4db6ad; margin-bottom:16px;">📅 {{ h.cuatrimestre_1.nombre }}</h3>
-        <table style="width:100%; font-size:0.9rem; border-collapse:collapse;">
-          <tr style="border-bottom:1px solid #e0e0e0;"><td style="padding:8px 0; color:#666;">Inicio de clases</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_1.inicio_clases }}</td></tr>
-          <tr style="border-bottom:1px solid #e0e0e0;"><td style="padding:8px 0; color:#666;">Inscripción a materias</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_1.inscripcion }}</td></tr>
-          <tr style="border-bottom:1px solid #e0e0e0;"><td style="padding:8px 0; color:#666;">Exámenes finales</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_1.finales }}</td></tr>
-          <tr><td style="padding:8px 0; color:#666;">Fin de clases</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_1.fin_clases }}</td></tr>
-        </table>
+  {% assign cuatrimestres = "cuatrimestre_1,cuatrimestre_2" | split: "," %}
+  {% assign campos = "inicio_clases,inscripcion,parciales,finales,fin_clases" | split: "," %}
+  {% assign etiquetas = "Inicio de clases,Inscripción a materias,Exámenes parciales,Exámenes finales,Fin de clases" | split: "," %}
+  <div class="mb-5">
+    <div class="d-flex align-items-center gap-4 mb-4">
+      <h2 class="fw-bold mb-0 flex-shrink-0">Fechas importantes</h2>
+      <div class="hr-linea flex-grow-1"></div>
+    </div>
+    <div class="row g-4">
+      {% for clave in cuatrimestres %}
+      {% assign c = h[clave] %}
+      {% if c %}
+      <div class="col-md-6">
+        <div class="hr-card-fechas card h-100 rounded-3">
+          <div class="card-body p-4">
+            <h3 class="hr-cuatri d-flex align-items-center gap-2 fw-bold mb-3">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              {{ c.nombre | strip }}
+            </h3>
+            <dl class="mb-0">
+              {% for campo in campos %}
+              {% assign valor = c[campo] | strip %}
+              {% if valor != "" and valor != "-" %}
+              <div class="hr-fila d-flex justify-content-between gap-3 py-2">
+                <dt class="fw-normal">{{ etiquetas[forloop.index0] }}</dt>
+                <dd class="fw-bold text-end mb-0">{{ valor }}</dd>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </dl>
+          </div>
+        </div>
       </div>
-
-      <div style="background:#f8f9fa; border-radius:8px; padding:24px;">
-        <h3 style="font-size:1rem; color:#4db6ad; margin-bottom:16px;">📅 {{ h.cuatrimestre_2.nombre }}</h3>
-        <table style="width:100%; font-size:0.9rem; border-collapse:collapse;">
-          <tr style="border-bottom:1px solid #e0e0e0;"><td style="padding:8px 0; color:#666;">Inicio de clases</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_2.inicio_clases }}</td></tr>
-          <tr style="border-bottom:1px solid #e0e0e0;"><td style="padding:8px 0; color:#666;">Inscripción a materias</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_2.inscripcion }}</td></tr>
-          <tr style="border-bottom:1px solid #e0e0e0;"><td style="padding:8px 0; color:#666;">Exámenes finales</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_2.finales }}</td></tr>
-          <tr><td style="padding:8px 0; color:#666;">Fin de clases</td><td style="padding:8px 0; font-weight:600;">{{ h.cuatrimestre_2.fin_clases }}</td></tr>
-        </table>
-      </div>
-
+      {% endif %}
+      {% endfor %}
     </div>
     <p style="font-size:0.85rem; color:#999; margin-top:16px;">
       Para el calendario completo, consultá el

@@ -9,14 +9,37 @@
     color: #2a7a74;
   }
 
-  // Grilla de fechas (provisoria, se reemplaza en el paso 2)
-  .horarios-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+  // Línea al lado de los títulos de sección (igual que .cl-linea de Carreras)
+  .hr-linea {
+    height: 2px;
+    background-color: #4db6ad;
+    opacity: .4;
+  }
 
-    @media (max-width: 640px) {
-      grid-template-columns: 1fr;
+  // Tarjetas de fechas por cuatrimestre
+  .hr-card-fechas {
+    border: 1.5px solid #4db6ad;
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+  }
+
+  .hr-cuatri {
+    font-size: 1.1rem;
+    color: #1a6b66;
+  }
+
+  .hr-fila {
+    border-bottom: 1px solid #e8f5f4;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    dt {
+      color: #555;
+    }
+
+    dd {
+      color: #2a2a2a;
     }
   }
 }
