@@ -29,7 +29,7 @@ permalink: /horarios/
       {% for clave in cuatrimestres %}
       {% assign c = h[clave] %}
       {% if c %}
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <div class="hr-card-fechas card h-100 rounded-3">
           <div class="card-body p-4">
             <h3 class="hr-cuatri d-flex align-items-center gap-2 fw-bold mb-3">
@@ -60,10 +60,10 @@ permalink: /horarios/
   <div class="hr-seccion-planilla mx-auto mb-5">
     <div class="d-flex align-items-center gap-4 mb-4">
       <h2 class="fw-bold mb-0 flex-shrink-0">Planilla de horarios</h2>
-      <div class="hr-linea flex-grow-1 d-none d-md-block"></div>
+      <div class="hr-linea flex-grow-1 d-none d-lg-block"></div>
       {% if h.sheets_direct_url %}
       <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer"
-         class="hr-btn-sheets btn rounded-3 d-none d-md-inline-flex align-items-center gap-2 px-4 py-2 fw-bold flex-shrink-0">
+         class="hr-btn-sheets btn rounded-3 d-none d-lg-inline-flex align-items-center gap-2 px-4 py-2 fw-bold flex-shrink-0">
         <i class="fa fa-external-link" aria-hidden="true"></i>
         Abrir en Google Sheets
       </a>
@@ -85,11 +85,11 @@ permalink: /horarios/
     {% if h.sheets_direct_url %}
     <!-- En mobile el botón va debajo, a todo el ancho -->
     <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer"
-       class="hr-btn-sheets btn rounded-3 d-flex d-md-none justify-content-center align-items-center gap-2 py-2 fw-bold mt-3">
+       class="hr-btn-sheets btn rounded-3 d-flex d-lg-none justify-content-center align-items-center gap-2 py-2 fw-bold mt-3">
       <i class="fa fa-external-link" aria-hidden="true"></i>
       Abrir en Google Sheets
     </a>
-    <p class="hr-nota small text-center mt-3 mb-0 d-none d-md-block">
+    <p class="hr-nota small text-center mt-3 mb-0 d-none d-lg-block">
       ¿No se ve bien? <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer">Abrila en pantalla completa</a>.
     </p>
     {% endif %}
