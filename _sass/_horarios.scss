@@ -42,4 +42,47 @@
       color: #2a2a2a;
     }
   }
+
+  // Planilla (iframe de Google Sheets)
+  // Ancho tope ≈ ancho total de las columnas de la planilla, para que no
+  // sobre espacio en blanco a la derecha en pantallas anchas. Si cambian
+  // las columnas en Google Sheets, ajustar este valor.
+  .hr-seccion-planilla {
+    max-width: 1300px;
+  }
+
+  .hr-btn-sheets {
+    background-color: #4db6ad;
+    border-color: #4db6ad;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #3a9d95;
+      border-color: #3a9d95;
+      color: #fff;
+    }
+  }
+
+  .hr-planilla {
+    border: 1.5px solid #4db6ad;
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+  }
+
+  .hr-iframe {
+    height: 720px;
+
+    @media (max-width: 767.98px) {
+      height: 480px;
+    }
+  }
+
+  .hr-nota {
+    color: #555;
+
+    a {
+      color: #1a6b66;
+      text-decoration: underline !important;
+    }
+  }
 }

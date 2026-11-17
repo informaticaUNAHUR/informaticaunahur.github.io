@@ -61,28 +61,45 @@ permalink: /horarios/
   </div>
 
   <!-- Planilla de horarios -->
-  <div>
-    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:24px;">
-      <h2 style="font-size:1.4rem; color:#4db6ad; margin:0;">Planilla de horarios</h2>
+  {% if h.sheets_embed_url or h.sheets_direct_url %}
+  <div class="hr-seccion-planilla mx-auto mb-5">
+    <div class="d-flex align-items-center gap-4 mb-4">
+      <h2 class="fw-bold mb-0 flex-shrink-0">Planilla de horarios</h2>
+      <div class="hr-linea flex-grow-1 d-none d-md-block"></div>
+      {% if h.sheets_direct_url %}
       <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer"
-         style="display:inline-flex; align-items:center; gap:6px; padding:7px 16px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-        ↗ Abrir en Google Sheets
+         class="hr-btn-sheets btn rounded-3 d-none d-md-inline-flex align-items-center gap-2 px-4 py-2 fw-bold flex-shrink-0">
+        <i class="fa fa-external-link" aria-hidden="true"></i>
+        Abrir en Google Sheets
       </a>
+      {% endif %}
     </div>
-    <div style="border-radius:10px; overflow:hidden; border:1px solid #e0e0e0; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+
+    {% if h.sheets_embed_url %}
+    <div class="hr-planilla card rounded-3 overflow-hidden">
       <iframe
         src="{{ h.sheets_embed_url }}"
-        width="100%"
-        height="720"
-        frameborder="0"
-        style="border:none; display:block;"
+        title="Planilla de horarios de cursada"
+        class="hr-iframe d-block w-100 border-0"
+        loading="lazy"
         allowfullscreen>
       </iframe>
     </div>
-    <p style="font-size:0.8rem; color:#aaa; margin-top:10px; text-align:center;">
-      ¿No se ve bien? <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer" style="color:#4db6ad;">Abrila en pantalla completa</a>.
+    {% endif %}
+
+    {% if h.sheets_direct_url %}
+    <!-- En mobile el botón va debajo, a todo el ancho -->
+    <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer"
+       class="hr-btn-sheets btn rounded-3 d-flex d-md-none justify-content-center align-items-center gap-2 py-2 fw-bold mt-3">
+      <i class="fa fa-external-link" aria-hidden="true"></i>
+      Abrir en Google Sheets
+    </a>
+    <p class="hr-nota small text-center mt-3 mb-0 d-none d-md-block">
+      ¿No se ve bien? <a href="{{ h.sheets_direct_url }}" target="_blank" rel="noopener noreferrer">Abrila en pantalla completa</a>.
     </p>
+    {% endif %}
   </div>
+  {% endif %}
 
   </div>
 </div>
