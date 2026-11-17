@@ -61,20 +61,20 @@
   <div class="site-footer__bottom">
     <div class="container-fluid">
       <div class="row align-items-center">
-        <div class="col-md-6">
+        <div class="col">
           <p class="site-footer__institution mb-0">
             Universidad pública, gratuita y de calidad
             <span class="site-footer__separator" aria-hidden="true">|</span>
             Hurlingham, Provincia de Buenos Aires
           </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-auto">
           <div class="site-footer__legal">
-            <span>© {{ 'now' | date: "%Y" }} Informática UNAHUR. Todos los derechos reservados.</span>
             <span class="site-footer__separator" aria-hidden="true">|</span>
             <a href="{{ '/contacto/' | relative_url }}">Contacto</a>
           </div>
         </div>
+        <p class="site-footer__copyright mb-0">© {{ 'now' | date: "%Y" }} Informática UNAHUR. Todos los derechos reservados.</p>
       </div>
     </div>
   </div>
