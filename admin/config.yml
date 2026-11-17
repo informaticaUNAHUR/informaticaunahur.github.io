@@ -1212,6 +1212,15 @@ collections:
           value_field: "nombre",
           display_fields: ["nombre"],
         }
+      - {
+          label: "Carrera",
+          name: "carrera",
+          widget: "relation",
+          collection: "carreras",
+          search_fields: ["title", "nombre_corto"],
+          value_field: "nombre_corto",
+          display_fields: ["nombre_corto"],
+        }
       - { label: "Descripción", name: "descripcion", widget: "text" }
       - { label: "Imagen", name: "imagen", widget: "image" }
       - { label: "URL del proyecto", name: "enlace", widget: "string" }
