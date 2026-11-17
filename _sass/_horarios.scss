@@ -1,0 +1,22 @@
+// Página Horarios (horarios.md)
+
+.horarios-pagina {
+  // Etiqueta chica sobre el título del hero
+  .hr-eyebrow {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .25em;
+    color: #2a7a74;
+  }
+
+  // Grilla de fechas (provisoria, se reemplaza en el paso 2)
+  .horarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
