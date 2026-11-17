@@ -47,7 +47,8 @@
   // Ancho tope ≈ ancho total de las columnas de la planilla, para que no
   // sobre espacio en blanco a la derecha en pantallas anchas. Si cambian
   // las columnas en Google Sheets, ajustar este valor.
-  .hr-seccion-planilla {
+  .hr-seccion-planilla,
+  .hr-aviso {
     max-width: 1300px;
   }
 
@@ -75,6 +76,34 @@
     @media (max-width: 767.98px) {
       height: 480px;
     }
+  }
+
+  // Caja "Calendario académico" (mismo ancho que la planilla)
+  .hr-aviso {
+    background-color: #e8f5f4;
+    border: 1px solid rgba(77, 182, 173, .45);
+
+    p {
+      color: #444;
+    }
+
+    a {
+      color: #1a6b66;
+      font-weight: 600;
+      text-decoration: underline !important;
+    }
+  }
+
+  .hr-aviso-icono {
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: #1a6b66;
+    color: #fff;
+  }
+
+  .hr-aviso-titulo {
+    font-size: 1rem;
+    color: #1a6b66;
   }
 
   .hr-nota {

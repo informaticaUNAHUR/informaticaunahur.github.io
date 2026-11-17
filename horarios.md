@@ -53,11 +53,6 @@ permalink: /horarios/
       {% endif %}
       {% endfor %}
     </div>
-    <p style="font-size:0.85rem; color:#999; margin-top:16px;">
-      Para el calendario completo, consultá el
-      <a href="https://unahur.edu.ar/calendario-academico/" target="_blank" rel="noopener noreferrer" style="color:#4db6ad;">Calendario Académico oficial de UNAHUR</a>.
-    </p>
-
   </div>
 
   <!-- Planilla de horarios -->
@@ -100,6 +95,20 @@ permalink: /horarios/
     {% endif %}
   </div>
   {% endif %}
+
+  <!-- Calendario académico -->
+  <aside class="hr-aviso mx-auto d-flex align-items-start gap-3 rounded-3 p-4" aria-labelledby="hr-aviso-titulo">
+    <span class="hr-aviso-icono rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+      <i class="fa fa-info" aria-hidden="true"></i>
+    </span>
+    <div>
+      <h2 id="hr-aviso-titulo" class="hr-aviso-titulo fw-bold mb-1">Calendario académico</h2>
+      <p class="mb-0">
+        Para el calendario completo, consultá el
+        <a href="https://unahur.edu.ar/calendario-academico/" target="_blank" rel="noopener noreferrer">Calendario Académico oficial de UNAHUR</a>.
+      </p>
+    </div>
+  </aside>
 
   </div>
 </div>
