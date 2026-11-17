@@ -2,4 +2,26 @@
   --md-accent: #4db6ad;
   --md-accent-dark: #1a6b66;
   --md-surface: #e8f5f4;
+
+  .md-hero {
+    padding: 1.5rem 0 1.25rem;
+  }
+
+  .md-title {
+    color: #172b4d;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+
+  .md-title::after {
+    content: "";
+    display: block;
+    width: 3.25rem;
+    height: 0.25rem;
+    margin-top: 1rem;
+    background: var(--md-accent);
+    border-radius: 999px;
+  }
 }
