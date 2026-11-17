@@ -23,7 +23,7 @@ layout: default
     </header>
 
     <!-- Metadata de la materia -->
-    <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+    <div class="md-relations d-flex flex-wrap align-items-center gap-2 mb-4">
       {% capture carreras_double_output %}
       {% include materia-carreras.html materia=page %}
       {% endcapture %}
@@ -32,23 +32,23 @@ layout: default
       {% assign carreras_titles_array = carreras_parts[1] | strip | split: "|||" %}
       {% for carrera_title in carreras_titles_array %}
         {% if carrera_title != "" %}
-          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera_title }}</span>
+          <span class="badge md-badge md-badge-career">{{ carrera_title }}</span>
         {% endif %}
       {% endfor %}
       {% capture plan_calculado %}{% include plan-materia.html materia=page data_carrera=carreras_slugs %}{% endcapture %}
       {% assign plan_calculado = plan_calculado | strip %}
       {% if plan_calculado == "vigente" %}
-        <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan 2026</span>
+        <span class="badge md-badge md-badge-current">Plan 2026</span>
       {% elsif plan_calculado == "anterior" or plan_calculado == "proxima" %}
-        <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
+        <span class="badge md-badge md-badge-previous">Plan anterior</span>
       {% endif %}
     </div>
     {% if page.plan-anterior %}
       {% assign materia = site.materias | where: "slug", page.plan-anterior | first %}
       {% if materia %}
-        <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-          <span style="background:#ffc107; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
-          <a href="{{ "/materias/" | append: materia.slug | append : "/" | relative_url }}" style="background:#f8f9fa; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem; text-decoration:none;">
+        <div class="md-related-plans d-flex flex-wrap align-items-center gap-2 mb-4">
+          <span class="badge md-badge md-badge-previous">Plan anterior</span>
+          <a class="badge md-badge md-badge-link" href="{{ "/materias/" | append: materia.slug | append : "/" | relative_url }}">
             {{ materia.title }}
           </a>
         </div>
@@ -56,16 +56,15 @@ layout: default
     {% endif %}
     {% assign materia-plan-proximo = site.materias | where: "plan-anterior", page.slug %}
     {% if materia-plan-proximo.size > 0 %}
-      <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-        <span style="background:#17a2b8; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan próximo</span>
+      <div class="md-related-plans d-flex flex-wrap align-items-center gap-2 mb-4">
+        <span class="badge md-badge md-badge-next">Plan pr&oacute;ximo</span>
         {% for plan-proximo in materia-plan-proximo %}
-          <a href="{{ "/materias/" | append: plan-proximo.slug | append : "/" | relative_url }}" style="background:#f8f9fa; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem; text-decoration:none;">
+          <a class="badge md-badge md-badge-link" href="{{ "/materias/" | append: plan-proximo.slug | append : "/" | relative_url }}">
             {{ plan-proximo.title }}
           </a>
         {% endfor %}
       </div>
     {% endif %}
-
     <!-- Datos rápidos de la materia -->
     {% if page.hs_total or page.creditos or page.correlativas %}
       <div style="background:#f8f9fa; border-radius:8px; padding:16px 20px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:20px;">
