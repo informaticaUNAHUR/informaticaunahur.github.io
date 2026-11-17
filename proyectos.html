@@ -25,7 +25,7 @@ carousel: true
     .main-banner .right-image img { max-width: 100%; }
   }
 </style>
-{% assign banners_activos = site.bannersProyectos %}
+{% assign banners_activos = site.bannersProyectos | where: "activo", true | sort: "orden"  %}
 <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
   <div class="container">
     <div class="row">
@@ -44,11 +44,7 @@ carousel: true
                       <p>{{ banner.descripcion }}</p>
                     </div>
                     {% if banner.boton_texto %}
-                    {% if banner.novedad_relacionada %}
-                      {% assign nov_banner = site.novedades | where: "title", banner.novedad_relacionada | first %}
-                    {% endif %}
                     {% assign btn_url = banner.boton_url | default: '#portfolio' %}
-                    {% if nov_banner %}{% assign btn_url = nov_banner.url %}{% endif %}
                     <div class="col-lg-12">
                       <div class="border-first-button scroll-to-section">
                         {% if banner.boton_externo %}
@@ -118,9 +114,63 @@ carousel: true
 
   {% assign proyectos = site.proyectos | sort: "nombre" %}
   {% if proyectos.size > 0 %}
-  <div class="pf-grid-3">
+  <div class="row g-2 mb-4" id="pf-filtros">
+    <div class="col-12 col-md-6 col-xl-4">
+      <input type="search" id="pf-filtro-nombre" class="form-control" placeholder="Buscar por nombre de proyecto..." aria-label="Buscar por nombre de proyecto">
+    </div>
+
+    <div class="col-6 col-md-3 col-xl-2">
+      <select id="pf-filtro-categoria" class="form-select" aria-label="Filtrar por categoría">
+        <option value="">Todas las categorías</option>
+        {% assign categorias = proyectos | map: "categoria" | compact | uniq | sort %}
+        {% for valor in categorias %}
+        <option value="{{ valor | escape }}">{{ valor }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-6 col-md-3 col-xl-2">
+      <select id="pf-filtro-tipo" class="form-select" aria-label="Filtrar por tipo">
+        <option value="">Todos los tipos</option>
+        {% assign tipos = proyectos | map: "tipo" | compact | uniq | sort %}
+        {% for valor in tipos %}
+        <option value="{{ valor | escape }}">{{ valor }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-6 col-md-3 col-xl-2">
+      <select id="pf-filtro-estado" class="form-select" aria-label="Filtrar por estado">
+        <option value="">Todos los estados</option>
+        {% assign estados = proyectos | map: "estado" | compact | uniq | sort %}
+        {% for valor in estados %}
+        <option value="{{ valor | escape }}">{{ valor }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-6 col-md-3 col-xl-2">
+      <select id="pf-filtro-carrera" class="form-select" aria-label="Filtrar por carrera">
+        <option value="">Todas las carreras</option>
+        {% assign carreras = proyectos | map: "carrera" | compact | uniq | sort %}
+        {% for valor in carreras %}
+        <option value="{{ valor | escape }}">{{ valor }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+
+  {% assign proyectos_destacados = site.proyectos | where: "destacado", true | sort: "nombre" %}
+          {% if proyectos_destacados %}<span class="pf-badge pf-badge-estado">dasdasdwdas</span>{% endif %}
+  <div class="row g-3">
     {% for proyecto in proyectos %}
-    <a class="pf-card-proyecto" href="{{ proyecto.url | relative_url }}">
+    <a class="pf-card-proyecto col-12 col-md-6 col-lg-4" href="{{ proyecto.url | relative_url }}"
+       data-nombre="{{ proyecto.nombre | escape }}"
+       data-categoria="{{ proyecto.categoria | default: '' | escape }}"
+       data-tipo="{{ proyecto.tipo | default: '' | escape }}"
+       data-estado="{{ proyecto.estado | default: '' | escape }}"
+       data-carrera="{{ proyecto.carrera | default: '' | escape }}">
       {% if proyecto.imagen %}
       <img class="pf-card-img" src="{{ proyecto.imagen | relative_url }}" alt="{{ proyecto.nombre }}">
       {% endif %}
@@ -139,6 +189,7 @@ carousel: true
     </a>
     {% endfor %}
   </div>
+  <p id="pf-sin-resultados" class="text-muted mt-4" hidden>No hay proyectos que coincidan con los filtros seleccionados.</p>
   {% else %}
   <p style="color:#777;">No hay proyectos publicados por el momento.</p>
   {% endif %}
@@ -162,7 +213,42 @@ carousel: true
         });
       }
     }
-  });
 
-  console.log({{ banners_activos | jsonify }});
+    let barra = document.getElementById('pf-filtros');
+    if (!barra) return;
+
+    const inputNombre = document.getElementById('pf-filtro-nombre');
+    const selects = Array.prototype.slice.call(barra.querySelectorAll('select'));
+    const cards = Array.prototype.slice.call(document.querySelectorAll('.pf-card-proyecto'));
+    const sinResultados = document.getElementById('pf-sin-resultados');
+
+    function normalizar(texto) {
+      return (texto || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function aplicar() {
+      const nombre = normalizar(inputNombre.value.trim());
+      const filtros = {};
+      selects.forEach(function(select) {
+        filtros[select.id.replace('pf-filtro-', '')] = select.value;
+      });
+
+      let visibles = 0;
+      cards.forEach((card) => {
+        const coincide = (!nombre || normalizar(card.dataset.nombre).indexOf(nombre) !== -1) &&
+          Object.keys(filtros).every(function(campo) {
+            return !filtros[campo] || card.dataset[campo] === filtros[campo];
+          });
+        card.style.display = coincide ? '' : 'none';
+        if (coincide) visibles++;
+      });
+
+      if (sinResultados) sinResultados.hidden = visibles > 0;
+    }
+
+    inputNombre.addEventListener('input', aplicar);
+    selects.forEach(function(select) {
+      select.addEventListener('change', aplicar);
+    });
+  });
 </script>

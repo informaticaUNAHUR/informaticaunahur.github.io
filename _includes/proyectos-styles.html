@@ -7,11 +7,6 @@
   box-sizing: border-box;
   background: #fff;
 }
-.pf-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
 .pf-card-proyecto {
   border: 1px solid #e8e8e8;
   border-radius: 10px;
@@ -57,10 +52,20 @@
 .pf-badge-tipo { background: #eef3ff; color: #3b5bdb; }
 .pf-badge-estado { background: #fff3cd; color: #997404; }
 .pf-badge-destacado { background: #4db6ad; color: #fff; }
-@media (max-width: 991px) {
-  .pf-grid-3 { grid-template-columns: repeat(2, 1fr); }
+.proyectos-wrap .breadcrumb a {
+  color: #4db6ad;
+  text-decoration: none;
 }
-@media (max-width: 575px) {
-  .pf-grid-3 { grid-template-columns: 1fr; }
+.btn-tema {
+  background: #4db6ad;
+  border-color: #4db6ad;
+  color: #fff;
+  font-weight: 600;
+}
+.btn-tema:hover,
+.btn-tema:focus {
+  background: #3fa398;
+  border-color: #3fa398;
+  color: #fff;
 }
 </style>
