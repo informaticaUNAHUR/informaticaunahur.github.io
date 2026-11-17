@@ -6,25 +6,14 @@ permalink: /horarios/
 
 {% assign h = site.data.horarios %}
 
-<style>
-.horarios-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-@media (max-width: 640px) {
-  .horarios-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+<div class="horarios-pagina py-5 px-3 px-md-5">
+  <div class="container-fluid">
 
-<div style="padding-top: 120px; padding-bottom: 60px; max-width: 1100px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
-
-  <!-- Título -->
-  <div style="text-align: center; margin-bottom: 48px;">
-    <h1 style="font-size: 2.4rem; font-weight: 800; color: #1a1a2e;">{{ h.titulo }}</h1>
-    <div class="line-dec" style="margin: 16px auto 0;"></div>
+  <!-- Hero -->
+  <div class="section-heading mb-5">
+    <p class="hr-eyebrow text-uppercase mb-2">{{ page.title }}</p>
+    <h1 class="fw-bold mb-0">{{ h.titulo }}</h1>
+    <div class="line-dec mt-4"></div>
   </div>
 
   <!-- Fechas importantes -->
@@ -84,4 +73,5 @@ permalink: /horarios/
     </p>
   </div>
 
+  </div>
 </div>
