@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Footer del sitio - Informatica UNAHUR
+   Estilos standalone: no depende de templatemo-digimedia ni de css/main.css.
+   ========================================================================== */
+
+.site-footer {
+  --sf-navy: #06273e;
+  --sf-gradient: linear-gradient(
+    90deg,
+    #509933 0%,
+    #3f9125 20%,
+    #148537 42%,
+    #018996 62%,
+    #018fb2 73%,
+    #018daf 100%
+  );
+
+  background: var(--sf-navy);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.site-footer .container-fluid {
+  padding-right: clamp(20px, 5.35vw, 82px);
+  padding-left: clamp(20px, 5.35vw, 82px);
+}
+
+/* ---------- Franja superior (azul) ---------- */
+.site-footer__top {
+  display: flex;
+  align-items: center;
+  min-height: 73px;
+  padding: 12px 0;
+  background: var(--sf-navy);
+}
+
+.site-footer__brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer__mark {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+}
+
+.site-footer__mark span {
+  display: block;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.site-footer__name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.site-footer__name strong {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.site-footer__name small {
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+}
+
+.site-footer__unit {
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.site-footer__divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.site-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer__social a:hover,
+.site-footer__social a:focus {
+  opacity: 0.75;
+}
+
+.site-footer__social svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ---------- Franja inferior (degradado) ---------- */
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 10px 0;
+  background: var(--sf-gradient);
+}
+
+.site-footer__institution,
+.site-footer__legal {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.site-footer__separator {
+  padding: 0 8px;
+}
+
+.site-footer__legal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-footer__legal a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer__legal a:hover,
+.site-footer__legal a:focus {
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Tablet / mobile
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .site-footer__top {
+    min-height: 0;
+    padding: 18px 0;
+  }
+
+  .site-footer__brand-wrap {
+    gap: 20px;
+  }
+
+  .site-footer__social {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .site-footer__top,
+  .site-footer__bottom {
+    text-align: center;
+  }
+
+  .site-footer__top .row > [class*="col"],
+  .site-footer__bottom .row > [class*="col"] {
+    justify-content: center;
+  }
+
+  .site-footer__brand-wrap {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-footer__brand {
+    justify-content: center;
+  }
+
+  .site-footer__unit {
+    font-size: 20px;
+  }
+
+  .site-footer__divider {
+    display: none;
+  }
+
+  .site-footer__social {
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  .site-footer__legal {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .site-footer .container-fluid {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .site-footer__mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .site-footer__name strong {
+    font-size: 18px;
+  }
+
+  .site-footer__name small {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .site-footer__institution,
+  .site-footer__legal {
+    font-size: 12px;
+  }
+
+  .site-footer__social svg {
+    width: 18px;
+    height: 18px;
+  }
+}
