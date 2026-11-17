@@ -106,6 +106,43 @@
     color: #1a6b66;
   }
 
+  // Foco visible con teclado
+  .hr-btn-sheets:focus-visible {
+    outline: 3px solid #1a6b66;
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+
+  .hr-nota a:focus-visible,
+  .hr-aviso a:focus-visible {
+    outline: 2px solid #1a6b66;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  // Títulos más chicos en mobile (el tema los deja muy grandes)
+  @media (max-width: 575.98px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2:not(.hr-aviso-titulo) {
+      font-size: 1.6rem;
+    }
+
+    .hr-card-fechas .card-body,
+    .hr-aviso {
+      padding: 1.25rem !important;
+    }
+  }
+
+  // Sin animaciones si el usuario lo pide
+  @media (prefers-reduced-motion: reduce) {
+    .hr-btn-sheets {
+      transition: none;
+    }
+  }
+
   .hr-nota {
     color: #555;
 
