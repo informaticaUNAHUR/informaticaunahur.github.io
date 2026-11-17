@@ -24,4 +24,52 @@
     background: var(--md-accent);
     border-radius: 999px;
   }
+
+  .md-relations,
+  .md-related-plans {
+    row-gap: 0.5rem;
+  }
+
+  .md-badge {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .md-badge-career {
+    background-color: var(--md-accent);
+    color: #fff;
+  }
+
+  .md-badge-current {
+    background-color: var(--md-surface);
+    border-color: var(--md-accent);
+    color: var(--md-accent-dark);
+  }
+
+  .md-badge-previous {
+    background-color: #f1f3f5;
+    color: #495057;
+  }
+
+  .md-badge-next {
+    background-color: var(--md-surface);
+    color: var(--md-accent-dark);
+  }
+
+  .md-badge-link {
+    background-color: #fff;
+    border-color: #ced4da;
+    color: var(--md-accent-dark) !important;
+  }
+
+  .md-badge-link:hover {
+    background-color: var(--md-surface);
+    border-color: var(--md-accent);
+  }
 }
