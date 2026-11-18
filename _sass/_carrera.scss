@@ -28,7 +28,7 @@
 
   // Franja del encabezado (fondo apenas teal, distinto del resto)
   .cr-hero {
-    background-color: #f3f8f8;
+    background-color: #f8fbfb;
     border-bottom: 1px solid #e3eeed;
   }
 
@@ -62,14 +62,21 @@
 
   // Card resumen (tabla_datos): filas tipo tabla, mismo estilo que las fechas de Horarios
   .cr-resumen {
-    background-color: #fff;
-    border: 1.5px solid #4db6ad;
-    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+    background-color: #eef6f5;
+    border: 1px solid rgba(77, 182, 173, .45);
+    box-shadow: 0 2px 8px rgba(77, 182, 173, .08);
 
     // En pantallas anchas no se estira: tope de ancho, pegada a la derecha
     @media (min-width: 992px) {
       max-width: 34rem;
       margin-left: auto;
+    }
+
+    // Mobile: menos padding para que entre la fila completa
+    @media (max-width: 575.98px) {
+      .card-body {
+        padding: .75rem !important;
+      }
     }
   }
 
@@ -80,27 +87,44 @@
     text-transform: uppercase;
     color: #2a7a74;
     border-bottom: 1px solid rgba(77, 182, 173, .35);
+
+    @media (max-width: 575.98px) {
+      font-size: .55rem;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
   }
 
   // Ancho fijo para que Grado e Intermedio queden alineados entre filas
   .cr-resumen-col {
     min-width: 4.5rem;
+
+    @media (max-width: 575.98px) {
+      min-width: 0;
+      width: 3.5rem;
+    }
   }
 
+  // Fila: ícono | etiqueta | valores (grid, así cambia de forma sin tocar el HTML)
   .cr-resumen-fila {
+    display: grid;
+    // minmax(0, 1fr): la etiqueta puede achicarse aunque tenga palabras largas
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 1rem;
     border-bottom: 1px solid rgba(77, 182, 173, .25);
 
-    // Mobile: no entra todo en una línea → valores abajo, alineados a la derecha
+    // Mobile: misma fila, todo más compacto (la etiqueta larga hace salto de línea)
     @media (max-width: 575.98px) {
-      flex-wrap: wrap;
+      column-gap: .4rem;
 
       dt {
-        flex-basis: calc(100% - 2.2rem);
+        font-size: .75rem;
+        overflow-wrap: anywhere;
       }
 
-      dd {
-        width: 100%;
-        justify-content: flex-end;
+      .cr-dato-valor {
+        font-size: .8rem;
       }
     }
 
@@ -118,9 +142,9 @@
     color: #fff;
 
     @media (max-width: 575.98px) {
-      width: 1.6rem;
-      height: 1.6rem;
-      font-size: .65rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      font-size: .6rem;
     }
   }
 
@@ -136,6 +160,140 @@
 
   .cr-dato-intermedio {
     color: #1a6b66;
+  }
+
+  // "intermedio" junto al valor: solo para lectores de pantalla en modo tabla
+  // (ahí lo dice el encabezado), visible en modo grilla
+  .cr-etq {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  // Desde 1100px: grilla como el mockup → Duración destacada arriba,
+  // el resto en 2 columnas con divisor vertical, íconos de línea y
+  // "grado | intermedio" con su aclaración abajo.
+  // (Con menos ancho "(Intermedio)" no entra en la celda → queda la tabla)
+  @media (min-width: 1100px) {
+    .cr-resumen-cabecera {
+      display: none !important;
+    }
+
+    .cr-resumen dl {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .cr-resumen-fila {
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      column-gap: .6rem;
+      row-gap: .35rem;
+      padding-left: 0;
+      padding-right: 1rem;
+      border-bottom: 0;
+
+      // Columna derecha: divisor vertical
+      &:nth-child(odd):not(:first-child) {
+        padding-left: 1rem;
+        padding-right: 0;
+        border-left: 1px solid rgba(77, 182, 173, .35);
+      }
+
+      .cr-dato-icono {
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        color: #1a6b66;
+        font-size: 1.1rem;
+      }
+
+      .cr-dato-label {
+        font-size: .8rem;
+        font-weight: 700 !important;
+        color: #1a6b66;
+      }
+
+      dd {
+        grid-column: 2;
+        align-items: flex-start;
+        gap: .5rem !important;
+      }
+
+      .cr-resumen-col {
+        min-width: 0;
+        text-align: start !important;
+      }
+
+      .cr-dato-valor {
+        font-size: 1rem;
+        color: #2a2a2a;
+      }
+
+      .cr-dato-intermedio {
+        padding-left: .5rem;
+        border-left: 2px solid #4db6ad;
+      }
+
+      .cr-sin-valor {
+        display: none;
+      }
+
+      // Aclaración debajo de cada valor: (Grado) / (Intermedio)
+      .cr-etq {
+        position: static;
+        display: block;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        font-size: .65rem;
+        font-weight: 400;
+        color: #555;
+        white-space: nowrap;
+
+        &::before { content: "("; }
+        &::after { content: ")"; }
+      }
+
+      // Duración: ocupa todo el ancho, ícono en círculo y valores grandes
+      &:first-child {
+        grid-column: 1 / -1;
+        padding: 0 0 1.25rem !important;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba(77, 182, 173, .35);
+
+        .cr-dato-icono {
+          grid-row: 1 / span 2;
+          align-self: center;
+          width: 3rem;
+          height: 3rem;
+          margin-right: .5rem;
+          background-color: #2a9d93;
+          color: #fff;
+          font-size: 1.2rem;
+        }
+
+        .cr-dato-valor {
+          font-size: 1.35rem;
+        }
+
+        .cr-dato-intermedio {
+          margin-left: 1.5rem;
+          padding-left: 2rem;
+          border-left-width: 1px;
+          border-left-color: rgba(77, 182, 173, .35);
+          font-weight: 400 !important;
+        }
+      }
+
+      &:last-child {
+        padding-bottom: 1rem !important;
+      }
+    }
   }
 
   // Texto del markdown (body del .md)
