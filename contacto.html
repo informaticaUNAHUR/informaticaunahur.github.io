@@ -1,0 +1,124 @@
+---
+layout: default
+title: Contacto
+permalink: /contacto/
+---
+
+{% comment %}
+  Página de contacto. Los datos salen de _data/contactos.yml.
+  El botón de Discord usa la misma URL del footer: site.data.contactos.discord.url
+{% endcomment %}
+
+{% if site.data.contactos %}
+<div class="site-contacto">
+  <div class="site-contacto__container">
+
+    <!-- ***** Encabezado ***** -->
+    <header class="site-contacto__header text-center">
+      <span class="site-contacto__kicker">{{ site.data.contactos.subtitulo }}</span>
+      <h1 class="site-contacto__title">
+        {{ site.data.contactos.titulo | replace: "Comunicate", "<span class='site-contacto__title-dark'>Comunicate</span>" | replace: "nosotros", "<span class='site-contacto__title-accent'>nosotros</span>" }}
+      </h1>
+      <div class="site-contacto__line"></div>
+      <p class="site-contacto__lead mb-0">Estamos para ayudarte. Podés escribirnos, acercarte o comunicarte por nuestros canales oficiales.</p>
+    </header>
+
+    <div class="site-contacto__grid">
+
+      <!-- ***** Cómo comunicarse ***** -->
+      {% if site.data.contactos.como_comunicarse.items %}
+      <div class="site-contacto__col">
+        <div class="site-contacto__card">
+          <span class="site-contacto__card-icon" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
+          <h2 class="site-contacto__card-title">{{ site.data.contactos.como_comunicarse.titulo | replace: "¿Cómo comunicarse?", "Cómo comunicarse" }}</h2>
+          <p class="site-contacto__card-subtitle">Nuestros canales de contacto</p>
+
+          <ul class="site-contacto__list">
+            {% for item in site.data.contactos.como_comunicarse.items %}
+              {% assign item_url = item.url %}
+              {% assign item_externo = item.externo | default: false %}
+              {% if item_url and item_url != "#" %}
+                {% unless item_url contains '://' or item_url contains '#' or item_url contains 'mailto:' or item_url contains 'tel:' %}
+                  {% assign item_url = item_url | relative_url %}
+                {% endunless %}
+              {% endif %}
+              <li class="site-contacto__list-item">
+                <span class="site-contacto__item-icon" aria-hidden="true">
+                  {% if item.nombre contains 'Email' %}
+                    <i class="fa fa-envelope-o"></i>
+                  {% elsif item.nombre contains 'Instagram' %}
+                    <i class="fa fa-instagram"></i>
+                  {% elsif item.nombre contains 'Sitio' %}
+                    <i class="fa fa-globe"></i>
+                  {% else %}
+                    <i class="fa fa-map-marker"></i>
+                  {% endif %}
+                </span>
+                <span>
+                  <span class="site-contacto__item-label">{{ item.nombre }}</span>
+                  {% if item_url and item_url != "#" %}
+                    <a class="site-contacto__item-value" href="{{ item_url }}"{% if item_externo %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.valor | default: item.nombre }}</a>
+                  {% else %}
+                    <span class="site-contacto__item-value">{{ item.valor | default: item.nombre }}</span>
+                  {% endif %}
+                </span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- ***** Autoridades ***** -->
+      {% if site.data.contactos.autoridades.items %}
+      <div class="site-contacto__col">
+        <div class="site-contacto__card">
+          <span class="site-contacto__card-icon" aria-hidden="true"><i class="fa fa-users"></i></span>
+          <h2 class="site-contacto__card-title">{{ site.data.contactos.autoridades.titulo }}</h2>
+          <p class="site-contacto__card-subtitle">Equipo de gestión de la carrera</p>
+
+          <ul class="site-contacto__people">
+            {% for persona in site.data.contactos.autoridades.items %}
+            <li class="site-contacto__person">
+              <span>
+                <span class="site-contacto__person-role">{{ persona.cargo }}</span>
+                <span class="site-contacto__person-name">{{ persona.nombre }}</span>
+              </span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- ***** Discord ***** -->
+      {% if site.data.contactos.discord %}
+      <div class="site-contacto__col">
+        <div class="site-contacto__card site-contacto__card--discord">
+          <span class="site-contacto__discord-shape site-contacto__discord-shape--tl" aria-hidden="true"></span>
+          <span class="site-contacto__discord-shape site-contacto__discord-shape--br" aria-hidden="true"></span>
+
+          <span class="site-contacto__discord-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path fill-rule="evenodd" d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.098.245.201.374.293a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+            </svg>
+          </span>
+
+          <h2 class="site-contacto__card-title">{{ site.data.contactos.discord.titulo }}</h2>
+          <p class="site-contacto__discord-text mb-0">{{ site.data.contactos.discord.subtitulo }}</p>
+
+          <a class="site-contacto__discord-btn" href="{{ site.data.contactos.discord.url }}" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill-rule="evenodd" d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.098.245.201.374.293a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+            </svg>
+            Unirse al Discord
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+{% endif %}
