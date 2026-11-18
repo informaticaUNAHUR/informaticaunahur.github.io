@@ -119,6 +119,41 @@ permalink: /contacto/
       {% endif %}
 
     </div>
+
+    <!-- ***** Trámites y consultas frecuentes ***** -->
+    {% if site.data.contactos.tramites.items %}
+    <section class="site-contacto__docs" aria-labelledby="tramites-title">
+      <div class="site-contacto__docs-head">
+        <h2 class="site-contacto__docs-title" id="tramites-title">{{ site.data.contactos.tramites.titulo }}</h2>
+        <p class="site-contacto__docs-subtitle mb-0">Consultá los trámites y consultas más frecuentes</p>
+      </div>
+
+      <div class="site-contacto__accordion" id="tramitesAccordion">
+
+        {% for tramite in site.data.contactos.tramites.items %}
+        {% assign tramite_id = "sc-tramite-" | append: forloop.index %}
+        <div class="site-contacto__acc-item">
+          <h3 class="site-contacto__acc-heading">
+            <button class="site-contacto__acc-btn" type="button"
+              data-bs-toggle="collapse" data-bs-target="#{{ tramite_id }}"
+              aria-expanded="false" aria-controls="{{ tramite_id }}">
+              <span class="site-contacto__acc-num" aria-hidden="true">{{ forloop.index }}</span>
+              <span class="site-contacto__acc-titulo">{{ tramite.nombre }}</span>
+              <span class="site-contacto__acc-chevron" aria-hidden="true"><i class="fa fa-chevron-down"></i></span>
+            </button>
+          </h3>
+          <div id="{{ tramite_id }}" class="collapse" data-bs-parent="#tramitesAccordion">
+            <div class="site-contacto__acc-body">
+              {% if tramite.descripcion %}<p class="site-contacto__acc-desc mb-0">{{ tramite.descripcion }}</p>{% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </section>
+    {% endif %}
+
   </div>
 </div>
 {% endif %}
