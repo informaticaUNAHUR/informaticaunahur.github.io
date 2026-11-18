@@ -1,0 +1,154 @@
+// Página Horarios (horarios.md)
+
+.horarios-pagina {
+  // Etiqueta chica sobre el título del hero
+  .hr-eyebrow {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .25em;
+    color: #2a7a74;
+  }
+
+  // Línea al lado de los títulos de sección (igual que .cl-linea de Carreras)
+  .hr-linea {
+    height: 2px;
+    background-color: #4db6ad;
+    opacity: .4;
+  }
+
+  // Tarjetas de fechas por cuatrimestre
+  .hr-card-fechas {
+    border: 1.5px solid #4db6ad;
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+  }
+
+  .hr-cuatri {
+    font-size: 1.1rem;
+    color: #1a6b66;
+  }
+
+  .hr-fila {
+    border-bottom: 1px solid #e8f5f4;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    dt {
+      color: #555;
+    }
+
+    dd {
+      color: #2a2a2a;
+    }
+  }
+
+  // Planilla (iframe de Google Sheets)
+  // Ancho tope ≈ ancho total de las columnas de la planilla, para que no
+  // sobre espacio en blanco a la derecha en pantallas anchas. Si cambian
+  // las columnas en Google Sheets, ajustar este valor.
+  .hr-seccion-planilla,
+  .hr-aviso {
+    max-width: 1300px;
+  }
+
+  .hr-btn-sheets {
+    background-color: #4db6ad;
+    border-color: #4db6ad;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #3a9d95;
+      border-color: #3a9d95;
+      color: #fff;
+    }
+  }
+
+  .hr-planilla {
+    border: 1.5px solid #4db6ad;
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+  }
+
+  .hr-iframe {
+    height: 720px;
+
+    @media (max-width: 767.98px) {
+      height: 480px;
+    }
+  }
+
+  // Caja "Calendario académico" (mismo ancho que la planilla)
+  .hr-aviso {
+    background-color: #e8f5f4;
+    border: 1px solid rgba(77, 182, 173, .45);
+
+    p {
+      color: #444;
+    }
+
+    a {
+      color: #1a6b66;
+      font-weight: 600;
+      text-decoration: underline !important;
+    }
+  }
+
+  .hr-aviso-icono {
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: #1a6b66;
+    color: #fff;
+  }
+
+  .hr-aviso-titulo {
+    font-size: 1rem;
+    color: #1a6b66;
+  }
+
+  // Foco visible con teclado
+  .hr-btn-sheets:focus-visible {
+    outline: 3px solid #1a6b66;
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+
+  .hr-nota a:focus-visible,
+  .hr-aviso a:focus-visible {
+    outline: 2px solid #1a6b66;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  // Títulos más chicos en mobile (el tema los deja muy grandes)
+  @media (max-width: 575.98px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2:not(.hr-aviso-titulo) {
+      font-size: 1.6rem;
+    }
+
+    .hr-card-fechas .card-body,
+    .hr-aviso {
+      padding: 1.25rem !important;
+    }
+  }
+
+  // Sin animaciones si el usuario lo pide
+  @media (prefers-reduced-motion: reduce) {
+    .hr-btn-sheets {
+      transition: none;
+    }
+  }
+
+  .hr-nota {
+    color: #555;
+
+    a {
+      color: #1a6b66;
+      text-decoration: underline !important;
+    }
+  }
+}
