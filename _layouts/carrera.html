@@ -48,22 +48,22 @@ layout: default
                   {% elsif fila.label contains "dito" %}{% assign icono = "fa-certificate" %}
                   {% elsif fila.label contains "Horas" %}{% assign icono = "fa-calendar" %}
                   {% endif %}
-                  <div class="{% if forloop.first %}col-12 pb-4 border-bottom{% else %}col-12 col-sm-6{% endif %} d-flex gap-3">
-                    <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2 bg-white border rounded-circle text-muted align-self-start">
+                  <div class="{% if forloop.first %}col-12 pb-4 border-bottom{% else %}col-12 col-sm-6 col-lg-12 col-xxl-6{% endif %} d-flex gap-3">
+                    <span class="cr-dato-icono d-inline-flex align-items-center justify-content-center flex-shrink-0 bg-white border rounded-circle text-muted align-self-start">
                       <i class="fa {{ icono }} fa-fw" aria-hidden="true"></i>
                     </span>
                     <div>
-                      <dt class="small text-muted fw-normal lh-sm mb-1">{{ fila.label }}</dt>
+                      <dt class="cr-dato-label text-muted fw-normal lh-sm mb-1">{{ fila.label }}</dt>
                       <dd class="d-flex align-items-start gap-2 mb-0">
                         <span>
-                          <span class="d-block fs-5 fw-bold lh-sm text-nowrap">{{ fila.grado }}</span>
-                          {% if fila.intermedio %}<span class="d-block small text-muted">Grado</span>{% endif %}
+                          <span class="cr-dato-valor d-block fw-bold lh-sm text-nowrap">{{ fila.grado }}</span>
+                          {% if fila.intermedio %}<span class="cr-dato-sub d-block text-muted">Grado</span>{% endif %}
                         </span>
                         {% if fila.intermedio %}
-                          <span class="fs-5 lh-sm text-muted" aria-hidden="true">|</span>
+                          <span class="cr-dato-valor lh-sm text-muted" aria-hidden="true">|</span>
                           <span>
-                            <span class="d-block fs-5 fw-bold lh-sm text-nowrap text-secondary">{{ fila.intermedio }}</span>
-                            <span class="d-block small text-muted">Intermedio</span>
+                            <span class="cr-dato-valor d-block fw-bold lh-sm text-nowrap text-secondary">{{ fila.intermedio }}</span>
+                            <span class="cr-dato-sub d-block text-muted">Intermedio</span>
                           </span>
                         {% endif %}
                       </dd>
