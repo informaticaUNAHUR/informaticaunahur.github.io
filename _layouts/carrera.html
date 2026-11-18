@@ -54,18 +54,19 @@ layout: default
                   {% elsif fila.label contains "dito" %}{% assign icono = "fa-certificate" %}
                   {% elsif fila.label contains "Horas" %}{% assign icono = "fa-calendar" %}
                   {% endif %}
-                  <div class="cr-resumen-fila d-flex align-items-center gap-2 gap-sm-3 py-3">
+                  <!-- Fila de tabla; desde 1400px pasa a celda de grilla (ver _carrera.scss) -->
+                  <div class="cr-resumen-fila py-3">
                     <span class="cr-dato-icono d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle">
                       <i class="fa {{ icono }} fa-fw" aria-hidden="true"></i>
                     </span>
-                    <dt class="cr-dato-label fw-normal lh-sm flex-grow-1">{{ fila.label }}</dt>
-                    <dd class="d-flex gap-2 gap-sm-3 mb-0">
-                      <span class="cr-resumen-col cr-dato-valor fw-bold text-end text-nowrap">
-                        {{ fila.grado }}{% if hay_intermedio %}<span class="visually-hidden"> (grado)</span>{% endif %}
+                    <dt class="cr-dato-label fw-normal lh-sm">{{ fila.label }}</dt>
+                    <dd class="cr-dato-valores d-flex gap-2 gap-sm-3 mb-0">
+                      <span class="cr-resumen-col cr-dato-valor cr-dato-grado fw-bold text-end text-nowrap">
+                        {{ fila.grado }}{% if hay_intermedio %} <span class="cr-etq">Grado</span>{% endif %}
                       </span>
                       {% if hay_intermedio %}
-                        <span class="cr-resumen-col cr-dato-valor cr-dato-intermedio fw-bold text-end text-nowrap">
-                          {% if fila.intermedio %}{{ fila.intermedio }}<span class="visually-hidden"> (intermedio)</span>{% else %}<span aria-hidden="true">—</span>{% endif %}
+                        <span class="cr-resumen-col cr-dato-valor cr-dato-intermedio fw-bold text-end text-nowrap{% unless fila.intermedio %} cr-sin-valor{% endunless %}">
+                          {% if fila.intermedio %}{{ fila.intermedio }} <span class="cr-etq">Intermedio</span>{% else %}<span aria-hidden="true">—</span>{% endif %}
                         </span>
                       {% endif %}
                     </dd>
