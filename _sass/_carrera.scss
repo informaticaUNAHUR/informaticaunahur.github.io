@@ -36,23 +36,76 @@
     }
   }
 
-  // Card resumen (tabla_datos): tamaños propios, fs-5 quedaba enorme con root 20px
+  // Card resumen (tabla_datos): filas tipo tabla, mismo estilo que las fechas de Horarios
+  .cr-resumen {
+    background-color: #e8f5f4;
+    border: 1.5px solid #4db6ad;
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+  }
+
+  .cr-resumen-cabecera {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #2a7a74;
+    border-bottom: 1px solid rgba(77, 182, 173, .35);
+  }
+
+  // Ancho fijo para que Grado e Intermedio queden alineados entre filas
+  .cr-resumen-col {
+    min-width: 4.5rem;
+  }
+
+  .cr-resumen-fila {
+    border-bottom: 1px solid rgba(77, 182, 173, .25);
+
+    // Mobile: no entra todo en una línea → valores abajo, alineados a la derecha
+    @media (max-width: 575.98px) {
+      flex-wrap: wrap;
+
+      dt {
+        flex-basis: calc(100% - 2.2rem);
+      }
+
+      dd {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0 !important;
+    }
+  }
+
   .cr-dato-icono {
     width: 2rem;
     height: 2rem;
     font-size: .8rem;
+    background-color: #1a6b66;
+    color: #fff;
+
+    @media (max-width: 575.98px) {
+      width: 1.6rem;
+      height: 1.6rem;
+      font-size: .65rem;
+    }
   }
 
   .cr-dato-label {
-    font-size: .75rem;
+    font-size: .8rem;
+    color: #444;
   }
 
   .cr-dato-valor {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    color: #2a2a2a;
   }
 
-  .cr-dato-sub {
-    font-size: .7rem;
+  .cr-dato-intermedio {
+    color: #1a6b66;
   }
 
   // Texto del markdown (body del .md)
