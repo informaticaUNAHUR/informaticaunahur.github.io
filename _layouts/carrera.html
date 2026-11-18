@@ -10,7 +10,7 @@ layout: default
 
     <!-- Encabezado -->
     <div class="row g-4 align-items-start mb-5">
-      <div class="col-12{% if page.tabla_datos.filas %} col-lg-7{% endif %}">
+      <div class="col-12{% if page.tabla_datos.filas %} col-lg-6{% endif %}">
         <div class="section-heading">
           <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-bold">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
@@ -35,11 +35,20 @@ layout: default
       </div>
 
       {% if page.tabla_datos.filas %}
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-6">
           <!-- Resumen del plan (tabla_datos) -->
-          <div class="cr-resumen card bg-light border rounded-3">
-            <div class="card-body p-4">
-              <dl class="row g-4 mb-0">
+          {% assign hay_intermedio = false %}
+          {% for fila in page.tabla_datos.filas %}{% if fila.intermedio %}{% assign hay_intermedio = true %}{% endif %}{% endfor %}
+          <div class="cr-resumen card rounded-3">
+            <div class="card-body p-3 p-sm-4">
+              {% if hay_intermedio %}
+                <!-- Encabezado de columnas (una sola vez, en vez de repetirlo por fila) -->
+                <div class="cr-resumen-cabecera d-flex justify-content-end gap-2 gap-sm-3 pb-2" aria-hidden="true">
+                  <span class="cr-resumen-col text-end">Grado</span>
+                  <span class="cr-resumen-col text-end">Intermedio</span>
+                </div>
+              {% endif %}
+              <dl class="mb-0">
                 {% for fila in page.tabla_datos.filas %}
                   {% assign icono = "fa-info-circle" %}
                   {% if fila.label contains "Duraci" %}{% assign icono = "fa-clock-o" %}
@@ -48,26 +57,21 @@ layout: default
                   {% elsif fila.label contains "dito" %}{% assign icono = "fa-certificate" %}
                   {% elsif fila.label contains "Horas" %}{% assign icono = "fa-calendar" %}
                   {% endif %}
-                  <div class="{% if forloop.first %}col-12 pb-4 border-bottom{% else %}col-12 col-sm-6 col-lg-12 col-xxl-6{% endif %} d-flex gap-3">
-                    <span class="cr-dato-icono d-inline-flex align-items-center justify-content-center flex-shrink-0 bg-white border rounded-circle text-muted align-self-start">
+                  <div class="cr-resumen-fila d-flex align-items-center gap-2 gap-sm-3 py-3">
+                    <span class="cr-dato-icono d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle">
                       <i class="fa {{ icono }} fa-fw" aria-hidden="true"></i>
                     </span>
-                    <div>
-                      <dt class="cr-dato-label text-muted fw-normal lh-sm mb-1">{{ fila.label }}</dt>
-                      <dd class="d-flex align-items-start gap-2 mb-0">
-                        <span>
-                          <span class="cr-dato-valor d-block fw-bold lh-sm text-nowrap">{{ fila.grado }}</span>
-                          {% if fila.intermedio %}<span class="cr-dato-sub d-block text-muted">Grado</span>{% endif %}
+                    <dt class="cr-dato-label fw-normal lh-sm flex-grow-1">{{ fila.label }}</dt>
+                    <dd class="d-flex gap-2 gap-sm-3 mb-0">
+                      <span class="cr-resumen-col cr-dato-valor fw-bold text-end text-nowrap">
+                        {{ fila.grado }}{% if hay_intermedio %}<span class="visually-hidden"> (grado)</span>{% endif %}
+                      </span>
+                      {% if hay_intermedio %}
+                        <span class="cr-resumen-col cr-dato-valor cr-dato-intermedio fw-bold text-end text-nowrap">
+                          {% if fila.intermedio %}{{ fila.intermedio }}<span class="visually-hidden"> (intermedio)</span>{% else %}<span aria-hidden="true">—</span>{% endif %}
                         </span>
-                        {% if fila.intermedio %}
-                          <span class="cr-dato-valor lh-sm text-muted" aria-hidden="true">|</span>
-                          <span>
-                            <span class="cr-dato-valor d-block fw-bold lh-sm text-nowrap text-secondary">{{ fila.intermedio }}</span>
-                            <span class="cr-dato-sub d-block text-muted">Intermedio</span>
-                          </span>
-                        {% endif %}
-                      </dd>
-                    </div>
+                      {% endif %}
+                    </dd>
                   </div>
                 {% endfor %}
               </dl>
