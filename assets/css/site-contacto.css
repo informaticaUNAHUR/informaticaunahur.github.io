@@ -307,6 +307,137 @@ a.site-contacto__item-value:focus {
   border-radius: 3px;
 }
 
+/* ---------- Trámites y consultas frecuentes (acordeón FAQs) ---------- */
+.site-contacto__docs {
+  margin-top: 56px;
+  padding: 36px;
+  background: #f8fafc;
+  border: 1px solid var(--sc-border);
+  border-radius: 16px;
+}
+
+.site-contacto__docs-head {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.site-contacto__docs-title {
+  margin: 0;
+  color: var(--sc-navy);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.site-contacto__docs-subtitle {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.site-contacto__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-contacto__acc-item {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--sc-border);
+  border-radius: 12px;
+}
+
+.site-contacto__acc-heading {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.site-contacto__acc-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--sc-navy);
+  font-family: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.site-contacto__acc-btn:hover,
+.site-contacto__acc-btn:focus {
+  background: #f9fafb;
+  color: var(--sc-navy);
+}
+
+.site-contacto__acc-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sc-accent-soft);
+  color: #15803d;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.site-contacto__acc-titulo {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.site-contacto__acc-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.75rem;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-contacto__acc-btn:not(.collapsed) .site-contacto__acc-chevron {
+  transform: rotate(180deg);
+  background: var(--sc-accent-soft);
+  color: #15803d;
+}
+
+.site-contacto__acc-body {
+  padding: 0 20px 20px 64px;
+}
+
+.site-contacto__acc-desc {
+  margin: 0 0 14px;
+  padding-top: 10px;
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.site-contacto__acc-btn:focus-visible {
+  outline: 2px solid var(--sc-accent);
+  outline-offset: 2px;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 991.98px) {
   .site-contacto__grid {
@@ -352,6 +483,20 @@ a.site-contacto__item-value:focus {
   .site-contacto__discord-text {
     margin-bottom: 24px;
   }
+
+  .site-contacto__docs {
+    margin-top: 40px;
+    padding: 24px 18px;
+  }
+
+  .site-contacto__acc-btn {
+    gap: 10px;
+    padding: 16px 14px;
+  }
+
+  .site-contacto__acc-body {
+    padding: 0 14px 18px;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -361,5 +506,13 @@ a.site-contacto__item-value:focus {
 
   .site-contacto__card {
     padding: 24px 18px;
+  }
+
+  .site-contacto__acc-btn {
+    flex-wrap: wrap;
+  }
+
+  .site-contacto__acc-titulo {
+    flex-basis: calc(100% - 50px);
   }
 }
