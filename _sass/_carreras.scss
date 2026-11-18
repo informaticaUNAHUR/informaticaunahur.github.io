@@ -1,6 +1,25 @@
 // Listado de carreras (carreras.html)
 
 .carreras-listado {
+  // Hero: misma franja que el detalle (.cr-hero) + formas decorativas
+  .cl-hero {
+    background-color: #f8fbfb;
+    border-bottom: 1px solid #e3eeed;
+  }
+
+  .cl-titulo-acento {
+    color: #2a9d93;
+  }
+
+  // Badge "Vigentes desde…" (igual a .cr-badge del detalle)
+  .cl-badge {
+    background-color: #e8f5f4;
+    color: #1a6b66;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+  }
+
   // Línea al lado de los títulos de sección (igual que .cr-linea del detalle)
   .cl-linea {
     height: 2px;
@@ -10,8 +29,8 @@
 
   // Cards de carreras vigentes (no clickeables enteras: link en título y botón)
   .cl-card-vigente {
-    border: 1.5px solid #4db6ad;
-    box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+    border: 1px solid rgba(77, 182, 173, .35);
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .1);
     transition: box-shadow .2s ease, transform .2s ease;
 
     &:hover {
@@ -31,21 +50,41 @@
     }
   }
 
+  // Ícono sobre círculo teal claro
+  .cl-icono-circulo {
+    width: 4.2rem;
+    height: 4.2rem;
+    background-color: #e8f5f4;
+    color: #2a9d93;
+    font-size: 1.5rem;
+  }
+
   .cl-icono {
-    height: 62px;
-    width: auto;
+    width: 60%;
+    height: 60%;
     object-fit: contain;
   }
 
-  .cl-icono-fallback {
-    width: 62px;
-    background-color: #e8f5f4;
-    color: #4db6ad;
-    font-size: 1.6rem;
+  .cl-card-titulo {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .cl-card-sub {
+    font-size: .75rem;
+    line-height: 1.4;
+    color: #666;
+  }
+
+  .cl-card-sub-label {
+    font-weight: 600;
+    color: #2a7a74;
+    margin-bottom: .1rem;
   }
 
   // Mismo estilo que .cr-btn-pdf del detalle
   .cl-btn-ver {
+    font-size: .85rem;
     background-color: #4db6ad;
     border-color: #4db6ad;
     color: #fff;
@@ -56,12 +95,17 @@
       border-color: #3a9d95;
       color: #fff;
     }
+
+    // Respuesta al click: se hunde 1px
+    &:active {
+      transform: translateY(1px);
+    }
   }
 
   // Cards de carreras anteriores (horizontales, más discretas)
   .cl-card-anterior {
-    background-color: #f9f9f9;
-    border-color: #e8e8e8;
+    background-color: #fff;
+    border-color: #e6eceb;
     transition: box-shadow .2s ease, border-color .2s ease;
 
     .cl-chevron {
@@ -80,19 +124,26 @@
     }
   }
 
-  .cl-icono-sm {
-    height: 44px;
-    width: 44px;
-    object-fit: contain;
+  // Ícono chico en círculo (anteriores en gris, próximas en rosa)
+  .cl-circulo-sm {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1rem;
   }
 
-  .cl-icono-sm.cl-icono-fallback {
-    font-size: 1.2rem;
+  .cl-circulo-gris {
+    background-color: #f1f3f3;
+    color: #6c757d;
+  }
+
+  .cl-circulo-rojo {
+    background-color: #fde2e2;
+    color: #c94a4a;
   }
 
   .cl-link-anterior {
-    color: #555;
-    font-size: .95rem;
+    color: #2a2a2a;
+    font-size: .85rem;
     line-height: 1.35;
   }
 
@@ -131,6 +182,7 @@
 
   .cl-link-proxima {
     color: #2a2a2a;
+    font-size: .9rem;
     line-height: 1.35;
   }
 
@@ -164,7 +216,8 @@
     }
 
     .cl-card-vigente:hover,
-    .cl-card-anterior:hover .cl-chevron {
+    .cl-card-anterior:hover .cl-chevron,
+    .cl-btn-ver:active {
       transform: none;
     }
   }

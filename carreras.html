@@ -4,14 +4,23 @@ title: Carreras de Informática
 permalink: /carreras/
 ---
 
-<div class="carreras-listado py-5 px-3 px-md-5">
-  <div class="container-fluid">
-
-  <!-- Hero -->
-  <div class="section-heading mb-5">
-    <h1 class="fw-bold mb-0">{{ page.title }}</h1>
-    <div class="line-dec mt-4"></div>
+<div class="carreras-listado">
+  <!-- Hero (franja con fondo, igual que el detalle de carrera) -->
+  <div class="cl-hero px-3 px-md-5 py-5">
+    <div class="container-fluid">
+      <div class="section-heading mb-0">
+        {% assign partes_titulo = page.title | split: " de " %}
+        <h1 class="cl-titulo fw-bold mb-0">
+          {{ partes_titulo[0] }}{% if partes_titulo.size > 1 %} <span class="cl-titulo-acento">de {{ partes_titulo[1] }}</span>{% endif %}
+        </h1>
+        <div class="line-dec mt-4"></div>
+      </div>
+    </div>
   </div>
+
+  <!-- Contenido -->
+  <div class="py-5 px-3 px-md-5">
+  <div class="container-fluid">
 
   {% assign carreras_vigentes  = site.carreras | where: "vigente",  true | sort: "orden" %}
   {% assign carreras_anteriores = site.carreras | where: "anterior", true | sort: "orden" %}
@@ -20,7 +29,7 @@ permalink: /carreras/
   <!-- Carreras vigentes -->
   {% if carreras_vigentes.size > 0 %}
   <div class="mb-4">
-    <span class="badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+    <span class="cl-badge badge rounded-pill text-uppercase px-3 py-2">
       Vigentes desde 2026 2° Cuatrimestre
     </span>
   </div>
@@ -33,23 +42,23 @@ permalink: /carreras/
     <div class="col-md-6 col-lg-3">
       <div class="cl-card-vigente card h-100 rounded-3 text-center">
         <div class="card-body d-flex flex-column align-items-center p-4">
-          {% if carrera.icono %}
-          <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono mb-3">
-          {% else %}
-          <div class="cl-icono cl-icono-fallback rounded-circle d-flex align-items-center justify-content-center mb-3">
+          <div class="cl-icono-circulo rounded-circle d-flex align-items-center justify-content-center mb-3">
+            {% if carrera.icono %}
+            <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono">
+            {% else %}
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            {% endif %}
           </div>
-          {% endif %}
-          <h3 class="fs-6 fw-bold mb-3">
+          <h3 class="cl-card-titulo fw-bold mb-2">
             <a href="{{ carrera.url | relative_url }}" class="cl-link-vigente">{{ carrera.title }}</a>
           </h3>
           {% if carrera.titulo_intermedio %}
-          <p class="small text-muted mb-4">
-            <span class="fw-semibold">Título intermedio:</span><br>{{ carrera.titulo_intermedio }}
+          <p class="cl-card-sub mb-4">
+            <span class="cl-card-sub-label d-block">Título intermedio</span>{{ carrera.titulo_intermedio }}
           </p>
           {% endif %}
           <a href="{{ carrera.url | relative_url }}"
-             class="cl-btn-ver btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold mt-auto">
+             class="cl-btn-ver btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-semibold mt-auto">
             Ver más <i class="fa fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
@@ -71,13 +80,13 @@ permalink: /carreras/
       <div class="col-md-6 col-lg-4">
         <div class="cl-card-anterior card h-100 rounded-3">
           <div class="card-body d-flex align-items-center gap-3 p-3">
-            {% if carrera.icono %}
-            <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono-sm flex-shrink-0">
-            {% else %}
-            <div class="cl-icono-sm cl-icono-fallback rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+            <div class="cl-circulo-sm cl-circulo-gris rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+              {% if carrera.icono %}
+              <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono">
+              {% else %}
               <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              {% endif %}
             </div>
-            {% endif %}
             <a href="{{ carrera.url | relative_url }}" class="cl-link-anterior stretched-link fw-semibold flex-grow-1">
               {{ carrera.title }}
             </a>
@@ -103,19 +112,19 @@ permalink: /carreras/
     <div class="d-flex flex-column gap-3">
       {% for carrera in carreras_proximas %}
       <div class="cl-card-proxima position-relative rounded-3 d-flex align-items-center gap-3 p-3">
-        {% if carrera.icono %}
-        <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono-sm flex-shrink-0">
-        {% else %}
-        <div class="cl-icono-sm cl-icono-fallback rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+        <div class="cl-circulo-sm cl-circulo-rojo rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+          {% if carrera.icono %}
+          <img src="{{ carrera.icono | relative_url }}" alt="" class="cl-icono">
+          {% else %}
           <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+          {% endif %}
         </div>
-        {% endif %}
         <div>
           <a href="{{ carrera.url | relative_url }}" class="cl-link-proxima stretched-link fw-bold d-block">
             {{ carrera.title }}
           </a>
           {% if carrera.titulo_intermedio %}
-          <span class="small text-muted d-block">Título intermedio: {{ carrera.titulo_intermedio }}</span>
+          <span class="cl-card-sub d-block mt-1">Título intermedio: {{ carrera.titulo_intermedio }}</span>
           {% endif %}
         </div>
       </div>
@@ -124,5 +133,6 @@ permalink: /carreras/
   </section>
   {% endif %}
 
+  </div>
   </div>
 </div>
