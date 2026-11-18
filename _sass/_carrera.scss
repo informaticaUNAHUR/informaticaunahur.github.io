@@ -14,6 +14,7 @@
 
 .carrera-detalle {
   .cr-btn-pdf {
+    font-size: .9rem;
     background-color: #4db6ad;
     border-color: #4db6ad;
     color: #fff;
@@ -23,6 +24,11 @@
       background-color: #3a9d95;
       border-color: #3a9d95;
       color: #fff;
+    }
+
+    // Respuesta al click: se hunde 1px
+    &:active {
+      transform: translateY(1px);
     }
   }
 
@@ -296,8 +302,26 @@
     }
   }
 
-  // Texto del markdown (body del .md)
+  // Cards de cada año: borde y sombra teal (igual que Horarios / Carreras)
+  .cr-cuatri-card {
+    border: 1px solid rgba(77, 182, 173, .35);
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .1);
+  }
+
+  .cr-cuenta {
+    background-color: #e8f5f4;
+    color: #1a6b66;
+  }
+
+  // Texto del markdown (body del .md), caja teal igual a .hr-aviso
   .cr-aviso {
+    background-color: #e8f5f4;
+    border: 1px solid rgba(77, 182, 173, .45);
+
+    .cr-aviso-icono {
+      color: #1a6b66;
+    }
+
     p {
       font-size: 1rem;
       line-height: 1.6;
@@ -390,6 +414,17 @@
       @media (max-width: 767.98px) {
         font-size: .7rem;
       }
+    }
+  }
+
+  // Sin animaciones si el usuario lo pide
+  @media (prefers-reduced-motion: reduce) {
+    .cr-chevron .fa {
+      transition: none;
+    }
+
+    .cr-btn-pdf:active {
+      transform: none;
     }
   }
 }

@@ -85,10 +85,9 @@ layout: default
           href="{{ page.pdf | relative_url }}"
           target="_blank"
           rel="noopener noreferrer"
-          class="cr-btn-pdf btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold">
+          class="cr-btn-pdf btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-semibold">
           <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
           Descargar plan de estudios en PDF
-          <i class="fa fa-download" aria-hidden="true"></i>
         </a>
       </div>
     {% endif %}
@@ -111,7 +110,7 @@ layout: default
         {% assign nro_materia = 0 %}
         {% for cuatri in page.cuatrimestres %}
           {% assign cuatri_id = "cuatri-" | append: forloop.index %}
-          <div class="card border rounded-3 shadow-sm overflow-hidden mb-4">
+          <div class="cr-cuatri-card card rounded-3 overflow-hidden mb-4">
             <h3 class="h5 mb-0">
               <button
                 class="cr-cuatri-toggle btn w-100 d-flex align-items-center gap-3 p-3 text-start rounded-0"
@@ -122,7 +121,7 @@ layout: default
                 aria-controls="{{ cuatri_id }}">
                 <span class="cr-numero d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle fw-bold">{{ forloop.index }}°</span>
                 <span class="fw-bold flex-grow-1">{{ cuatri.nombre }}</span>
-                <span class="badge rounded-pill bg-light text-dark border fw-normal px-3 py-2 d-none d-sm-inline-block">
+                <span class="cr-cuenta badge rounded-pill fw-semibold px-3 py-2 d-none d-sm-inline-block">
                   {{ cuatri.materias.size }} materias{% if cuatri.horas and cuatri.horas != "" %} · {{ cuatri.horas }} hs{% endif %}
                 </span>
                 <span class="cr-chevron d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle border bg-white" aria-hidden="true">
@@ -260,8 +259,8 @@ layout: default
     <!-- Contenido adicional del markdown -->
     {% assign contenido = content | strip %}
     {% if contenido != "" %}
-      <div class="cr-aviso d-flex gap-3 p-4 bg-light border rounded-3 mb-5">
-        <i class="fa fa-info-circle fa-lg text-muted mt-1" aria-hidden="true"></i>
+      <div class="cr-aviso d-flex gap-3 p-4 rounded-3 mb-5">
+        <i class="cr-aviso-icono fa fa-info-circle fa-lg mt-1" aria-hidden="true"></i>
         <div>{{ content }}</div>
       </div>
     {% endif %}
