@@ -2,4 +2,59 @@
   --ml-accent: #4db6ad;
   --ml-accent-dark: #1a6b66;
   --ml-surface: #e8f5f4;
+
+  .ml-hero {
+    background-color: var(--ml-surface);
+    border-bottom: 1px solid #d8eeec;
+  }
+
+  .ml-home-link {
+    color: var(--ml-accent-dark) !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .ml-title {
+    color: #172b4d;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .ml-title::after {
+    content: "";
+    display: block;
+    width: 3.25rem;
+    height: 0.22rem;
+    margin-top: 0.75rem;
+    border-radius: 999px;
+    background-color: var(--ml-accent);
+  }
+
+  .ml-summary {
+    border: 1px solid #c5e4e1 !important;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.42);
+  }
+
+  .ml-stat-icon {
+    flex: 0 0 2.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: var(--ml-accent-dark);
+    color: #fff;
+  }
+
+  .ml-stat-label {
+    color: #42565d;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .ml-stat-value {
+    color: #172b4d;
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
 }

@@ -123,6 +123,59 @@ layout: default
 </style>
 
 <main class="materias-listado container-fluid p-0">
+{% assign materias_resumen = site.materias | where_exp: "materia", "materia.published != false" | where_exp: "materia", "materia.excluida_busqueda != true" %}
+{% assign cantidad_carreras_vigentes = 0 %}
+{% for carrera in site.carreras %}
+  {% if carrera.cuatrimestres.size > 0 %}
+    {% if carrera.vigente or carrera.estado == "vigente" %}
+      {% assign cantidad_carreras_vigentes = cantidad_carreras_vigentes | plus: 1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<section class="ml-hero py-4 py-lg-5">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-6">
+        <a class="ml-home-link d-inline-flex align-items-center gap-2 mb-3" href="{{ '/' | relative_url }}">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          Volver al inicio
+        </a>
+        <h1 class="ml-title mb-0">{{ page.title }}</h1>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="ml-summary card border-0">
+          <div class="card-body p-3 p-md-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-6">
+                <div class="ml-stat d-flex align-items-center gap-3">
+                  <span class="ml-stat-icon d-none d-sm-inline-flex align-items-center justify-content-center" aria-hidden="true">
+                    <i class="fa fa-book"></i>
+                  </span>
+                  <div>
+                    <span class="ml-stat-label d-block">Materias publicadas</span>
+                    <strong class="ml-stat-value">{{ materias_resumen.size }}</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="ml-stat d-flex align-items-center gap-3">
+                  <span class="ml-stat-icon d-none d-sm-inline-flex align-items-center justify-content-center" aria-hidden="true">
+                    <i class="fa fa-graduation-cap"></i>
+                  </span>
+                  <div>
+                    <span class="ml-stat-label d-block">Carreras vigentes</span>
+                    <strong class="ml-stat-value">{{ cantidad_carreras_vigentes }}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- Header búsqueda + filtros -->
