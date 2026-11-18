@@ -82,13 +82,6 @@
     margin-bottom: .1rem;
   }
 
-  .cl-icono-fallback {
-    width: 62px;
-    background-color: #e8f5f4;
-    color: #4db6ad;
-    font-size: 1.6rem;
-  }
-
   // Mismo estilo que .cr-btn-pdf del detalle
   .cl-btn-ver {
     font-size: .85rem;
@@ -111,8 +104,8 @@
 
   // Cards de carreras anteriores (horizontales, más discretas)
   .cl-card-anterior {
-    background-color: #f9f9f9;
-    border-color: #e8e8e8;
+    background-color: #fff;
+    border-color: #e6eceb;
     transition: box-shadow .2s ease, border-color .2s ease;
 
     .cl-chevron {
@@ -131,19 +124,26 @@
     }
   }
 
-  .cl-icono-sm {
-    height: 44px;
-    width: 44px;
-    object-fit: contain;
+  // Ícono chico en círculo (anteriores en gris, próximas en rosa)
+  .cl-circulo-sm {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1rem;
   }
 
-  .cl-icono-sm.cl-icono-fallback {
-    font-size: 1.2rem;
+  .cl-circulo-gris {
+    background-color: #f1f3f3;
+    color: #6c757d;
+  }
+
+  .cl-circulo-rojo {
+    background-color: #fde2e2;
+    color: #c94a4a;
   }
 
   .cl-link-anterior {
-    color: #555;
-    font-size: .95rem;
+    color: #2a2a2a;
+    font-size: .85rem;
     line-height: 1.35;
   }
 
@@ -182,6 +182,7 @@
 
   .cl-link-proxima {
     color: #2a2a2a;
+    font-size: .9rem;
     line-height: 1.35;
   }
 
