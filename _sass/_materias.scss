@@ -321,4 +321,104 @@
   .ml-empty-state {
     color: #5f6b70;
   }
+
+  @media (max-width: 575.98px) {
+    .ml-hero {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+
+    .ml-home-link {
+      margin-bottom: 0.75rem !important;
+    }
+
+    .ml-title {
+      font-size: clamp(1.9rem, 8vw, 2.5rem);
+    }
+
+    .ml-summary .card-body {
+      padding: 1rem !important;
+    }
+
+    .ml-summary .row {
+      --bs-gutter-x: 0.65rem;
+      --bs-gutter-y: 0.5rem;
+    }
+
+    .ml-stat-label {
+      font-size: 0.72rem;
+    }
+
+    .ml-stat-value {
+      font-size: 1.25rem;
+    }
+
+    .ml-search-section {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+
+    .ml-filter-panel {
+      padding: 0.85rem;
+    }
+
+    .ml-filter-toggle {
+      min-height: 2.5rem;
+    }
+
+    .ml-career-notice:not(:empty) {
+      overflow-wrap: anywhere;
+    }
+
+    .ml-catalog {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+
+    .materia-item {
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.75rem;
+    }
+
+    .materia-icon {
+      flex-basis: 2.25rem;
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .materia-title {
+      font-size: 0.88rem;
+    }
+
+    .materia-badges {
+      row-gap: 0.3rem;
+    }
+
+    .badge-carrera,
+    .badge-plan-vigente,
+    .badge-plan-anterior {
+      font-size: 0.66rem;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .ml-hero {
+      padding-top: 1.75rem !important;
+      padding-bottom: 1.75rem !important;
+    }
+
+    .ml-title {
+      font-size: clamp(2.1rem, 5vw, 2.8rem);
+    }
+
+    .ml-filter-panel {
+      padding: 1rem 1.1rem;
+    }
+
+    .materia-item {
+      gap: 0.75rem;
+      padding: 0.8rem;
+    }
+  }
 }
