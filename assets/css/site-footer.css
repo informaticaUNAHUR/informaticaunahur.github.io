@@ -232,8 +232,7 @@
     text-align: center;
   }
 
-  /* Marca y redes se apilan: si las columnas conservan su ancho automático,
-     el logo queda corrido a la izquierda y las redes pegadas a la derecha */
+  /* Marca y redes se apilan: si las columnas conservan su ancho automático, el logo queda corrido a la izquierda y las redes pegadas a la derecha */
   .site-footer__top .row {
     flex-direction: column;
     align-items: center;
@@ -265,8 +264,7 @@
     margin-top: 14px;
   }
 
-  /* En móvil sí se apila: no hay espacio para tres textos en una línea.
-     Todas las líneas se centran para que no queden renglones disparejos */
+  /* En móvil sí se apila: no hay espacio para tres textos en una línea. Todas las líneas se centran para que no queden renglones disparejos */
   .site-footer__bottom .row {
     justify-content: center;
   }
@@ -294,12 +292,16 @@
     display: flex;
   }
 
-  /* El pipe viaja con "Contacto" en la misma línea */
   .site-footer__legal {
     justify-content: center;
     flex-wrap: wrap;
     gap: 2px 8px;
     margin-top: 8px;
+  }
+
+  /* En móvil "Contacto" va solo: el pipe sobra y rompe el centrado */
+  .site-footer__legal .site-footer__separator {
+    display: none;
   }
 }
 
