@@ -5,8 +5,6 @@
 
 .site-footer {
   --sf-navy: #06273e;
-  /* Ancho de la columna de acciones: el pipe del legal cae exactamente
-     debajo del divisor vertical de las redes */
   --sf-actions-width: 157px;
   --sf-gradient: linear-gradient(
     90deg,
@@ -113,19 +111,19 @@
   line-height: 1.4;
 }
 
-/* El bloque legal queda centrado en TODO el footer */
 .site-footer__copyright {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: max-content;
+  max-width: 100%;
   transform: translate(-50%, -50%);
   margin: 0;
   white-space: nowrap;
   text-align: center;
+  pointer-events: none;
 }
 
-/* templatemo centra los <p> y les pone margin-top: lo neutralizamos
-   para que arranque a la misma altura que el bloque legal */
 .site-footer__institution {
   margin-top: 0;
   text-align: left;
@@ -148,18 +146,22 @@
 }
 
 .site-footer__legal a {
+  display: inline-block;
+  margin: -2px -6px;
+  padding: 2px 6px;
+  border-radius: 4px;
   color: #fff;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: opacity 0.2s ease;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .site-footer__legal a:hover,
 .site-footer__legal a:focus {
   color: #fff;
-  opacity: 0.8;
-  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none !important;
 }
 
 .site-footer a:focus-visible {
@@ -168,9 +170,6 @@
   border-radius: 2px;
 }
 
-/* ==========================================================================
-   Tablet / mobile
-   ========================================================================== */
 /* De tablet a notebook: los tres textos arrancan en la MISMA altura.
    Se limita el ancho para que el copyright centrado no se cruce con la frase. */
 @media (min-width: 768px) and (max-width: 1399.98px) {
