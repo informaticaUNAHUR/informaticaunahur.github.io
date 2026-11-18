@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Página de contacto - Informatica UNAHUR
-   Estilos standalone con prefijo .site-contacto
-   ========================================================================== */
-
 .site-contacto {
   --sc-accent: #22c55e;
   --sc-accent-soft: #dcfce7;
@@ -15,8 +10,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* the-grid define `.container { display:flex }` y Bootstrap no lo pisa:
-   usamos un contenedor propio para que el header quede ARRIBA de los cards */
 .site-contacto__container {
   width: 100%;
   max-width: 1200px;
@@ -36,12 +29,9 @@
   min-width: 0;
 }
 
-/* El footer trae `margin-top: 130px` de templatemo; en esta página va pegado */
 .site-contacto + .site-footer {
   margin-top: 0;
 }
-
-/* ---------- Encabezado ---------- */
 .site-contacto__header {
   max-width: 760px;
   margin: 0 auto 48px;
@@ -90,7 +80,6 @@
   line-height: 1.75;
 }
 
-/* ---------- Tarjetas ---------- */
 .site-contacto__card {
   height: 100%;
   padding: 32px 28px;
@@ -128,7 +117,7 @@
   line-height: 1.5;
 }
 
-/* ---------- Lista de canales ---------- */
+/* Lista de canales */
 .site-contacto__list,
 .site-contacto__people {
   margin: 0;
@@ -199,7 +188,7 @@ a.site-contacto__item-value:focus {
   text-decoration: underline;
 }
 
-/* ---------- Tarjeta Discord ---------- */
+/* Tarjeta Discord */
 .site-contacto__card--discord {
   position: relative;
   overflow: hidden;
@@ -307,7 +296,7 @@ a.site-contacto__item-value:focus {
   border-radius: 3px;
 }
 
-/* ---------- Trámites y consultas frecuentes (acordeón FAQs) ---------- */
+/* Trámites y consultas frecuentes (acordeón FAQs) */
 .site-contacto__docs {
   margin-top: 56px;
   padding: 36px;
@@ -438,7 +427,7 @@ a.site-contacto__item-value:focus {
   outline-offset: 2px;
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 991.98px) {
   .site-contacto__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
