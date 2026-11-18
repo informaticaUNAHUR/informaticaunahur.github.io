@@ -2,23 +2,20 @@
 layout: default
 ---
 
-<div class="carrera-detalle py-5 px-3 px-md-5">
+<div class="carrera-detalle">
+  <!-- Encabezado (franja con fondo, a todo el ancho) -->
+  <div class="cr-hero px-3 px-md-5 pt-5 pb-5">
   <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-12">
-
-
-    <!-- Encabezado -->
-    <div class="row g-4 align-items-start mb-5">
+    <div class="row g-4 align-items-start{% if page.pdf %} mb-4{% endif %}">
       <div class="col-12{% if page.tabla_datos.filas %} col-lg-6{% endif %}">
         <div class="section-heading">
-          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-bold">
+          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-semibold">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
           </a>
 
           {% if page.vigente or page.anterior or page.proxima %}
             <div class="mb-3">
-              <span class="cr-badge badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+              <span class="cr-badge badge rounded-pill text-uppercase px-3 py-2">
                 {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre{% elsif page.anterior %}Plan anterior{% elsif page.proxima %}Próximamente{% endif %}
               </span>
             </div>
@@ -26,8 +23,8 @@ layout: default
 
           <h1 class="fw-bold mb-2">{{ page.title }}</h1>
           {% if page.titulo_intermedio %}
-            <p class="fs-5 text-muted mb-0">Título intermedio:
-              <span class="cr-intermedio fw-bold">{{ page.titulo_intermedio }}</span>
+            <p class="cr-subtitulo mb-0">Título intermedio:
+              <span class="cr-intermedio">{{ page.titulo_intermedio }}</span>
             </p>
           {% endif %}
           <div class="line-dec mt-4"></div>
@@ -82,7 +79,7 @@ layout: default
     </div>
 
     {% if page.pdf %}
-      <div class="text-center mb-5">
+      <div class="text-center">
         <a
           href="{{ page.pdf | relative_url }}"
           target="_blank"
@@ -94,6 +91,14 @@ layout: default
         </a>
       </div>
     {% endif %}
+  </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="py-5 px-3 px-md-5">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
 
     {% if page.cuatrimestres %}
       <section class="mb-5">
@@ -281,5 +286,6 @@ layout: default
 
       </div>
     </div>
+  </div>
   </div>
 </div>

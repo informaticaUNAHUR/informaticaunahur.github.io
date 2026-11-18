@@ -26,7 +26,31 @@
     }
   }
 
+  // Franja del encabezado (fondo apenas teal, distinto del resto)
+  .cr-hero {
+    background-color: #f3f8f8;
+    border-bottom: 1px solid #e3eeed;
+  }
+
+  .cr-badge {
+    background-color: #e8f5f4;
+    color: #1a6b66;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+  }
+
+  .cr-subtitulo {
+    font-size: 1.1rem;
+    color: #444;
+  }
+
+  .cr-intermedio {
+    color: #1a6b66;
+  }
+
   .cr-volver {
+    font-size: .9rem;
     color: #1a6b66;
     text-decoration: none;
 
@@ -38,9 +62,15 @@
 
   // Card resumen (tabla_datos): filas tipo tabla, mismo estilo que las fechas de Horarios
   .cr-resumen {
-    background-color: #e8f5f4;
+    background-color: #fff;
     border: 1.5px solid #4db6ad;
     box-shadow: 0 2px 10px rgba(77, 182, 173, .12);
+
+    // En pantallas anchas no se estira: tope de ancho, pegada a la derecha
+    @media (min-width: 992px) {
+      max-width: 34rem;
+      margin-left: auto;
+    }
   }
 
   .cr-resumen-cabecera {
