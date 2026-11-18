@@ -124,13 +124,20 @@
   text-align: center;
 }
 
-/* templatemo centra los <p>: lo forzamos a la izquierda, debajo del logo */
+/* templatemo centra los <p> y les pone margin-top: lo neutralizamos
+   para que arranque a la misma altura que el bloque legal */
 .site-footer__institution {
+  margin-top: 0;
   text-align: left;
 }
 
 .site-footer__separator {
   padding: 0 8px;
+}
+
+/* El pipe del legal arranca exactamente donde está el divisor de redes */
+.site-footer__legal .site-footer__separator {
+  padding-left: 0;
 }
 
 .site-footer__legal {
@@ -164,31 +171,40 @@
 /* ==========================================================================
    Tablet / mobile
    ========================================================================== */
-/* En notebooks chicas apilamos la franja inferior: el copyright centrado
-   no debe cruzarse con la frase institucional */
-@media (max-width: 1399.98px) {
-  .site-footer__bottom .col {
-    order: 1;
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  .site-footer__copyright {
-    position: static;
-    order: 2;
-    width: 100%;
-    transform: none;
-    margin-top: 8px;
-    text-align: center;
-  }
-
-  .site-footer__bottom .col-auto {
-    order: 3;
-    margin-left: auto;
+/* De tablet a notebook: los tres textos arrancan en la MISMA altura.
+   Se limita el ancho para que el copyright centrado no se cruce con la frase. */
+@media (min-width: 768px) and (max-width: 1399.98px) {
+  .site-footer__bottom .row {
+    align-items: flex-start;
   }
 
   .site-footer__institution {
-    text-align: left;
+    max-width: 30%;
+  }
+
+  .site-footer__bottom .col-auto {
+    align-self: flex-start;
+  }
+
+  .site-footer__copyright {
+    top: 0;
+    max-width: 34%;
+    transform: translateX(-50%);
+    white-space: normal;
+  }
+}
+
+/* En pantallas grandes todo cabe en una sola línea, centrado verticalmente */
+@media (min-width: 1400px) {
+  .site-footer__institution {
+    max-width: none;
+  }
+
+  .site-footer__copyright {
+    top: 50%;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
   }
 }
 
@@ -241,6 +257,26 @@
   .site-footer__social {
     justify-content: center;
     margin-top: 14px;
+  }
+
+  /* En móvil sí se apila: no hay espacio para tres textos en una línea */
+  .site-footer__bottom .col {
+    order: 1;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .site-footer__copyright {
+    position: static;
+    order: 2;
+    width: 100%;
+    transform: none;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .site-footer__bottom .col-auto {
+    order: 3;
   }
 
   /* El pipe viaja con "Contacto" en la misma línea */
