@@ -118,10 +118,15 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  /* Sin un ancho explícito este <p> ocupa TODO el contenedor y tapa el link */
+  width: max-content;
+  max-width: 100%;
   transform: translate(-50%, -50%);
   margin: 0;
   white-space: nowrap;
   text-align: center;
+  /* Es texto no interactivo: nunca debe capturar el mouse por encima de "Contacto" */
+  pointer-events: none;
 }
 
 /* templatemo centra los <p> y les pone margin-top: lo neutralizamos
@@ -147,22 +152,25 @@
   gap: 12px;
 }
 
-/* templatemo fuerza `a { text-decoration: none !important }`: hace falta
-   !important para que "Contacto" se vea como link también en pantallas grandes */
+/* Sin subrayado: el hover se marca con un fondo suave (templatemo fuerza
+   `a { text-decoration: none !important }`, acá tampoco queremos subrayado) */
 .site-footer__legal a {
+  display: inline-block;
+  margin: -2px -6px;
+  padding: 2px 6px;
+  border-radius: 4px;
   color: #fff;
   font-weight: 600;
-  text-decoration: underline !important;
-  text-underline-offset: 3px;
+  text-decoration: none !important;
   cursor: pointer;
-  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .site-footer__legal a:hover,
 .site-footer__legal a:focus {
   color: #fff;
-  opacity: 0.85;
-  text-decoration: underline !important;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none !important;
 }
 
 .site-footer a:focus-visible {
