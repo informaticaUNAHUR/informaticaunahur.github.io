@@ -36,6 +36,25 @@
     }
   }
 
+  // Card resumen (tabla_datos): tamaños propios, fs-5 quedaba enorme con root 20px
+  .cr-dato-icono {
+    width: 2rem;
+    height: 2rem;
+    font-size: .8rem;
+  }
+
+  .cr-dato-label {
+    font-size: .75rem;
+  }
+
+  .cr-dato-valor {
+    font-size: 1.05rem;
+  }
+
+  .cr-dato-sub {
+    font-size: .7rem;
+  }
+
   // Texto del markdown (body del .md)
   .cr-aviso {
     p {
