@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Footer del sitio - Informatica UNAHUR
-   Estilos standalone: no depende de templatemo-digimedia ni de css/main.css.
-   ========================================================================== */
-
 .site-footer {
   --sf-navy: #06273e;
   --sf-actions-width: 157px;
@@ -46,7 +41,6 @@
   line-height: 0;
 }
 
-/* Mismo logo que el header, convertido a blanco sobre transparente */
 .site-footer__brand img {
   display: block;
   width: auto;
@@ -90,7 +84,6 @@
   fill: currentColor;
 }
 
-/* ---------- Franja inferior (degradado) ---------- */
 .site-footer__bottom {
   display: flex;
   align-items: center;
@@ -133,7 +126,6 @@
   padding: 0 8px;
 }
 
-/* El pipe del legal arranca exactamente donde está el divisor de redes */
 .site-footer__legal .site-footer__separator {
   padding-left: 0;
 }
@@ -170,8 +162,6 @@
   border-radius: 2px;
 }
 
-/* De tablet a notebook: los tres textos arrancan en la MISMA altura.
-   Se limita el ancho para que el copyright centrado no se cruce con la frase. */
 @media (min-width: 768px) and (max-width: 1399.98px) {
   .site-footer__bottom .row {
     align-items: flex-start;
@@ -234,8 +224,18 @@
     text-align: center;
   }
 
+  /* Marca y redes se apilan: si las columnas conservan su ancho automático,
+     el logo queda corrido a la izquierda y las redes pegadas a la derecha */
+  .site-footer__top .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .site-footer__top .row > [class*="col"],
   .site-footer__bottom .row > [class*="col"] {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     justify-content: center;
   }
 
@@ -249,7 +249,6 @@
 
   .site-footer__top .col-auto,
   .site-footer__bottom .col-auto {
-    width: auto;
     margin-left: 0;
   }
 
@@ -258,17 +257,25 @@
     margin-top: 14px;
   }
 
-  /* En móvil sí se apila: no hay espacio para tres textos en una línea */
+  /* En móvil sí se apila: no hay espacio para tres textos en una línea.
+     Todas las líneas se centran para que no queden renglones disparejos */
+  .site-footer__bottom .row {
+    justify-content: center;
+  }
+
   .site-footer__bottom .col {
     order: 1;
-    flex: 0 0 100%;
-    max-width: 100%;
+  }
+
+  .site-footer__institution {
+    text-align: center;
   }
 
   .site-footer__copyright {
     position: static;
     order: 2;
     width: 100%;
+    padding: 0 15px;
     transform: none;
     margin-top: 8px;
     text-align: center;
@@ -276,10 +283,12 @@
 
   .site-footer__bottom .col-auto {
     order: 3;
+    display: flex;
   }
 
   /* El pipe viaja con "Contacto" en la misma línea */
   .site-footer__legal {
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2px 8px;
     margin-top: 8px;
