@@ -147,19 +147,22 @@
   gap: 12px;
 }
 
+/* templatemo fuerza `a { text-decoration: none !important }`: hace falta
+   !important para que "Contacto" se vea como link también en pantallas grandes */
 .site-footer__legal a {
   color: #fff;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: opacity 0.2s ease;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .site-footer__legal a:hover,
 .site-footer__legal a:focus {
   color: #fff;
-  opacity: 0.8;
-  text-decoration: none;
+  opacity: 0.85;
+  text-decoration: underline !important;
 }
 
 .site-footer a:focus-visible {
