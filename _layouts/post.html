@@ -93,7 +93,7 @@ layout: default
               {% unless pdf_url contains '://' %}
                 {% assign pdf_url = pdf_url | relative_url %}
               {% endunless %}
-              <div class="col-12 col-sm-6 col-lg-3 d-flex justify-content-sm-end">
+              <div class="col-12 col-sm-6 col-lg-3 d-flex justify-content-center justify-content-lg-end ms-lg-auto">
                 <a class="btn md-program-link d-inline-flex align-items-center gap-2" href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                   Programa completo
