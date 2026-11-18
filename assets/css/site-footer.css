@@ -48,14 +48,22 @@
 }
 
 .site-footer__divider {
+  flex: 0 0 1px;
   width: 1px;
   height: 34px;
   background: rgba(255, 255, 255, 0.65);
 }
 
+/* Espacios en px: css/main.css cambia el font-size de <html> a 20px en páginas interiores, lo que agranda los gutters/gaps en rem y comprime el pipe */
 .site-footer__top .col-auto,
 .site-footer__bottom .col-auto {
   width: var(--sf-actions-width);
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.site-footer__top .col-auto {
+  gap: 24px;
 }
 
 .site-footer__social {
