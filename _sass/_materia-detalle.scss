@@ -1,0 +1,248 @@
+.materia-detalle {
+  --md-accent: #4db6ad;
+  --md-accent-dark: #1a6b66;
+  --md-surface: #e8f5f4;
+
+  .md-hero {
+    padding: 1.5rem 0 1.25rem;
+  }
+
+  .md-title {
+    color: #172b4d;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+
+  .md-title::after {
+    content: "";
+    display: block;
+    width: 3.25rem;
+    height: 0.25rem;
+    margin-top: 1rem;
+    background: var(--md-accent);
+    border-radius: 999px;
+  }
+
+  .md-relations,
+  .md-related-plans {
+    row-gap: 0.5rem;
+  }
+
+  .md-badge {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .md-badge-career {
+    background-color: var(--md-accent-dark);
+    color: #fff;
+  }
+
+  .md-badge-current {
+    background-color: var(--md-surface);
+    border-color: var(--md-accent);
+    color: var(--md-accent-dark);
+  }
+
+  .md-badge-previous {
+    background-color: #f1f3f5;
+    color: #495057;
+  }
+
+  .md-badge-next {
+    background-color: var(--md-surface);
+    color: var(--md-accent-dark);
+  }
+
+  .md-badge-link {
+    background-color: #fff;
+    border-color: #ced4da;
+    color: var(--md-accent-dark) !important;
+  }
+
+  .md-badge-link:hover {
+    background-color: var(--md-surface);
+    border-color: var(--md-accent);
+  }
+
+  .md-facts {
+    background-color: #f8fbfb;
+    border: 1px solid #dceeed !important;
+    border-radius: 0.75rem;
+  }
+
+  .md-fact-label {
+    margin-bottom: 0.2rem;
+    color: #5f6b70;
+    font-size: 0.78rem;
+  }
+
+  .md-fact-value {
+    color: #172b4d;
+    font-size: 0.95rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .md-program-link {
+    border: 1px solid var(--md-accent);
+    border-radius: 0.4rem;
+    background-color: var(--md-accent-dark);
+    color: #fff !important;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .md-program-link:hover {
+    border-color: #124f4b;
+    background-color: #124f4b;
+    color: #fff !important;
+  }
+
+  .md-content {
+    border: 1px solid #e3eceb !important;
+    border-radius: 0.75rem;
+    background-color: #fff;
+    color: #35434a;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .md-content > .card-body > :first-child {
+    margin-top: 0;
+  }
+
+  .md-content > .card-body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .md-content h2,
+  .md-content h3,
+  .md-content h4,
+  .md-content h5,
+  .md-content h6 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: #172b4d;
+    line-height: 1.3;
+  }
+
+  .md-content p {
+    margin-bottom: 1rem;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .md-content ul,
+  .md-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.4rem;
+  }
+
+  .md-content li {
+    margin-bottom: 0.35rem;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .md-content a {
+    color: var(--md-accent-dark);
+    text-decoration: underline !important;
+    text-underline-offset: 0.15em;
+  }
+
+  .md-content a:hover {
+    color: #124f4b;
+  }
+
+  .md-content img,
+  .md-content video,
+  .md-content iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .md-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .md-content blockquote {
+    margin: 1.25rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--md-accent);
+    background-color: #f8fbfb;
+  }
+
+  @media (max-width: 575.98px) {
+    .size {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .min-height {
+      padding-top: 0.5rem;
+    }
+
+    .md-hero {
+      padding: 0.75rem 0 1rem;
+    }
+
+    .md-title {
+      font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .md-program-link {
+      width: auto;
+    }
+
+    .md-content {
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .size {
+      max-width: 100%;
+    }
+
+    .md-hero {
+      padding-top: 1rem;
+    }
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--md-accent-dark);
+    outline-offset: 3px;
+  }
+
+  .md-badge-link:focus-visible,
+  .md-program-link:focus-visible {
+    box-shadow: 0 0 0 0.2rem rgba(26, 107, 102, 0.25);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    [data-aos] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
