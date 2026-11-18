@@ -178,233 +178,63 @@ layout: default
 </section>
 
 
-<!-- Header búsqueda + filtros -->
-<div style="
-    background: #fff;
-    padding: 28px 0 20px;
-    width: 100%;
-    border-bottom: 1px solid #eee;
-  ">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
-    <!-- Barra de búsqueda -->
-    <div style="position: relative; max-width: 680px; margin-bottom: 20px">
-      <div style="
-          position: absolute;
-          left: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #4db6ad;
-          display: flex;
-          align-items: center;
-        ">
-        <span class="feather-icon icon-search"></span>
-      </div>
-      <input
-        class="input-search"
-        type="text"
-        placeholder="Buscar materia..."
-        id="search-input"
-        style="
-          width: 100%;
-          height: 48px;
-          border: 1.5px solid #d0eeec;
-          border-radius: 10px;
-          padding: 0 16px 0 46px;
-          font-size: 0.95rem;
-          background: #fff;
-          outline: none;
-          color: #333;
-          transition:
-            border-color 0.2s,
-            box-shadow 0.2s;
-        "
-        onfocus="
-          this.style.borderColor = '#4db6ad';
-          this.style.boxShadow = '0 0 0 3px rgba(77,182,173,0.12)';
-        "
-        onblur="
-          this.style.borderColor = '#d0eeec';
-          this.style.boxShadow = 'none';
-        " />
-      <div style="
-          position: absolute;
-          width: 100%;
-          background: #fff;
-          z-index: 99;
-          left: 0;
-          border-radius: 0 0 10px 10px;
-          top: 48px;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-          border: 1px solid #e8f5f4;
-          border-top: none;
-        ">
-        <ul id="results-container" style="list-style: none; padding: 0; margin: 0"></ul>
-      </div>
-    </div>
-
-    <!-- Botón Filtros + chips activos -->
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-      <button
-        id="btn-toggle-filtros"
-        onclick="toggleFiltros()"
-        style="
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          padding: 7px 16px;
-          border: 1.5px solid #4db6ad;
-          border-radius: 20px;
-          background: #fff;
-          color: #4db6ad;
-          cursor: pointer;
-          font-size: 0.85rem;
-          font-family: inherit;
-          font-weight: 600;
-          transition: background 0.15s;
-        ">
-        <span class="feather-icon icon-sliders" style="font-size: 0.9rem"></span>
-        Filtros
-        <span id="filtro-badge" style="
-            display: none;
-            background: #4db6ad;
-            color: #fff;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            line-height: 18px;
-            text-align: center;
-          ">
-          0</span>
-      </button>
-
-      <!-- Chips de filtros activos -->
-      <span
-        id="chip-plan"
-        style="
-          display: none;
-          background: #e8f5f4;
-          color: #2a7a74;
-          padding: 4px 10px;
-          border-radius: 20px;
-          font-size: 0.78rem;
-          font-weight: 500;
-          border: 1px solid #c2e2df;
-          cursor: pointer;
-        "
-        onclick="
-          filtrarMaterias('plan', 'todos');
-          actualizarChips();
-        ">
-</span>
-      <span
-        id="chip-carrera"
-        style="
-          display: none;
-          background: #e8f5f4;
-          color: #2a7a74;
-          padding: 4px 10px;
-          border-radius: 20px;
-          font-size: 0.78rem;
-          font-weight: 500;
-          border: 1px solid #c2e2df;
-          cursor: pointer;
-        "
-        onclick="
-          filtrarMaterias('carrera', 'todas');
-          actualizarChips();
-        ">
-</span>
-    </div>
-
-    <!-- Panel desplegable de filtros -->
-    <div id="panel-filtros" style="
-        display: none;
-        margin-top: 14px;
-        background: #f8fffe;
-        border: 1.5px solid #d0eeec;
-        border-radius: 12px;
-        padding: 16px 20px;
-      ">
-      <!-- Filtro Plan -->
-      <div style="margin-bottom: 14px">
-        <span style="
-            display: block;
-            color: #4db6ad;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 700;
-            margin-bottom: 8px;
-          ">
-          Plan</span>
-        <div style="display: flex; flex-wrap: wrap; gap: 7px">
-          <button
-            onclick="
-              filtrarMaterias('plan', 'todos');
-              actualizarChips();
-            "
-            class="filtro-btn"
-            id="btn-plan-todos"
-            style="background: #4db6ad; color: #fff">
-            Todos
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('plan', 'vigente');
-              actualizarChips();
-            "
-            class="filtro-btn"
-            id="btn-plan-vigente">
-            Plan vigente 2026
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('plan', 'anterior');
-              actualizarChips();
-            "
-            class="filtro-btn"
-            id="btn-plan-anterior">
-            Plan anterior
-          </button>
+<section class="ml-search-section py-4 border-bottom">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <div class="row g-2 align-items-center">
+      <div class="col-12 col-lg-5">
+        <div class="ml-search-field position-relative">
+          <span class="ml-search-icon position-absolute" aria-hidden="true">
+            <span class="feather-icon icon-search"></span>
+          </span>
+          <input
+            class="form-control ml-search-input"
+            type="text"
+            placeholder="Buscar materia..."
+            id="search-input" />
+          <ul id="results-container" class="ml-search-results list-unstyled mb-0"></ul>
         </div>
       </div>
 
-      <!-- Separador -->
-      <div style="height: 1px; background: #e0f0ee; margin-bottom: 14px"></div>
-
-      <!-- Filtro Carrera -->
-      <div>
-        <span style="
-            display: block;
-            color: #4db6ad;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 700;
-            margin-bottom: 8px;
-          ">
-          Carrera</span>
-        <div style="display: flex; flex-wrap: wrap; gap: 7px">
+      <div class="col-12 col-lg-7">
+        <div class="d-flex align-items-center gap-2 flex-wrap">
           <button
-            onclick="
-              filtrarMaterias('carrera', 'todas');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-todas"
-            style="background: #4db6ad; color: #fff">
-            Todas
+            id="btn-toggle-filtros"
+            type="button"
+            class="btn ml-filter-toggle d-inline-flex align-items-center gap-2"
+            onclick="toggleFiltros()">
+            <span class="feather-icon icon-sliders" aria-hidden="true"></span>
+            Filtros
+            <span id="filtro-badge" class="ml-filter-count badge rounded-pill" style="display: none">0</span>
           </button>
+
+          <span id="chip-plan" class="ml-active-chip badge rounded-pill" style="display: none" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();"></span>
+          <span id="chip-carrera" class="ml-active-chip badge rounded-pill" style="display: none" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-filtros" class="ml-filter-panel mt-3" style="display: none">
+      <div class="ml-filter-group mb-3">
+        <span class="ml-filter-label d-block mb-2">Plan</span>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-todos">Todos</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'vigente'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-vigente">Plan vigente 2026</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'anterior'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-anterior">Plan anterior</button>
+        </div>
+      </div>
+
+      <hr class="ml-filter-divider">
+
+      <div class="ml-filter-group">
+        <span class="ml-filter-label d-block mb-2">Carrera</span>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();" class="btn btn-sm filtro-carrera-btn" id="btn-carrera-todas">Todas</button>
           {% for carrera in site.carreras %}
             {% if carrera.cuatrimestres.size > 0 %}
               <button
-                onclick="
-              filtrarMaterias('carrera', '{{ carrera.slug }}');
-              actualizarChips();
-            "
-                class="filtro-carrera-btn"
+                type="button"
+                onclick="filtrarMaterias('carrera', '{{ carrera.slug }}'); actualizarChips();"
+                class="btn btn-sm filtro-carrera-btn"
                 id="btn-carrera-{{ carrera.slug }}"
                 data-carrera="{{ carrera.slug }}"
                 data-label="{{ carrera.nombre_corto | default: carrera.title | escape }}"
@@ -414,23 +244,11 @@ layout: default
             {% endif %}
           {% endfor %}
         </div>
-        <p id="aviso-carrera" style="
-            display: none;
-            margin-top: 10px;
-            padding: 8px 10px;
-            font-size: 0.78rem;
-            line-height: 1.4;
-            border-radius: 6px;
-            background: #fff7e6;
-            border: 1px solid #ffd54f;
-            color: #8a6d1a;
-          ">
-</p>
+        <p id="aviso-carrera" class="ml-career-notice mb-0"></p>
       </div>
     </div>
   </div>
-</div>
-
+</section>
 <!-- Lista de materias -->
 <div class="content-post">
   <div class="size margin">
