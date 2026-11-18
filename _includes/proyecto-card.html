@@ -1,0 +1,23 @@
+{% assign proj = include.proyecto %}
+<a class="pf-card-proyecto" href="{{ proj.url | relative_url }}"
+   data-nombre="{{ proj.nombre | escape }}"
+   data-categoria="{{ proj.categoria | default: '' | escape }}"
+   data-tipo="{{ proj.tipo | default: '' | escape }}"
+   data-estado="{{ proj.estado | default: '' | escape }}"
+   data-carrera="{{ proj.carrera | default: '' | escape }}">
+  {% if proj.imagen %}
+  <img class="pf-card-img" src="{{ proj.imagen | relative_url }}" alt="{{ proj.nombre }}">
+  {% endif %}
+  <div class="pf-card-body">
+    <div>
+      {% if proj.destacado %}<span class="pf-badge pf-badge-destacado">Destacado</span>{% endif %}
+      {% if proj.categoria %}<span class="pf-badge pf-badge-categoria">{{ proj.categoria }}</span>{% endif %}
+      {% if proj.tipo %}<span class="pf-badge pf-badge-tipo">{{ proj.tipo }}</span>{% endif %}
+      {% if proj.estado %}<span class="pf-badge pf-badge-estado">{{ proj.estado }}</span>{% endif %}
+    </div>
+    <h4 style="font-size:1rem; color:#333; margin:0 0 8px; font-weight:600;">{{ proj.nombre }}</h4>
+    {% if proj.descripcion %}
+    <p style="font-size:0.85rem; color:#777; margin:0; line-height:1.5;">{{ proj.descripcion }}</p>
+    {% endif %}
+  </div>
+</a>
