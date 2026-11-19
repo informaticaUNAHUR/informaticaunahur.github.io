@@ -26,6 +26,7 @@ markdown: kramdown
 
 sass:
   style: compressed
+  cache_location: /tmp/.sass-cache
 
 # ==========================
 # Theme
