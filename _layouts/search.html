@@ -66,6 +66,7 @@ layout: default
           <span class="ml-search-icon position-absolute" aria-hidden="true">
             <span class="feather-icon icon-search"></span>
           </span>
+          <label class="visually-hidden" for="search-input">Buscar materia</label>
           <input
             class="form-control ml-search-input"
             type="text"
@@ -80,14 +81,16 @@ layout: default
             id="btn-toggle-filtros"
             type="button"
             class="btn ml-filter-toggle d-inline-flex align-items-center gap-2"
+            aria-expanded="false"
+            aria-controls="panel-filtros"
             onclick="toggleFiltros()">
             <span class="feather-icon icon-sliders" aria-hidden="true"></span>
             Filtros
             <span id="filtro-badge" class="ml-filter-count badge rounded-pill" style="display: none">0</span>
           </button>
 
-          <span id="chip-plan" class="ml-active-chip badge rounded-pill" style="display: none" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();"></span>
-          <span id="chip-carrera" class="ml-active-chip badge rounded-pill" style="display: none" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();"></span>
+          <button id="chip-plan" type="button" class="ml-active-chip badge rounded-pill" style="display: none" aria-label="Quitar filtro de plan" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();"></button>
+          <button id="chip-carrera" type="button" class="ml-active-chip badge rounded-pill" style="display: none" aria-label="Quitar filtro de carrera" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();"></button>
           </div>
           </div>
           </div>
@@ -95,9 +98,9 @@ layout: default
       <div class="ml-filter-group mb-3">
         <span class="ml-filter-label d-block mb-2">Plan</span>
         <div class="d-flex flex-wrap gap-2">
-          <button type="button" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-todos">Todos</button>
-          <button type="button" onclick="filtrarMaterias('plan', 'vigente'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-vigente">Plan vigente 2026</button>
-          <button type="button" onclick="filtrarMaterias('plan', 'anterior'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-anterior">Plan anterior</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-todos" aria-pressed="true">Todos</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'vigente'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-vigente" aria-pressed="false">Plan vigente 2026</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'anterior'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-anterior" aria-pressed="false">Plan anterior</button>
           </div>
           </div>
       <hr class="ml-filter-divider">
@@ -105,7 +108,7 @@ layout: default
       <div class="ml-filter-group">
         <span class="ml-filter-label d-block mb-2">Carrera</span>
         <div class="d-flex flex-wrap gap-2">
-          <button type="button" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();" class="btn btn-sm filtro-carrera-btn" id="btn-carrera-todas">Todas</button>
+          <button type="button" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();" class="btn btn-sm filtro-carrera-btn" id="btn-carrera-todas" aria-pressed="true">Todas</button>
           {% for carrera in site.carreras %}
             {% if carrera.cuatrimestres.size > 0 %}
               <button
@@ -113,6 +116,7 @@ layout: default
                 onclick="filtrarMaterias('carrera', '{{ carrera.slug }}'); actualizarChips();"
                 class="btn btn-sm filtro-carrera-btn"
                 id="btn-carrera-{{ carrera.slug }}"
+                aria-pressed="false"
                 data-carrera="{{ carrera.slug }}"
                 data-label="{{ carrera.nombre_corto | default: carrera.title | escape }}"
                 data-estado="{% if carrera.vigente or carrera.estado == "vigente" %}vigente{% elsif carrera.proxima or carrera.estado == "proxima" %}proxima{% else %}anterior{% endif %}">
@@ -128,7 +132,7 @@ layout: default
 </section>
 <section class="ml-catalog py-4">
   <div class="container-fluid px-3 px-md-4 px-xl-5">
-    <p class="ml-counter" id="contador-materias"></p>
+    <p class="ml-counter" id="contador-materias" aria-live="polite" aria-atomic="true"></p>
 
     <div id="lista-materias" class="row g-3">
       {% if site.materias.size == 0 %}
@@ -182,7 +186,7 @@ layout: default
         {% endfor %}
       {% endif %}
     </div>
-    <p id="sin-resultados" class="ml-empty-state text-center py-5" style="display: none">
+    <p id="sin-resultados" class="ml-empty-state text-center py-5" style="display: none" role="status" aria-live="polite">
       No se encontraron materias con los filtros seleccionados.
     </p>
   </div>
@@ -196,14 +200,15 @@ layout: default
 <script>
   let filtroActual = { plan: "todos", carrera: "todas" };
 
-  let ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
-  let INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
+  let ACTIVO = { bg: "#1a6b66", color: "#fff", border: "1px solid #1a6b66" };
+  let INACTIVO = { bg: "#fff", color: "#1a6b66", border: "1px solid #4db6ad" };
 
   function setEstado(btn, activo) {
     var s = activo ? ACTIVO : INACTIVO;
     btn.style.background = s.bg;
     btn.style.color = s.color;
     btn.style.border = s.border;
+    btn.setAttribute("aria-pressed", activo ? "true" : "false");
   }
 
   function actualizarContador() {
@@ -266,6 +271,7 @@ layout: default
     let abierto = panel.style.display !== "none";
     panel.style.display = abierto ? "none" : "";
     btn.style.background = abierto ? "#fff" : "#e8f5f4";
+    btn.setAttribute("aria-expanded", abierto ? "false" : "true");
   }
 
   document.addEventListener("click", function (e) {
@@ -274,6 +280,7 @@ layout: default
     if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
       panel.style.display = "none";
       btn.style.background = "#fff";
+      btn.setAttribute("aria-expanded", "false");
     }
   });
 

@@ -93,6 +93,14 @@
     color: #243b43;
   }
 
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    outline: 3px solid var(--ml-accent-dark);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px #fff;
+  }
+
   .ml-search-input:focus {
     border-color: var(--ml-accent);
     box-shadow: 0 0 0 0.2rem rgba(77, 182, 173, 0.18);
@@ -175,6 +183,7 @@
     background-color: var(--ml-surface);
     color: var(--ml-accent-dark);
     cursor: pointer;
+    font-family: inherit;
     font-size: 0.78rem;
     font-weight: 500;
   }
@@ -399,6 +408,21 @@
     .badge-plan-vigente,
     .badge-plan-anterior {
       font-size: 0.66rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .materia-item:hover {
+      transform: none;
     }
   }
 
