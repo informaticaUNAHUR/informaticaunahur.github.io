@@ -41,7 +41,7 @@
   display: block;
   margin-bottom: 12px;
   color: var(--sc-accent);
-  font-size: 0.85rem;
+  font-size: 13.6px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -50,7 +50,7 @@
 .site-contacto__title {
   margin: 0;
   color: var(--sc-navy);
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(32px, 4vw, 44px);
   font-weight: 800;
   line-height: 1.2;
 }
@@ -75,7 +75,7 @@
   max-width: 700px;
   margin: 0 auto;
   color: #6b7280;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.75;
 }
@@ -99,20 +99,20 @@
   border-radius: 50%;
   background: var(--sc-accent-soft);
   color: #16a34a;
-  font-size: 1.4rem;
+  font-size: 22.4px;
 }
 
 .site-contacto__card-title {
   margin: 0 0 6px;
   color: var(--sc-navy);
-  font-size: 1.35rem;
+  font-size: 21.6px;
   font-weight: 700;
 }
 
 .site-contacto__card-subtitle {
   margin: 0 0 24px;
   color: #9ca3af;
-  font-size: 0.88rem;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -132,6 +132,11 @@
   gap: 12px;
   padding: 14px 0;
   border-bottom: 1px solid #f3f4f6;
+}
+
+.site-contacto__list-item > span:last-child,
+.site-contacto__person > span {
+  min-width: 0;
 }
 
 .site-contacto__list-item:first-child,
@@ -155,14 +160,14 @@
   border-radius: 50%;
   background: var(--sc-accent-soft);
   color: #16a34a;
-  font-size: 0.9rem;
+  font-size: 14.4px;
 }
 
 .site-contacto__item-label,
 .site-contacto__person-role {
   display: block;
   color: #374151;
-  font-size: 0.82rem;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -172,7 +177,7 @@
   display: block;
   margin-top: 2px;
   color: var(--sc-text);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   line-height: 1.45;
   overflow-wrap: break-word;
 }
@@ -246,14 +251,14 @@ a.site-contacto__item-value:focus {
 
 .site-contacto__card--discord .site-contacto__card-title {
   color: #fff;
-  font-size: 1.35rem;
+  font-size: 21.6px;
 }
 
 .site-contacto__discord-text {
   max-width: 320px;
   margin: 0 auto 28px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: 400;
   line-height: 1.6;
 }
@@ -269,7 +274,7 @@ a.site-contacto__item-value:focus {
   border-radius: 50px;
   background: #fff;
   color: #5865f2;
-  font-size: 0.92rem;
+  font-size: 14.7px;
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
@@ -313,7 +318,7 @@ a.site-contacto__item-value:focus {
 .site-contacto__docs-title {
   margin: 0;
   color: var(--sc-navy);
-  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-size: clamp(24px, 3vw, 30px);
   font-weight: 800;
   line-height: 1.2;
 }
@@ -321,7 +326,7 @@ a.site-contacto__item-value:focus {
 .site-contacto__docs-subtitle {
   margin-top: 8px;
   color: #6b7280;
-  font-size: 0.92rem;
+  font-size: 14.7px;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -341,7 +346,7 @@ a.site-contacto__item-value:focus {
 
 .site-contacto__acc-heading {
   margin: 0;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .site-contacto__acc-btn {
@@ -377,14 +382,14 @@ a.site-contacto__item-value:focus {
   border-radius: 50%;
   background: var(--sc-accent-soft);
   color: #15803d;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .site-contacto__acc-titulo {
   flex: 1 1 auto;
   min-width: 0;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.4;
   overflow-wrap: break-word;
 }
@@ -399,7 +404,7 @@ a.site-contacto__item-value:focus {
   border-radius: 50%;
   background: #f3f4f6;
   color: #6b7280;
-  font-size: 0.75rem;
+  font-size: 12px;
   transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -417,7 +422,7 @@ a.site-contacto__item-value:focus {
   margin: 0 0 14px;
   padding-top: 10px;
   color: #6b7280;
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: 400;
   line-height: 1.6;
 }
@@ -490,7 +495,7 @@ a.site-contacto__item-value:focus {
 
 @media (max-width: 575.98px) {
   .site-contacto__title {
-    font-size: 1.9rem;
+    font-size: 30px;
   }
 
   .site-contacto__card {
