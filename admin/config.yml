@@ -1127,3 +1127,123 @@ collections:
               widget: "string",
               required: false,
             }
+
+  - name: "categorias_proyectos"
+    label: "Categorías de Proyectos"
+    label_singular: "Categoría de Proyecto"
+    folder: "_data/campos-proyectos"
+    create: true
+    delete: true
+    extension: "yml"
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    filter: { field: "tipo", value: "categoria" }
+    fields:
+      - { label: "tipo", name: "tipo", widget: hidden, default: "categoria" }
+      - { label: "Nombre", name: "nombre", widget: "string" }
+
+  - name: "tipos_proyecto"
+    label: "Tipos de Proyecto"
+    label_singular: "Tipo de Proyecto"
+    folder: "_data/campos-proyectos"
+    create: true
+    delete: true
+    extension: "yml"
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    filter: { field: "tipo", value: "tipo" }
+    fields:
+      - { label: "tipo", name: "tipo", widget: hidden, default: "tipo" }
+      - { label: "Nombre", name: "nombre", widget: "string" }
+
+  - name: "estados_proyecto"
+    label: "Estados de Proyecto"
+    label_singular: "Estado de Proyecto"
+    folder: "_data/campos-proyectos"
+    create: true
+    delete: true
+    extension: "yml"
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    filter: { field: "tipo", value: "estado" }
+    fields:
+      - { label: "tipo", name: "tipo", widget: hidden, default: "estado" }
+      - { label: "Nombre", name: "nombre", widget: "string" }
+
+  - name: "proyectos"
+    label: "Proyectos"
+    label_singular: "Proyecto"
+    folder: "_proyectos"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "nombre"
+    fields:
+      - { label: "Fecha", name: "fecha", widget: "datetime", date_format: "YYYY-MM-DD", default: "{{now}}" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "proyecto" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Destacado", name: "destacado", widget: "boolean", default: false }
+      - {
+          label: "Categoría",
+          name: "categoria",
+          widget: "relation",
+          collection: "categorias_proyectos",
+          search_fields: ["nombre"],
+          value_field: "nombre",
+          display_fields: ["nombre"],
+        }
+      - {
+          label: "Tipo",
+          name: "tipo",
+          widget: "relation",
+          collection: "tipos_proyecto",
+          search_fields: ["nombre"],
+          value_field: "nombre",
+          display_fields: ["nombre"],
+        }
+      - {
+          label: "Estado",
+          name: "estado",
+          widget: "relation",
+          collection: "estados_proyecto",
+          search_fields: ["nombre"],
+          value_field: "nombre",
+          display_fields: ["nombre"],
+        }
+      - {
+          label: "Carrera",
+          name: "carrera",
+          widget: "relation",
+          collection: "carreras",
+          search_fields: ["title", "nombre_corto"],
+          value_field: "nombre_corto",
+          display_fields: ["nombre_corto"],
+        }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image" }
+      - { label: "URL del proyecto", name: "enlace", widget: "string" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
+
+  - name: "banner-proyectos"
+    label: "Banner de Proyectos"
+    folder: "_bannersProyectos"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "titulo"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string", }
+      - { label: "Activo", name: "activo", widget: "boolean", default: true, required: false }
+      - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
+      - { label: "URL del botón", name: "boton_url", widget: "string" }
+      - { label: "Texto del botón", name: "boton_texto", widget: "string" }
+      - { label: "Orden", name: "orden", widget: "number", value_type: "int" }
+      - { label: "Botón externo", name: "boton_externo", widget: "boolean", default: false, required: false }
+      

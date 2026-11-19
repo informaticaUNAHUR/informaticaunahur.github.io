@@ -1,0 +1,27 @@
+services:
+    jekyll:
+        build:
+            context: .
+            dockerfile: dockerfile
+        ports:
+        - "4000:4000"
+        - "35729:35729"
+        volumes:
+        - .:/app
+        - jekyll_site:/app/_site
+    decap-cms:
+        user: "1000:1000"
+        depends_on:
+        - jekyll
+        image: node:20
+        ports:
+        - "127.0.0.1:8081:8081"
+        working_dir: /app
+        volumes:
+        - .:/app
+        environment:
+            BIND_HOST: 0.0.0.0
+        command: npx decap-server
+volumes:
+    jekyll_site:
+    

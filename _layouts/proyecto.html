@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+{% include proyectos-styles.html %}
+
+<div class="proyectos-wrap">
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb mb-0" style="font-size:0.85rem;">
+      <li class="breadcrumb-item"><a href="{{ '/proyectos/' | relative_url }}">Proyectos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{ page.nombre }}</li>
+    </ol>
+  </nav>
+
+  <article class="card border-0 shadow-sm mx-auto" style="max-width:860px;">
+    {% if page.imagen %}
+    <img src="{{ page.imagen | relative_url }}" alt="{{ page.nombre }}" class="card-img-top">
+    {% endif %}
+    <div class="card-body p-4">
+      <div class="mb-3">
+        {% if page.destacado %}<span class="pf-badge pf-badge-destacado">Destacado</span>{% endif %}
+        {% if page.categoria %}<span class="pf-badge pf-badge-categoria">{{ page.categoria }}</span>{% endif %}
+        {% if page.tipo %}<span class="pf-badge pf-badge-tipo">{{ page.tipo }}</span>{% endif %}
+        {% if page.estado %}<span class="pf-badge pf-badge-estado">{{ page.estado }}</span>{% endif %}
+      </div>
+
+      <h1 class="mb-3" style="font-size:1.9rem; color:#2a2a2a; font-weight:700;">{{ page.nombre }}</h1>
+
+      {% if page.descripcion %}
+      <p class="mb-4" style="font-size:1rem; color:#555; line-height:1.6;">{{ page.descripcion }}</p>
+      {% endif %}
+
+      <div style="font-size:0.95rem; color:#444; line-height:1.7;">
+        {{ content }}
+      </div>
+
+      {% if page.enlace %}
+      <div class="mt-4">
+        <a href="{{ page.enlace }}" target="_blank" rel="noopener noreferrer" class="btn btn-tema">Ver proyecto</a>
+      </div>
+      {% endif %}
+
+      <div class="mt-4 pt-4 border-top">
+        <a href="{{ '/proyectos/#portfolio' | relative_url }}" class="fw-semibold text-decoration-none" style="color:#4db6ad;">← Volver a Proyectos</a>
+      </div>
+    </div>
+  </article>
+</div>

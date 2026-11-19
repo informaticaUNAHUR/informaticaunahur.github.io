@@ -21,6 +21,9 @@
 
   <!-- Navbar scripts -->
   <script src="{{ '/vendor/jquery/jquery.min.js' | relative_url }}"></script>
+  {% if page.carousel %}
+  <script src="{{ '/assets/js/owl-carousel.js' | relative_url }}"></script>
+  {% endif %}
   <script src="{{ '/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/animation.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>

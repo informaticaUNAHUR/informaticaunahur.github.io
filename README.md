@@ -185,6 +185,22 @@ El flag `--watch` regenera el sitio cuando se modifica un archivo.
 
 > **Nota:** Si es la primera vez que ejecutás Jekyll, necesitás instalar la gema `bundler` con `gem install bundler` y luego ejecutar `bundle config set --local path 'vendor/bundle'` y `bundle install` desde la raíz del proyecto.
 
+### Alternativa — Docker
+
+Si preferís no instalar Ruby y Bundler localmente, podés construir y ejecutar el sitio con Docker:
+
+```bash
+docker build -f dockerfile -t informaticaunahur .
+docker run --rm -it \
+  -p 4000:4000 \
+  -p 35729:35729 \
+  -v "$PWD":/app \
+  informaticaunahur
+```
+
+Luego abrí [http://localhost:4000](http://localhost:4000). El volumen permite que los cambios
+locales se reflejen en el servidor mediante `--watch` y `--livereload`.
+
 ### Pasos — Decap CMS (edición de contenidos en local)
 
 El modo local permite editar contenidos en tu entorno de desarrollo sin necesidad de autenticación contra GitHub.

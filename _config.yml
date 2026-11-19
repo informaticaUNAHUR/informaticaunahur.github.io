@@ -58,6 +58,13 @@ collections:
     output: true
     permalink: /materias/:name/
 
+  proyectos:
+    output: true
+    permalink: /proyectos/:name/
+
+  bannersProyectos:
+    output: false
+
 # ==========================
 # Excluir sitio viejo del build principal
 # ==========================
@@ -84,3 +91,8 @@ defaults:
       type: "materias"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "proyectos"
+    values:
+      layout: "proyecto"
