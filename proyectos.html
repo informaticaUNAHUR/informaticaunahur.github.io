@@ -160,6 +160,16 @@ carousel: true
     </div>
   </div>
 
+  <div class="row g-2 mb-4">
+    <div class="col-6 col-md-3 col-xl-2">
+      Ordenar por
+      <select id="pf-orden" class="form-select" aria-label="Ordenar por">
+        <option value="nombre">Nombre</option>
+        <option value="fecha">Fecha</option>
+      </select>
+    </div>
+  </div>
+
 
   {% assign proyectos_destacados = proyectos | where: "destacado", true %}
   {% assign proyectos_comunes = proyectos | where_exp: "p", "p.destacado != true" %}
@@ -221,6 +231,7 @@ carousel: true
     const cards = Array.prototype.slice.call(document.querySelectorAll('.pf-card-proyecto'));
     const secciones = Array.prototype.slice.call(document.querySelectorAll('.pf-seccion'));
     const sinResultados = document.getElementById('pf-sin-resultados');
+    const orden = document.getElementById('pf-orden');
 
     function normalizar(texto) {
       return (texto || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -235,13 +246,30 @@ carousel: true
         filtros[select.id.replace('pf-filtro-', '')] = select.value;
       });
 
-      let visibles = 0;
-      const cantidadPorSeccion = new Map();
+      cards.sort((a, b) => {
+        if (orden.value == 'nombre') {
+          return normalizar(a.dataset.nombre).localeCompare(normalizar(b.dataset.nombre), 'es');
+        }
+          return new Date(a.dataset.fecha) - new Date(b.dataset.fecha);
+      });
+
+      cards.forEach((card) => {
+        const track = card.closest('.pf-track');
+        if (track) track.appendChild(card);
+      });
+
       cards.forEach((card) => {
         const coincide = (!nombre || normalizar(card.dataset.nombre).indexOf(nombre) !== -1) &&
           Object.keys(filtros).every((campo) => {
             return !filtros[campo] || card.dataset[campo] === filtros[campo];
           });
+        card.dataset.coincide = coincide ? 'true' : 'false';
+      });
+
+      let visibles = 0;
+      const cantidadPorSeccion = new Map();
+      cards.forEach((card) => {
+        const coincide = card.dataset.coincide === 'true';
         const seccion = card.closest('.pf-seccion');
         const expandida = !!(seccion && seccion.classList.contains('pf-expandida'));
         const cartasMostradas = seccion ? (cantidadPorSeccion.get(seccion) || 0) : 0;
@@ -261,6 +289,11 @@ carousel: true
       });
 
       if (sinResultados) sinResultados.hidden = visibles > 0;
+
+
+      document.querySelectorAll('.pf-track').forEach((track) => {
+        track.scrollLeft = 0;
+      });
     }
 
     secciones.forEach((seccion) => {
@@ -278,6 +311,12 @@ carousel: true
     inputNombre.addEventListener('input', aplicar);
     selects.forEach(function(select) {
       select.addEventListener('change', aplicar);
+    });
+    orden.addEventListener('change', () => {
+      aplicar();
+      const destino = secciones.find((s) => !s.hidden) || document.getElementById('portfolio');
+      const y = destino.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     });
 
     aplicar();

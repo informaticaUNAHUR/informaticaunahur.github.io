@@ -4,7 +4,9 @@
    data-categoria="{{ proj.categoria | default: '' | escape }}"
    data-tipo="{{ proj.tipo | default: '' | escape }}"
    data-estado="{{ proj.estado | default: '' | escape }}"
-   data-carrera="{{ proj.carrera | default: '' | escape }}">
+   data-carrera="{{ proj.carrera | default: '' | escape }}"
+   data-fecha="{{ proj.fecha | default: '' | escape }}">
+
   {% if proj.imagen %}
   <img class="pf-card-img" src="{{ proj.imagen | relative_url }}" alt="{{ proj.nombre }}">
   {% endif %}

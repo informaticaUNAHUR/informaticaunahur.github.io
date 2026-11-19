@@ -1181,6 +1181,7 @@ collections:
     slug: "{{slug}}"
     identifier_field: "nombre"
     fields:
+      - { label: "Fecha", name: "fecha", widget: "datetime", date_format: "YYYY-MM-DD", default: "{{now}}" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "proyecto" }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Nombre", name: "nombre", widget: "string" }
