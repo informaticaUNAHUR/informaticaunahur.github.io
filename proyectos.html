@@ -8,25 +8,50 @@ carousel: true
 {% include proyectos-styles.html %}
 
 <style>
-  .main-banner { padding-top: 126px; }
+  .main-banner {
+    padding-top: 126px;
+  }
   @media (max-width: 767px) {
-    .main-banner { padding-top: 156px; }
+    .main-banner {
+      padding-top: 156px;
+    }
   }
 
-  .main-banner { overflow-x: hidden; }
-  .main-banner:after { display: none !important; }
-  .main-banner .left-content { padding-left: 10px; }
+  .main-banner {
+    overflow-x: hidden;
+  }
+  .main-banner:after {
+    display: none !important;
+  }
+  .main-banner .left-content {
+    padding-left: 10px;
+  }
   @media (max-width: 1200px) {
-    .main-banner .left-content h2 { font-size: 36px; }
+    .main-banner .left-content h2 {
+      font-size: 36px;
+    }
   }
   @media (max-width: 991px) {
-    .main-banner .left-content { padding-left: 15px; padding-right: 15px; }
-    .main-banner .left-content h2 { font-size: 28px; }
-    .main-banner .right-image img { max-width: 100%; }
+    .main-banner .left-content {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .main-banner .left-content h2 {
+      font-size: 28px;
+    }
+    .main-banner .right-image img {
+      max-width: 100%;
+    }
   }
 </style>
-{% assign banners_activos = site.bannersProyectos | where: "activo", true | sort: "orden"  %}
-<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+{% assign banners_activos = site.bannersProyectos | where: "activo", true |
+sort: "orden" %}
+<div
+  class="main-banner wow fadeIn"
+  id="top"
+  data-wow-duration="1s"
+  data-wow-delay="0.5s"
+>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -36,35 +61,57 @@ carousel: true
           <div class="item">
             <div class="row align-items-center">
               <div class="col-lg-6 align-self-center">
-                <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div
+                  class="left-content show-up header-text wow fadeInLeft"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.5s"
+                >
                   <div class="row">
                     <div class="col-lg-12">
-                      <h6>{{ banner.subtitulo | default: "UNAHUR Informática" }}</h6>
+                      <h6>
+                        {{ banner.subtitulo | default: "UNAHUR Informática" }}
+                      </h6>
                       <h2>{{ banner.titulo }}</h2>
                       <p>{{ banner.descripcion }}</p>
                     </div>
-                    {% if banner.boton_texto %}
-                    {% assign btn_url = banner.boton_url | default: '#portfolio' %}
+                    {% if banner.boton_texto %} {% assign btn_url =
+                    banner.boton_url | default: '#portfolio' %}
                     <div class="col-lg-12">
                       <div class="border-first-button scroll-to-section">
                         {% if banner.boton_externo %}
-                        <a href="{{ btn_url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ banner.boton_texto }}</a>
+                        <a
+                          href="{{ btn_url | relative_url }}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >{{ banner.boton_texto }}</a
+                        >
                         {% else %}
-                        <a href="{{ btn_url | relative_url }}">{{ banner.boton_texto }}</a>
+                        <a href="{{ btn_url | relative_url }}"
+                          >{{ banner.boton_texto }}</a
+                        >
                         {% endif %}
                       </div>
                     </div>
-                    {% assign nov_banner = nil %}
-                    {% endif %}
+                    {% assign nov_banner = nil %} {% endif %}
                   </div>
                 </div>
               </div>
               <div class="col-lg-6">
-                <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div
+                  class="right-image wow fadeInRight"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.5s"
+                >
                   {% if banner.imagen %}
-                  <img src="{{ banner.imagen | relative_url }}" alt="{{ banner.titulo }}">
+                  <img
+                    src="{{ banner.imagen | relative_url }}"
+                    alt="{{ banner.titulo }}"
+                  />
                   {% else %}
-                  <img src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}" alt="{{ banner.titulo }}">
+                  <img
+                    src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}"
+                    alt="{{ banner.titulo }}"
+                  />
                   {% endif %}
                 </div>
               </div>
@@ -75,12 +122,19 @@ carousel: true
         {% else %}
         <div class="row">
           <div class="col-lg-6 align-self-center">
-            <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+            <div
+              class="left-content show-up header-text wow fadeInLeft"
+              data-wow-duration="1s"
+              data-wow-delay="1s"
+            >
               <div class="row">
                 <div class="col-lg-12">
                   <h6>UNAHUR Informática</h6>
                   <h2>Carreras de Informática</h2>
-                  <p>Información sobre planes de estudio, materias, horarios y más.</p>
+                  <p>
+                    Información sobre planes de estudio, materias, horarios y
+                    más.
+                  </p>
                 </div>
                 <div class="col-lg-12">
                   <div class="border-first-button scroll-to-section">
@@ -91,8 +145,15 @@ carousel: true
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-              <img src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}" alt="UNAHUR Informática">
+            <div
+              class="right-image wow fadeInRight"
+              data-wow-duration="1s"
+              data-wow-delay="0.5s"
+            >
+              <img
+                src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}"
+                alt="UNAHUR Informática"
+              />
             </div>
           </div>
         </div>
@@ -101,46 +162,89 @@ carousel: true
     </div>
   </div>
 </div>
-
-
-
+?
 
 <div id="portfolio" class="proyectos-wrap">
-  <div style="text-align:left; margin-bottom:40px;">
-    <h6 style="font-size:0.85rem; font-weight:600; color:#4db6ad; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">UNAHUR Informática</h6>
-    <h4 style="font-size:2rem; color:#2a2a2a; font-weight:700; margin:0 0 12px;"><em style="color:#4db6ad; font-style:normal;">Proyectos</em> de Informática</h4>
-    <div style="width:60px; height:3px; background:#4db6ad;"></div>
+  <div style="text-align: left; margin-bottom: 40px">
+    <h6
+      style="
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #4db6ad;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      "
+    >
+      UNAHUR Informática
+    </h6>
+    <h4
+      style="
+        font-size: 2rem;
+        color: #2a2a2a;
+        font-weight: 700;
+        margin: 0 0 12px;
+      "
+    >
+      <em style="color: #4db6ad; font-style: normal">Proyectos</em> de
+      Informática
+    </h4>
+    <div style="width: 60px; height: 3px; background: #4db6ad"></div>
   </div>
 
-  {% assign proyectos = site.proyectos | sort: "nombre" %}
-  {% if proyectos.size > 0 %}
+  {% assign proyectos = site.proyectos | sort: "nombre" %} {% if proyectos.size
+  > 0 %}
   <div class="row g-2 mb-4" id="pf-filtros">
     <div class="col-12 col-md-6 col-xl-4">
-      <input type="search" id="pf-filtro-nombre" class="form-control" placeholder="Buscar por nombre de proyecto..." aria-label="Buscar por nombre de proyecto">
+      <label class="pf-label" for="pf-filtro-nombre">Buscar por nombre</label>
+      <input
+        type="search"
+        id="pf-filtro-nombre"
+        class="form-control"
+        placeholder="Buscar por nombre de proyecto..."
+        aria-label="Buscar por nombre de proyecto"
+      />
     </div>
 
     <div class="col-6 col-md-3 col-xl-2">
-      <select id="pf-filtro-categoria" class="form-select" aria-label="Filtrar por categoría">
+      <label class="pf-label" for="pf-filtro-categoria"
+        >Filtrar por categoria</label
+      >
+      <select
+        id="pf-filtro-categoria"
+        class="form-select"
+        aria-label="Filtrar por categoría"
+      >
         <option value="">Todas las categorías</option>
-        {% assign categorias = proyectos | map: "categoria" | compact | uniq | sort %}
-        {% for valor in categorias %}
+        {% assign categorias = proyectos | map: "categoria" | compact | uniq |
+        sort %} {% for valor in categorias %}
         <option value="{{ valor | escape }}">{{ valor }}</option>
         {% endfor %}
       </select>
     </div>
 
     <div class="col-6 col-md-3 col-xl-2">
-      <select id="pf-filtro-tipo" class="form-select" aria-label="Filtrar por tipo">
+      <label class="pf-label" for="pf-filtro-tipo">Filtrar por tipo</label>
+      <select
+        id="pf-filtro-tipo"
+        class="form-select"
+        aria-label="Filtrar por tipo"
+      >
         <option value="">Todos los tipos</option>
-        {% assign tipos = proyectos | map: "tipo" | compact | uniq | sort %}
-        {% for valor in tipos %}
+        {% assign tipos = proyectos | map: "tipo" | compact | uniq | sort %} {%
+        for valor in tipos %}
         <option value="{{ valor | escape }}">{{ valor }}</option>
         {% endfor %}
       </select>
     </div>
 
     <div class="col-6 col-md-3 col-xl-2">
-      <select id="pf-filtro-estado" class="form-select" aria-label="Filtrar por estado">
+      <label class="pf-label" for="pf-filtro-estado">Filtrar por estado</label>
+      <select
+        id="pf-filtro-estado"
+        class="form-select"
+        aria-label="Filtrar por estado"
+      >
         <option value="">Todos los estados</option>
         {% assign estados = proyectos | map: "estado" | compact | uniq | sort %}
         {% for valor in estados %}
@@ -150,10 +254,17 @@ carousel: true
     </div>
 
     <div class="col-6 col-md-3 col-xl-2">
-      <select id="pf-filtro-carrera" class="form-select" aria-label="Filtrar por carrera">
+      <label class="pf-label" for="pf-filtro-carrera"
+        >Filtrar por carrera</label
+      >
+      <select
+        id="pf-filtro-carrera"
+        class="form-select"
+        aria-label="Filtrar por carrera"
+      >
         <option value="">Todas las carreras</option>
-        {% assign carreras = proyectos | map: "carrera" | compact | uniq | sort %}
-        {% for valor in carreras %}
+        {% assign carreras = proyectos | map: "carrera" | compact | uniq | sort
+        %} {% for valor in carreras %}
         <option value="{{ valor | escape }}">{{ valor }}</option>
         {% endfor %}
       </select>
@@ -162,52 +273,67 @@ carousel: true
 
   <div class="row g-2 mb-4">
     <div class="col-6 col-md-3 col-xl-2">
-      Ordenar por
+      <label class="pf-label" for="pf-orden">Ordenar por</label>
       <select id="pf-orden" class="form-select" aria-label="Ordenar por">
         <option value="nombre">Nombre</option>
         <option value="fecha">Fecha</option>
       </select>
     </div>
+    <div class="col-6 col-md-4 col-xl-3 d-flex align-items-end ms-3">
+      <button type="button" id="pf-reset" class="pf-reset">
+        <i class="fa fa-undo" aria-hidden="true"></i> Reiniciar filtros
+      </button>
+    </div>
   </div>
 
-
-  {% assign proyectos_destacados = proyectos | where: "destacado", true %}
-  {% assign proyectos_comunes = proyectos | where_exp: "p", "p.destacado != true" %}
-
-  {% if proyectos_destacados.size > 0 %}
+  {% assign proyectos_destacados = proyectos | where: "destacado", true %} {%
+  assign proyectos_comunes = proyectos | where_exp: "p", "p.destacado != true"
+  %} {% if proyectos_destacados.size > 0 %}
   <section class="pf-seccion" id="pf-destacados">
     <h5 class="pf-seccion-titulo">Proyectos destacados</h5>
     <div class="pf-track">
-      {% for proyectoActual in proyectos_destacados %}
-      {% include proyecto-card.html proyecto=proyectoActual %}
-      {% endfor %}
+      {% for proyectoActual in proyectos_destacados %} {% include
+      proyecto-card.html proyecto=proyectoActual %} {% endfor %}
     </div>
-    <button type="button" class="pf-ver-todos" data-toggle aria-expanded="false">Ver todos los proyectos destacados</button>
+    <button
+      type="button"
+      class="pf-ver-todos"
+      data-toggle
+      aria-expanded="false"
+    >
+      Ver todos los proyectos destacados
+    </button>
   </section>
-  {% endif %}
-
-  {% if proyectos_comunes.size > 0 %}
+  {% endif %} {% if proyectos_comunes.size > 0 %}
   <section class="pf-seccion" id="pf-comunes">
     <h5 class="pf-seccion-titulo">Proyectos</h5>
     <div class="pf-track">
-      {% for proyectoActual in proyectos_comunes %}
-      {% include proyecto-card.html proyecto=proyectoActual %}
-      {% endfor %}
+      {% for proyectoActual in proyectos_comunes %} {% include
+      proyecto-card.html proyecto=proyectoActual %} {% endfor %}
     </div>
-    <button type="button" class="pf-ver-todos" data-toggle aria-expanded="false">Ver todos los proyectos</button>
+    <button
+      type="button"
+      class="pf-ver-todos"
+      data-toggle
+      aria-expanded="false"
+    >
+      Ver todos los proyectos
+    </button>
   </section>
   {% endif %}
 
-  <p id="pf-sin-resultados" class="text-muted mt-4" hidden>No hay proyectos que coincidan con los filtros seleccionados.</p>
+  <p id="pf-sin-resultados" class="text-muted mt-4" hidden>
+    No hay proyectos que coincidan con los filtros seleccionados.
+  </p>
   {% else %}
-  <p style="color:#777;">No hay proyectos publicados por el momento.</p>
+  <p style="color: #777">No hay proyectos publicados por el momento.</p>
   {% endif %}
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof jQuery !== 'undefined' && jQuery.fn.owlCarousel) {
-      let $bannerCarousel = jQuery('.owl-banner-novedades');
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof jQuery !== "undefined" && jQuery.fn.owlCarousel) {
+      let $bannerCarousel = jQuery(".owl-banner-novedades");
       if ($bannerCarousel.length) {
         $bannerCarousel.owlCarousel({
           items: 1,
@@ -217,24 +343,33 @@ carousel: true
           autoplayHoverPause: true,
           nav: true,
           dots: true,
-          navText: ['&#8249;', '&#8250;'],
-          animateOut: 'fadeOut'
+          navText: ["&#8249;", "&#8250;"],
+          animateOut: "fadeOut",
         });
       }
     }
 
-    let barra = document.getElementById('pf-filtros');
+    let barra = document.getElementById("pf-filtros");
     if (!barra) return;
 
-    const inputNombre = document.getElementById('pf-filtro-nombre');
-    const selects = Array.prototype.slice.call(barra.querySelectorAll('select'));
-    const cards = Array.prototype.slice.call(document.querySelectorAll('.pf-card-proyecto'));
-    const secciones = Array.prototype.slice.call(document.querySelectorAll('.pf-seccion'));
-    const sinResultados = document.getElementById('pf-sin-resultados');
-    const orden = document.getElementById('pf-orden');
+    const inputNombre = document.getElementById("pf-filtro-nombre");
+    const selects = Array.prototype.slice.call(
+      barra.querySelectorAll("select"),
+    );
+    const cards = Array.prototype.slice.call(
+      document.querySelectorAll(".pf-card-proyecto"),
+    );
+    const secciones = Array.prototype.slice.call(
+      document.querySelectorAll(".pf-seccion"),
+    );
+    const sinResultados = document.getElementById("pf-sin-resultados");
+    const orden = document.getElementById("pf-orden");
 
     function normalizar(texto) {
-      return (texto || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return (texto || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
     }
 
     const LIMITE_COLAPSADA = 5;
@@ -243,38 +378,47 @@ carousel: true
       const nombre = normalizar(inputNombre.value.trim());
       const filtros = {};
       selects.forEach((select) => {
-        filtros[select.id.replace('pf-filtro-', '')] = select.value;
+        filtros[select.id.replace("pf-filtro-", "")] = select.value;
       });
 
       cards.sort((a, b) => {
-        if (orden.value == 'nombre') {
-          return normalizar(a.dataset.nombre).localeCompare(normalizar(b.dataset.nombre), 'es');
+        if (orden.value == "nombre") {
+          return normalizar(a.dataset.nombre).localeCompare(
+            normalizar(b.dataset.nombre),
+            "es",
+          );
         }
-          return new Date(a.dataset.fecha) - new Date(b.dataset.fecha);
+        return new Date(a.dataset.fecha) - new Date(b.dataset.fecha);
       });
 
       cards.forEach((card) => {
-        const track = card.closest('.pf-track');
+        const track = card.closest(".pf-track");
         if (track) track.appendChild(card);
       });
 
       cards.forEach((card) => {
-        const coincide = (!nombre || normalizar(card.dataset.nombre).indexOf(nombre) !== -1) &&
+        const coincide =
+          (!nombre || normalizar(card.dataset.nombre).indexOf(nombre) !== -1) &&
           Object.keys(filtros).every((campo) => {
             return !filtros[campo] || card.dataset[campo] === filtros[campo];
           });
-        card.dataset.coincide = coincide ? 'true' : 'false';
+        card.dataset.coincide = coincide ? "true" : "false";
       });
 
       let visibles = 0;
       const cantidadPorSeccion = new Map();
       cards.forEach((card) => {
-        const coincide = card.dataset.coincide === 'true';
-        const seccion = card.closest('.pf-seccion');
-        const expandida = !!(seccion && seccion.classList.contains('pf-expandida'));
-        const cartasMostradas = seccion ? (cantidadPorSeccion.get(seccion) || 0) : 0;
-        const esMostrada = coincide && (expandida || cartasMostradas < LIMITE_COLAPSADA);
-        card.style.display = esMostrada ? '' : 'none';
+        const coincide = card.dataset.coincide === "true";
+        const seccion = card.closest(".pf-seccion");
+        const expandida = !!(
+          seccion && seccion.classList.contains("pf-expandida")
+        );
+        const cartasMostradas = seccion
+          ? cantidadPorSeccion.get(seccion) || 0
+          : 0;
+        const esMostrada =
+          coincide && (expandida || cartasMostradas < LIMITE_COLAPSADA);
+        card.style.display = esMostrada ? "" : "none";
         if (esMostrada) {
           visibles++;
           if (seccion) cantidadPorSeccion.set(seccion, cartasMostradas + 1);
@@ -284,39 +428,48 @@ carousel: true
       secciones.forEach((seccion) => {
         const tieneCards = (cantidadPorSeccion.get(seccion) || 0) === 0;
         seccion.hidden = tieneCards;
-        const boton = seccion.querySelector('[data-toggle]');
+        const boton = seccion.querySelector("[data-toggle]");
         if (boton) boton.hidden = tieneCards;
       });
 
       if (sinResultados) sinResultados.hidden = visibles > 0;
 
-
-      document.querySelectorAll('.pf-track').forEach((track) => {
+      document.querySelectorAll(".pf-track").forEach((track) => {
         track.scrollLeft = 0;
       });
     }
 
     secciones.forEach((seccion) => {
-      const boton = seccion.querySelector('[data-toggle]');
+      const boton = seccion.querySelector("[data-toggle]");
       if (!boton) return;
       const textoColapsado = boton.textContent;
-      boton.addEventListener('click', function() {
-        const expandida = seccion.classList.toggle('pf-expandida');
-        boton.setAttribute('aria-expanded', String(expandida));
-        boton.textContent = expandida ? 'Ver menos' : textoColapsado;
+      boton.addEventListener("click", function () {
+        const expandida = seccion.classList.toggle("pf-expandida");
+        boton.setAttribute("aria-expanded", String(expandida));
+        boton.textContent = expandida ? "Ver menos" : textoColapsado;
         aplicar();
       });
     });
 
-    inputNombre.addEventListener('input', aplicar);
-    selects.forEach(function(select) {
-      select.addEventListener('change', aplicar);
+    inputNombre.addEventListener("input", aplicar);
+    selects.forEach(function (select) {
+      select.addEventListener("change", aplicar);
     });
-    orden.addEventListener('change', () => {
+    orden.addEventListener("change", () => {
       aplicar();
-      const destino = secciones.find((s) => !s.hidden) || document.getElementById('portfolio');
+      const destino =
+        secciones.find((seccion) => !seccion.hidden) ||
+        document.getElementById("portfolio");
       const y = destino.getBoundingClientRect().top + window.scrollY - 90;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
+
+    document.getElementById("pf-reset").addEventListener("click", () => {
+      inputNombre.value = "";
+      selects.forEach((select) => {
+        select.value = "";
+      });
+      aplicar();
     });
 
     aplicar();
