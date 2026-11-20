@@ -481,8 +481,6 @@ header
   font-weight: 400;
 }
 
-
-
 .header-area .main-nav .nav li a {
   display: block;
   font-weight: 500;
@@ -1035,10 +1033,6 @@ Banner Style
 About Style
 --------------------------------------------- 
 */
-
-#about {
-  padding-top: 130px;
-}
 
 .about-left-image img {
   margin-right: 45px;

@@ -107,6 +107,22 @@ collections:
         default: false
         required: false
 
+      - label: "Texto del segundo botón"
+        name: "boton_secundario_texto"
+        widget: "string"
+        required: false
+
+      - label: "URL del segundo botón"
+        name: "boton_secundario_url"
+        widget: "string"
+        required: false
+
+      - label: "Segundo botón externo"
+        name: "boton_secundario_externo"
+        widget: "boolean"
+        default: false
+        required: false
+
       - label: "Imagen"
         name: "imagen"
         widget: "image"
@@ -122,21 +138,53 @@ collections:
         widget: "boolean"
         default: true
 
+  - name: "banner-proyectos"
+    label: "Banners de Proyectos"
+    folder: "_bannersProyectos"
+    media_folder: "/assets/uploads/images"
+    public_folder: "/assets/uploads/images"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "titulo"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - {
+          label: "Activo",
+          name: "activo",
+          widget: "boolean",
+          default: true,
+          required: false,
+        }
+      - { label: "Subtítulo", name: "subtitulo", widget: "string" }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
+      - { label: "URL del botón", name: "boton_url", widget: "string" }
+      - { label: "Texto del botón", name: "boton_texto", widget: "string" }
+      - { label: "Orden", name: "orden", widget: "number", value_type: "int" }
+      - {
+          label: "Botón externo",
+          name: "boton_externo",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+
   - name: "about"
-    label: "Sección Transición"
+    label: "Sobre nosotros"
     media_folder: "assets/uploads/images"
     public_folder: "/assets/uploads/images"
     files:
       - name: "about"
-        label: "Nuevos planes de estudio"
+        label: "Seccion sobre nosotros"
         file: "_data/about.yml"
         fields:
-          - label: "Subtítulo"
-            name: "subtitulo"
-            widget: "string"
-
           - label: "Título"
             name: "titulo"
+            widget: "string"
+
+          - label: "Subtítulo"
+            name: "subtitulo"
             widget: "string"
 
           - label: "Descripción"
@@ -1181,11 +1229,27 @@ collections:
     slug: "{{slug}}"
     identifier_field: "nombre"
     fields:
-      - { label: "Fecha", name: "fecha", widget: "datetime", date_format: "YYYY-MM-DD", default: "{{now}}" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "proyecto" }
+      - {
+          label: "Fecha",
+          name: "fecha",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          default: "{{now}}",
+        }
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "proyecto",
+        }
       - { label: "Permalink", name: "permalink", widget: "string" }
       - { label: "Nombre", name: "nombre", widget: "string" }
-      - { label: "Destacado", name: "destacado", widget: "boolean", default: false }
+      - {
+          label: "Destacado",
+          name: "destacado",
+          widget: "boolean",
+          default: false,
+        }
       - {
           label: "Categoría",
           name: "categoria",
@@ -1226,24 +1290,3 @@ collections:
       - { label: "Imagen", name: "imagen", widget: "image" }
       - { label: "URL del proyecto", name: "enlace", widget: "string" }
       - { label: "Contenido", name: "body", widget: "markdown" }
-
-  - name: "banner-proyectos"
-    label: "Banner de Proyectos"
-    folder: "_bannersProyectos"
-    media_folder: "/assets/uploads/images"
-    public_folder: "/assets/uploads/images"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    identifier_field: "titulo"
-    fields:
-      - { label: "Título", name: "titulo", widget: "string", }
-      - { label: "Activo", name: "activo", widget: "boolean", default: true, required: false }
-      - { label: "Subtítulo", name: "subtitulo", widget: "string" }
-      - { label: "Descripción", name: "descripcion", widget: "text" }
-      - { label: "Imagen", name: "imagen", widget: "image", required: false }
-      - { label: "URL del botón", name: "boton_url", widget: "string" }
-      - { label: "Texto del botón", name: "boton_texto", widget: "string" }
-      - { label: "Orden", name: "orden", widget: "number", value_type: "int" }
-      - { label: "Botón externo", name: "boton_externo", widget: "boolean", default: false, required: false }
-      

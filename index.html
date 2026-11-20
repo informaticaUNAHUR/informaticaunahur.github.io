@@ -28,11 +28,21 @@ layout: main
   .banner-panel h6 { font-size: 1.25rem; color: #2f7a25; margin-bottom: 0.75rem; }
   .banner-panel h2 { font-size: clamp(1.6rem, 2.4vw, 2.35rem); color: #2a2a2a; margin-bottom: 1rem; }
   .banner-media { position: relative; aspect-ratio: 4 / 3; }
-  .banner-media img { position: absolute; inset: 1; width: 100%; height: 100%; object-fit: contain; background-color: rgba(60, 147, 47, 0.12); }
+  .banner-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background-color: rgba(60, 147, 47, 0.12); }
   .banner-panel .btn-success { background-color: #2f7a25; border-color: #2f7a25; }
   .banner-panel .btn-success:hover { background-color: #27691f; border-color: #24611c; }
   .banner-panel .btn-success:focus { box-shadow: 0 0 0 0.25rem rgba(47, 122, 37, 0.5); }
   .banner-panel .btn-success:active { background-color: #205a1a; border-color: #1d5218; }
+  .banner-panel .btn-group { gap: 0.5rem; }
+  .banner-panel .btn-group > .btn { border-radius: 0.375rem; }
+  .banner-panel .btn-outline-success {
+    color: #2f7a25;
+    border-color: #2f7a25;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .banner-panel .btn-outline-success:hover { background-color: #2f7a25; border-color: #2f7a25; color: #fff; }
+  .banner-panel .btn-outline-success:focus { box-shadow: 0 0 0 0.25rem rgba(47, 122, 37, 0.5); }
+  .banner-panel .btn-outline-success:active { background-color: #205a1a; border-color: #1d5218; color: #fff; }
 
   .owl-banner-novedades .owl-nav {
     position: absolute;
@@ -70,6 +80,13 @@ layout: main
     gap: 0.5rem;
     margin-top: 1.25rem;
   }
+  .owl-banner-novedades .owl-dot {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+  }
   .owl-banner-novedades .owl-dot span {
     display: block;
     width: 10px;
@@ -81,6 +98,38 @@ layout: main
   .owl-banner-novedades .owl-dot.active span { width: 28px; background-color: #2f7a25; }
 
   @media (max-width: 991.98px) {
+    #top.main-banner { padding: 120px 0 2rem; }
+    .banner-media { aspect-ratio: 16 / 9; }
+    .banner-panel.h-100 { height: 440px !important; }
+    .banner-panel > h6,
+    .banner-panel > h2,
+    .banner-panel > .scroll-to-section { flex: 0 0 auto; }
+    .banner-panel .banner-description {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      margin-bottom: 1.25rem;
+      padding-right: 0.5rem;
+      scrollbar-color: #2f7a25 rgba(47, 122, 37, 0.18);
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
+    }
+    .banner-panel .banner-description::-webkit-scrollbar { width: 10px; }
+    .banner-panel .banner-description::-webkit-scrollbar-track {
+      border-radius: 999px;
+      background-color: rgba(47, 122, 37, 0.14);
+    }
+    .banner-panel .banner-description::-webkit-scrollbar-thumb {
+      border: 2px solid rgba(47, 122, 37, 0.14);
+      border-radius: 999px;
+      background-color: #2f7a25;
+    }
+    .banner-panel .banner-description::-webkit-scrollbar-thumb:hover { background-color: #205a1a; }
+    .banner-panel .banner-description:focus-visible {
+      outline: 2px solid #2f7a25;
+      outline-offset: 2px;
+    }
+    .banner-panel .banner-description p { margin: 0; }
     .owl-banner-novedades .owl-nav {
       position: static;
       transform: none;
@@ -88,6 +137,17 @@ layout: main
       gap: 1rem;
       margin-top: 1.25rem;
     }
+  }
+
+  @media (max-width: 575.98px) {
+    #top.main-banner { padding: 100px 0 1.5rem; }
+    .banner-panel h6 { font-size: 1rem; }
+    .banner-panel h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
+    .owl-banner-novedades .owl-nav {
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .owl-banner-novedades .owl-dots { margin-top: 0.75rem; }
   }
 </style>
 {% assign banners_activos = site.banners | where: "activo", true | sort: "orden" %}
@@ -104,19 +164,33 @@ layout: main
                 <div class="banner-panel header-text show-up wow fadeInLeft h-100 d-flex flex-column justify-content-center p-4 p-lg-5" data-wow-duration="1s" data-wow-delay="0.5s">
                   <h6 class="text-uppercase fw-bold">{{ banner.subtitulo | default: "UNAHUR Informática" }}</h6>
                   <h2 class="fw-bold">{{ banner.titulo }}</h2>
-                  <p>{{ banner.descripcion }}</p>
-                  {% if banner.boton_texto %}
+                  <div class="banner-description" tabindex="0" aria-label="Descripción del banner">
+                    <p class="fw-normal text-start mb-3">{{ banner.descripcion }}</p>
+                  </div>
+                  {% if banner.boton_texto or banner.boton_secundario_texto %}
                   {% if banner.novedad_relacionada %}
                     {% assign nov_banner = site.novedades | where: "title", banner.novedad_relacionada | first %}
                   {% endif %}
                   {% assign btn_url = banner.boton_url | default: '#portfolio' %}
                   {% if nov_banner %}{% assign btn_url = nov_banner.url %}{% endif %}
+                  {% assign btn_secundario_url = banner.boton_secundario_url | default: '#portfolio' %}
                   <div class="scroll-to-section">
-                    {% if banner.boton_externo %}
-                    <a class="btn btn-success" href="{{ btn_url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ banner.boton_texto }}</a>
-                    {% else %}
-                    <a class="btn btn-success" href="{{ btn_url | relative_url }}">{{ banner.boton_texto }}</a>
-                    {% endif %}
+                    <div class="btn-group flex-wrap" role="group" aria-label="Acciones del banner">
+                      {% if banner.boton_texto %}
+                        {% if banner.boton_externo %}
+                        <a class="btn btn-success" href="{{ btn_url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ banner.boton_texto }}</a>
+                        {% else %}
+                        <a class="btn btn-success" href="{{ btn_url | relative_url }}">{{ banner.boton_texto }}</a>
+                        {% endif %}
+                      {% endif %}
+                      {% if banner.boton_secundario_texto %}
+                        {% if banner.boton_secundario_externo %}
+                        <a class="btn btn-outline-success" href="{{ btn_secundario_url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ banner.boton_secundario_texto }}</a>
+                        {% else %}
+                        <a class="btn btn-outline-success" href="{{ btn_secundario_url | relative_url }}">{{ banner.boton_secundario_texto }}</a>
+                        {% endif %}
+                      {% endif %}
+                    </div>
                   </div>
                   {% assign nov_banner = nil %}
                   {% endif %}
@@ -175,9 +249,7 @@ layout: main
                 <h4>{{ site.data.about.titulo }}</h4>
                 <div class="line-dec"></div>
               </div>
-
-              <p>{{ site.data.about.descripcion }}</p>
-
+              <p class="fw-normal">{{ site.data.about.descripcion }}</p>
               {% if site.data.about.estadisticas %}
               <div class="row">
                 {% assign clases = "first-skill-item,second-skill-item,third-skill-item" | split: "," %}
@@ -464,6 +536,33 @@ window.addEventListener('load', function() {
           ],
           animateOut: 'fadeOut'
         });
+        if (!reduceMotion) {
+          var carouselElement = $bannerCarousel[0];
+          var $bannerDescription = $bannerCarousel.find('.banner-description');
+          var hoverAvailable = window.matchMedia('(hover: hover)').matches;
+
+          $bannerCarousel.on('focusin.bannerAutoplay', () => {
+            $bannerCarousel.trigger('stop.owl.autoplay');
+          });
+          $bannerCarousel.on('focusout.bannerAutoplay', () => {
+            window.setTimeout(() => {
+              if (!carouselElement.contains(document.activeElement) &&
+                  !(hoverAvailable && $bannerCarousel.is(':hover'))) {
+                $bannerCarousel.trigger('play.owl.autoplay');
+              }
+            }, 0);
+          });
+          $bannerCarousel.on('mouseleave.bannerAutoplay touchend.bannerAutoplay', () => {
+            window.setTimeout(function() {
+              if ($bannerDescription.is(document.activeElement)) {
+                $bannerCarousel.trigger('stop.owl.autoplay');
+              }
+            }, 0);
+          });
+          $bannerDescription.on('touchstart.bannerAutoplay', function() {
+            this.focus();
+          });
+        }
         $bannerCarousel.find('.owl-prev, .owl-next').removeAttr('role');
         $bannerCarousel.find('.owl-prev').attr('aria-label', 'Banner anterior');
         $bannerCarousel.find('.owl-next').attr('aria-label', 'Banner siguiente');
