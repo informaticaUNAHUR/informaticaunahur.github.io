@@ -161,6 +161,25 @@ collections:
       - { label: "Imagen", name: "imagen", widget: "image", required: false }
       - { label: "URL del botón", name: "boton_url", widget: "string" }
       - { label: "Texto del botón", name: "boton_texto", widget: "string" }
+      - {
+          label: "Texto del segundo botón",
+          name: "boton_secundario_texto",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "URL del segundo botón",
+          name: "boton_secundario_url",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Segundo botón externo",
+          name: "boton_secundario_externo",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
       - { label: "Orden", name: "orden", widget: "number", value_type: "int" }
       - {
           label: "Botón externo",

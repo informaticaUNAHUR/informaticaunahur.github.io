@@ -1,0 +1,422 @@
+{% assign banner_padding_top = include.padding_top | default: "226px" %} {%
+assign banner_padding_top_tablet = include.padding_top_tablet | default: "120px"
+%} {% assign banner_padding_top_small = include.padding_top_small | default:
+"120px" %} {% assign banner_padding_top_mobile = include.padding_top_mobile |
+default: "100px" %}
+<style>
+  .banner-carousel-section { overflow-x: hidden; }
+  .banner-carousel-section > .container-fluid {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .banner-carousel-section:after { display: none !important; }
+  #top.banner-carousel-section { padding: {{ banner_padding_top }} 0 5px; }
+
+  .banner-carousel-section .banner-panel { background-color: rgba(60, 147, 47, 0.12); }
+  .banner-carousel-section .banner-panel h6 { font-size: 1.25rem; color: #2f7a25; margin-bottom: 0.75rem; }
+  .banner-carousel-section .banner-panel h2 { font-size: clamp(1.6rem, 2.4vw, 2.35rem); color: #2a2a2a; margin-bottom: 1rem; }
+  .banner-carousel-section .banner-media { position: relative; height: 440px; aspect-ratio: auto; }
+  .banner-carousel-section .banner-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background-color: rgba(60, 147, 47, 0.12); }
+  .banner-carousel-section .btn-success { background-color: #2f7a25; border-color: #2f7a25; }
+  .banner-carousel-section .btn-success:hover { background-color: #27691f; border-color: #24611c; }
+  .banner-carousel-section .btn-success:focus { box-shadow: 0 0 0 0.25rem rgba(47, 122, 37, 0.5); }
+  .banner-carousel-section .btn-success:active { background-color: #205a1a; border-color: #1d5218; }
+  .banner-carousel-section .btn-group { gap: 0.75rem; }
+  .banner-carousel-section .btn-group > .btn { border-radius: 0.375rem; }
+  .banner-carousel-section .btn-outline-success {
+    color: #2f7a25;
+    border-color: #2f7a25;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .banner-carousel-section .btn-outline-success:hover { background-color: #2f7a25; border-color: #2f7a25; color: #fff; }
+  .banner-carousel-section .btn-outline-success:focus { box-shadow: 0 0 0 0.25rem rgba(47, 122, 37, 0.5); }
+  .banner-carousel-section .btn-outline-success:active { background-color: #205a1a; border-color: #1d5218; color: #fff; }
+  .banner-carousel-section .banner-panel.h-100 { height: 440px !important; }
+  .banner-carousel-section .banner-panel > h6,
+  .banner-carousel-section .banner-panel > h2,
+  .banner-carousel-section .banner-panel > .scroll-to-section { flex: 0 0 auto; }
+  .banner-carousel-section .banner-description {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    margin-bottom: 1.25rem;
+    padding-right: 0.5rem;
+    scrollbar-color: #2f7a25 rgba(47, 122, 37, 0.18);
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+  .banner-carousel-section .banner-description::-webkit-scrollbar { width: 10px; }
+  .banner-carousel-section .banner-description::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background-color: rgba(47, 122, 37, 0.14);
+  }
+  .banner-carousel-section .banner-description::-webkit-scrollbar-thumb {
+    border: 2px solid rgba(47, 122, 37, 0.14);
+    border-radius: 999px;
+    background-color: #2f7a25;
+  }
+  .banner-carousel-section .banner-description::-webkit-scrollbar-thumb:hover { background-color: #205a1a; }
+  .banner-carousel-section .banner-description:focus-visible {
+    outline: 2px solid #2f7a25;
+    outline-offset: 2px;
+  }
+  .banner-carousel-section .banner-description p { margin: 0; }
+
+  .banner-carousel-section .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 5;
+  }
+  .banner-carousel-section .owl-nav button.owl-prev,
+  .banner-carousel-section .owl-nav button.owl-next {
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #2f7a25;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    line-height: 1;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .banner-carousel-section .owl-nav .fa { font-size: 1.25rem; }
+  .banner-carousel-section .owl-nav button.owl-prev:hover,
+  .banner-carousel-section .owl-nav button.owl-next:hover {
+    background-color: #2f7a25;
+    color: #fff;
+  }
+  .banner-carousel-section .owl-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+  .banner-carousel-section .owl-dot {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner-carousel-section .owl-dot span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: #758a73;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
+  .banner-carousel-section .owl-dot.active span { width: 28px; background-color: #2f7a25; }
+
+  @media (max-width: 991.98px) {
+    #top.banner-carousel-section { padding: {{ banner_padding_top_tablet }} 0 2rem; }
+    .banner-carousel-section .banner-media { height: auto; aspect-ratio: 16 / 9; }
+    .banner-carousel-section .owl-nav { display: none; }
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .banner-carousel-section .banner-media { height: 440px; aspect-ratio: auto; }
+  }
+
+  @media (min-width: 768px) {
+    .banner-carousel-section > .container-fluid {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    #top.banner-carousel-section { padding-top: {{ banner_padding_top_small }}; }
+  }
+
+  @media (max-width: 575.98px) {
+    #top.banner-carousel-section { padding: {{ banner_padding_top_mobile }} 0 1.5rem; }
+    .banner-carousel-section .banner-panel.h-100 { height: 400px !important; }
+    .banner-carousel-section .banner-panel { padding: 20px !important; }
+    .banner-carousel-section .banner-panel h6 {
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+    .banner-carousel-section .banner-panel h2 {
+      font-size: clamp(1.375rem, 6vw, 1.75rem);
+      margin-bottom: 0.75rem;
+    }
+    .banner-carousel-section .banner-description {
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+    .banner-carousel-section .btn-group {
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+    .banner-carousel-section .btn-group > .btn {
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 0.625rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.15;
+      white-space: normal;
+    }
+    .banner-carousel-section .owl-nav {
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .banner-carousel-section .owl-dots { margin-top: 0.75rem; }
+  }
+</style>
+
+{% assign banners_activos = include.banners | where: "activo", true | sort:
+"orden" %}
+<div
+  class="main-banner banner-carousel-section wow fadeIn"
+  id="top"
+  data-wow-duration="1s"
+  data-wow-delay="0.5s"
+>
+  <div class="container-fluid">
+    <div class="row g-0">
+      <div class="col-lg-12">
+        {% if banners_activos.size > 0 %}
+        <div
+          class="owl-carousel owl-banner-carousel"
+          id="{{ include.carousel_id }}"
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="{{ include.aria_label | escape }}"
+        >
+          {% for banner in banners_activos %}
+          <div
+            class="item"
+            role="group"
+            aria-roledescription="diapositiva"
+            aria-label="{{ forloop.index }} de {{ banners_activos.size }}"
+          >
+            <div class="row g-0 rounded-3 overflow-hidden shadow-sm">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div
+                  class="banner-panel header-text show-up wow fadeIn h-100 d-flex flex-column justify-content-center p-4 p-lg-5"
+                  data-wow-duration="1s"
+                  data-wow-delay="0.5s"
+                >
+                  <h6 class="text-uppercase fw-bold">
+                    {{ banner.subtitulo | default: "UNAHUR Informática" }}
+                  </h6>
+                  <h2 class="fw-bold">{{ banner.titulo }}</h2>
+                  <div
+                    class="banner-description"
+                    tabindex="0"
+                    aria-label="Descripción del banner"
+                  >
+                    <p class="fw-normal text-start mb-3">
+                      {{ banner.descripcion }}
+                    </p>
+                  </div>
+                  {% if banner.boton_texto or banner.boton_secundario_texto %}
+                  {% if banner.novedad_relacionada %} {% assign nov_banner =
+                  site.novedades | where: "title", banner.novedad_relacionada |
+                  first %} {% endif %} {% assign btn_url = banner.boton_url |
+                  default: "#portfolio" %} {% if nov_banner %}{% assign btn_url
+                  = nov_banner.url %}{% endif %} {% assign btn_secundario_url =
+                  banner.boton_secundario_url | default: "#portfolio" %}
+                  <div class="scroll-to-section">
+                    <div
+                      class="btn-group flex-wrap"
+                      role="group"
+                      aria-label="Acciones del banner"
+                    >
+                      {% if banner.boton_texto %} {% if banner.boton_externo %}
+                      <a
+                        class="btn btn-success"
+                        href="{{ btn_url | relative_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >{{ banner.boton_texto }}</a
+                      >
+                      {% else %}
+                      <a
+                        class="btn btn-success"
+                        href="{{ btn_url | relative_url }}"
+                        >{{ banner.boton_texto }}</a
+                      >
+                      {% endif %} {% endif %} {% if
+                      banner.boton_secundario_texto %} {% if
+                      banner.boton_secundario_externo %}
+                      <a
+                        class="btn btn-outline-success"
+                        href="{{ btn_secundario_url | relative_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >{{ banner.boton_secundario_texto }}</a
+                      >
+                      {% else %}
+                      <a
+                        class="btn btn-outline-success"
+                        href="{{ btn_secundario_url | relative_url }}"
+                        >{{ banner.boton_secundario_texto }}</a
+                      >
+                      {% endif %} {% endif %}
+                    </div>
+                  </div>
+                  {% assign nov_banner = nil %} {% endif %}
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6 banner-media">
+                {% if banner.imagen %}
+                <img
+                  src="{{ banner.imagen | relative_url }}"
+                  alt="{{ banner.titulo }}"
+                />
+                {% else %}
+                <img
+                  src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}"
+                  alt="{{ banner.titulo }}"
+                />
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="row g-0 rounded-3 overflow-hidden shadow-sm">
+          <div class="col-12 col-md-6 col-lg-6">
+            <div
+              class="banner-panel header-text show-up wow fadeIn h-100 d-flex flex-column justify-content-center p-4 p-lg-5"
+              data-wow-duration="1s"
+              data-wow-delay="0.5s"
+            >
+              <h6 class="text-uppercase fw-bold">
+                {{ include.fallback_subtitle | default: "UNAHUR Informática" }}
+              </h6>
+              <h2 class="fw-bold">{{ include.fallback_title }}</h2>
+              <p class="fw-normal">{{ include.fallback_description }}</p>
+              {% if include.fallback_button %}
+              <div class="scroll-to-section">
+                <div
+                  class="btn-group"
+                  role="group"
+                  aria-label="Acciones del banner"
+                >
+                  <a
+                    class="btn btn-success"
+                    href="{{ include.fallback_url | default: '#portfolio' | relative_url }}"
+                    >{{ include.fallback_button }}</a
+                  >
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 banner-media">
+            <img
+              src="{{ '/assets/uploads/images/services-image.jpg' | relative_url }}"
+              alt="{{ include.fallback_subtitle | default: 'UNAHUR Informática' }}"
+            />
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof jQuery === "undefined" || !jQuery.fn.owlCarousel) return;
+
+    const $bannerCarousel = jQuery("#{{ include.carousel_id }}");
+    if (!$bannerCarousel.length) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    $bannerCarousel.owlCarousel({
+      items: 1,
+      loop: true,
+      autoplay: !reduceMotion,
+      autoplayTimeout: 8000,
+      autoplayHoverPause: true,
+      nav: true,
+      dots: true,
+      navText: [
+        '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+        '<i class="fa fa-chevron-right" aria-hidden="true"></i>',
+      ],
+      animateOut: "fadeOut",
+    });
+
+    const syncCarouselTabStops = () => {
+      $bannerCarousel.find(".owl-item").each((_, item) => {
+        const $item = jQuery(item);
+        const isFocusable = !$item.hasClass("cloned") && $item.hasClass("active");
+        item.setAttribute("aria-hidden", isFocusable ? "false" : "true");
+
+        $item.find("a, [tabindex]").each((_, focusable) => {
+          if (isFocusable) {
+            if (focusable.classList.contains("banner-description")) {
+              focusable.setAttribute("tabindex", "0");
+            } else {
+              focusable.removeAttribute("tabindex");
+            }
+          } else {
+            focusable.setAttribute("tabindex", "-1");
+          }
+        });
+      });
+    };
+
+    syncCarouselTabStops();
+    $bannerCarousel.on(
+      "initialized.owl.carousel changed.owl.carousel translated.owl.carousel",
+      syncCarouselTabStops,
+    );
+
+    if (!reduceMotion) {
+      const carouselElement = $bannerCarousel[0];
+      const $bannerDescription = $bannerCarousel.find(".banner-description");
+      const hoverAvailable = window.matchMedia("(hover: hover)").matches;
+
+      $bannerCarousel.on("focusin.bannerAutoplay", () => {
+        $bannerCarousel.trigger("stop.owl.autoplay");
+      });
+      $bannerCarousel.on("focusout.bannerAutoplay", () => {
+        window.setTimeout(() => {
+          if (
+            !carouselElement.contains(document.activeElement) &&
+            !(hoverAvailable && $bannerCarousel.is(":hover"))
+          ) {
+            $bannerCarousel.trigger("play.owl.autoplay");
+          }
+        }, 0);
+      });
+      $bannerCarousel.on(
+        "mouseleave.bannerAutoplay touchend.bannerAutoplay",
+        () => {
+          window.setTimeout(() => {
+            if ($bannerDescription.is(document.activeElement)) {
+              $bannerCarousel.trigger("stop.owl.autoplay");
+            }
+          }, 0);
+        },
+      );
+      $bannerDescription.on("touchstart.bannerAutoplay", (event) => {
+        event.currentTarget.focus();
+      });
+    }
+
+    $bannerCarousel.find(".owl-prev, .owl-next").removeAttr("role");
+    $bannerCarousel.find(".owl-prev").attr("aria-label", "Banner anterior");
+    $bannerCarousel.find(".owl-next").attr("aria-label", "Banner siguiente");
+    $bannerCarousel.find(".owl-dot").each((index, dot) => {
+      dot.setAttribute("aria-label", "Ir al banner " + (index + 1));
+    });
+  });
+</script>

@@ -12,12 +12,9 @@ html {
 
 html {
   font-family: var(--font-family);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
-  @media (min-width: 38em) {
-    font-size: 20px;
-  }
 }
 
 body {

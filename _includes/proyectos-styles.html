@@ -1,11 +1,17 @@
 <style>
   .proyectos-wrap {
     width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 60px 20px;
+    max-width: none;
+    margin: 0;
+    padding: 20px 16px;
     box-sizing: border-box;
     background: #fff;
+  }
+  @media (min-width: 768px) {
+    .proyectos-wrap {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
   }
   .pf-card-proyecto {
     border: 1px solid #e8e8e8;
@@ -138,7 +144,6 @@
     background: #4db6ad;
     color: #fff;
   }
-  /* Barra de filtros */
   .pf-label {
     display: block;
     font-size: 0.78rem;
