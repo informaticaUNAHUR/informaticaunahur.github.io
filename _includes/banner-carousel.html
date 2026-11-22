@@ -14,6 +14,7 @@ default: "100px" %}
   #top.banner-carousel-section { padding: {{ banner_padding_top }} 0 5px; }
 
   .banner-carousel-section .banner-panel { background-color: rgba(60, 147, 47, 0.12); }
+  .banner-carousel-section .row.rounded-3 { border-radius: 16px !important; }
   .banner-carousel-section .banner-panel h6 { font-size: 1.25rem; color: #2f7a25; margin-bottom: 0.75rem; }
   .banner-carousel-section .banner-panel h2 { font-size: clamp(1.6rem, 2.4vw, 2.35rem); color: #2a2a2a; margin-bottom: 1rem; }
   .banner-carousel-section .banner-media { position: relative; height: 440px; aspect-ratio: auto; }
@@ -356,7 +357,8 @@ default: "100px" %}
     const syncCarouselTabStops = () => {
       $bannerCarousel.find(".owl-item").each((_, item) => {
         const $item = jQuery(item);
-        const isFocusable = !$item.hasClass("cloned") && $item.hasClass("active");
+        const isFocusable =
+          !$item.hasClass("cloned") && $item.hasClass("active");
         item.setAttribute("aria-hidden", isFocusable ? "false" : "true");
 
         $item.find("a, [tabindex]").each((_, focusable) => {

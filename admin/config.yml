@@ -214,24 +214,22 @@ collections:
             name: "imagen"
             widget: "image"
 
-          - label: "Estadísticas"
-            name: "estadisticas"
+          - label: "Redirecciones"
+            name: "redirecciones"
             widget: "list"
+            required: false
             fields:
-              - label: "Valor"
-                name: "valor"
+              - label: "Título"
+                name: "titulo"
                 widget: "string"
 
-              - label: "Detalle"
-                name: "detalle"
-                widget: "string"
+              - label: "Icono"
+                name: "icono"
+                widget: "image"
 
-              - label: "Porcentaje (0-100)"
-                name: "porcentaje"
-                widget: "number"
-                min: 0
-                max: 100
-                value_type: "int"
+              - label: "URL"
+                name: "url"
+                widget: "string"
 
           - label: "Texto del botón"
             name: "boton_texto"

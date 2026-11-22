@@ -37,65 +37,121 @@ layout: main
 <!-- ***** Carrusel Novedades End ***** -->
 
 {% if site.data.about %}
-<div id="about" class="about section">
-  <div class="container">
+<style>
+  .sobre-nosotros { padding: 20px 16px; }
+  .sobre-nosotros > .container-fluid {
+    padding: 20px 16px;
+    background-color: rgba(60, 147, 47, 0.06);
+    border-radius: 16px;
+  }
+  .sobre-nosotros .col-lg-6:first-child { display: flex; }
+  .sobre-nosotros .about-left-image { flex: 1 1 0; }
+  .sobre-nosotros .about-left-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-right: 0;
+  }
+  .sn-links { display: flex; flex-direction: column; gap: 12px; margin: 8px 0 20px; }
+  .sn-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 18px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #2a2a2a;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+  .sn-card:hover {
+    border-color: #4db6ad;
+    box-shadow: 0 6px 20px rgba(77, 182, 173, 0.25);
+    transform: translateY(-2px);
+    color: #2a2a2a;
+  }
+  .sn-card:focus-visible { outline: 2px solid #4db6ad; outline-offset: 2px; }
+  .sn-card-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f5f4;
+    border-radius: 10px;
+  }
+  .sn-card-icon img { width: 28px; height: 28px; object-fit: contain; }
+  .sn-card-title { flex: 1; font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
+  .sn-card-arrow { color: #4db6ad; font-size: 1rem; }
+  .sobre-nosotros .border-first-button { margin-top: 4px; }
+
+  @media (min-width: 768px) {
+    .sobre-nosotros { padding: 10px 48px; }
+    .sobre-nosotros > .container-fluid { padding: 48px 32px; }
+    .sn-links { flex-direction: row; }
+    .sn-card {
+      position: relative;
+      flex: 1 1 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 16px 40px 16px 18px;
+    }
+    .sn-card-arrow { position: absolute; top: 17px; right: 16px; }
+  }
+
+  @media (max-width: 1170px) {
+    .sn-card { padding: 12px 14px; gap: 12px; }
+  }
+</style>
+
+<div id="sobre-nosotros" class="sobre-nosotros section">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-12">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="about-left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-              <img src="{{ site.data.about.imagen | relative_url }}" alt="{{ site.data.about.titulo }}">
-            </div>
-          </div>
+      <div class="col-lg-6">
+        <div class="about-left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+          <img src="{{ site.data.about.imagen | relative_url }}" alt="{{ site.data.about.titulo }}">
+        </div>
+      </div>
 
-          <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-            <div class="about-right-content">
-              <div class="section-heading">
-                <h6>{{ site.data.about.subtitulo }}</h6>
-                <h4>{{ site.data.about.titulo }}</h4>
-                <div class="line-dec"></div>
-              </div>
-              <p class="fw-normal">{{ site.data.about.descripcion }}</p>
-              {% if site.data.about.estadisticas %}
-              <div class="row">
-                {% assign clases = "first-skill-item,second-skill-item,third-skill-item" | split: "," %}
-                {% for stat in site.data.about.estadisticas %}
-                <div class="col-lg-4 col-sm-4">
-                  <div class="skill-item {{ clases[forloop.index0] }} wow fadeIn" data-wow-duration="1s" data-wow-delay="0s">
-                    <div class="progress" data-percentage="{{ stat.porcentaje }}">
-                      <span class="progress-left"><span class="progress-bar"></span></span>
-                      <span class="progress-right"><span class="progress-bar"></span></span>
-                      <div class="progress-value">
-                        <div>
-                          {{ stat.valor }}<br>
-                          <span>{{ stat.detalle }}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
-              {% endif %}
-
-              {% if site.data.about.boton_texto and site.data.about.boton_url %}
-                {% assign about_url = site.data.about.boton_url %}
-                {% assign about_externo = site.data.about.boton_externo | default: false %}
-                {% unless about_externo %}
-                  {% if about_url contains '://' or about_url contains '#' or about_url contains 'mailto:' or about_url contains 'tel:' %}
-                  {% else %}
-                    {% assign about_url = about_url | relative_url %}
-                  {% endif %}
-                {% endunless %}
-              <div class="row">
-                <p></p>
-                <div class="border-first-button scroll-to-section" style="align-content: center;">
-                  <a href="{{ about_url }}"{% if about_externo %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ site.data.about.boton_texto }}</a>
-                </div>
-              </div>
-              {% endif %}
-            </div>
+      <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="about-right-content">
+          <div class="section-heading">
+            <h6>{{ site.data.about.subtitulo }}</h6>
+            <h4>{{ site.data.about.titulo }}</h4>
+            <div class="line-dec"></div>
           </div>
+          <p class="fw-normal text-start">{{ site.data.about.descripcion }}</p>
+
+          {% if site.data.about.redirecciones %}
+          <div class="sn-links">
+            {% for redir in site.data.about.redirecciones %}
+            <a class="sn-card" href="{{ redir.url | relative_url }}">
+              <span class="sn-card-icon">
+                <img src="{{ redir.icono | relative_url }}" alt="">
+              </span>
+              <span class="sn-card-title">{{ redir.titulo }}</span>
+              <i class="fa fa-arrow-right sn-card-arrow" aria-hidden="true"></i>
+            </a>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if site.data.about.boton_texto and site.data.about.boton_url %}
+            {% assign about_url = site.data.about.boton_url %}
+            {% assign about_externo = site.data.about.boton_externo | default: false %}
+            {% unless about_externo %}
+              {% if about_url contains '://' or about_url contains '#' or about_url contains 'mailto:' or about_url contains 'tel:' %}
+              {% else %}
+                {% assign about_url = about_url | relative_url %}
+              {% endif %}
+            {% endunless %}
+          <div class="border-first-button scroll-to-section">
+            <a href="{{ about_url }}"{% if about_externo %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ site.data.about.boton_texto }}</a>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>

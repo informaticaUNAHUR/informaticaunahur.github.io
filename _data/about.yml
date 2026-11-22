@@ -4,16 +4,16 @@ descripcion: Con las nuevas carreras y planes de estudio se moderniza y amplia
   la oferta académica. Toda la información para quien ya está cursando las
   carreras. ¿Cómo impactan los cambios?  ¿Cómo es la transición entre planes?
 imagen: /assets/uploads/images/imagen-pegada.png
-estadisticas:
-  - valor: "+5000"
-    detalle: Estudiantes
-    porcentaje: 100
-  - valor: "3"
-    detalle: Licenciaturas
-    porcentaje: 100
-  - valor: "1"
-    detalle: Tecnicatura
-    porcentaje: 100
+redirecciones:
+  - titulo: Licenciatura en Informática
+    icono: /assets/img/Informatica-licenciatura-icono.png
+    url: /licenciatura-informatica/
+  - titulo: Licenciatura en Ciberseguridad
+    icono: /assets/img/redes-icono.png
+    url: /licenciatura-ciberseguridad/
+  - titulo: Licenciatura en Desarrollo de Videojuegos
+    icono: /assets/img/videojuegos-icono.png
+    url: /licenciatura-videojuegos-simulaciones/
 boton_texto: Ver presentación detallada
 boton_url: https://docs.google.com/presentation/d/1iG5oC1T_jICv6seME2DreRXgctvmWoQN9CIeZkzcfDw/edit?slide=id.p#slide=id.p
 boton_externo: true
