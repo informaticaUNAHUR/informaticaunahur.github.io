@@ -279,8 +279,8 @@ body {
 .border-first-button a {
   display: inline-block !important;
   padding: 10px 20px !important;
-  color: #4db6ad !important;
-  border: 1px solid #4db6ad !important;
+  color: #3c932f !important;
+  border: 1px solid #3c932f !important;
   border-radius: 23px;
   font-weight: 500 !important;
   letter-spacing: 0.3px !important;
@@ -288,7 +288,7 @@ body {
 }
 
 .border-first-button a:hover {
-  background-color: #4db6ad;
+  background-color: #3c932f;
   color: #fff !important;
 }
 
@@ -1316,12 +1316,7 @@ Services Style
 }
 
 .services .section-heading {
-  text-align: center;
   margin-bottom: 80px;
-}
-
-.services .section-heading .line-dec {
-  margin: 0 auto;
 }
 
 .services .naccs {
