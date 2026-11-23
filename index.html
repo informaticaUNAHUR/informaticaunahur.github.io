@@ -173,8 +173,6 @@ padding_top_mobile="60px" %}
     }
   {% endif %}
 
-  @media (max-width: 767px) { .thumb-responsive { height: 140px !important; } }
-
   #services .svc-wrap {
     position: relative;
     z-index: 1;
@@ -316,6 +314,126 @@ padding_top_mobile="60px" %}
     .svc-tab:hover { transform: none; }
     .svc-panel.is-active { animation: none; }
   }
+
+  {% if site.data.blog %}
+  #blog {
+    padding-top: 50px;
+    padding-bottom: 48px;
+  }
+  #blog .blog-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: none;
+    padding: 0 clamp(16px, 5vw, 56px);
+  }
+  #blog .section-heading {
+    text-align: start;
+    margin-bottom: 40px;
+  }
+  #blog .section-heading .line-dec {
+    margin: 0;
+  }
+
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #e3e6e8;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .blog-card:hover {
+    border-color: #4db6ad;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(77, 182, 173, 0.2);
+  }
+  .blog-card:focus-within {
+    outline: 2px solid #1f7a70;
+    outline-offset: 3px;
+  }
+  .blog-card-popup {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .blog-card-thumb {
+    height: 180px;
+    overflow: hidden;
+    pointer-events: none;
+    background: #eef1f3;
+  }
+  .blog-card-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blog-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 18px 20px;
+  }
+  .blog-card-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1f7a70;
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+  }
+  .blog-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    line-height: 1.4;
+    margin: 0 0 8px;
+  }
+  .blog-card-desc {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .blog-card-cta {
+    margin-top: auto;
+    margin-right: 18px;
+    margin-bottom: 20px;
+    margin-left: 18px;
+    padding-top: 16px;
+    color: #1f7a70;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  .blog-card-cta:hover {
+    color: #155e56;
+  }
+
+  @media (max-width: 767px) {
+    .blog-card-thumb { height: 140px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .blog-card { transition: none; }
+    .blog-card:hover { transform: none; }
+  }
+  {% endif %}
 </style>
 
 {% if site.data.services and site.data.services.carreras %}
@@ -424,145 +542,72 @@ padding_top_mobile="60px" %}
 </section>
 {% endif %} {% if site.data.blog %}
 <div id="blog" class="blog">
-  <div class="container">
-    <div class="row">
-      <div
-        class="col-lg-4 offset-lg-4 wow fadeInDown"
-        data-wow-duration="1s"
-        data-wow-delay="0.3s"
-      >
-        <div class="section-heading">
-          <h6>{{ site.data.blog.subtitulo }}</h6>
-          <h4>
-            {{ site.data.blog.titulo | replace: "Documentación",
-            "<em>Documentación</em>" }}
-          </h4>
-          <div class="line-dec"></div>
-        </div>
-      </div>
-
-      <div
-        class="col-lg-12 wow fadeInUp"
-        data-wow-duration="1s"
-        data-wow-delay="0.3s"
-      >
-        <div class="row">
-          {% if site.data.blog.destacado %} {% assign d =
-          site.data.blog.destacado %}
-          <div class="col-lg-6 col-md-6 mb-4">
-            <div
-              class="post-item card blog-card-popup"
-              style="
-                border: 1px solid #e0e0e0;
-                border-radius: 8px;
-                overflow: hidden;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                cursor: pointer;
-              "
-              data-titulo="{{ d.titulo | escape }}"
-              data-categoria="{{ d.categoria | escape }}"
-              data-imagen="{{ d.imagen | relative_url }}"
-              data-descripcion="{{ d.descripcion | escape }}"
-              data-contenido="{{ d.contenido | escape }}"
-              data-url="{{ d.url }}"
-            >
-              <div
-                class="thumb thumb-responsive"
-                style="height: 180px; overflow: hidden; pointer-events: none"
-              >
-                <img
-                  src="{{ d.imagen | relative_url }}"
-                  alt="{{ d.titulo }}"
-                  style="width: 100%; height: 100%; object-fit: cover"
-                />
-              </div>
-              <div class="right-content" style="flex: 1; padding: 16px">
-                {% if d.categoria %}
-                <span
-                  class="category"
-                  style="
-                    background: #4db6ad;
-                    color: #fff;
-                    padding: 3px 10px;
-                    border-radius: 15px;
-                    font-size: 0.75rem;
-                    display: inline-block;
-                    margin-bottom: 8px;
-                  "
-                  >{{ d.categoria }}</span
-                >
-                {% endif %}
-                <h4 style="font-size: 1rem; color: #333; margin: 8px 0">
-                  {{ d.titulo }}
-                </h4>
-                <p style="font-size: 0.9rem; color: #666">
-                  {{ d.descripcion }}
-                </p>
-              </div>
-            </div>
-          </div>
-          {% endif %} {% if site.data.blog.items %} {% for item in
-          site.data.blog.items %}
-          <div class="col-lg-6 col-md-6 mb-4">
-            <div
-              class="post-item card blog-card-popup"
-              style="
-                border: 1px solid #e0e0e0;
-                border-radius: 8px;
-                overflow: hidden;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                cursor: pointer;
-              "
-              data-titulo="{{ item.titulo | escape }}"
-              data-categoria="{{ item.categoria | escape }}"
-              data-imagen="{{ item.imagen | relative_url }}"
-              data-descripcion="{{ item.descripcion | escape }}"
-              data-contenido="{{ item.contenido | escape }}"
-              data-url="{{ item.url }}"
-            >
-              <div
-                class="thumb thumb-responsive"
-                style="height: 180px; overflow: hidden; pointer-events: none"
-              >
-                <img
-                  src="{{ item.imagen | relative_url }}"
-                  alt="{{ item.titulo }}"
-                  style="width: 100%; height: 100%; object-fit: cover"
-                />
-              </div>
-              <div class="right-content" style="flex: 1; padding: 16px">
-                {% if item.categoria %}
-                <span
-                  class="category"
-                  style="
-                    background: #4db6ad;
-                    color: #fff;
-                    padding: 3px 10px;
-                    border-radius: 15px;
-                    font-size: 0.75rem;
-                    display: inline-block;
-                    margin-bottom: 8px;
-                  "
-                  >{{ item.categoria }}</span
-                >
-                {% endif %}
-                <h4 style="font-size: 1rem; color: #333; margin: 8px 0">
-                  {{ item.titulo }}
-                </h4>
-                <p style="font-size: 0.9rem; color: #666">
-                  {{ item.descripcion }}
-                </p>
-              </div>
-            </div>
-          </div>
-          {% endfor %} {% endif %}
-        </div>
-      </div>
+  <div class="blog-wrap">
+    <div
+      class="section-heading wow fadeInDown text-start"
+      data-wow-duration="1s"
+      data-wow-delay="0.3s"
+    >
+      <h6>{{ site.data.blog.subtitulo }}</h6>
+      <h4>
+        {{ site.data.blog.titulo | replace: "Documentación",
+        "<em>Documentación</em>" }}
+      </h4>
+      <div class="line-dec"></div>
     </div>
+
+    {% assign blog_cards = "" | split: "," %} {% if site.data.blog.destacado %}
+    {% assign blog_cards = blog_cards | push: site.data.blog.destacado %} {%
+    endif %} {% if site.data.blog.items %} {% assign blog_cards = blog_cards |
+    concat: site.data.blog.items %} {% endif %} {% if blog_cards.size > 0 %}
+    <div
+      class="row g-4 wow fadeInUp"
+      data-wow-duration="1s"
+      data-wow-delay="0.3s"
+    >
+      {% for item in blog_cards %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="blog-card">
+          <button
+            type="button"
+            class="blog-card-popup"
+            aria-haspopup="dialog"
+            data-titulo="{{ item.titulo | escape }}"
+            data-categoria="{{ item.categoria | escape }}"
+            data-imagen="{{ item.imagen | relative_url }}"
+            data-contenido="{{ item.contenido | escape }}"
+            data-url="{{ item.url | escape }}"
+          >
+            <div class="blog-card-thumb">
+              <img
+                src="{{ item.imagen | relative_url }}"
+                alt="{{ item.titulo }}"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-card-body">
+              {% if item.categoria %}
+              <span class="blog-card-badge">{{ item.categoria }}</span>
+              {% endif %}
+              <h4 class="blog-card-title">{{ item.titulo }}</h4>
+              <p class="blog-card-desc">{{ item.descripcion }}</p>
+            </div>
+          </button>
+          {% if item.url and item.url != "#" %}
+          <a
+            class="blog-card-cta d-inline-flex align-items-center gap-2 fw-semibold"
+            href="{{ item.url | escape }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver más <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </div>
 
@@ -620,11 +665,14 @@ padding_top_mobile="60px" %}
         <span
           id="blogModalCategoria"
           style="
-            background: #4db6ad;
+            background: #1f7a70;
             color: #fff;
             padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.75rem;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
             display: inline-block;
             margin-bottom: 12px;
           "
@@ -651,7 +699,7 @@ padding_top_mobile="60px" %}
             style="
               display: inline-block;
               padding: 10px 24px;
-              background: #4db6ad;
+              background: #1f7a70;
               color: #fff;
               border-radius: 30px;
               text-decoration: none;
@@ -728,38 +776,30 @@ padding_top_mobile="60px" %}
 
   {% if site.data.blog %}
   window.addEventListener("load", () => {
-    const blogModal = new bootstrap.Modal(document.getElementById("blogModal"));
+    const modalEl = document.getElementById("blogModal");
+    if (!modalEl) return;
+    const blogModal = new bootstrap.Modal(modalEl);
+
+    const openCard = (el) => {
+      document.getElementById("blogModalTitulo").textContent = el.getAttribute("data-titulo");
+      document.getElementById("blogModalCategoria").textContent = el.getAttribute("data-categoria");
+      document.getElementById("blogModalImgEl").src = el.getAttribute("data-imagen");
+      document.getElementById("blogModalContenido").innerHTML = el.getAttribute("data-contenido");
+
+      const url = el.getAttribute("data-url");
+      const linkWrap = document.getElementById("blogModalLinkWrap");
+      if (url && url !== "#") {
+        document.getElementById("blogModalLink").href = url;
+        linkWrap.style.display = "block";
+      } else {
+        linkWrap.style.display = "none";
+      }
+
+      blogModal.show();
+    };
 
     document.querySelectorAll(".blog-card-popup").forEach((card) => {
-      card.addEventListener("click", (e) => {
-        const el = e.currentTarget;
-        document.getElementById("blogModalTitulo").textContent = el.getAttribute("data-titulo");
-        document.getElementById("blogModalCategoria").textContent = el.getAttribute("data-categoria");
-        document.getElementById("blogModalImgEl").src = el.getAttribute("data-imagen");
-        document.getElementById("blogModalContenido").innerHTML = el.getAttribute("data-contenido");
-
-        const url = el.getAttribute("data-url");
-        const linkWrap = document.getElementById("blogModalLinkWrap");
-        if (url && url !== "#") {
-          document.getElementById("blogModalLink").href = url;
-          linkWrap.style.display = "block";
-        } else {
-          linkWrap.style.display = "none";
-        }
-
-        blogModal.show();
-      });
-
-      card.addEventListener("mouseenter", (e) => {
-        const el = e.currentTarget;
-        el.style.boxShadow = "0 6px 20px rgba(0,0,0,0.12)";
-        el.style.transform = "translateY(-2px)";
-        el.style.transition = "0.2s";
-      });
-      card.addEventListener("mouseleave", (e) => {
-        e.currentTarget.style.boxShadow = "";
-        e.currentTarget.style.transform = "";
-      });
+      card.addEventListener("click", () => openCard(card));
     });
   });
   {% endif %}
