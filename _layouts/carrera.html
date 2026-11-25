@@ -2,23 +2,20 @@
 layout: default
 ---
 
-<div class="carrera-detalle py-5 px-3 px-md-5">
+<div class="carrera-detalle">
+  <!-- Encabezado (franja con fondo, a todo el ancho) -->
+  <div class="cr-hero px-3 px-md-5 pt-5 pb-5">
   <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-12">
-
-
-    <!-- Encabezado -->
-    <div class="row g-4 align-items-start mb-5">
-      <div class="col-12{% if page.tabla_datos.filas %} col-lg-7{% endif %}">
+    <div class="row g-4 align-items-start{% if page.pdf %} mb-4{% endif %}">
+      <div class="col-12{% if page.tabla_datos.filas %} col-lg-6{% endif %}">
         <div class="section-heading">
-          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-bold">
+          <a href="{{ '/carreras/' | relative_url }}" class="cr-volver d-inline-flex align-items-center gap-2 mb-4 fw-semibold">
             <i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a Carreras
           </a>
 
           {% if page.vigente or page.anterior or page.proxima %}
             <div class="mb-3">
-              <span class="cr-badge badge rounded-pill bg-light text-dark border text-uppercase px-3 py-2">
+              <span class="cr-badge badge rounded-pill text-uppercase px-3 py-2">
                 {% if page.vigente %}Vigente desde 2026 2° Cuatrimestre{% elsif page.anterior %}Plan anterior{% elsif page.proxima %}Próximamente{% endif %}
               </span>
             </div>
@@ -26,8 +23,8 @@ layout: default
 
           <h1 class="fw-bold mb-2">{{ page.title }}</h1>
           {% if page.titulo_intermedio %}
-            <p class="fs-5 text-muted mb-0">Título intermedio:
-              <span class="cr-intermedio fw-bold">{{ page.titulo_intermedio }}</span>
+            <p class="cr-subtitulo mb-0">Título intermedio:
+              <span class="cr-intermedio">{{ page.titulo_intermedio }}</span>
             </p>
           {% endif %}
           <div class="line-dec mt-4"></div>
@@ -35,11 +32,20 @@ layout: default
       </div>
 
       {% if page.tabla_datos.filas %}
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-6">
           <!-- Resumen del plan (tabla_datos) -->
-          <div class="cr-resumen card bg-light border rounded-3">
-            <div class="card-body p-4">
-              <dl class="row g-4 mb-0">
+          {% assign hay_intermedio = false %}
+          {% for fila in page.tabla_datos.filas %}{% if fila.intermedio %}{% assign hay_intermedio = true %}{% endif %}{% endfor %}
+          <div class="cr-resumen card rounded-3">
+            <div class="card-body p-3 p-sm-4">
+              {% if hay_intermedio %}
+                <!-- Encabezado de columnas (una sola vez, en vez de repetirlo por fila) -->
+                <div class="cr-resumen-cabecera d-flex justify-content-end gap-2 gap-sm-3 pb-2" aria-hidden="true">
+                  <span class="cr-resumen-col text-end">Grado</span>
+                  <span class="cr-resumen-col text-end">Intermedio</span>
+                </div>
+              {% endif %}
+              <dl class="mb-0">
                 {% for fila in page.tabla_datos.filas %}
                   {% assign icono = "fa-info-circle" %}
                   {% if fila.label contains "Duraci" %}{% assign icono = "fa-clock-o" %}
@@ -48,26 +54,22 @@ layout: default
                   {% elsif fila.label contains "dito" %}{% assign icono = "fa-certificate" %}
                   {% elsif fila.label contains "Horas" %}{% assign icono = "fa-calendar" %}
                   {% endif %}
-                  <div class="{% if forloop.first %}col-12 pb-4 border-bottom{% else %}col-12 col-sm-6{% endif %} d-flex gap-3">
-                    <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2 bg-white border rounded-circle text-muted align-self-start">
+                  <!-- Fila de tabla; desde 1400px pasa a celda de grilla (ver _carrera.scss) -->
+                  <div class="cr-resumen-fila py-3">
+                    <span class="cr-dato-icono d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle">
                       <i class="fa {{ icono }} fa-fw" aria-hidden="true"></i>
                     </span>
-                    <div>
-                      <dt class="small text-muted fw-normal lh-sm mb-1">{{ fila.label }}</dt>
-                      <dd class="d-flex align-items-start gap-2 mb-0">
-                        <span>
-                          <span class="d-block fs-5 fw-bold lh-sm text-nowrap">{{ fila.grado }}</span>
-                          {% if fila.intermedio %}<span class="d-block small text-muted">Grado</span>{% endif %}
+                    <dt class="cr-dato-label fw-normal lh-sm">{{ fila.label }}</dt>
+                    <dd class="cr-dato-valores d-flex gap-2 gap-sm-3 mb-0">
+                      <span class="cr-resumen-col cr-dato-valor cr-dato-grado fw-bold text-end text-nowrap">
+                        {{ fila.grado }}{% if hay_intermedio %} <span class="cr-etq">Grado</span>{% endif %}
+                      </span>
+                      {% if hay_intermedio %}
+                        <span class="cr-resumen-col cr-dato-valor cr-dato-intermedio fw-bold text-end text-nowrap{% unless fila.intermedio %} cr-sin-valor{% endunless %}">
+                          {% if fila.intermedio %}{{ fila.intermedio }} <span class="cr-etq">Intermedio</span>{% else %}<span aria-hidden="true">—</span>{% endif %}
                         </span>
-                        {% if fila.intermedio %}
-                          <span class="fs-5 lh-sm text-muted" aria-hidden="true">|</span>
-                          <span>
-                            <span class="d-block fs-5 fw-bold lh-sm text-nowrap text-secondary">{{ fila.intermedio }}</span>
-                            <span class="d-block small text-muted">Intermedio</span>
-                          </span>
-                        {% endif %}
-                      </dd>
-                    </div>
+                      {% endif %}
+                    </dd>
                   </div>
                 {% endfor %}
               </dl>
@@ -78,18 +80,25 @@ layout: default
     </div>
 
     {% if page.pdf %}
-      <div class="text-center mb-5">
+      <div class="text-center">
         <a
           href="{{ page.pdf | relative_url }}"
           target="_blank"
           rel="noopener noreferrer"
-          class="cr-btn-pdf btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold">
+          class="cr-btn-pdf btn rounded-3 d-inline-flex align-items-center gap-2 px-4 py-2 fw-semibold">
           <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
           Descargar plan de estudios en PDF
-          <i class="fa fa-download" aria-hidden="true"></i>
         </a>
       </div>
     {% endif %}
+  </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="py-5 px-3 px-md-5">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12">
 
     {% if page.cuatrimestres %}
       <section class="mb-5">
@@ -101,7 +110,7 @@ layout: default
         {% assign nro_materia = 0 %}
         {% for cuatri in page.cuatrimestres %}
           {% assign cuatri_id = "cuatri-" | append: forloop.index %}
-          <div class="card border rounded-3 shadow-sm overflow-hidden mb-4">
+          <div class="cr-cuatri-card card rounded-3 overflow-hidden mb-4">
             <h3 class="h5 mb-0">
               <button
                 class="cr-cuatri-toggle btn w-100 d-flex align-items-center gap-3 p-3 text-start rounded-0"
@@ -112,7 +121,7 @@ layout: default
                 aria-controls="{{ cuatri_id }}">
                 <span class="cr-numero d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle fw-bold">{{ forloop.index }}°</span>
                 <span class="fw-bold flex-grow-1">{{ cuatri.nombre }}</span>
-                <span class="badge rounded-pill bg-light text-dark border fw-normal px-3 py-2 d-none d-sm-inline-block">
+                <span class="cr-cuenta badge rounded-pill fw-semibold px-3 py-2 d-none d-sm-inline-block">
                   {{ cuatri.materias.size }} materias{% if cuatri.horas and cuatri.horas != "" %} · {{ cuatri.horas }} hs{% endif %}
                 </span>
                 <span class="cr-chevron d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle border bg-white" aria-hidden="true">
@@ -250,8 +259,8 @@ layout: default
     <!-- Contenido adicional del markdown -->
     {% assign contenido = content | strip %}
     {% if contenido != "" %}
-      <div class="cr-aviso d-flex gap-3 p-4 bg-light border rounded-3 mb-5">
-        <i class="fa fa-info-circle fa-lg text-muted mt-1" aria-hidden="true"></i>
+      <div class="cr-aviso d-flex gap-3 p-4 rounded-3 mb-5">
+        <i class="cr-aviso-icono fa fa-info-circle fa-lg mt-1" aria-hidden="true"></i>
         <div>{{ content }}</div>
       </div>
     {% endif %}
@@ -277,5 +286,6 @@ layout: default
 
       </div>
     </div>
+  </div>
   </div>
 </div>

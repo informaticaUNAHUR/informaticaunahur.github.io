@@ -2,354 +2,121 @@
 layout: default
 ---
 
-<style>
-  /* Autocomplete */
-  #results-container li {
-    list-style: none;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  #results-container li a {
-    display: block;
-    padding: 10px 16px;
-    color: #2a7a74;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.15s;
-  }
-  #results-container li a:hover {
-    background: #e8f5f4;
-  }
-  #results-container li:last-child {
-    border-bottom: none;
-  }
+<main class="materias-listado container-fluid p-0">
+{% assign materias_resumen = site.materias | where_exp: "materia", "materia.published != false" | where_exp: "materia", "materia.excluida_busqueda != true" %}
+{% assign cantidad_carreras_vigentes = 0 %}
+{% for carrera in site.carreras %}
+  {% if carrera.cuatrimestres.size > 0 %}
+    {% if carrera.vigente or carrera.estado == "vigente" %}
+      {% assign cantidad_carreras_vigentes = cantidad_carreras_vigentes | plus: 1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
-  /* Cards de materias */
-  .materia-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-left: 3px solid transparent;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: inherit;
-    transition: border-left-color 0.2s
-    , box-shadow 0.2s
-    , transform 0.15s;
-  }
-  .materia-item:hover {
-    border-left-color: #4db6ad;
-    box-shadow: 0 2px 12px rgba(77, 182, 173, 0.12);
-    transform: translateX(2px);
-    text-decoration: none;
-    color: inherit;
-  }
-  .materia-icon {
-    flex-shrink: 0;
-    width: 38px;
-    height: 38px;
-    background: #e8f5f4;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4db6ad;
-  }
-  .materia-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #222;
-    margin: 0 0 5px;
-    line-height: 1.3;
-  }
-  .materia-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  .badge-carrera {
-    background: #e8f5f4;
-    color: #2a7a74;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    border: 1px solid #c2e2df;
-    font-weight: 500;
-  }
-  .badge-plan-vigente {
-    background: #d4f5e9;
-    color: #1a6645;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: 500;
-  }
-  .badge-plan-anterior {
-    background: #f0f0f0;
-    color: #666;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: 500;
-  }
+<section class="ml-hero py-4 py-lg-5">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-6">
+        <a class="ml-home-link d-inline-flex align-items-center gap-2 mb-3" href="{{ '/' | relative_url }}">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          Volver al inicio
+            </a>
+        <h1 class="ml-title mb-0">{{ page.title }}</h1>
+          </div>
+      <div class="col-12 col-lg-6">
+        <div class="ml-summary card border-0">
+          <div class="card-body p-3 p-md-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-6">
+                <div class="ml-stat d-flex align-items-center gap-3">
+                  <span class="ml-stat-icon d-none d-sm-inline-flex align-items-center justify-content-center" aria-hidden="true">
+                    <i class="fa fa-book"></i>
+                  </span>
+                  <div>
+                    <span class="ml-stat-label d-block">Materias publicadas</span>
+                    <strong class="ml-stat-value">{{ materias_resumen.size }}</strong>
+          </div>
+          </div>
+          </div>
+              <div class="col-6">
+                <div class="ml-stat d-flex align-items-center gap-3">
+                  <span class="ml-stat-icon d-none d-sm-inline-flex align-items-center justify-content-center" aria-hidden="true">
+                    <i class="fa fa-graduation-cap"></i>
+                  </span>
+                  <div>
+                    <span class="ml-stat-label d-block">Carreras vigentes</span>
+                    <strong class="ml-stat-value">{{ cantidad_carreras_vigentes }}</strong>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+</section>
 
-  .filtro-btn,
-  .filtro-carrera-btn {
-    padding: 4px 14px;
-    border: 1px solid #4db6ad;
-    border-radius: 20px;
-    background: #fff;
-    color: #4db6ad;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-family: inherit;
-    transition: background 0.15s
-    , color 0.15s;
-  }
-  .filtro-btn:hover,
-  .filtro-carrera-btn:hover {
-    background: #e8f5f4;
-  }
 
-  .contador-materias {
-    font-size: 0.82rem;
-    color: #888;
-    margin-top: 6px;
-    margin-bottom: 4px;
-  }
-</style>
-
-<!-- Header búsqueda + filtros -->
-<div style="
-    background: #fff;
-    padding: 28px 0 20px;
-    width: 100%;
-    border-bottom: 1px solid #eee;
-  ">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
-    <!-- Barra de búsqueda -->
-    <div style="position: relative; max-width: 680px; margin-bottom: 20px">
-      <div style="
-          position: absolute;
-          left: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #4db6ad;
-          display: flex;
-          align-items: center;
-        ">
-        <span class="feather-icon icon-search"></span>
-      </div>
-      <input
-        class="input-search"
-        type="text"
-        placeholder="Buscar materia..."
-        id="search-input"
-        style="
-          width: 100%;
-          height: 48px;
-          border: 1.5px solid #d0eeec;
-          border-radius: 10px;
-          padding: 0 16px 0 46px;
-          font-size: 0.95rem;
-          background: #fff;
-          outline: none;
-          color: #333;
-          transition:
-            border-color 0.2s,
-            box-shadow 0.2s;
-        "
-        onfocus="
-          this.style.borderColor = '#4db6ad';
-          this.style.boxShadow = '0 0 0 3px rgba(77,182,173,0.12)';
-        "
-        onblur="
-          this.style.borderColor = '#d0eeec';
-          this.style.boxShadow = 'none';
-        " />
-      <div style="
-          position: absolute;
-          width: 100%;
-          background: #fff;
-          z-index: 99;
-          left: 0;
-          border-radius: 0 0 10px 10px;
-          top: 48px;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-          border: 1px solid #e8f5f4;
-          border-top: none;
-        ">
-        <ul id="results-container" style="list-style: none; padding: 0; margin: 0"></ul>
-      </div>
-    </div>
-
-    <!-- Botón Filtros + chips activos -->
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
-      <button
-        id="btn-toggle-filtros"
-        onclick="toggleFiltros()"
-        style="
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          padding: 7px 16px;
-          border: 1.5px solid #4db6ad;
-          border-radius: 20px;
-          background: #fff;
-          color: #4db6ad;
-          cursor: pointer;
-          font-size: 0.85rem;
-          font-family: inherit;
-          font-weight: 600;
-          transition: background 0.15s;
-        ">
-        <span class="feather-icon icon-sliders" style="font-size: 0.9rem"></span>
-        Filtros
-        <span id="filtro-badge" style="
-            display: none;
-            background: #4db6ad;
-            color: #fff;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 0.68rem;
-            font-weight: 700;
-            line-height: 18px;
-            text-align: center;
-          ">
-          0</span>
-      </button>
-
-      <!-- Chips de filtros activos -->
-      <span
-        id="chip-plan"
-        style="
-          display: none;
-          background: #e8f5f4;
-          color: #2a7a74;
-          padding: 4px 10px;
-          border-radius: 20px;
-          font-size: 0.78rem;
-          font-weight: 500;
-          border: 1px solid #c2e2df;
-          cursor: pointer;
-        "
-        onclick="
-          filtrarMaterias('plan', 'todos');
-          actualizarChips();
-        ">
-</span>
-      <span
-        id="chip-carrera"
-        style="
-          display: none;
-          background: #e8f5f4;
-          color: #2a7a74;
-          padding: 4px 10px;
-          border-radius: 20px;
-          font-size: 0.78rem;
-          font-weight: 500;
-          border: 1px solid #c2e2df;
-          cursor: pointer;
-        "
-        onclick="
-          filtrarMaterias('carrera', 'todas');
-          actualizarChips();
-        ">
-</span>
-    </div>
-
-    <!-- Panel desplegable de filtros -->
-    <div id="panel-filtros" style="
-        display: none;
-        margin-top: 14px;
-        background: #f8fffe;
-        border: 1.5px solid #d0eeec;
-        border-radius: 12px;
-        padding: 16px 20px;
-      ">
-      <!-- Filtro Plan -->
-      <div style="margin-bottom: 14px">
-        <span style="
-            display: block;
-            color: #4db6ad;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 700;
-            margin-bottom: 8px;
-          ">
-          Plan</span>
-        <div style="display: flex; flex-wrap: wrap; gap: 7px">
+<section class="ml-search-section py-4 border-bottom">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <div class="row g-2 align-items-center">
+      <div class="col-12 col-lg-5">
+        <div class="ml-search-field position-relative">
+          <span class="ml-search-icon position-absolute" aria-hidden="true">
+            <span class="feather-icon icon-search"></span>
+          </span>
+          <label class="visually-hidden" for="search-input">Buscar materia</label>
+          <input
+            class="form-control ml-search-input"
+            type="text"
+            placeholder="Buscar materia..."
+            id="search-input" />
+          <ul id="results-container" class="ml-search-results list-unstyled mb-0"></ul>
+          </div>
+          </div>
+      <div class="col-12 col-lg-7">
+        <div class="d-flex align-items-center gap-2 flex-wrap">
           <button
-            onclick="
-              filtrarMaterias('plan', 'todos');
-              actualizarChips();
-            "
-            class="filtro-btn"
-            id="btn-plan-todos"
-            style="background: #4db6ad; color: #fff">
-            Todos
+            id="btn-toggle-filtros"
+            type="button"
+            class="btn ml-filter-toggle d-inline-flex align-items-center gap-2"
+            aria-expanded="false"
+            aria-controls="panel-filtros"
+            onclick="toggleFiltros()">
+            <span class="feather-icon icon-sliders" aria-hidden="true"></span>
+            Filtros
+            <span id="filtro-badge" class="ml-filter-count badge rounded-pill" style="display: none">0</span>
           </button>
-          <button
-            onclick="
-              filtrarMaterias('plan', 'vigente');
-              actualizarChips();
-            "
-            class="filtro-btn"
-            id="btn-plan-vigente">
-            Plan vigente 2026
-          </button>
-          <button
-            onclick="
-              filtrarMaterias('plan', 'anterior');
-              actualizarChips();
-            "
-            class="filtro-btn"
-            id="btn-plan-anterior">
-            Plan anterior
-          </button>
-        </div>
-      </div>
 
-      <!-- Separador -->
-      <div style="height: 1px; background: #e0f0ee; margin-bottom: 14px"></div>
+          <button id="chip-plan" type="button" class="ml-active-chip badge rounded-pill" style="display: none" aria-label="Quitar filtro de plan" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();"></button>
+          <button id="chip-carrera" type="button" class="ml-active-chip badge rounded-pill" style="display: none" aria-label="Quitar filtro de carrera" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();"></button>
+          </div>
+          </div>
+          </div>
+    <div id="panel-filtros" class="ml-filter-panel mt-3" style="display: none">
+      <div class="ml-filter-group mb-3">
+        <span class="ml-filter-label d-block mb-2">Plan</span>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" onclick="filtrarMaterias('plan', 'todos'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-todos" aria-pressed="true">Todos</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'vigente'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-vigente" aria-pressed="false">Plan vigente 2026</button>
+          <button type="button" onclick="filtrarMaterias('plan', 'anterior'); actualizarChips();" class="btn btn-sm filtro-btn" id="btn-plan-anterior" aria-pressed="false">Plan anterior</button>
+          </div>
+          </div>
+      <hr class="ml-filter-divider">
 
-      <!-- Filtro Carrera -->
-      <div>
-        <span style="
-            display: block;
-            color: #4db6ad;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 700;
-            margin-bottom: 8px;
-          ">
-          Carrera</span>
-        <div style="display: flex; flex-wrap: wrap; gap: 7px">
-          <button
-            onclick="
-              filtrarMaterias('carrera', 'todas');
-              actualizarChips();
-            "
-            class="filtro-carrera-btn"
-            id="btn-carrera-todas"
-            style="background: #4db6ad; color: #fff">
-            Todas
-          </button>
+      <div class="ml-filter-group">
+        <span class="ml-filter-label d-block mb-2">Carrera</span>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" onclick="filtrarMaterias('carrera', 'todas'); actualizarChips();" class="btn btn-sm filtro-carrera-btn" id="btn-carrera-todas" aria-pressed="true">Todas</button>
           {% for carrera in site.carreras %}
             {% if carrera.cuatrimestres.size > 0 %}
               <button
-                onclick="
-              filtrarMaterias('carrera', '{{ carrera.slug }}');
-              actualizarChips();
-            "
-                class="filtro-carrera-btn"
+                type="button"
+                onclick="filtrarMaterias('carrera', '{{ carrera.slug }}'); actualizarChips();"
+                class="btn btn-sm filtro-carrera-btn"
                 id="btn-carrera-{{ carrera.slug }}"
+                aria-pressed="false"
                 data-carrera="{{ carrera.slug }}"
                 data-label="{{ carrera.nombre_corto | default: carrera.title | escape }}"
                 data-estado="{% if carrera.vigente or carrera.estado == "vigente" %}vigente{% elsif carrera.proxima or carrera.estado == "proxima" %}proxima{% else %}anterior{% endif %}">
@@ -357,32 +124,19 @@ layout: default
               </button>
             {% endif %}
           {% endfor %}
-        </div>
-        <p id="aviso-carrera" style="
-            display: none;
-            margin-top: 10px;
-            padding: 8px 10px;
-            font-size: 0.78rem;
-            line-height: 1.4;
-            border-radius: 6px;
-            background: #fff7e6;
-            border: 1px solid #ffd54f;
-            color: #8a6d1a;
-          ">
-</p>
-      </div>
-    </div>
-  </div>
-</div>
+          </div>
+        <p id="aviso-carrera" class="ml-career-notice mb-0"></p>
+          </div>
+          </div>
+          </div>
+</section>
+<section class="ml-catalog py-4">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <p class="ml-counter" id="contador-materias" aria-live="polite" aria-atomic="true"></p>
 
-<!-- Lista de materias -->
-<div class="content-post">
-  <div class="size margin">
-    <p class="contador-materias" id="contador-materias"></p>
-
-    <div id="lista-materias">
+    <div id="lista-materias" class="row g-3">
       {% if site.materias.size == 0 %}
-        <p style="color: #888">No hay materias disponibles.</p>
+        <div class="col-12"><p class="ml-empty-state mb-0">No hay materias disponibles.</p></div>
       {% else %}
         {% assign materias_publicadas = site.materias | where_exp: "materia", "materia.published != false" | where_exp: "materia", "materia.excluida_busqueda != true" %}
         {% for materia in materias_publicadas %}
@@ -395,50 +149,48 @@ layout: default
             {% include plan-materia.html materia=materia data_carrera=carreras_slugs %}
           {% endcapture %}
           {% assign plan_calculado = plan_calculado | strip %}
-          {% capture clean_title %}{% include materia-clean-title.html materia=materia
-      %}{% endcapture %}
+          {% capture clean_title %}{% include materia-clean-title.html materia=materia %}{% endcapture %}
           {% assign clean_title = clean_title | strip %}
 
-          <a
-            href="{{ site.baseurl }}{{ materia.url }}"
-            class="materia-item"
-            data-plan="{{ plan_calculado }}"
-            data-carrera="{{ carreras_slugs | strip }}">
-            <div class="materia-icon">
-              <span class="feather-icon icon-{{ materia.icon }}"></span>
-            </div>
-
-            <div style="flex: 1; min-width: 0">
-              <p class="materia-title">{{ clean_title }}</p>
-              <div class="materia-badges">
-                {% assign carreras_slugs_array = carreras_slugs | split: " " %}
-                {% for carrera in site.carreras %}
-                  {% if carrera.cuatrimestres.size > 0 %}
-                    {% if carreras_slugs_array contains carrera.slug %}
-                      <span class="badge-carrera">{{ carrera.nombre_corto | default: carrera.title | escape }}</span>
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
-                {% if plan_calculado == "vigente"
-                %}
-                  <span class="badge-plan-vigente">Plan 2026</span>
-                {% endif %}
-                {% if plan_calculado == "anterior" or plan_calculado == "proxima" %}
-                  <span class="badge-plan-anterior">Plan anterior</span>
-                {% endif %}
+          <div class="col-12 col-md-6 col-xl-4 ml-materia-column">
+            <a
+              href="{{ site.baseurl }}{{ materia.url }}"
+              class="materia-item h-100"
+              data-plan="{{ plan_calculado }}"
+              data-carrera="{{ carreras_slugs | strip }}">
+              <div class="materia-icon">
+                <span class="feather-icon icon-{{ materia.icon }}" aria-hidden="true"></span>
               </div>
-            </div>
-          </a>
+
+              <div class="ml-materia-body">
+                <p class="materia-title">{{ clean_title }}</p>
+                <div class="materia-badges">
+                  {% assign carreras_slugs_array = carreras_slugs | split: " " %}
+                  {% for carrera in site.carreras %}
+                    {% if carrera.cuatrimestres.size > 0 %}
+                      {% if carreras_slugs_array contains carrera.slug %}
+                        <span class="badge-carrera">{{ carrera.nombre_corto | default: carrera.title | escape }}</span>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if plan_calculado == "vigente" %}
+                    <span class="badge-plan-vigente">Plan 2026</span>
+                  {% endif %}
+                  {% if plan_calculado == "anterior" or plan_calculado == "proxima" %}
+                    <span class="badge-plan-anterior">Plan anterior</span>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          </div>
         {% endfor %}
       {% endif %}
     </div>
-
-    <p id="sin-resultados" style="display: none; color: #888; text-align: center; padding: 40px 0">
+    <p id="sin-resultados" class="ml-empty-state text-center py-5" style="display: none" role="status" aria-live="polite">
       No se encontraron materias con los filtros seleccionados.
     </p>
   </div>
-</div>
-
+</section>
 <script type="application/json" id="data-labels-carrera">
   {
   {% assign es_primer_carrera = true %}{% for carrera in site.carreras %}{% if carrera.cuatrimestres.size > 0 %}{% unless es_primer_carrera %},{% endunless %}"{{ carrera.slug }}": {{ carrera.nombre_corto | default: carrera.title | jsonify }}{% assign es_primer_carrera = false %}{% endif %}{% endfor %}
@@ -448,14 +200,15 @@ layout: default
 <script>
   let filtroActual = { plan: "todos", carrera: "todas" };
 
-  let ACTIVO = { bg: "#4db6ad", color: "#fff", border: "1px solid #4db6ad" };
-  let INACTIVO = { bg: "#fff", color: "#4db6ad", border: "1px solid #4db6ad" };
+  let ACTIVO = { bg: "#1a6b66", color: "#fff", border: "1px solid #1a6b66" };
+  let INACTIVO = { bg: "#fff", color: "#1a6b66", border: "1px solid #4db6ad" };
 
   function setEstado(btn, activo) {
     var s = activo ? ACTIVO : INACTIVO;
     btn.style.background = s.bg;
     btn.style.color = s.color;
     btn.style.border = s.border;
+    btn.setAttribute("aria-pressed", activo ? "true" : "false");
   }
 
   function actualizarContador() {
@@ -501,7 +254,12 @@ layout: default
         item.getAttribute("data-carrera"),
         filtroActual.carrera,
       );
-      item.style.display = pasaPlan && pasaCarrera ? "" : "none";
+      let visible = pasaPlan && pasaCarrera;
+      item.style.display = visible ? "" : "none";
+      let columna = item.parentElement;
+      if (columna && columna.classList.contains("ml-materia-column")) {
+        columna.style.display = visible ? "" : "none";
+      }
     });
 
     actualizarContador();
@@ -513,6 +271,7 @@ layout: default
     let abierto = panel.style.display !== "none";
     panel.style.display = abierto ? "none" : "";
     btn.style.background = abierto ? "#fff" : "#e8f5f4";
+    btn.setAttribute("aria-expanded", abierto ? "false" : "true");
   }
 
   document.addEventListener("click", function (e) {
@@ -521,6 +280,7 @@ layout: default
     if (panel && !panel.contains(e.target) && !btn.contains(e.target)) {
       panel.style.display = "none";
       btn.style.background = "#fff";
+      btn.setAttribute("aria-expanded", "false");
     }
   });
 
@@ -574,3 +334,4 @@ layout: default
     actualizarChips();
   });
 </script>
+</main>

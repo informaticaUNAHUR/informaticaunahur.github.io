@@ -1,0 +1,224 @@
+// Listado de carreras (carreras.html)
+
+.carreras-listado {
+  // Hero: misma franja que el detalle (.cr-hero) + formas decorativas
+  .cl-hero {
+    background-color: #f8fbfb;
+    border-bottom: 1px solid #e3eeed;
+  }
+
+  .cl-titulo-acento {
+    color: #2a9d93;
+  }
+
+  // Badge "Vigentes desde…" (igual a .cr-badge del detalle)
+  .cl-badge {
+    background-color: #e8f5f4;
+    color: #1a6b66;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+  }
+
+  // Línea al lado de los títulos de sección (igual que .cr-linea del detalle)
+  .cl-linea {
+    height: 2px;
+    background-color: #4db6ad;
+    opacity: .4;
+  }
+
+  // Cards de carreras vigentes (no clickeables enteras: link en título y botón)
+  .cl-card-vigente {
+    border: 1px solid rgba(77, 182, 173, .35);
+    box-shadow: 0 2px 10px rgba(77, 182, 173, .1);
+    transition: box-shadow .2s ease, transform .2s ease;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(77, 182, 173, .25);
+      transform: translateY(-2px);
+    }
+  }
+
+  .cl-link-vigente {
+    color: #2a2a2a;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: #3a9d95;
+      text-decoration: underline;
+    }
+  }
+
+  // Ícono sobre círculo teal claro
+  .cl-icono-circulo {
+    width: 4.2rem;
+    height: 4.2rem;
+    background-color: #e8f5f4;
+    color: #2a9d93;
+    font-size: 1.5rem;
+  }
+
+  .cl-icono {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+  }
+
+  .cl-card-titulo {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .cl-card-sub {
+    font-size: .75rem;
+    line-height: 1.4;
+    color: #666;
+  }
+
+  .cl-card-sub-label {
+    font-weight: 600;
+    color: #2a7a74;
+    margin-bottom: .1rem;
+  }
+
+  // Mismo estilo que .cr-btn-pdf del detalle
+  .cl-btn-ver {
+    font-size: .85rem;
+    background-color: #4db6ad;
+    border-color: #4db6ad;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #3a9d95;
+      border-color: #3a9d95;
+      color: #fff;
+    }
+
+    // Respuesta al click: se hunde 1px
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  // Cards de carreras anteriores (horizontales, más discretas)
+  .cl-card-anterior {
+    background-color: #fff;
+    border-color: #e6eceb;
+    transition: box-shadow .2s ease, border-color .2s ease;
+
+    .cl-chevron {
+      color: #999;
+      transition: transform .2s ease, color .2s ease;
+    }
+
+    &:hover {
+      border-color: #4db6ad;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+
+      .cl-chevron {
+        color: #4db6ad;
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  // Ícono chico en círculo (anteriores en gris, próximas en rosa)
+  .cl-circulo-sm {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1rem;
+  }
+
+  .cl-circulo-gris {
+    background-color: #f1f3f3;
+    color: #6c757d;
+  }
+
+  .cl-circulo-rojo {
+    background-color: #fde2e2;
+    color: #c94a4a;
+  }
+
+  .cl-link-anterior {
+    color: #2a2a2a;
+    font-size: .85rem;
+    line-height: 1.35;
+  }
+
+  // Próximamente (rojo suave)
+  .cl-proximamente {
+    border: 2px dashed #e8a0a0;
+    background-color: #fff5f5;
+  }
+
+  .cl-proxima-icono {
+    width: 72px;
+    height: 72px;
+    background-color: #fde2e2;
+    color: #c94a4a;
+    font-size: 2rem;
+  }
+
+  .cl-proxima-titulo {
+    color: #c94a4a;
+  }
+
+  .cl-card-proxima {
+    border: 1.5px dashed #e8a0a0;
+    background-color: #fff;
+    transition: box-shadow .2s ease, border-color .2s ease;
+
+    @media (min-width: 992px) {
+      width: 420px;
+    }
+
+    &:hover {
+      border-color: #e57373;
+      box-shadow: 0 4px 12px rgba(229, 115, 115, .15);
+    }
+  }
+
+  .cl-link-proxima {
+    color: #2a2a2a;
+    font-size: .9rem;
+    line-height: 1.35;
+  }
+
+  // Mobile: ícono de próximamente más chico
+  @media (max-width: 575.98px) {
+    .cl-proxima-icono {
+      width: 56px;
+      height: 56px;
+      font-size: 1.5rem;
+    }
+  }
+
+  // Foco visible con teclado (el link stretched cubre toda la card)
+  .cl-card-anterior:focus-within {
+    outline: 2px solid #3a9d95;
+    outline-offset: 2px;
+  }
+
+  .cl-card-proxima:focus-within {
+    outline: 2px solid #c94a4a;
+    outline-offset: 2px;
+  }
+
+  // Sin animaciones si el usuario lo pide
+  @media (prefers-reduced-motion: reduce) {
+    .cl-card-vigente,
+    .cl-card-anterior,
+    .cl-card-proxima,
+    .cl-chevron {
+      transition: none;
+    }
+
+    .cl-card-vigente:hover,
+    .cl-card-anterior:hover .cl-chevron,
+    .cl-btn-ver:active {
+      transform: none;
+    }
+  }
+}

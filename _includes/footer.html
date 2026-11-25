@@ -1,138 +1,74 @@
-{% if site.data.contactos %}
-  <footer style="background:#fff; border-top:1px solid #eee; padding:60px 0 0;">
-    <div class="container">
-      <div class="row">
+{% assign sf_instagram = "https://www.instagram.com/unahurlingham/" %}
+{% assign sf_mail = "mailto:informatica@unahur.edu.ar" %}
+{% assign sf_discord = site.data.contactos.discord.url | default: "https://discord.com/invite/tqyHtPt" %}
 
-        <!-- Encabezado -->
-        <div class="col-lg-8 offset-lg-2" style="text-align:center; margin-bottom:40px;">
-          <h6 style="font-size:0.85rem; font-weight:600; color:#4db6ad; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">{{ site.data.contactos.subtitulo }}</h6>
-          <h4 style="font-size:2rem; color:#2a2a2a; font-weight:700; margin:0 0 12px;">{{ site.data.contactos.titulo | replace: "Comunica", "<em style='color:#4db6ad; font-style:normal;'>Comunica</em>" }}</h4>
-          <div style="width:60px; height:3px; background:#4db6ad; margin:0 auto 16px;"></div>
-          {% if site.data.contactos.imagen_decorativa %}
-            <img
-              src="{{ site.data.contactos.imagen_decorativa | relative_url }}"
-              alt="{{ site.data.contactos.titulo }}"
-              style="max-height:160px; width:auto; margin:0 auto; display:block;">
-          {% endif %}
+{% for item in site.data.contactos.como_comunicarse.items %}
+  {% if item.nombre == "Instagram UNAHUR" and item.url %}
+    {% assign sf_instagram = item.url %}
+  {% endif %}
+  {% if item.nombre == "Email Informática" and item.url %}
+    {% assign sf_mail = item.url %}
+  {% endif %}
+{% endfor %}
+
+<footer class="site-footer">
+  <!-- ***** Franja superior ***** -->
+  <div class="site-footer__top">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="site-footer__brand-wrap">
+            <a class="site-footer__brand" href="{{ '/' | relative_url }}">
+              <img src="{{ '/assets/img/footer_logo_white.png' | relative_url }}" alt="UNAHUR — Universidad Nacional de Hurlingham — Informática" />
+            </a>
+          </div>
         </div>
 
-        <!-- Cómo comunicarse -->
-        {% if site.data.contactos.como_comunicarse %}
-          <div class="col-lg-6 mb-4">
-            <h5 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:16px;">
-              {{ site.data.contactos.como_comunicarse.titulo }}
-            </h5>
-            {% for item in site.data.contactos.como_comunicarse.items %}
-              {% assign item_externo = item.externo | default: false %}
-              {% assign contacto_url = item.url %}
-              {% if contacto_url and contacto_url != "#" %}
-                {% unless contacto_url contains '://' or contacto_url contains '#' or contacto_url contains 'mailto:' or contacto_url contains 'tel:' %}
-                  {% assign contacto_url = contacto_url | relative_url %}
-                {% endunless %}
-              {% endif %}
-              <div style="display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #f0f0f0;">
-                <img
-                  src="{{ item.icono | relative_url }}"
-                  alt="{{ item.nombre }}"
-                  style="height:24px; width:24px; object-fit:contain;">
-                <div>
-                  <span style="font-size:0.8rem; color:#888; display:block;">{{ item.nombre }}</span>
-                  {% if contacto_url and contacto_url != "#" %}
-                    <a
-                      href="{{ contacto_url }}"
-                      {% if item_externo %}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      {% endif %}
-                      style="font-weight:600; font-size:0.9rem; color:#333; text-decoration:none;">
-                      {{ item.valor | default: item.nombre }}
-                    </a>
-                  {% else %}
-                    <span style="font-weight:600; font-size:0.9rem; color:#333;">{{ item.valor | default: item.nombre }}</span>
-                  {% endif %}
-                </div>
-              </div>
-            {% endfor %}
+        <div class="col-auto d-flex align-items-center">
+          <span class="site-footer__divider" aria-hidden="true"></span>
+          <div class="site-footer__social">
+            <a href="{{ sf_instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram de UNAHUR">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill-rule="evenodd" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 1.5A3.5 3.5 0 0 0 3.5 7v10A3.5 3.5 0 0 0 7 20.5h10a3.5 3.5 0 0 0 3.5-3.5V7A3.5 3.5 0 0 0 17 3.5H7z" />
+                <path fill-rule="evenodd" d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" />
+                <circle cx="17.5" cy="6.5" r="1.25" />
+              </svg>
+            </a>
+            <a href="{{ sf_discord }}" target="_blank" rel="noopener noreferrer" aria-label="Discord de Informática UNAHUR">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill-rule="evenodd" d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.098.245.201.374.293a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+              </svg>
+            </a>
+            <a href="{{ sf_mail }}" aria-label="Enviar un email a informatica@unahur.edu.ar">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill-rule="evenodd" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.1-8 5.6-8-5.6V6l8 5.6L20 6v2.1z" />
+              </svg>
+            </a>
           </div>
-        {% endif %}
-
-        <!-- Autoridades -->
-        {% if site.data.contactos.autoridades %}
-          <div class="col-lg-6 mb-4">
-            <h5 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:16px;">
-              {{ site.data.contactos.autoridades.titulo }}
-            </h5>
-            {% for persona in site.data.contactos.autoridades.items %}
-              <div style="padding:8px 0; border-bottom:1px solid #f0f0f0;">
-                <span style="font-size:0.8rem; color:#888; display:block;">{{ persona.cargo }}</span>
-                <strong style="font-size:0.9rem; color:#333;">{{ persona.nombre }}</strong>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-
-        <!-- Discord -->
-        {% if site.data.contactos.discord %}
-          <div class="col-12 mt-2 mb-4" style="display:flex; justify-content:center;">
-            <div style="background:linear-gradient(135deg, #5865F2 0%, #4752C4 100%); border-radius:14px; padding:28px 40px; color:#fff; text-align:center; position:relative; overflow:hidden; max-width:520px; width:100%;">
-              <div style="position:absolute; top:-30px; left:-30px; width:120px; height:120px; background:rgba(255,255,255,0.07); border-radius:50%;"></div>
-              <div style="position:absolute; bottom:-40px; right:-20px; width:150px; height:150px; background:rgba(255,255,255,0.05); border-radius:50%;"></div>
-              <div style="position:relative; z-index:1;">
-                <img
-                  src="{{ site.data.contactos.discord.icono | relative_url }}"
-                  alt="Discord"
-                  style="height:56px; width:56px; object-fit:contain; margin-bottom:12px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.3));">
-                <h4 style="margin:0 0 6px; font-size:1.25rem; font-weight:800; color:#fff;">{{ site.data.contactos.discord.titulo }}</h4>
-                <p style="margin:0 auto 20px; font-size:0.88rem; color:rgba(255,255,255,0.9); max-width:340px; line-height:1.5;">{{ site.data.contactos.discord.subtitulo }}</p>
-                <a
-                  href="{{ site.data.contactos.discord.url }}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style="display:inline-block; padding:11px 32px; background:#fff; color:#5865F2; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.9rem; box-shadow:0 4px 16px rgba(0,0,0,0.2); transition:transform 0.2s;"
-                  onmouseover="this.style.transform='translateY(-2px)'"
-                  onmouseout="this.style.transform='translateY(0)'">
-                  Unirse al Discord →
-                </a>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-
-        <!-- Trámites frecuentes: solo en home -->
-        {% if site.data.contactos.tramites and page.url == '/' %}
-          <div class="col-12 mt-2 mb-4">
-            <h5 style="color:#4db6ad; border-bottom:2px solid #4db6ad; padding-bottom:8px; margin-bottom:16px;">
-              {{ site.data.contactos.tramites.titulo }}
-            </h5>
-            <div class="row">
-              {% for tramite in site.data.contactos.tramites.items %}
-                {% assign tramite_url = tramite.url | default: "#" %}
-                {% unless tramite_url contains '://' or tramite_url contains '#' or tramite_url contains 'mailto:' %}
-                  {% assign tramite_url = tramite_url | relative_url %}
-                {% endunless %}
-                <div class="col-lg-4 col-md-6 mb-3">
-                  <div style="background:#f8f9fa; border-radius:8px; padding:16px; height:100%; border-left:3px solid #4db6ad;">
-                    <strong style="font-size:0.9rem; color:#333; display:block; margin-bottom:6px;">{{ tramite.nombre }}</strong>
-                    <p style="font-size:0.8rem; color:#666; margin:0 0 10px;">{{ tramite.descripcion }}</p>
-                    {% if tramite.url and tramite.url != "#" %}
-                      <a href="{{ tramite_url }}" style="font-size:0.8rem; color:#4db6ad; font-weight:600; text-decoration:none;">Ver más →</a>
-                    {% endif %}
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
-
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- Barra copyright -->
-    <div style="background:#2a2a2a; padding:16px 0; margin-top:20px; text-align:center;">
-      <span style="color:#aaa; font-size:0.82rem; font-family:'Poppins',sans-serif;">
-        © {{ 'now' | date: "%Y" }}
-        <strong style="color:#fff;">Informática UNAHUR</strong>
-      </span>
+  <!-- ***** Franja inferior (degradado) ***** -->
+  <div class="site-footer__bottom">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col">
+          <p class="site-footer__institution mb-0">
+            Universidad pública, gratuita y de calidad
+            <span class="site-footer__separator" aria-hidden="true">|</span>
+            Hurlingham, Provincia de Buenos Aires
+          </p>
+        </div>
+        <div class="col-auto">
+          <div class="site-footer__legal">
+            <span class="site-footer__separator" aria-hidden="true">|</span>
+            <a href="{{ '/contacto/' | relative_url }}">Contacto</a>
+          </div>
+        </div>
+        <p class="site-footer__copyright mb-0">© {{ 'now' | date: "%Y" }} Informática UNAHUR. Todos los derechos reservados.</p>
+      </div>
     </div>
-  </footer>
-{% endif %}
+  </div>
+</footer>

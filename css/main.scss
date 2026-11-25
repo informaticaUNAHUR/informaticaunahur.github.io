@@ -14,3 +14,7 @@ $baseurl: '{{ site.baseurl }}';
 @import "post";
 @import "breadcrumbs";
 @import "carrera";
+@import "carreras";
+@import "materia-detalle";
+@import "horarios";
+@import "materias";

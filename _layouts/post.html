@@ -3,6 +3,8 @@ layout: default
 ---
 {% include minutes-to-read.html %}
 
+<main class="materia-detalle container-fluid">
+
 
 <div class="size margin" style="margin-bottom: 16px; margin-top: 26px;">
   <a href="{{ site.baseurl }}/materias/" style="display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:#f0fafa; border:1px solid #4db6ad; color:#4db6ad; border-radius:6px; text-decoration:none; font-size:0.875rem; font-weight:600;">
@@ -12,15 +14,16 @@ layout: default
 
 <div class="size margin min-height">
   <article>
-    <!-- titles -->
-    <h1
-      class="post-title"
-      data-aos="fade-up"
-      data-aos-delay="200"
-      data-aos-offset="0">{{ page.title }}</h1>
+    <header class="md-hero mb-4">
+      <h1
+        class="md-title mb-0"
+        data-aos="fade-up"
+        data-aos-delay="200"
+        data-aos-offset="0">{{ page.title }}</h1>
+    </header>
 
     <!-- Metadata de la materia -->
-    <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+    <div class="md-relations d-flex flex-wrap align-items-center gap-2 mb-4">
       {% capture carreras_double_output %}
       {% include materia-carreras.html materia=page %}
       {% endcapture %}
@@ -29,23 +32,23 @@ layout: default
       {% assign carreras_titles_array = carreras_parts[1] | strip | split: "|||" %}
       {% for carrera_title in carreras_titles_array %}
         {% if carrera_title != "" %}
-          <span style="background:#4db6ad; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">{{ carrera_title }}</span>
+          <span class="badge md-badge md-badge-career">{{ carrera_title }}</span>
         {% endif %}
       {% endfor %}
       {% capture plan_calculado %}{% include plan-materia.html materia=page data_carrera=carreras_slugs %}{% endcapture %}
       {% assign plan_calculado = plan_calculado | strip %}
       {% if plan_calculado == "vigente" %}
-        <span style="background:#28a745; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan 2026</span>
+        <span class="badge md-badge md-badge-current">Plan 2026</span>
       {% elsif plan_calculado == "anterior" or plan_calculado == "proxima" %}
-        <span style="background:#6c757d; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
+        <span class="badge md-badge md-badge-previous">Plan anterior</span>
       {% endif %}
     </div>
     {% if page.plan-anterior %}
       {% assign materia = site.materias | where: "slug", page.plan-anterior | first %}
       {% if materia %}
-        <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-          <span style="background:#ffc107; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan anterior</span>
-          <a href="{{ "/materias/" | append: materia.slug | append : "/" | relative_url }}" style="background:#f8f9fa; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem; text-decoration:none;">
+        <div class="md-related-plans d-flex flex-wrap align-items-center gap-2 mb-4">
+          <span class="badge md-badge md-badge-previous">Plan anterior</span>
+          <a class="badge md-badge md-badge-link" href="{{ "/materias/" | append: materia.slug | append : "/" | relative_url }}">
             {{ materia.title }}
           </a>
         </div>
@@ -53,53 +56,54 @@ layout: default
     {% endif %}
     {% assign materia-plan-proximo = site.materias | where: "plan-anterior", page.slug %}
     {% if materia-plan-proximo.size > 0 %}
-      <div style="margin: 16px 0 24px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
-        <span style="background:#17a2b8; color:#fff; padding:3px 12px; border-radius:20px; font-size:0.78rem;">Plan próximo</span>
+      <div class="md-related-plans d-flex flex-wrap align-items-center gap-2 mb-4">
+        <span class="badge md-badge md-badge-next">Plan pr&oacute;ximo</span>
         {% for plan-proximo in materia-plan-proximo %}
-          <a href="{{ "/materias/" | append: plan-proximo.slug | append : "/" | relative_url }}" style="background:#f8f9fa; color:#212529; padding:3px 12px; border-radius:20px; font-size:0.78rem; text-decoration:none;">
+          <a class="badge md-badge md-badge-link" href="{{ "/materias/" | append: plan-proximo.slug | append : "/" | relative_url }}">
             {{ plan-proximo.title }}
           </a>
         {% endfor %}
       </div>
     {% endif %}
-
     <!-- Datos rápidos de la materia -->
     {% if page.hs_total or page.creditos or page.correlativas %}
-      <div style="background:#f8f9fa; border-radius:8px; padding:16px 20px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:20px;">
-        {% if page.hs_total %}
-          <div>
-            <span style="font-size:0.75rem; color:#888; display:block;">Carga horaria</span>
-            <strong style="font-size:0.95rem;">{{ page.hs_total }}</strong>
+      <section class="md-facts card border-0 mb-4" aria-label="Datos de la materia">
+        <div class="card-body p-3 p-md-4">
+          <div class="row g-3 align-items-center">
+            {% if page.hs_total %}
+              <div class="col-12 col-sm-6 col-lg-3">
+                <span class="md-fact-label d-block">Carga horaria</span>
+                <strong class="md-fact-value">{{ page.hs_total }}</strong>
+              </div>
+            {% endif %}
+            {% if page.creditos %}
+              <div class="col-12 col-sm-6 col-lg-3">
+                <span class="md-fact-label d-block">Cr&eacute;ditos</span>
+                <strong class="md-fact-value">{{ page.creditos }}</strong>
+              </div>
+            {% endif %}
+            {% if page.correlativas and page.correlativas != "-" and page.correlativas.first %}
+              <div class="col-12 col-sm-6 col-lg-3">
+                <span class="md-fact-label d-block">Correlativas</span>
+                <strong class="md-fact-value">{{ page.correlativas }}</strong>
+              </div>
+            {% endif %}
+            {% if page.pdf_programa %}
+              {% assign pdf_url = page.pdf_programa %}
+              {% unless pdf_url contains '://' %}
+                {% assign pdf_url = pdf_url | relative_url %}
+              {% endunless %}
+              <div class="col-12 col-sm-6 col-lg-3 d-flex justify-content-center justify-content-lg-end ms-lg-auto">
+                <a class="btn md-program-link d-inline-flex align-items-center gap-2" href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer">
+                  <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                  Programa completo
+                  <span class="visually-hidden"> (PDF, se abre en una pestaña nueva)</span>
+                </a>
+              </div>
+            {% endif %}
           </div>
-        {% endif %}
-        {% if page.creditos %}
-          <div>
-            <span style="font-size:0.75rem; color:#888; display:block;">Créditos</span>
-            <strong style="font-size:0.95rem;">{{ page.creditos }}</strong>
-          </div>
-        {% endif %}
-        {% if page.correlativas and page.correlativas != "-" and page.correlativas.first %}
-          <div>
-            <span style="font-size:0.75rem; color:#888; display:block;">Correlativas</span>
-            <strong style="font-size:0.95rem;">{{ page.correlativas }}</strong>
-          </div>
-        {% endif %}
-        {% if page.pdf_programa %}
-          {% assign pdf_url = page.pdf_programa %}
-          {% unless pdf_url contains '://' %}
-            {% assign pdf_url = pdf_url | relative_url %}
-          {% endunless %}
-          <div style="margin-left:auto;">
-            <a
-              href="{{ pdf_url }}"
-              target="_blank"
-              rel="noopener noreferrer"
-              style="display:inline-block; padding:8px 16px; background:#4db6ad; color:#fff; border-radius:6px; text-decoration:none; font-size:0.85rem; font-weight:600;">
-              📄 Programa completo
-            </a>
-          </div>
-        {% endif %}
-      </div>
+        </div>
+      </section>
     {% endif %}
 
     <div
@@ -110,8 +114,14 @@ layout: default
   </div>
 
 
-    <!-- content -->
-    {{ content }}
-  <!-- content -->
+    {% assign contenido_materia = content | strip %}
+    {% if contenido_materia != "" %}
+      <section class="md-content card border-0 mb-4" aria-label="Contenido de la materia">
+        <div class="card-body p-3 p-md-4">
+          {{ content }}
+        </div>
+      </section>
+    {% endif %}
   </article>
 </div>
+</main>
