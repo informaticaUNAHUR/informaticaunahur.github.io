@@ -12,8 +12,6 @@ permalink: /novedades/
   .novedades-page {
     --nv-accent: #4db6ad;
     --nv-accent-dark: #3a9d95;
-    --nv-green: #3c932f;
-    --nv-green-hover: #4caf50;
     --nv-ink: #1a1a2e;
     --nv-text: #2d3436;
   }
@@ -35,29 +33,29 @@ permalink: /novedades/
   }
   .novedades-page .nv-card-col[hidden] { display: none !important; }
   .novedades-page .pagination .page-link {
-    color: var(--nv-green);
+    color: var(--nv-accent-dark);
     background-color: #fff;
-    border-color: rgba(60,147,47,0.45);
+    border-color: rgba(77,182,173,0.45);
   }
   .novedades-page .pagination .page-link:hover {
-    color: #2f7a25;
-    background-color: rgba(76,175,80,0.12);
-    border-color: var(--nv-green-hover);
+    color: #2f8d85;
+    background-color: rgba(77,182,173,0.12);
+    border-color: var(--nv-accent);
   }
   .novedades-page .pagination .page-link:focus {
-    color: var(--nv-green);
-    background-color: rgba(76,175,80,0.12);
-    box-shadow: 0 0 0 .25rem rgba(60,147,47,0.25);
+    color: var(--nv-accent-dark);
+    background-color: rgba(77,182,173,0.12);
+    box-shadow: 0 0 0 .25rem rgba(77,182,173,0.25);
   }
   .novedades-page .pagination .page-item.active .page-link {
     color: #fff;
-    background-color: var(--nv-green);
-    border-color: var(--nv-green);
+    background-color: var(--nv-accent);
+    border-color: var(--nv-accent);
   }
   .novedades-page .pagination .page-item.disabled .page-link {
-    color: #8a9a88;
+    color: #9aa3a8;
     background-color: #fff;
-    border-color: rgba(60,147,47,0.2);
+    border-color: rgba(77,182,173,0.2);
   }
   .novedades-page .nv-page-summary { display: none; }
   .novedades-page .nv-page-summary .page-link { white-space: nowrap; }
