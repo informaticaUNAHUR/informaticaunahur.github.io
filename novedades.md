@@ -31,6 +31,39 @@ permalink: /novedades/
     color: var(--nv-accent-dark);
     font-weight: 600;
   }
+  .novedades-page .nv-card-col[hidden] { display: none !important; }
+  .novedades-page .pagination .page-link {
+    color: var(--nv-accent-dark);
+    background-color: #fff;
+    border-color: rgba(77,182,173,0.45);
+  }
+  .novedades-page .pagination .page-link:hover {
+    color: #2f8d85;
+    background-color: rgba(77,182,173,0.12);
+    border-color: var(--nv-accent);
+  }
+  .novedades-page .pagination .page-link:focus {
+    color: var(--nv-accent-dark);
+    background-color: rgba(77,182,173,0.12);
+    box-shadow: 0 0 0 .25rem rgba(77,182,173,0.25);
+  }
+  .novedades-page .pagination .page-item.active .page-link {
+    color: #fff;
+    background-color: var(--nv-accent);
+    border-color: var(--nv-accent);
+  }
+  .novedades-page .pagination .page-item.disabled .page-link {
+    color: #9aa3a8;
+    background-color: #fff;
+    border-color: rgba(77,182,173,0.2);
+  }
+  .novedades-page .nv-page-summary { display: none; }
+  .novedades-page .nv-page-summary .page-link { white-space: nowrap; }
+  @media (max-width: 575.98px) {
+    .novedades-page .nv-page-number-item,
+    .novedades-page .nv-page-ellipsis { display: none !important; }
+    .novedades-page .nv-page-summary { display: list-item; }
+  }
 </style>
 {%- assign novedades = site.novedades | sort: "date" | reverse -%}
 <div class="novedades-page container-fluid py-5 px-3 px-md-5">
@@ -68,10 +101,10 @@ permalink: /novedades/
 </div>
 </div>
 </div>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="novedades-grid">
 {%- for novedad in novedades offset:1 -%}
 {%- assign cat = novedad.categoria | downcase -%}
-<div class="col">
+<div class="col nv-card-col">
 <div class="card h-100 p-2 bg-white shadow-sm" style="border-radius:16px;">
 {%- if novedad.imagen -%}
 <a href="{{ novedad.url | relative_url }}"><img src="{{ novedad.imagen | relative_url }}" alt="{{ novedad.title }}" class="w-100 d-block rounded-3" style="height:150px; object-fit:cover;"></a>
@@ -93,8 +126,129 @@ permalink: /novedades/
 </div>
 {%- endfor -%}
 </div>
+<nav class="d-flex justify-content-center mt-5" id="novedades-pagination" aria-label="Paginación de novedades"><ul class="pagination pagination-sm flex-wrap justify-content-center mb-0"></ul></nav>
 {%- else -%}
 <div class="text-center text-muted py-5"><p>No hay novedades publicadas aún.</p></div>
 {%- endif -%}
 </div></div>
 </div>
+<script>
+(() => {
+  const grid = document.getElementById("novedades-grid");
+  const pagination = document.getElementById("novedades-pagination");
+  const list = pagination.querySelector("ul");
+  if (!grid || !list) return;
+
+  const cards = [...grid.querySelectorAll(".nv-card-col")];
+  const pageSize = 6;
+  const pageCount = Math.ceil(cards.length / pageSize);
+  if (pageCount <= 1) return;
+
+  let currentPage = 1;
+
+  const createItem = (text, options = {}) => {
+    const { ariaLabel, onClick, className = "", active = false, disabled = false } = options;
+    const item = document.createElement("li");
+    item.className = `page-item ${className}`.trim();
+    if (active) {
+      item.classList.add("active");
+      item.setAttribute("aria-current", "page");
+    }
+    if (disabled) item.classList.add("disabled");
+    const link = document.createElement("button");
+    link.type = "button";
+    link.className = "page-link";
+    link.textContent = text;
+    if (ariaLabel) link.setAttribute("aria-label", ariaLabel);
+    if (disabled) link.disabled = true;
+    if (onClick && !disabled) link.addEventListener("click", onClick);
+    item.appendChild(link);
+    return item;
+  };
+
+  const createEllipsis = () => {
+    const item = document.createElement("li");
+    item.className = "page-item disabled nv-page-ellipsis";
+    const span = document.createElement("span");
+    span.className = "page-link";
+    span.textContent = "…";
+    span.setAttribute("aria-hidden", "true");
+    item.appendChild(span);
+    return item;
+  };
+
+  const summary = document.createElement("li");
+  summary.className = "page-item nv-page-summary";
+  summary.tabIndex = -1;
+  const summaryLink = document.createElement("span");
+  summaryLink.className = "page-link";
+  summaryLink.setAttribute("aria-live", "polite");
+  summary.appendChild(summaryLink);
+
+  const visiblePages = () => {
+    const pages = new Set([1, pageCount]);
+    const addRange = (start, end) => {
+      for (let page = start; page <= end; page++) {
+        if (page >= 1 && page <= pageCount) pages.add(page);
+      }
+    };
+    addRange(currentPage - 1, currentPage + 1);
+    if (currentPage <= 4) addRange(2, 5);
+    if (currentPage >= pageCount - 3) addRange(pageCount - 4, pageCount - 1);
+    const sorted = [...pages].sort((a, b) => a - b);
+    const result = [];
+    sorted.forEach((page, index) => {
+      if (index > 0 && page - sorted[index - 1] > 1) result.push("…");
+      result.push(page);
+    });
+    return result;
+  };
+
+  const renderPages = () => {
+    list.replaceChildren();
+    list.appendChild(createItem("Anterior", {
+      ariaLabel: "Página anterior",
+      className: "nv-page-nav",
+      disabled: currentPage === 1,
+      onClick: () => goTo(currentPage - 1)
+    }));
+    list.appendChild(summary);
+    visiblePages().forEach((page) => {
+      if (page === "…") {
+        list.appendChild(createEllipsis());
+        return;
+      }
+      list.appendChild(createItem(String(page), {
+        ariaLabel: `Página ${page}`,
+        className: "nv-page-number-item",
+        active: page === currentPage,
+        onClick: () => goTo(page)
+      }));
+    });
+    list.appendChild(createItem("Siguiente", {
+      ariaLabel: "Página siguiente",
+      className: "nv-page-nav",
+      disabled: currentPage === pageCount,
+      onClick: () => goTo(currentPage + 1)
+    }));
+  };
+
+  const render = () => {
+    summaryLink.textContent = `Página ${currentPage} de ${pageCount}`;
+    cards.forEach((card, index) => {
+      card.hidden = index < (currentPage - 1) * pageSize || index >= currentPage * pageSize;
+    });
+    renderPages();
+  };
+
+  const goTo = (page) => {
+    currentPage = page;
+    render();
+    const active = list.querySelector(".active .page-link");
+    if (active && active.getClientRects().length) active.focus();
+    else summary.focus();
+  };
+
+  render();
+})();
+</script>
