@@ -31,6 +31,26 @@ permalink: /novedades/
     color: var(--nv-accent-dark);
     font-weight: 600;
   }
+  .novedades-page .nv-card-col[hidden] { display: none !important; }
+  .novedades-page .nv-pagination { gap: .5rem; flex-wrap: wrap; }
+  .novedades-page .nv-page-btn {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 14px;
+    border: 1px solid rgba(77,182,173,0.45);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--nv-accent-dark);
+    font-size: .85rem;
+    font-weight: 600;
+  }
+  .novedades-page .nv-page-btn:hover:not(:disabled),
+  .novedades-page .nv-page-btn.is-active {
+    background: var(--nv-accent);
+    border-color: var(--nv-accent);
+    color: #fff;
+  }
+  .novedades-page .nv-page-btn:disabled { opacity: .45; cursor: not-allowed; }
 </style>
 {%- assign novedades = site.novedades | sort: "date" | reverse -%}
 <div class="novedades-page container-fluid py-5 px-3 px-md-5">
@@ -68,10 +88,10 @@ permalink: /novedades/
 </div>
 </div>
 </div>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="novedades-grid">
 {%- for novedad in novedades offset:1 -%}
 {%- assign cat = novedad.categoria | downcase -%}
-<div class="col">
+<div class="col nv-card-col">
 <div class="card h-100 p-2 bg-white shadow-sm" style="border-radius:16px;">
 {%- if novedad.imagen -%}
 <a href="{{ novedad.url | relative_url }}"><img src="{{ novedad.imagen | relative_url }}" alt="{{ novedad.title }}" class="w-100 d-block rounded-3" style="height:150px; object-fit:cover;"></a>
@@ -93,8 +113,70 @@ permalink: /novedades/
 </div>
 {%- endfor -%}
 </div>
+<nav class="nv-pagination d-flex justify-content-center align-items-center mt-5" id="novedades-pagination" aria-label="Paginación de novedades"></nav>
 {%- else -%}
 <div class="text-center text-muted py-5"><p>No hay novedades publicadas aún.</p></div>
 {%- endif -%}
 </div></div>
 </div>
+<script>
+(() => {
+  const grid = document.getElementById("novedades-grid");
+  const pagination = document.getElementById("novedades-pagination");
+  if (!grid || !pagination) return;
+
+  const cards = [...grid.querySelectorAll(".nv-card-col")];
+  const pageSize = 6;
+  const pageCount = Math.ceil(cards.length / pageSize);
+  if (pageCount <= 1) return;
+
+  let currentPage = 1;
+  const pageButtons = [];
+
+  const createButton = (text, ariaLabel, onClick) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "nv-page-btn";
+    button.textContent = text;
+    button.setAttribute("aria-label", ariaLabel);
+    button.addEventListener("click", onClick);
+    return button;
+  };
+
+  const render = () => {
+    cards.forEach((card, index) => {
+      card.hidden = index < (currentPage - 1) * pageSize || index >= currentPage * pageSize;
+    });
+    previous.disabled = currentPage === 1;
+    next.disabled = currentPage === pageCount;
+    pageButtons.forEach((button, index) => {
+      const active = index + 1 === currentPage;
+      button.classList.toggle("is-active", active);
+      if (active) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    });
+  };
+
+  const goTo = (page) => {
+    currentPage = page;
+    render();
+    pagination.querySelector(".is-active").focus();
+  };
+
+  const previous = createButton("Anterior", "Página anterior", () => {
+    if (currentPage > 1) goTo(currentPage - 1);
+  });
+  const next = createButton("Siguiente", "Página siguiente", () => {
+    if (currentPage < pageCount) goTo(currentPage + 1);
+  });
+
+  pagination.appendChild(previous);
+  for (let page = 1; page <= pageCount; page++) {
+    const button = createButton(String(page), `Página ${page}`, () => goTo(page));
+    pageButtons.push(button);
+    pagination.appendChild(button);
+  }
+  pagination.appendChild(next);
+  render();
+})();
+</script>
